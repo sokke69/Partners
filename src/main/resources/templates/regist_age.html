@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録 : 年齢</title>
+</head>
+<body>
+<h1>ユーザー登録 : 年齢</h1>
+<form action="" method="post" th:object="${user}">
+
+<p>年齢:
+<input type="text" th:field="*{age}"/></p>
+
+<input type="submit" />
+</form>
+</body>
+</html>

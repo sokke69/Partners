@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録 : 職種</title>
+</head>
+<body>
+<h1>ユーザー登録 : 職種</h1>
+
+<form action="" method="post" th:object="${userRD}">
+	<p>
+	<select th:field="*{occupation}" id="">
+	<th:block th:each="occupation : ${occupations}">
+		<option th:value="${occupation.id}">[[${occupation.occupation}]]</option>
+	</th:block>
+	</select>
+	</p>
+	
+	<button type="button" onclick="location.href='/regist/residence'">戻る</button> <input type="submit" value="次へ"/>
+	
+</form>
+
+</body>
+</html>

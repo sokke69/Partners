@@ -1,0 +1,318 @@
+create database partners;
+create table users (
+id int primary key auto_increment,
+mail varchar(256) not null,
+name varchar(15) not null,
+age int not null,
+sex int not null,
+height  int not null,
+residence int not null,
+occupation int not null,
+annual_income int not null,
+marital_status int not null,
+desire_to_marry int not null,
+holiday int not null,
+smoking int not null,
+housemate int not null
+);
+
+insert into users value
+(1,'aaa@aaa.com','山田花子',20,2,149,10,20,5,2,3,2,1,1);
+
+create table prefecture (
+id int primary key auto_increment,
+prefecture VARCHAR(4),
+prefecture_kana VARCHAR(10)
+);
+create table sex(id int primary key , sex int not null);
+insert into sex values(1,'男性'),(2,'女性');
+create table annual_incomes (id int primary key auto_increment,income_range VARCHAR(20));
+insert into annual_incomes (income_range) values
+('表示しない'),('200万円未満'),('200万円以上～400万円未満'),('400万円以上～600万円未満'),
+('600万円以上～800万円未満'),('800万円以上～1000万円未満'),('1000万円以上～1500万円未満'),
+('1500万円以上～2000万円未満'),('2000万円以上～3000万円未満');
+truncate table user;
+drop table users;
+
+create table occuppations (
+id int primary key auto_increment,
+type VARCHAR(15) not null
+);
+insert into occupations (type) value
+('大手企業'),('公務員'),('受付'),
+('事務員'),('看護師'),('保育士'),
+('客室乗務員'),('秘書'),('教育関連'),
+('福祉・介護'),('調理師・栄養士'),('アパレル・ショップ'),
+('美容関係'),('ブライダル'),('金融'),
+('保険'),('広告'),('マスコミ'),
+('WEB業界'),('上場企業'),('経営者・役員'),
+('医師'),('弁護士'),('公認会計士'),
+('パイロット'),('大手商社'),('コンサル'),
+('大手外資'),('外資金融'),('IT関連'),
+('クリエイター'),('アナウンサー'),('芸能・モデル'),
+('イベントコンパニオン'),('スポーツ選手'),('接客業'),
+('不動産'),('建築関連'),('通信'),
+('流通'),('製薬'),('食品関連'),
+('旅行関係'),('エンターテインメント'),('会社員'),
+('学生'),('自由業'),('税理士'),
+('エンジニア'),('建築士'),('美容師'),
+('歯科医師'),('歯科衛生士'),('その他');
+
+create table birth_places 
+(id int primary key auto_increment,
+prefecture VARCHAR(4),
+prefecture_kana VARCHAR(10));
+INSERT INTO birth_places VALUES
+  (1,'北海道','ホッカイドウ'),
+  (2,'青森県','アオモリケン'),
+  (3,'岩手県','イワテケン'),
+  (4,'宮城県','ミヤギケン'),
+  (5,'秋田県','アキタケン'),
+  (6,'山形県','ヤマガタケン'),
+  (7,'福島県','フクシマケン'),
+  (8,'茨城県','イバラキケン'),
+  (9,'栃木県','トチギケン'),
+  (10,'群馬県','グンマケン'),
+  (11,'埼玉県','サイタマケン'),
+  (12,'千葉県','チバケン'),
+  (13,'東京都','トウキョウト'),
+  (14,'神奈川県','カナガワケン'),
+  (15,'新潟県','ニイガタケン'),
+  (16,'富山県','トヤマケン'),
+  (17,'石川県','イシカワケン'),
+  (18,'福井県','フクイケン'),
+  (19,'山梨県','ヤマナシケン'),
+  (20,'長野県','ナガノケン'),
+  (21,'岐阜県','ギフケン'),
+  (22,'静岡県','シズオカケン'),
+  (23,'愛知県','アイチケン'),
+  (24,'三重県','ミエケン'),
+  (25,'滋賀県','シガケン'),
+  (26,'京都府','キョウトフ'),
+  (27,'大阪府','オオサカフ'),
+  (28,'兵庫県','ヒョウゴケン'),
+  (29,'奈良県','ナラケン'),
+  (30,'和歌山県','ワカヤマケン'),
+  (31,'鳥取県','トットリケン'),
+  (32,'島根県','シマネケン'),
+  (33,'岡山県','オカヤマケン'),
+  (34,'広島県','ヒロシマケン'),
+  (35,'山口県','ヤマグチケン'),
+  (36,'徳島県','トクシマケン'),
+  (37,'香川県','カガワケン'),
+  (38,'愛媛県','エヒメケン'),
+  (39,'高知県','コウチケン'),
+  (40,'福岡県','フクオカケン'),
+  (41,'佐賀県','サガケン'),
+  (42,'長崎県','ナガサキケン'),
+  (43,'熊本県','クマモトケン'),
+  (44,'大分県','オオイタケン'),
+  (45,'宮崎県','ミヤザキケン'),
+  (46,'鹿児島県','カゴシマケン'),
+  (47,'沖縄県','オキナワケン');
+  
+  create table marital_statuses
+  (id int primary key auto_increment,
+  status VARCHAR(8) not null);
+  insert into marital_statuses (status) value 
+  ('選択しない'),('独身(未婚)'),('独身(離婚)'),('独身(死別)');
+  
+  create table desire_to_marrys (
+  id int primary key auto_increment,
+  desire_to_marry VARCHAR(12) not null);
+  insert into desire_to_marrys (desire_to_marry) values 
+  ('選択しない'),('すぐにでもしたい'),('2～3年のうちに'),('良い人がいればしたい'),('相手と相談して考えたい'),('わからない');
+  
+  create table holidays(
+  id int primary key auto_increment,
+  holiday VARCHAR(5) not null
+  );
+  insert into holidays (holiday) values 
+  ('選択しない'),
+  ('土日'),
+  ('平日'),
+  ('不定期'),
+  ('その他');
+  
+  create table smokings (
+  id int primary key auto_increment,
+  smoke varchar(15) not null);
+  insert into smokings (smoke) values
+  ('選択しない'),('吸わない'),('吸う'),('電子タバコ'),('非喫煙者の前では吸わない'),('相手が嫌ならやめる'),('ときどき吸う');
+  
+  create table housemates
+  (id int primary key auto_increment,
+  housemate varchar(8) not null);
+  insert into housemates (housemate) values
+  ('選択しない'),('一人暮らし'),('友達と一緒'),('ペットと一緒'),('実家暮らし'),('その他');
+  
+  create table user_details (
+  id int primary key auto_increment,
+  figure int,
+  blood_type int,
+  birth_place int,
+  educational int,
+  sibling int,
+  school_name varchar(20),
+  job_name varchar(20),
+  have_children int,
+  desire_to_getchild int,
+  housework int,
+  time_to_meet int,
+  payment int,
+  character_type int,
+  sociability int,
+  alcohol int,
+  hobby1 varchar(15),
+  hobby2 varchar(15),
+  hobby3 varchar(15),
+  vaccinattion int
+  );
+  insert into user_details values (
+  1,4,1,7,4,4,'東京農業大学','Webエンジニア',1,4,4,4,3,null,2,4,'漫画','ゲーム','スイーツ巡り',1
+  );
+  
+  create table figure(
+  id int primary key auto_increment,
+  figure varchar(8) not null);
+  insert into figures (figure) value 
+  ('選択しない'),('スリム'),('やや細め'),('普通'),('グラマー'),('筋肉質'),('ややぽっちゃり'),('ぽっちゃり');
+  
+  create table blood_types (
+  id int primary key auto_increment,
+  blood_type varchar(6) not null
+  );
+  insert into blood_types (blood_type) values
+  ('選択しない'),('A型'),('B型'),('O型'),('AB型'),('わからない');
+  
+  create table educationals
+  (id int primary key auto_increment,
+  educational varchar(12) not null);
+  insert into educationals (educational) values
+  ('選択しない'),('短大/専門学校/高専卒'),('高校卒'),('大学卒'),('大学院卒'),('その他');
+  
+  create table siblings(
+  id int primary key auto_increment,
+  sibling varchar(6) not null
+  );
+  insert into siblings (sibling) values 
+  ('選択しない'),('長男'),('次男'),('三男'),('長女'),('次女'),('三女'),('一人っ子'),('その他');
+  
+  create table have_childrens(
+  id int primary key auto_increment,
+  have_children varchar(6) not null
+  );
+  insert into have_childrens (have_children) values 
+  ('選択しない'),('なし'),('同居中'),('別居中');
+  
+  create table desire_to_getchilds(
+  id int primary key auto_increment,
+  desire_to_getchild varchar(12) not null
+  );
+  insert into desire_to_getchilds (desire_to_getchild) values 
+  ('選択しない'),('子どもは欲しくない'),('子どもは欲しい'),('相手と相談して決める'),('わからない');
+  
+  create table houseworks (
+  id int primary key auto_increment,
+  housework varchar(12) not null
+  );
+  insert into houseworks (housework) values
+  ('選択しない'),('積極的に参加したい'),('できれば参加したい'),('二人でシェアしたい'),('できれば相手に任せたい'),('相手に任せたい');
+  
+  create table time_to_meets (
+  id int primary key auto_increment,
+  time_to_meet varchar(16) not null
+  );
+  insert into time_to_meets (time_to_meet) values 
+  ('選択しない'),('マッチング後にまずは会いたい'),('気が合えば会いたい'),('メッセージを重ねてから会いたい'),('まずはビデオデートで');
+  
+  create table payments 
+  (id int primary key auto_increment,
+  payment varchar(15) not null
+  );
+  insert into payments (payment) values
+  ('選択しない'),('割り勘'),('自分が全て払う'),('自分が多めに払う'),('お相手にすべて払ってほしい'),
+  ('お相手に多めに払ってほしい'),('持っているほうが払う'),('お相手と相談して決める');
+  
+  create table sociabilities (
+  id int primary key auto_increment,
+  sociability varchar(10) not null
+  );
+  insert into sociabilities (sociability) values
+  ('選択しない'),('大人数が好き'),('少人数が好き'),('一人が好き'),('すぐに仲良くなる'),('徐々に仲良くなる');
+  
+  create table alcohols (
+  id int primary key auto_increment,
+  alcohol varchar(10) not null
+  );
+  insert into alcohols (alcohol) values
+  ('選択しない'),('飲まない'),('飲む'),('ときどき飲む');
+  
+  create table vaccinations (
+  id int primary key auto_increment,
+  vaccination varchar(6) not null
+  );
+  insert into vaccinations (vaccination) values
+  ('選択しない'),('接種済み'),('接種中');
+  
+  UPDATE users set registed = NOW() WHERE id = 1;
+  
+  create table users 
+  (id int primary key auto_increment,
+  email varchar(256) not null unique key,
+  sex int not null,
+  age int not null,
+  name varchar(16),
+  like_point int,
+  member_status int not null default 0,
+  registed date
+  );
+  
+  create table member_statuses (
+  id int primary key auto_increment,
+  member_status varchar(8) not null
+  );
+  insert into member_statuses (member_status) values
+  ('ノーマル'),('プレミアム');
+  
+  create table messages(
+  id int primary key auto_increment,
+  send_by int not null,
+  send_to int not null,
+  text TEXT not null,
+  check_read int not null default 1,
+  sent_time DATETIME not null
+  );
+  
+  create table check_reads(
+  id int primary key auto_increment,
+  check_read CHAR(2) not null
+  );
+  insert into check_reads (check_read) values
+  ("未読"),("既読");
+  
+  create table user_statisticses(
+  id int primary key auto_increment,
+  matching_count_normal int default 0,
+  matching_count_premium int default 0,
+  visited int default 0,
+  send_like_count int default 0,
+  receive_like_count_normal int default 0,
+  receive_like_count_premium int default 0,
+  send_message_count int default 0,
+  receive_message_count int default 0
+  );
+  
+  create table matching_times(
+  id int primary key auto_increment,
+  matching_time VARCHAR(8) not null
+  );
+  insert into matching_times(matching_time) values
+  ('00時～02時'),('02時～04時'),('04時～06時'),('06時～08時'),('08時～10時'),('10時～12時'),
+  ('12時～14時'),('14時～16時'),('16時～18時'),('18時～20時'),('20時～22時'),('22時～24時');
+  
+  create table likes(
+  id int primary key auto_increment,
+  like_from int not null,
+  like_to int not null
+  );

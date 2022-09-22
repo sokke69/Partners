@@ -1,0 +1,113 @@
+SELECT
+users.id, 
+users.email, 
+users.name, 
+sexs.sex, 
+users.age, 
+member_statuses.member_status,
+users.like_point, 
+residences.residence, 
+occupations.occupation AS occupation,
+annual_incomes.income_range AS annual_income,
+marital_statuses.status AS marital_status,
+desire_to_marrys.desire_to_marry AS desire_to_marry,
+holidays.holiday AS holiday,
+smokings.smoking AS somking,
+housemates.housemate AS housemate,
+height,
+figures.figure AS figure,
+blood_types.blood_type AS blood_type,
+birth_places.prefecture AS birth_place,
+educationals.educational AS educational,
+siblings.sibling AS sibling,
+have_childrens.have_children AS have_children,
+desire_to_getchilds.desire_to_getchild AS desire_to_getchild,
+houseworks.housework AS housework,
+time_to_meets.time_to_meet AS time_to_meet,
+payments.payment AS payment,
+sociabilities.sociability AS sociability,
+alcohols.alcohol AS alcohol,
+vaccinations.vaccination AS vaccinaitons
+
+FROM users
+
+LEFT JOIN user_required_details ON users.id = user_required_details.id
+LEFT JOIN user_free_details ON users.id = user_free_details.id
+LEFT JOIN sexs ON users.sex = sexs.id
+LEFT JOIN member_statuses ON users.member_status = member_statuses.id
+LEFT JOIN residences ON user_required_details.residence = residences.id
+LEFT JOIN occupations ON user_required_details.occupation = occupations.id
+LEFT JOIN annual_incomes ON user_required_details.annual_income = annual_incomes.id
+LEFT JOIN marital_statuses ON user_required_details.marital_status = marital_statuses.id
+LEFT JOIN desire_to_marrys ON user_required_details.desire_to_marry = desire_to_marrys.id
+LEFT JOIN holidays ON user_required_details.holiday = holidays.id
+LEFT JOIN smokings ON user_required_details.smoking = smokings.id
+LEFT JOIN housemates ON user_required_details.housemate = housemates.id
+LEFT JOIN figures ON user_free_details.figure = figures.id
+LEFT JOIN blood_types ON user_free_details.blood_type = blood_types.id
+LEFT JOIN birth_places ON user_free_details.birth_place = birth_places.id
+LEFT JOIN educationals ON user_free_details.educational = educationals.id
+LEFT JOIN siblings ON user_free_details.sibling = siblings.id
+LEFT JOIN have_childrens ON user_free_details.have_children = have_childrens.id
+LEFT JOIN desire_to_getchilds ON user_free_details.desire_to_getchild = desire_to_getchilds.id
+LEFT JOIN houseworks ON user_free_details.housework = houseworks.id
+LEFT JOIN time_to_meets ON user_free_details.time_to_meet = time_to_meets.id
+LEFT JOIN payments ON user_free_details.payment = payments.id
+LEFT JOIN sociabilities ON user_free_details.sociability = sociabilities.id
+LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
+LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
+
+;
+
+SELECT 
+user_required_details.id, 
+height,
+residences.prefecture AS residence,
+occupations.type AS occupation,
+annual_incomes.income_range AS annual_income,
+marital_statuses.status AS marital_status,
+desire_to_marrys.desire_to_marry AS desire_to_marry,
+holidays.holiday AS holiday,
+smokings.smoking AS somking,
+housemates.housemate AS housemate
+FROM user_required_details
+LEFT JOIN residences ON residence = residences.id
+LEFT JOIN occupations ON occupation = occupations.id
+LEFT JOIN annual_incomes ON annual_income = annual_incomes.id
+LEFT JOIN marital_statuses ON marital_status = marital_statuses.id
+LEFT JOIN desire_to_marrys ON user_required_details.desire_to_marry = desire_to_marrys.id
+LEFT JOIN holidays ON user_required_details.holiday = holidays.id
+LEFT JOIN smokings ON user_required_details.smoking = smokings.id
+LEFT JOIN housemates ON user_required_details.housemate = housemates.id
+;
+
+SELECT 
+user_free_details.id,
+figures.figure AS figure,
+blood_types.blood_type AS blood_type,
+birth_places.prefecture AS birth_place,
+educationals.educational AS educational,
+siblings.sibling AS sibling,
+have_childrens.have_children AS have_children,
+desire_to_getchilds.desire_to_getchild AS desire_to_getchild,
+houseworks.housework AS housework,
+time_to_meets.time_to_meet AS time_to_meet,
+payments.payment AS payment,
+sociabilities.sociability AS sociability,
+alcohols.alcohol AS alcohol,
+vaccinations.vaccination AS vaccinaitons
+FROM user_free_details
+LEFT JOIN figures ON user_free_details.figure = figures.id
+LEFT JOIN blood_types ON user_free_details.blood_type = blood_types.id
+LEFT JOIN birth_places ON user_free_details.birth_place = birth_places.id
+LEFT JOIN educationals ON user_free_details.educational = educationals.id
+LEFT JOIN siblings ON user_free_details.sibling = siblings.id
+LEFT JOIN have_childrens ON user_free_details.have_children = have_childrens.id
+LEFT JOIN desire_to_getchilds ON user_free_details.desire_to_getchild = desire_to_getchilds.id
+LEFT JOIN houseworks ON user_free_details.housework = houseworks.id
+LEFT JOIN time_to_meets ON user_free_details.time_to_meet = time_to_meets.id
+LEFT JOIN payments ON user_free_details.payment = payments.id
+LEFT JOIN sociabilities ON user_free_details.sociability = sociabilities.id
+LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
+LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
+;
