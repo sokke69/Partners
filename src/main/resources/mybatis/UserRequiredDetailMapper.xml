@@ -4,9 +4,10 @@
 <mapper namespace="com.example.app.mapper.UserRequiredDetailMapper">
 
 	<insert id="insertUserRD" parameterType="com.example.app.domain.UserRequiredDetail">
-		INSERT INTO user_required_details 
-		VALUES (#{height}, #{residence}, #{occupation}, #{annual_income}, #{marital_status}, 
-			#{desire_to_marry}, #{holiday}, #{smoking}, #{housemate})
+		INSERT INTO user_required_details (height, residence, occupation, annual_income, marital_status,
+			desire_to_marry, holiday, smoking, housemate)
+		VALUES (#{height}, #{residence}, #{occupation}, #{annualIncome}, #{maritalStatus}, 
+			#{desireToMarry}, #{holiday}, #{smoking}, #{housemate})
 	</insert>
 	<select id="selectResidenceAll"
 		resultType="com.example.app.domain.Residence">

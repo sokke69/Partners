@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
 import com.example.app.domain.UserRequiredDetail;
+import com.example.app.mapper.UserFreeDetailMapper;
+import com.example.app.mapper.UserMapper;
 import com.example.app.mapper.UserRequiredDetailMapper;
 
 @Controller
@@ -22,7 +24,13 @@ public class RegistController {
 	HttpSession session;
 	
 	@Autowired
-	UserRequiredDetailMapper userRDmapper;
+	UserMapper userMapper;
+	
+	@Autowired
+	UserRequiredDetailMapper userRDMapper;
+	
+	@Autowired
+	UserFreeDetailMapper userFDMapper;
 	
 	@GetMapping("/top")
 	public String registTopGet(Model model) {
@@ -92,7 +100,7 @@ public class RegistController {
 	@GetMapping("/residence")
 	public String registResidenceGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("residences", userRDmapper.selectResidenceAll());
+		model.addAttribute("residences", userRDMapper.selectResidenceAll());
 		return "regist_residence";
 	}
 	
@@ -106,7 +114,7 @@ public class RegistController {
 	@GetMapping("/occupation")
 	public String registOccupationGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("occupations", userRDmapper.selectOccupationAll());
+		model.addAttribute("occupations", userRDMapper.selectOccupationAll());
 		return "regist_occupation";
 	}
 	
@@ -120,7 +128,7 @@ public class RegistController {
 	@GetMapping("/annual_income")
 	public String registAnnualIncomeGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("annual_incomes", userRDmapper.selectAnnualIncomeAll());
+		model.addAttribute("annual_incomes", userRDMapper.selectAnnualIncomeAll());
 		return "regist_annual_income";
 		
 	}
@@ -135,7 +143,7 @@ public class RegistController {
 	@GetMapping("/marital_status")
 	public String registMaritalStatusGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("marital_statuses", userRDmapper.selectMaritalStatusAll());
+		model.addAttribute("marital_statuses", userRDMapper.selectMaritalStatusAll());
 		return "regist_marital_status";
 	}
 	
@@ -149,7 +157,7 @@ public class RegistController {
 	@GetMapping("/desire_to_marry")
 	public String registDesireToMarry(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("desire_to_marries", userRDmapper.selectDesireToMarryAll());
+		model.addAttribute("desire_to_marries", userRDMapper.selectDesireToMarryAll());
 		return "regist_desire_to_marry";
 	}
 	
@@ -163,7 +171,7 @@ public class RegistController {
 	@GetMapping("holiday")
 	public String holidayGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("holidays", userRDmapper.selectHolidayAll());
+		model.addAttribute("holidays", userRDMapper.selectHolidayAll());
 		return "regist_holiday";
 	}
 	
@@ -177,59 +185,56 @@ public class RegistController {
 	@GetMapping("smoking")
 	public String smokingGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("smokings", userRDmapper.selectSmokingAll());
+		model.addAttribute("smokings", userRDMapper.selectSmokingAll());
 		return "regist_smoking";
 	}
 	
 	@PostMapping("smoking")
 	public String smokingPost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
 		int smokingId = userRD.getSmoking();
-		session.setAttribute("regist_holiday", smokingId);
+		session.setAttribute("regist_smoking", smokingId);
 		return "redirect:/regist/housemate";
 	}
 	
 	@GetMapping("housemate")
 	public String housemateGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("housemate", userRDmapper.selectHousemateAll());
+		model.addAttribute("housemate", userRDMapper.selectHousemateAll());
 		return "regist_housemate";
 	}
 	
 	@PostMapping("housemate")
 	public String housematePost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
 		int housemateId = userRD.getHousemate();
-		session.setAttribute("regist_holiday", housemateId);
+		session.setAttribute("regist_housemate", housemateId);
 		return "redirect:/regist/done";
 	}
 	
 	@GetMapping("/done")
 	public String registDone() {
-		String registEmail = (String) session.getAttribute("regist_email");
-		Integer registSex = (Integer) session.getAttribute("regist_sex");
-		Integer registAge = (Integer) session.getAttribute("regist_age");
-		String registName = (String) session.getAttribute("regist_name");
-		int registHeight = (int) session.getAttribute("regist_height");
-		int registResidence = (int) session.getAttribute("regist_residence");
-		int registOccupation = (int) session.getAttribute("regist_occupation");
-		int registAnnualIncome = (int) session.getAttribute("regist_annual_income");
-		int registMaritalStatus = (int) session.getAttribute("regist_marital_status");
-		int registDesireToMarry = (int) session.getAttribute("regist_desire_to_marry");
-		int registHoliday = (int) session.getAttribute("regist_holiday");
-		int registSmoking = (int) session.getAttribute("regist_smoking");
-		int registHousemate = (int) session.getAttribute("registHousemate");
-		System.out.println("regist_email : " + registEmail);
-		System.out.println("regist_sex : " + registSex);
-		System.out.println("regist_age : " + registAge);
-		System.out.println("regist_name : " + registName);
-		System.out.println("regist_height : " + registHeight);
-		System.out.println("regist_residence : " + registResidence);
-		System.out.println("regist_occupation : " + registOccupation);
-		System.out.println("regist_annul_income : " + registAnnualIncome);
-		System.out.println("regist_marital_status : " + registMaritalStatus);
-		System.out.println("regist_desire_to_marry : " + registDesireToMarry);
-		System.out.println("regist_holiday : " + registHoliday);
-		System.out.println("regist_smoking : " + registSmoking);
-		System.out.println("regist_housemate : " + registHousemate);
+		User user = new User();
+		UserRequiredDetail userRD = new UserRequiredDetail();
+		
+		user.setEmail((String) session.getAttribute("regist_email"));
+		user.setSex((Integer) session.getAttribute("regist_sex"));
+		user.setAge((Integer) session.getAttribute("regist_age"));
+		user.setName((String) session.getAttribute("regist_name"));
+		
+		userRD.setHeight((int) session.getAttribute("regist_height"));
+		userRD.setResidence((int) session.getAttribute("regist_residence"));
+		userRD.setOccupation((int) session.getAttribute("regist_occupation"));
+		userRD.setAnnualIncome((int) session.getAttribute("regist_annual_income"));
+		userRD.setMaritalStatus((int) session.getAttribute("regist_marital_status"));
+		userRD.setDesireToMarry((int) session.getAttribute("regist_desire_to_marry"));
+		userRD.setHoliday((int) session.getAttribute("regist_holiday"));
+		userRD.setSmoking((int) session.getAttribute("regist_smoking"));
+		userRD.setHousemate((int) session.getAttribute("regist_housemate"));
+		
+		userMapper.insertUser(user);
+		userRDMapper.insertUserRD(userRD);
+		userFDMapper.insertUserFD();
+		
+		session.invalidate();
 		
 		return "/regist_done";
 	}

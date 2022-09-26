@@ -17,7 +17,7 @@ import com.example.app.domain.UserRequiredDetail;
 @Mapper
 public interface UserRequiredDetailMapper {
 
-	UserRequiredDetail insertUserRD();
+	void insertUserRD(UserRequiredDetail userRD);
 	List<Residence> selectResidenceAll();
 	List<Occupation> selectOccupationAll();
 	List<AnnualIncome> selectAnnualIncomeAll();
