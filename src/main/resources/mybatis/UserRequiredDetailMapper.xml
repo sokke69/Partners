@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.UserRequiredDetailMapper">
+
+	<insert id="insertUserRD" parameterType="com.example.app.domain.UserRequiredDetail">
+		INSERT INTO user_required_details 
+		VALUES (#{height}, #{residence}, #{occupation}, #{annual_income}, #{marital_status}, 
+			#{desire_to_marry}, #{holiday}, #{smoking}, #{housemate})
+	</insert>
+	<select id="selectResidenceAll"
+		resultType="com.example.app.domain.Residence">
+		SELECT * FROM residences
+	</select>
+	<select id="selectOccupationAll"
+		resultType="com.example.app.domain.Occupation">
+		SELECT * FROM occupations
+	</select>
+	<select id="selectAnnualIncomeAll"
+		resultType="com.example.app.domain.AnnualIncome">
+		SELECT * FROM annual_incomes
+	</select>
+	<select id="selectMaritalStatusAll"
+		resultType="com.example.app.domain.MaritalStatus">
+		SELECT * FROM marital_statuses
+	</select>
+	<select id="selectDesireToMarryAll"
+		resultType="com.example.app.domain.DesireToMarry">
+		SELECT * FROM desire_to_marries
+	</select>
+	<select id="selectHolidayAll"
+		resultType="com.example.app.domain.Holiday">
+		SELECT * FROM holidays
+	</select>
+	<select id="selectSmokingAll"
+		resultType="com.example.app.domain.Smoking">
+		SELECT * FROM smokings
+	</select>
+	<select id="selectHousemateAll"
+		resultType="com.example.app.domain.Housemate">
+		SELECT * FROM housemates
+	</select>
+	
+</mapper>

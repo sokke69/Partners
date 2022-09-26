@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録 : 結婚に対する意思</title>
+</head>
+<body>
+<h1>ユーザー登録 : 結婚に対する意思</h1>
+
+<form action="" method="post" th:object="${userRD}">
+	<p>
+	<select th:field="*{desireToMarry}" id="">
+	<th:block th:each="desire_to_marry : ${desire_to_marries}">
+		<option th:value="${desire_to_marry.id}">[[${desire_to_marry.desireToMarry}]]</option>
+	</th:block>
+	</select>
+	</p>
+	
+	<button type="button" onclick="location.href='/regist/marital_status'">戻る</button>
+	<input type="submit" value="次へ"/>
+	
+</form>
+
+</body>
+</html>

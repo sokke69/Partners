@@ -9,9 +9,10 @@
 <form action="" method="post" th:object="${user}">
 
 <p>ニックネーム:
-<input type="text" th:field="*{name}"/></p>
+<input type="text" name="name"  th:value="${session.regist_name}" /></p>
 
-<input type="submit" />
+<button type="button" onclick="location.href='/regist/age'">戻る</button>
+<input type="submit" value="次へ"/>
 </form>
 </body>
 </html>

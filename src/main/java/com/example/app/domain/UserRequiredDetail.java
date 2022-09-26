@@ -8,9 +8,9 @@ public class UserRequiredDetail {
 	private int height;
 	private int residence;
 	private int occupation;
-	private int annual_income;
-	private int marital_status;
-	private int desire_to_marry;
+	private int annualIncome;
+	private int maritalStatus;
+	private int desireToMarry;
 	private int holiday;
 	private int smoking;
 	private int housemate;

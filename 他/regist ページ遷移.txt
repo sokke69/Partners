@@ -1,0 +1,12 @@
+性別:sex
+年齢:age
+ニックネーム:name
+身長:height
+居住地:residence
+職種:occupation
+年収:annunal_income
+結婚歴:marital_status
+結婚日に対する意思:desire_to_mary
+休日:holiday
+タバコ:smoking
+同居人:housemate

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録</title>
+</head>
+<body>
+
+<h1>ユーザー登録</h1>
+
+<form action="" method="post" th:object="${user}">
+
+<p>メールアドレス:
+<input type="text" th:field="*{email}"/></p>
+
+<input type="submit" value="送信する"/>
+
+</form>
+</body>
+</html>

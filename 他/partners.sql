@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `annual_incomes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `annual_incomes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `income_range` varchar(20) DEFAULT NULL,
+  `annual_income` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -161,13 +161,13 @@ INSERT INTO `desire_to_getchilds` VALUES (1,'選択しない'),(2,'子どもは�
 UNLOCK TABLES;
 
 --
--- Table structure for table `desire_to_marrys`
+-- Table structure for table `desire_to_marries`
 --
 
-DROP TABLE IF EXISTS `desire_to_marrys`;
+DROP TABLE IF EXISTS `desire_to_marries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `desire_to_marrys` (
+CREATE TABLE `desire_to_marries` (
   `id` int NOT NULL AUTO_INCREMENT,
   `desire_to_marry` varchar(12) NOT NULL,
   PRIMARY KEY (`id`)
@@ -175,13 +175,13 @@ CREATE TABLE `desire_to_marrys` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `desire_to_marrys`
+-- Dumping data for table `desire_to_marries`
 --
 
-LOCK TABLES `desire_to_marrys` WRITE;
-/*!40000 ALTER TABLE `desire_to_marrys` DISABLE KEYS */;
-INSERT INTO `desire_to_marrys` VALUES (1,'選択しない'),(2,'すぐにでもしたい'),(3,'2～3年のうちに'),(4,'良い人がいればしたい'),(5,'相手と相談して考えたい'),(6,'わからない');
-/*!40000 ALTER TABLE `desire_to_marrys` ENABLE KEYS */;
+LOCK TABLES `desire_to_marries` WRITE;
+/*!40000 ALTER TABLE `desire_to_marries` DISABLE KEYS */;
+INSERT INTO `desire_to_marries` VALUES (1,'選択しない'),(2,'すぐにでもしたい'),(3,'2～3年のうちに'),(4,'良い人がいればしたい'),(5,'相手と相談して考えたい'),(6,'わからない');
+/*!40000 ALTER TABLE `desire_to_marries` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -386,7 +386,7 @@ DROP TABLE IF EXISTS `marital_statuses`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marital_statuses` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `status` varchar(8) NOT NULL,
+  `marital_status` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -837,7 +837,7 @@ CREATE TABLE `users` (
   `age` int NOT NULL,
   `name` varchar(16) DEFAULT NULL,
   `like_point` int DEFAULT NULL,
-  `member_status` int NOT NULL DEFAULT '0',
+  `member_status` int NOT NULL DEFAULT '1',
   `registed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
@@ -887,4 +887,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-22 14:07:17
+-- Dump completed on 2022-09-26 15:19:29

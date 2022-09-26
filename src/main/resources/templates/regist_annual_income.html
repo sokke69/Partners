@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録 : 年収</title>
+</head>
+<body>
+<h1>ユーザー登録 : 年収</h1>
+
+<form action="" method="post" th:object="${userRD}">
+	<p>
+	<select th:field="*{annualIncome}" id="">
+	<th:block th:each="annual_income : ${annual_incomes}">
+		<option th:value="${annual_income.id}">[[${annual_income.annualIncome}]]</option>
+	</th:block>
+	</select>
+	</p>
+	
+	<button type="button" onclick="location.href='/regist/occupation'">戻る</button>
+	<input type="submit" value="次へ"/>
+	
+</form>
+
+</body>
+</html>

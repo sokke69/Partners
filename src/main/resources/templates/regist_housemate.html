@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録 : 同居人</title>
+</head>
+<body>
+<h1>ユーザー登録 : 同居人</h1>
+
+<form action="" method="post" th:object="${userRD}">
+	<p>
+	<select th:field="*{housemate}" id="">
+	<th:block th:each="housemate : ${housemate}">
+		<option th:value="${housemate.id}">[[${housemate.housemate}]]</option>
+	</th:block>
+	</select>
+	</p>
+	
+	<button type="button" onclick="location.href='/regist/smoking'">戻る</button>
+	<input type="submit" value="次へ"/>
+	
+</form>
+
+</body>
+</html>
