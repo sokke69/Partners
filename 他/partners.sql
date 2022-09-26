@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: partners
 -- ------------------------------------------------------
@@ -182,6 +182,30 @@ LOCK TABLES `desire_to_marries` WRITE;
 /*!40000 ALTER TABLE `desire_to_marries` DISABLE KEYS */;
 INSERT INTO `desire_to_marries` VALUES (1,'選択しない'),(2,'すぐにでもしたい'),(3,'2～3年のうちに'),(4,'良い人がいればしたい'),(5,'相手と相談して考えたい'),(6,'わからない');
 /*!40000 ALTER TABLE `desire_to_marries` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `desire_to_marrys`
+--
+
+DROP TABLE IF EXISTS `desire_to_marrys`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `desire_to_marrys` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `desire_to_marry` varchar(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `desire_to_marrys`
+--
+
+LOCK TABLES `desire_to_marrys` WRITE;
+/*!40000 ALTER TABLE `desire_to_marrys` DISABLE KEYS */;
+INSERT INTO `desire_to_marrys` VALUES (1,'選択しない'),(2,'すぐにでもしたい'),(3,'2～3年のうちに'),(4,'良い人がいればしたい'),(5,'相手と相談して考えたい'),(6,'わからない');
+/*!40000 ALTER TABLE `desire_to_marrys` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -748,7 +772,7 @@ CREATE TABLE `user_free_details` (
   `hobby3` varchar(15) DEFAULT NULL,
   `vaccination` int DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -757,7 +781,7 @@ CREATE TABLE `user_free_details` (
 
 LOCK TABLES `user_free_details` WRITE;
 /*!40000 ALTER TABLE `user_free_details` DISABLE KEYS */;
-INSERT INTO `user_free_details` VALUES (1,4,1,7,4,6,'東京農業大学','Webエンジニア',1,4,4,4,3,NULL,2,4,'漫画','ゲーム','スイーツ巡り',1);
+INSERT INTO `user_free_details` VALUES (1,4,1,7,4,6,'東京農業大学','Webエンジニア',1,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,1,1,1,2,'コメダ大学','ひみつ',2,2,2,1,1,1,1,1,NULL,NULL,NULL,1),(3,1,2,5,2,1,'麦茶大学',NULL,1,3,3,2,2,2,2,2,NULL,NULL,NULL,1),(4,2,3,8,3,3,'扇風機女子短大',NULL,1,1,1,3,3,1,1,3,NULL,NULL,NULL,2),(5,1,1,1,1,1,NULL,NULL,1,1,1,1,1,3,2,1,NULL,NULL,NULL,1),(6,2,1,2,2,2,NULL,NULL,2,2,2,2,2,2,2,2,NULL,NULL,NULL,2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,1,NULL,NULL,NULL,2),(8,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(9,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `user_free_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -780,7 +804,7 @@ CREATE TABLE `user_required_details` (
   `smoking` int NOT NULL,
   `housemate` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -789,7 +813,7 @@ CREATE TABLE `user_required_details` (
 
 LOCK TABLES `user_required_details` WRITE;
 /*!40000 ALTER TABLE `user_required_details` DISABLE KEYS */;
-INSERT INTO `user_required_details` VALUES (1,149,10,20,5,2,3,2,1,1);
+INSERT INTO `user_required_details` VALUES (1,149,10,20,5,2,3,2,1,1),(2,180,8,1,5,1,1,1,1,1),(3,155,9,2,4,2,4,1,2,1),(4,162,13,33,2,2,5,5,7,5),(5,145,16,54,2,3,2,4,3,4),(6,160,5,10,1,2,1,1,1,1),(7,180,2,1,3,1,2,2,2,2),(8,156,5,43,4,2,1,2,1,4),(9,165,45,13,6,2,6,2,7,3);
 /*!40000 ALTER TABLE `user_required_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -832,16 +856,16 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(256) NOT NULL,
-  `sex` int NOT NULL,
-  `age` int NOT NULL,
+  `email` varchar(256) DEFAULT NULL,
+  `sex` int DEFAULT NULL,
+  `age` int DEFAULT NULL,
   `name` varchar(16) DEFAULT NULL,
-  `like_point` int DEFAULT NULL,
-  `member_status` int NOT NULL DEFAULT '1',
+  `like_point` int DEFAULT '30',
+  `member_status` int DEFAULT '1',
   `registed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -850,7 +874,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'aaa@aaa.com',2,26,'山田花子',NULL,1,'2022-09-20 00:00:00');
+INSERT INTO `users` VALUES (1,'aaa@aaa.com',2,26,'山田花子',NULL,1,'2022-09-20 00:00:00'),(2,'bbb@bbb.jp',1,32,'風の銀次',NULL,1,'2022-09-26 23:01:06'),(3,'ccc@ccc.jp',2,20,'なつみ',30,1,'2022-09-26 23:20:15'),(4,'ddd@ddd.jp',1,51,'キムタクにぃ',30,1,'2022-09-26 23:22:46'),(5,'abc@abc.com',2,20,'紗奈',30,1,'2022-09-26 23:36:21'),(6,'bcd@bcd.jp',1,40,'きなこもち',30,1,'2022-09-26 23:36:21'),(7,'eee@eee.com',2,51,'ゆきちゃん',30,1,'2022-09-26 23:36:21'),(8,'taro@example.com',2,26,'みにー☆',30,1,'2022-09-26 23:45:40'),(9,'111@111.com',2,19,'じじ',30,1,'2022-09-26 23:50:13');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -887,4 +911,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-26 15:19:29
+-- Dump completed on 2022-09-27  0:29:00
