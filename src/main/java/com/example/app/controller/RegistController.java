@@ -32,6 +32,11 @@ public class RegistController {
 	@Autowired
 	UserFreeDetailMapper userFDMapper;
 	
+	@GetMapping("/")
+	public String regist() {
+		return "redirect:/regist/top";
+	}
+	
 	@GetMapping("/top")
 	public String registTopGet(Model model) {
 		model.addAttribute("user", new User());

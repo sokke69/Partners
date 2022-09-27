@@ -8,12 +8,20 @@ public class UserRequiredDetail {
 	private int id;
 	private int height;
 	private int residence;
+	private String residenceStr;
 	private int occupation;
+	private String occupationStr;
 	private int annualIncome;
+	private String annualIncomeStr;
 	private int maritalStatus;
+	private String maritalStatusStr;
 	private int desireToMarry;
+	private String desireToMarryStr;
 	private int holiday;
+	private String holidayStr;
 	private int smoking;
+	private String smokingStr;
 	private int housemate;
+	private String housemateStr;
 
 }

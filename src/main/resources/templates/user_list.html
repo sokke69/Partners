@@ -3,29 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザーリスト</title>
+<link rel="stylesheet" th:href="@{/css/user_list.css}" />
 </head>
 <body>
 <h1>ユーザーリスト</h1>
 
-<table border=1 >
+<table border=1 class="user_list">
 
 <tr>
-	<th>id</th><th>email</th><th>sex</th><th>age</th><th>name</th>
-	<th>like_point</th><th>member_status</th><th>registed</th>
-	<th>height</th><th>residence</th><th>occupation</th><th>annual_income</th>
-	<th>marital_status</th><th>desire_to_marry</th><th>holiday</th>
-	<th>smoking</th><th>housemate</th>
+	<th>id</th>
+	<th>メールアドレス</th>
+	<th>性別</th>
+	<th>年齢</th>
+	<th>ニックネーム</th>
+	<th>いいね！数</th>
+	<th>会員ステータス</th>
+	<th>登録日</th>
+	
+	<th>身長</th>
+	<th>居住地</th>
+	<th>職種</th>
+	<th>年収</th>
+	<th>結婚歴</th>
+	<th>結婚に対する意思</th>
+	<th>休日</th>
+	<th>タバコ</th>
+	<th>同居者</th>
+	
+	<th>出身地</th>
+	<th>学歴</th>
+	<th>兄弟姉妹</th>
+	<th>学校名</th>
+	<th>職業名</th>
+	<th>子どもの有無</th>
+	<th>子どもが欲しいか</th>
+	<th>家事・育児</th>
+	<th>出会うまでの希望</th>
+	<th>デート費用</th>
+	<th>性格・タイプ</th>
+	<th>社交性</th>
+	<th>お酒</th>
+	<th>好きなこと・趣味1</th>
+	<th>好きなこと・趣味2</th>
+	<th>好きなこと・趣味3</th>
+	<th>ワクチン接種状況</th>
 </tr>
 <tr th:each="user : ${userList}">
-	<td>[[${user.id}]]</td><td>[[${user.email}]]</td><td>[[${user.sex}]]</td>
-	<td>[[${user.age}]]</td><td>[[${user.name}]]</td><td>[[${user.likePoint}]]</td>
-	<td>[[${user.memberStatus}]]</td>
+	<td>[[${user.id}]]</td>
+	<td>[[${user.email}]]</td>
+	<td>[[${user.sexStr}]]</td>
+	<td>[[${user.age}]]</td>
+	<td>[[${user.name}]]</td>
+	<td>[[${user.likePoint}]]</td>
+	<td>[[${user.memberStatusStr}]]</td>
 	<td>[[${#dates.format(user.registed, 'yyyy年MM月dd日 HH時mm分ss秒')}]]</td>
-	<td>[[${user.userRD.height}]]</td><td>[[${user.userRD.residence}]]</td>
-	<td>[[${user.userRD.occupation}]]</td><td>[[${user.userRD.annualIncome}]]</td>
-	<td>[[${user.userRD.maritalStatus}]]</td><td>[[${user.userRD.desireToMarry}]]</td>
-	<td>[[${user.userRD.holiday}]]</td><td>[[${user.userRD.smoking}]]</td>
-	<td>[[${user.userRD.housemate}]]</td>
+	
+	<td>[[${user.userRD.height}]]</td>
+	<td>[[${user.userRD.residenceStr}]]</td>
+	<td>[[${user.userRD.occupationStr}]]</td>
+	<td>[[${user.userRD.annualIncomeStr}]]</td>
+	<td>[[${user.userRD.maritalStatusStr}]]</td>
+	<td>[[${user.userRD.desireToMarryStr}]]</td>
+	<td>[[${user.userRD.holidayStr}]]</td>
+	<td>[[${user.userRD.smokingStr}]]</td>
+	<td>[[${user.userRD.housemateStr}]]</td>
+	
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
 </tr>
 
 </table>

@@ -11,8 +11,4 @@ public class IndexController {
 		return "index";
 	}
 	
-	@GetMapping("/regist")
-	public String regist() {
-		return "regist/top";
-	}
 }
