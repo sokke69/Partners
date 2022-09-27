@@ -23,27 +23,28 @@
 			<result column = "housemate" property="housemateStr"/>
 		</association>
 		
-		<!--
 		<association property="userFD" javaType="com.example.app.domain.UserFreeDetail">
+			<result column = "figure" property="figureStr" />
+			<result column = "blood_type" property="bloodTypeStr" />
 			<result column = "birth_place" property="birthPlaceStr"/>
 			<result column = "educational" property="educationalStr"/>
 			<result column = "sibling" property="siblingStr"/>
 			<result column = "school_name" property="schoolNameStr"/>
 			<result column = "job_name" property="jobNameStr"/>
-			<result column = "have_children" property="have_childrenStr"/>
+			<result column = "have_children" property="haveChildrenStr"/>
 			<result column = "desire_to_getchild" property="desireToGetchildStr"/>
 			<result column = "housework" property="houseworkStr"/>
 			<result column = "time_to_meet" property="timeToMeetStr"/>
 			<result column = "payment" property="paymentStr"/>
-			<result column = "character_type" property="characterTypeStr"/>
+			<result column = "character_type" property="characterType"/>
 			<result column = "sociability" property="sociabilityStr"/>
 			<result column = "alcohol" property="alcoholStr"/>
-			<result column = "hobby1" property="hobby1Str"/>
-			<result column = "hobby2" property="hobby2Str"/>
-			<result column = "hobby3" property="hobby3Str"/>
+			<result column = "hobby_one" property="hobbyOne"/>
+			<result column = "hobby_two" property="hobbyTwo"/>
+			<result column = "hobby_three" property="hobbyThree"/>
 			<result column = "vaccination" property="vaccinationStr"/>
 		</association> 
-		-->
+
 	</resultMap>
 	
 	
@@ -65,9 +66,8 @@
 			desire_to_marries.desire_to_marry AS desire_to_marry,
 			holidays.holiday AS holiday,
 			smokings.smoking AS smoking,
-			housemates.housemate AS housemate
+			housemates.housemate AS housemate,
 			
-			<!-- 
 			figures.figure AS figure,
 			blood_types.blood_type AS blood_type,
 			birth_places.prefecture AS birth_place,
@@ -80,10 +80,15 @@
 			payments.payment AS payment,
 			sociabilities.sociability AS sociability,
 			alcohols.alcohol AS alcohol,
-			vaccinations.vaccination AS vaccinaitons
-			 -->
+			hobby_one,
+			hobby_two,
+			hobby_three,
+			vaccinations.vaccination AS vaccination
+			
 		FROM users
 		LEFT JOIN user_required_details ON users.id = user_required_details.id
+		LEFT JOIN user_free_details ON users.id = user_free_details.id
+		
 			LEFT JOIN sexs ON users.sex = sexs.id
 			LEFT JOIN member_statuses ON users.member_status = member_statuses.id
 			LEFT JOIN residences ON user_required_details.residence = residences.id
@@ -94,8 +99,7 @@
 			LEFT JOIN holidays ON user_required_details.holiday = holidays.id
 			LEFT JOIN smokings ON user_required_details.smoking = smokings.id
 			LEFT JOIN housemates ON user_required_details.housemate = housemates.id
-	
-			<!-- 
+			 
 			LEFT JOIN figures ON user_free_details.figure = figures.id
 			LEFT JOIN blood_types ON user_free_details.blood_type = blood_types.id
 			LEFT JOIN birth_places ON user_free_details.birth_place = birth_places.id
@@ -109,7 +113,7 @@
 			LEFT JOIN sociabilities ON user_free_details.sociability = sociabilities.id
 			LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
 			LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
-			 -->
+			
 			 
 	</select>
 	

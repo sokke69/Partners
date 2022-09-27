@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: partners
 -- ------------------------------------------------------
@@ -767,9 +767,9 @@ CREATE TABLE `user_free_details` (
   `character_type` int DEFAULT '1',
   `sociability` int DEFAULT '1',
   `alcohol` int DEFAULT '1',
-  `hobby1` varchar(15) DEFAULT NULL,
-  `hobby2` varchar(15) DEFAULT NULL,
-  `hobby3` varchar(15) DEFAULT NULL,
+  `hobby_one` varchar(15) DEFAULT NULL,
+  `hobby_two` varchar(15) DEFAULT NULL,
+  `hobby_three` varchar(15) DEFAULT NULL,
   `vaccination` int DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -781,7 +781,7 @@ CREATE TABLE `user_free_details` (
 
 LOCK TABLES `user_free_details` WRITE;
 /*!40000 ALTER TABLE `user_free_details` DISABLE KEYS */;
-INSERT INTO `user_free_details` VALUES (1,4,1,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,1,1,1,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,NULL,NULL,NULL,1),(3,1,2,5,2,1,'麦茶大学',NULL,3,3,3,2,2,2,2,2,NULL,NULL,NULL,1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,NULL,NULL,NULL,2),(5,1,1,1,1,1,NULL,NULL,1,1,2,1,4,3,2,1,NULL,NULL,NULL,1),(6,2,1,2,2,2,NULL,NULL,2,2,2,2,2,2,2,2,NULL,NULL,NULL,2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,NULL,NULL,NULL,2),(8,1,1,1,1,1,NULL,NULL,2,2,5,1,1,1,1,1,NULL,NULL,NULL,2),(9,1,1,1,1,1,NULL,NULL,3,2,4,2,3,3,1,3,NULL,NULL,NULL,1),(10,1,1,1,1,1,NULL,NULL,3,3,3,1,1,1,2,3,NULL,NULL,NULL,1),(11,1,1,1,1,1,NULL,NULL,2,2,1,1,2,1,3,1,NULL,NULL,NULL,2),(12,1,1,1,1,1,NULL,NULL,2,4,1,3,4,1,4,1,NULL,NULL,NULL,1),(13,1,1,1,1,1,NULL,NULL,3,4,1,1,5,1,2,2,NULL,NULL,NULL,3);
+INSERT INTO `user_free_details` VALUES (1,4,1,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,1,1,1,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,1,2,5,2,1,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,1,1,1,1,1,NULL,NULL,1,1,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,1,2,2,2,NULL,NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,1,1,1,1,1,NULL,NULL,2,2,5,1,1,1,1,1,'サウナ','温泉','旅行',2),(9,1,1,1,1,1,NULL,NULL,3,2,4,2,3,3,1,3,'映画','カフェ','ビリヤード',1),(10,1,1,1,1,1,NULL,NULL,3,3,3,1,1,1,2,3,'youtube','tiktok','instagram',1),(11,1,1,1,1,1,NULL,NULL,2,2,1,1,2,1,3,1,'カフェ','水族館','演劇鑑賞',2),(12,1,1,1,1,1,NULL,NULL,2,4,1,3,4,1,4,1,'野球','テニス','サッカー',1),(13,1,1,1,1,1,NULL,NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3);
 /*!40000 ALTER TABLE `user_free_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -911,4 +911,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-27 15:20:13
+-- Dump completed on 2022-09-27 21:33:25

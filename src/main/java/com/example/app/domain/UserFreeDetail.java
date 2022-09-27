@@ -13,7 +13,7 @@ public class UserFreeDetail {
 	private int birthPlace;
 	private String birthPlaceStr;
 	private int educaational;
-	private String educaationalStr;
+	private String educationalStr;
 	private int sibling;
 	private String siblingStr;
 	private String schoolName;
@@ -28,13 +28,15 @@ public class UserFreeDetail {
 	private String timeToMeetStr;
 	private int payment;
 	private String paymentStr;
-	private int character_type;
-	private String character_typeStr;
+	private int characterType;
+	private String charactertypeStr;
 	private int sociability;
 	private String sociabilityStr;
 	private int alcohol;
 	private String alcoholStr;
-	private String hobby;
+	private String hobbyOne;
+	private String hobbyTwo;
+	private String hobbyThree;
 	private int vaccination;
 	private String vaccinationStr;
 
