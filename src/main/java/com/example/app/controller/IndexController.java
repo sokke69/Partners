@@ -13,6 +13,6 @@ public class IndexController {
 	
 	@GetMapping("/regist")
 	public String regist() {
-		return "regist_top";
+		return "regist/top";
 	}
 }

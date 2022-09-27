@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザーリスト</title>
+</head>
+<body>
+<h1>ユーザーリスト</h1>
+
+<table border=1 >
+
+<tr>
+	<th>id</th><th>email</th><th>sex</th><th>age</th><th>name</th>
+	<th>like_point</th><th>member_status</th><th>registed</th>
+	<th>height</th><th>residence</th><th>occupation</th><th>annual_income</th>
+	<th>marital_status</th><th>desire_to_marry</th><th>holiday</th>
+	<th>smoking</th><th>housemate</th>
+</tr>
+<tr th:each="user : ${userList}">
+	<td>[[${user.id}]]</td><td>[[${user.email}]]</td><td>[[${user.sex}]]</td>
+	<td>[[${user.age}]]</td><td>[[${user.name}]]</td><td>[[${user.likePoint}]]</td>
+	<td>[[${user.memberStatus}]]</td>
+	<td>[[${#dates.format(user.registed, 'yyyy年MM月dd日 HH時mm分ss秒')}]]</td>
+	<td>[[${user.userRD.height}]]</td><td>[[${user.userRD.residence}]]</td>
+	<td>[[${user.userRD.occupation}]]</td><td>[[${user.userRD.annualIncome}]]</td>
+	<td>[[${user.userRD.maritalStatus}]]</td><td>[[${user.userRD.desireToMarry}]]</td>
+	<td>[[${user.userRD.holiday}]]</td><td>[[${user.userRD.smoking}]]</td>
+	<td>[[${user.userRD.housemate}]]</td>
+</tr>
+
+</table>
+
+</body>
+</html>

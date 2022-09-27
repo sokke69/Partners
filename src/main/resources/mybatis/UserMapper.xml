@@ -3,6 +3,28 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.app.mapper.UserMapper">
 	
+	<resultMap id="userResult" type="com.example.app.domain.User" autoMapping="true">
+		<result column = "like_point" property="likePoint"/>
+		<result column = "member_status" property="memberStatus"/>
+		<association property="userRD" javaType="com.example.app.domain.UserRequiredDetail">
+		<result column = "annual_income" property="annualIncome"/>
+		<result column = "marital_status" property="maritalStatus"/>
+		<result column = "desire_to_marry" property="desireToMarry"/>
+		</association>
+	</resultMap>
+	
+	
+	<select id="selectAll" resultMap="userResult">
+		SELECT 
+		users.id, email, sex, age, name, like_point, 
+		member_status, registed,
+		height, residence, occupation, annual_income,
+		marital_status, desire_to_marry, holiday,
+		smoking, housemate
+		FROM users
+		LEFT JOIN user_required_details ON users.id = user_required_details.id
+	</select>
+	
 	<insert id="insertUser" parameterType="com.example.app.domain.User">
 		INSERT INTO users (email, sex, age, name, registed)
 		VALUES (#{email}, #{sex}, #{age}, #{name}, NOW())

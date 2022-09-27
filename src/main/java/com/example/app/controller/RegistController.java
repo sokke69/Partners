@@ -35,7 +35,7 @@ public class RegistController {
 	@GetMapping("/top")
 	public String registTopGet(Model model) {
 		model.addAttribute("user", new User());
-		return "regist_top";
+		return "regist/top";
 	}
 	
 	@PostMapping("/top")
@@ -48,7 +48,7 @@ public class RegistController {
 	@GetMapping("/sex")
 	public String registSexGet(Model model) {
 		model.addAttribute("user", new User());
-		return "regist_sex";
+		return "regist/sex";
 	}
 	
 	@PostMapping("/sex")
@@ -61,7 +61,7 @@ public class RegistController {
 	@GetMapping("/age")
 	public String registAgeGet(Model model) {
 		model.addAttribute("user", new User());
-		return "regist_age";
+		return "regist/age";
 	}
 	
 	@PostMapping("/age")
@@ -74,7 +74,7 @@ public class RegistController {
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
 		model.addAttribute("user", new User());
-		return "regist_name";
+		return "regist/name";
 	}
 	
 	@PostMapping("/name")
@@ -87,7 +87,7 @@ public class RegistController {
 	@GetMapping("/height")
 	public String registHeightGet(Model model) {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		return "regist_height";
+		return "regist/height";
 	}
 	
 	@PostMapping("/height")
@@ -98,10 +98,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("/residence")
-	public String registResidenceGet(Model model) {
+	public String registResidenceGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("residences", userRDMapper.selectResidenceAll());
-		return "regist_residence";
+		return "regist/residence";
 	}
 	
 	@PostMapping("/residence")
@@ -112,10 +112,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("/occupation")
-	public String registOccupationGet(Model model) {
+	public String registOccupationGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("occupations", userRDMapper.selectOccupationAll());
-		return "regist_occupation";
+		return "regist/occupation";
 	}
 	
 	@PostMapping("/occupation")
@@ -126,10 +126,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("/annual_income")
-	public String registAnnualIncomeGet(Model model) {
+	public String registAnnualIncomeGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("annual_incomes", userRDMapper.selectAnnualIncomeAll());
-		return "regist_annual_income";
+		return "regist/annual_income";
 		
 	}
 	
@@ -141,10 +141,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("/marital_status")
-	public String registMaritalStatusGet(Model model) {
+	public String registMaritalStatusGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("marital_statuses", userRDMapper.selectMaritalStatusAll());
-		return "regist_marital_status";
+		return "regist/marital_status";
 	}
 	
 	@PostMapping("/marital_status")
@@ -155,10 +155,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("/desire_to_marry")
-	public String registDesireToMarry(Model model) {
+	public String registDesireToMarry(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("desire_to_marries", userRDMapper.selectDesireToMarryAll());
-		return "regist_desire_to_marry";
+		return "regist/desire_to_marry";
 	}
 	
 	@PostMapping("/desire_to_marry")
@@ -169,10 +169,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("holiday")
-	public String holidayGet(Model model) {
+	public String holidayGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("holidays", userRDMapper.selectHolidayAll());
-		return "regist_holiday";
+		return "regist/holiday";
 	}
 	
 	@PostMapping("holiday")
@@ -183,10 +183,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("smoking")
-	public String smokingGet(Model model) {
+	public String smokingGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("smokings", userRDMapper.selectSmokingAll());
-		return "regist_smoking";
+		return "regist/smoking";
 	}
 	
 	@PostMapping("smoking")
@@ -197,10 +197,10 @@ public class RegistController {
 	}
 	
 	@GetMapping("housemate")
-	public String housemateGet(Model model) {
+	public String housemateGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
 		model.addAttribute("housemate", userRDMapper.selectHousemateAll());
-		return "regist_housemate";
+		return "regist/housemate";
 	}
 	
 	@PostMapping("housemate")
@@ -211,7 +211,7 @@ public class RegistController {
 	}
 	
 	@GetMapping("/done")
-	public String registDone() {
+	public String registDone() throws Exception {
 		User user = new User();
 		UserRequiredDetail userRD = new UserRequiredDetail();
 		
@@ -236,7 +236,7 @@ public class RegistController {
 		
 		session.invalidate();
 		
-		return "/regist_done";
+		return "regist/done";
 	}
 	
 }

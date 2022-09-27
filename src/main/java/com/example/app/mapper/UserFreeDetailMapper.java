@@ -5,6 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserFreeDetailMapper {
 	
-	void insertUserFD();
+	void insertUserFD() throws Exception;
 
 }

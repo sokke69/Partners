@@ -17,13 +17,13 @@ import com.example.app.domain.UserRequiredDetail;
 @Mapper
 public interface UserRequiredDetailMapper {
 
-	void insertUserRD(UserRequiredDetail userRD);
-	List<Residence> selectResidenceAll();
-	List<Occupation> selectOccupationAll();
-	List<AnnualIncome> selectAnnualIncomeAll();
-	List<MaritalStatus> selectMaritalStatusAll();
-	List<DesireToMarry> selectDesireToMarryAll();
-	List<Holiday> selectHolidayAll();
-	List<Smoking> selectSmokingAll();
-	List<Housemate> selectHousemateAll();
+	void insertUserRD(UserRequiredDetail userRD) throws Exception;
+	List<Residence> selectResidenceAll() throws Exception;
+	List<Occupation> selectOccupationAll() throws Exception;
+	List<AnnualIncome> selectAnnualIncomeAll() throws Exception;
+	List<MaritalStatus> selectMaritalStatusAll() throws Exception;
+	List<DesireToMarry> selectDesireToMarryAll() throws Exception;
+	List<Holiday> selectHolidayAll() throws Exception;
+	List<Smoking> selectSmokingAll() throws Exception;
+	List<Housemate> selectHousemateAll() throws Exception;
 }

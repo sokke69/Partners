@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class UserRequiredDetail {
 	
+	private int id;
 	private int height;
 	private int residence;
 	private int occupation;
