@@ -8,7 +8,8 @@ import com.example.app.domain.UserRequiredDetail;
 
 public interface UserService {
 	
-	List<User> getUserList() throws Exception;
+	List<User> getUserAllDetailList() throws Exception;
+	List<String> selectEmailAllUser() throws Exception;
 	User getUserById(int i) throws Exception;
 	void addUser(User user, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;
 	void editUser(User user, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;

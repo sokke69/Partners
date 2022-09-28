@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>メールアドレスリスト</title>
+</head>
+<body>
+<h1>メールアドレスリスト</h1>
+
+<table border=1 class="user_list">
+
+<tr>
+	<th>メールアドレス</th>
+</tr>
+<tr th:each="email : ${emailList}">
+	<td>[[${email}]]</td>
+</tr>
+
+</table>
+
+</body>
+</html>

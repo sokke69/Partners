@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService{
 	UserFreeDetailMapper userFDMapper;
 
 	@Override
-	public List<User> getUserList() throws Exception {
-		return userMapper.selectAll();
+	public List<User> getUserAllDetailList() throws Exception {
+		return userMapper.selectUserAllDetailList();
 	}
 
 	@Override
@@ -53,6 +53,11 @@ public class UserServiceImpl implements UserService{
 	public void deleteUser(int i) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
 		
+	}
+
+	@Override
+	public List<String> selectEmailAllUser() throws Exception {
+		return userMapper.selectEmailAllUser();
 	}
 
 }

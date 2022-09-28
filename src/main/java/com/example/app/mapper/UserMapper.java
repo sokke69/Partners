@@ -9,7 +9,8 @@ import com.example.app.domain.User;
 @Mapper
 public interface UserMapper {
 	
-	List<User> selectAll() throws Exception;
+	List<User> selectUserAllDetailList() throws Exception;
+	List<String> selectEmailAllUser() throws Exception;
 	void insertUser(User user) throws Exception;
 
 }

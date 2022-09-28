@@ -48,7 +48,7 @@
 	</resultMap>
 	
 	
-	<select id="selectAll" resultMap="userResult">
+	<select id="selectUserAllDetailList" resultMap="userResult">
 		SELECT 
 			users.id, 
 			users.email, 
@@ -115,6 +115,10 @@
 			LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
 			
 			 
+	</select>
+	
+	<select id="selectEmailAllUser" resultType="String">
+		SELECT email FROM users
 	</select>
 	
 	<insert id="insertUser" parameterType="com.example.app.domain.User">
