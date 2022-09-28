@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: partners
 -- ------------------------------------------------------
@@ -772,7 +772,7 @@ CREATE TABLE `user_free_details` (
   `hobby_three` varchar(15) DEFAULT NULL,
   `vaccination` int DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -781,7 +781,7 @@ CREATE TABLE `user_free_details` (
 
 LOCK TABLES `user_free_details` WRITE;
 /*!40000 ALTER TABLE `user_free_details` DISABLE KEYS */;
-INSERT INTO `user_free_details` VALUES (1,4,1,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,1,1,1,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,1,2,5,2,1,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,1,1,1,1,1,NULL,NULL,1,1,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,1,2,2,2,NULL,NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,1,1,1,1,1,NULL,NULL,2,2,5,1,1,1,1,1,'サウナ','温泉','旅行',2),(9,1,1,1,1,1,NULL,NULL,3,2,4,2,3,3,1,3,'映画','カフェ','ビリヤード',1),(10,1,1,1,1,1,NULL,NULL,3,3,3,1,1,1,2,3,'youtube','tiktok','instagram',1),(11,1,1,1,1,1,NULL,NULL,2,2,1,1,2,1,3,1,'カフェ','水族館','演劇鑑賞',2),(12,1,1,1,1,1,NULL,NULL,2,4,1,3,4,1,4,1,'野球','テニス','サッカー',1),(13,1,1,1,1,1,NULL,NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3);
+INSERT INTO `user_free_details` VALUES (1,4,1,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,1,1,1,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,1,2,5,2,1,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,1,1,1,1,1,NULL,NULL,1,1,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,1,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,1,1,1,1,1,NULL,NULL,2,2,5,1,1,1,1,1,'サウナ','温泉','旅行',2),(9,1,1,1,1,1,'緑茶大学',NULL,3,2,4,2,3,3,1,3,'映画','カフェ','ビリヤード',1),(10,1,1,1,1,1,NULL,NULL,3,3,3,1,1,1,2,3,'youtube','tiktok','instagram',1),(11,1,1,1,1,1,'ミンティア高校','ひみつ',2,2,1,1,2,1,3,1,'カフェ','水族館','演劇鑑賞',2),(12,1,1,1,1,1,NULL,NULL,2,4,1,3,4,1,4,1,'野球','テニス','サッカー',1),(13,1,1,1,1,1,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(15,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `user_free_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -804,7 +804,7 @@ CREATE TABLE `user_required_details` (
   `smoking` int NOT NULL,
   `housemate` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -813,7 +813,7 @@ CREATE TABLE `user_required_details` (
 
 LOCK TABLES `user_required_details` WRITE;
 /*!40000 ALTER TABLE `user_required_details` DISABLE KEYS */;
-INSERT INTO `user_required_details` VALUES (1,149,10,20,5,2,3,2,1,1),(2,180,8,1,5,1,1,1,1,1),(3,155,9,2,4,2,4,1,2,1),(4,162,13,33,2,2,5,5,7,5),(5,145,16,54,2,3,2,4,3,4),(6,160,5,10,1,2,1,1,1,1),(7,180,2,1,3,1,2,2,2,2),(8,156,5,43,4,2,1,2,1,4),(9,165,45,13,6,2,6,2,7,3),(10,177,38,10,4,2,5,3,5,4),(11,181,13,48,5,2,4,4,3,4),(12,169,47,31,3,3,6,4,3,2),(13,152,17,6,3,2,1,2,1,4);
+INSERT INTO `user_required_details` VALUES (1,149,10,20,5,2,3,2,1,1),(2,180,8,1,5,1,1,1,1,1),(3,155,9,2,4,2,4,1,2,1),(4,162,13,33,2,2,5,5,7,5),(5,145,16,54,2,3,2,4,3,4),(6,160,5,10,1,2,1,1,1,1),(7,180,2,1,3,1,2,2,2,2),(8,156,5,43,4,2,1,2,1,4),(9,165,45,13,6,2,6,2,7,3),(10,177,38,10,4,2,5,3,5,4),(11,181,13,48,5,2,4,4,3,4),(12,169,47,31,3,3,6,4,3,2),(13,152,17,6,3,2,1,2,1,4),(14,167,15,45,5,2,5,2,3,2),(15,156,27,46,2,2,4,2,2,2);
 /*!40000 ALTER TABLE `user_required_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -865,7 +865,7 @@ CREATE TABLE `users` (
   `registed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -874,7 +874,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'aaa@aaa.com',2,26,'山田花子',NULL,1,'2022-09-20 00:00:00'),(2,'bbb@bbb.jp',1,32,'風の銀次',NULL,1,'2022-09-26 23:01:06'),(3,'ccc@ccc.jp',2,20,'なつみ',30,1,'2022-09-26 23:20:15'),(4,'ddd@ddd.jp',1,51,'キムタクにぃ',30,1,'2022-09-26 23:22:46'),(5,'abc@abc.com',2,20,'紗奈',30,1,'2022-09-26 23:36:21'),(6,'bcd@bcd.jp',1,40,'きなこもち',30,1,'2022-09-26 23:36:21'),(7,'eee@eee.com',2,51,'ゆきちゃん',30,1,'2022-09-26 23:36:21'),(8,'taro@example.com',2,26,'みにー☆',30,1,'2022-09-26 23:45:40'),(9,'111@111.com',2,19,'じじ',30,1,'2022-09-26 23:50:13'),(10,'xyz@xyz.com',1,22,'りょーた',30,1,'2022-09-27 08:47:23'),(11,'123456789@aaa.com',1,19,'タダナリ',30,1,'2022-09-27 08:56:14'),(12,'srhsghs@ashshr.com',1,42,'はやぶさ',30,1,'2022-09-27 15:13:30'),(13,'945165@254343.com',2,26,'ひなこ',30,1,'2022-09-27 15:17:38');
+INSERT INTO `users` VALUES (1,'aaa@aaa.com',2,26,'山田花子',NULL,1,'2022-09-20 00:00:00'),(2,'bbb@bbb.jp',1,32,'風の銀次',NULL,1,'2022-09-26 23:01:06'),(3,'ccc@ccc.jp',2,20,'なつみ',30,1,'2022-09-26 23:20:15'),(4,'ddd@ddd.jp',1,51,'キムタクにぃ',30,1,'2022-09-26 23:22:46'),(5,'abc@abc.com',2,20,'紗奈',30,1,'2022-09-26 23:36:21'),(6,'bcd@bcd.jp',1,40,'きなこもち',30,1,'2022-09-26 23:36:21'),(7,'eee@eee.com',2,51,'ゆきちゃん',30,1,'2022-09-26 23:36:21'),(8,'taro@example.com',2,26,'みにー☆',30,1,'2022-09-26 23:45:40'),(9,'111@111.com',2,19,'じじ',30,1,'2022-09-26 23:50:13'),(10,'xyz@xyz.com',1,22,'りょーた',30,1,'2022-09-27 08:47:23'),(11,'123456789@aaa.com',1,19,'タダナリ',30,1,'2022-09-27 08:56:14'),(12,'srhsghs@ashshr.com',1,42,'はやぶさ',30,1,'2022-09-27 15:13:30'),(13,'945165@254343.com',2,26,'ひなこ',30,1,'2022-09-27 15:17:38'),(14,'ddddd@gaegageg.jp',1,45,'ツッキー',30,1,'2022-09-28 13:56:13'),(15,'saerysrhsh@gheaqgha.jp',2,22,'あいこ',30,1,'2022-09-28 13:59:18');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -911,4 +911,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-27 21:33:25
+-- Dump completed on 2022-09-28 15:15:19

@@ -3,10 +3,13 @@ package com.example.app.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,25 +33,29 @@ public class RegistController {
 	UserRequiredDetailMapper userRDMapper;
 	
 	@Autowired
-	UserFreeDetailMapper userFDMapper;
+	UserFreeDetailMapper userFDMapper;	
 	
-	@GetMapping("/")
-	public String regist() {
-		return "redirect:/regist/top";
+	@Autowired
+	ResourceLoader resourceLoader;
+	
+	@Autowired
+	JavaMailSender mailSender;
+	
+	@GetMapping("/regist_user/{registUrl}")
+	public String registStart(@PathVariable("registUrl") String registUrl) {
+		String sessionRegistUrl = (String) session.getAttribute("regist_url");
+		if (sessionRegistUrl.equals(registUrl) || sessionRegistUrl.equals(null)) {
+			return "redirect:/regist/sex";
+		}
+		return "regist/invalid_url";
+		
 	}
 	
-	@GetMapping("/top")
-	public String registTopGet(Model model) {
-		model.addAttribute("user", new User());
-		return "regist/top";
+	@GetMapping("/invalid_url")
+	public String invalidUrl() {
+		return "regist/invalid_url";
 	}
 	
-	@PostMapping("/top")
-	public String registTopPost(@ModelAttribute("user") User user) {
-		String email = user.getEmail();
-		session.setAttribute("regist_email", email);
-		return "redirect:/regist/sex";
-	}
 	
 	@GetMapping("/sex")
 	public String registSexGet(Model model) {
@@ -240,6 +247,10 @@ public class RegistController {
 		userFDMapper.insertUserFD();
 		
 		session.invalidate();
+		
+		session.setMaxInactiveInterval(1800);
+        int intervalTime = session.getMaxInactiveInterval();
+        System.out.println("セッション有効期限を" + intervalTime/60 + "分に変更しました。");
 		
 		return "regist/done";
 	}

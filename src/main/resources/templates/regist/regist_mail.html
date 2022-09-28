@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<p>以下のURLから登録してください</p>
+
+<p><a th:href="|http://localhost:8080/regist/regist_user/${session.regist_url}|">
+http://localhost:8080/regist/regist_user/[[${session.regist_url}]]</a></p>
+
+</body>
+</html>
