@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>ユーザー登録 : 性別</h1>
-<form action="" method="post" th:object="${user}">
+<form action="" method="post" th:object="${userBD}">
 
 <p><input type="radio" th:field="*{sex}" value="1" id="male"/><label for="male">男性</label></p>
 <p><input type="radio" th:field="*{sex}" value="2" id="female"/><label for="female">女性</label></p>

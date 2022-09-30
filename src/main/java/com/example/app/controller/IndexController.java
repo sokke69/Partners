@@ -44,7 +44,7 @@ public class IndexController {
 	@PostMapping("/regist")
 	public String registTopPost(@ModelAttribute("user") User user) throws Exception {
 		List<String> emailList = userService.selectEmailAllUser();
-		String email = user.getEmail();
+		String email = user.getLoginId();
 		
 		if (!emailList.contains(email)) {
 			session.setAttribute("regist_email", email);
@@ -66,7 +66,7 @@ public class IndexController {
 	        		+ "※ URLの有効期限は10分です。");
 	        mailSender.send(mimeMsg);
 	        
-	        session.setMaxInactiveInterval(120);
+	        session.setMaxInactiveInterval(600);
 	        int intervalTime = session.getMaxInactiveInterval();
 	        System.out.println("セッション有効期限を" + intervalTime/60 + "分に変更しました。");
 			

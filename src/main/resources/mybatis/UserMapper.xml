@@ -4,13 +4,17 @@
 <mapper namespace="com.example.app.mapper.UserMapper">
 	
 	<resultMap id="userResult" type="com.example.app.domain.User" autoMapping="true">
-		<result column = "email" property="email"/>
-		<result column = "sex" property="sexStr"/>
-		<result column = "age" property="age"/>
-		<result column = "name" property="name"/>
-		<result column = "like_point" property="likePoint"/>
-		<result column = "member_status" property="memberStatusStr"/>
-		<result column = "registed" property="registed"/>
+		<id column="id" property="id" />
+		<result column = "login_id" property="loginId"/>
+		
+		<association property="userBD" javaType="com.example.app.domain.UserBasicDetail">
+			<result column = "sex" property="sexStr"/>
+			<result column = "age" property="age"/>
+			<result column = "name" property="name"/>
+			<result column = "like_point" property="likePoint"/>
+			<result column = "registed" property="registed"/>
+		</association>
+		
 		<association property="userRD" javaType="com.example.app.domain.UserRequiredDetail">
 			<result column = "height" property="height"/>
 			<result column = "residence" property="residenceStr"/>
@@ -51,13 +55,12 @@
 	<select id="selectUserAllDetailList" resultMap="userResult">
 		SELECT 
 			users.id, 
-			users.email, 
+			users.login_id, 
 			sexs.sex, 
-			users.age, 
-			users.name, 
-			users.like_point, 
-			member_statuses.member_status, 
-			users.registed,
+			user_basic_details.age, 
+			user_basic_details.name, 
+			user_basic_details.like_point, 
+			user_basic_details.registed,
 			height,
 			residences.residence, 
 			occupations.occupation AS occupation,
@@ -85,12 +88,12 @@
 			hobby_three,
 			vaccinations.vaccination AS vaccination
 			
-		FROM users
+		FROM users 
+		LEFT JOIN user_basic_details ON users.id = user_basic_details.id
 		LEFT JOIN user_required_details ON users.id = user_required_details.id
 		LEFT JOIN user_free_details ON users.id = user_free_details.id
 		
-			LEFT JOIN sexs ON users.sex = sexs.id
-			LEFT JOIN member_statuses ON users.member_status = member_statuses.id
+			LEFT JOIN sexs ON user_basic_details.sex = sexs.id
 			LEFT JOIN residences ON user_required_details.residence = residences.id
 			LEFT JOIN occupations ON user_required_details.occupation = occupations.id
 			LEFT JOIN annual_incomes ON user_required_details.annual_income = annual_incomes.id
@@ -114,16 +117,18 @@
 			LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
 			LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
 			
+		ORDER BY id ASC
+			
 			 
 	</select>
 	
-	<select id="selectEmailAllUser" resultType="String">
-		SELECT email FROM users
+	<select id="selectEmailAllUser" resultType="String" parameterType="String">
+		SELECT login_id FROM users WHERE id = #{email}
 	</select>
 	
 	<insert id="insertUser" parameterType="com.example.app.domain.User">
-		INSERT INTO users (email, sex, age, name, registed)
-		VALUES (#{email}, #{sex}, #{age}, #{name}, NOW())
+		INSERT INTO users (login_id, login_pass)
+		VALUES (#{loginId}, #{loginPass})
 	</insert>
 	
 </mapper>

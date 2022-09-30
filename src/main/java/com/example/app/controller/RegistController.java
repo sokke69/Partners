@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
+import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserRequiredDetail;
+import com.example.app.mapper.UserBasicDetailMapper;
 import com.example.app.mapper.UserFreeDetailMapper;
 import com.example.app.mapper.UserMapper;
 import com.example.app.mapper.UserRequiredDetailMapper;
@@ -27,6 +29,9 @@ public class RegistController {
 	
 	@Autowired
 	UserMapper userMapper;
+	
+	@Autowired
+	UserBasicDetailMapper userBDMapper;
 	
 	@Autowired
 	UserRequiredDetailMapper userRDMapper;
@@ -55,39 +60,39 @@ public class RegistController {
 	
 	@GetMapping("/sex")
 	public String registSexGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/sex";
 	}
 	
 	@PostMapping("/sex")
-	public String registSexPost(@ModelAttribute("user") User user) {
-		Integer registSex = user.getSex();
+	public String registSexPost(@ModelAttribute("userBD") UserBasicDetail userBD) {
+		Integer registSex = userBD.getSex();
 		session.setAttribute("regist_sex", registSex);
 		return "redirect:/regist/age";
 	}
 	
 	@GetMapping("/age")
 	public String registAgeGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/age";
 	}
 	
 	@PostMapping("/age")
-	public String registAgePost(@ModelAttribute("user") User user) {
-		Integer registAge = user.getAge();
+	public String registAgePost(@ModelAttribute("userBD") UserBasicDetail userBD) {
+		Integer registAge = userBD.getAge();
 		session.setAttribute("regist_age", registAge);
 		return "redirect:/regist/name";
 	}
 	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/name";
 	}
 	
 	@PostMapping("/name")
-	public String registNamePost(@ModelAttribute("user") User user) {
-		String registName = user.getName();
+	public String registNamePost(@ModelAttribute("user") UserBasicDetail userBD) {
+		String registName = userBD.getName();
 		session.setAttribute("regist_name", registName);
 		return "redirect:/regist/height";
 	}
@@ -221,12 +226,14 @@ public class RegistController {
 	@GetMapping("/done")
 	public String registDone() throws Exception {
 		User user = new User();
+		UserBasicDetail userBD = new UserBasicDetail();
 		UserRequiredDetail userRD = new UserRequiredDetail();
 		
-		user.setEmail((String) session.getAttribute("regist_email"));
-		user.setSex((Integer) session.getAttribute("regist_sex"));
-		user.setAge((Integer) session.getAttribute("regist_age"));
-		user.setName((String) session.getAttribute("regist_name"));
+		user.setLoginId((String) session.getAttribute("regist_email"));
+		user.setLoginPass((String) session.getAttribute("regist_email"));
+		userBD.setSex((Integer) session.getAttribute("regist_sex"));
+		userBD.setAge((Integer) session.getAttribute("regist_age"));
+		userBD.setName((String) session.getAttribute("regist_name"));
 		
 		userRD.setHeight((int) session.getAttribute("regist_height"));
 		userRD.setResidence((int) session.getAttribute("regist_residence"));
@@ -239,6 +246,7 @@ public class RegistController {
 		userRD.setHousemate((int) session.getAttribute("regist_housemate"));
 		
 		userMapper.insertUser(user);
+		userBDMapper.insertUserBD(userBD);
 		userRDMapper.insertUserRD(userRD);
 		userFDMapper.insertUserFD();
 		
