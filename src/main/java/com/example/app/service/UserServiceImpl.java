@@ -3,6 +3,8 @@ package com.example.app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,9 +34,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User getUserById(int i) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public User getUserByLoginId(String loginId) throws Exception {
+		return userMapper.getUserByLoginId(loginId);
 	}
 
 	@Override
@@ -56,8 +57,18 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<String> selectEmailAllUser() throws Exception {
-		return userMapper.selectEmailAllUser();
+	public String selectEmail() throws Exception {
+		return userMapper.selectEmailByEmail();
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		try {
+			return userMapper.checkLoginByEmail(email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

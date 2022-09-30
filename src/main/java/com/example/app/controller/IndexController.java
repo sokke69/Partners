@@ -1,6 +1,5 @@
 package com.example.app.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import javax.mail.internet.MimeMessage;
@@ -37,16 +36,16 @@ public class IndexController {
 	
 	@GetMapping("/regist")
 	public String registTopGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new User()); 
 		return "regist";
 	}
 	
 	@PostMapping("/regist")
 	public String registTopPost(@ModelAttribute("user") User user) throws Exception {
-		List<String> emailList = userService.selectEmailAllUser();
+		String emailbyDB = userService.selectEmail();
 		String email = user.getLoginId();
 		
-		if (!emailList.contains(email)) {
+		if (!emailbyDB.equals(email)) {
 			session.setAttribute("regist_email", email);
 			
 			UUID uuid = UUID.randomUUID();

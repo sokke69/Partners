@@ -92,5 +92,12 @@
 
 </table>
 
+<p><a th:href="@{/}">トップページへ戻る</a></p>
+
+<form th:action="@{/logout}"
+      method="post">
+   <input type="submit" value="ログアウト">
+</form>
+
 </body>
 </html>

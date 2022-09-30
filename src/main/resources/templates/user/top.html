@@ -2,22 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>パートナーズ</title>
+<title>Partners</title>
 </head>
 <body>
-<h1>パートナーズ</h1>
 
-<p><a th:href="@{/login}">ログイン</a></p>
+<h1>Partners</h1>
 
-<p><a th:href="@{/user/top}">マイページ</a></p>
+<p><a th:href="@{/user/mypage}">マイページ</a></p>
 
-<p><a th:href="@{/regist}">新規登録</a></p>
+<p><a th:href="@{/}">トップページへ戻る</a></p>
 
 <form th:action="@{/logout}"
       method="post">
    <input type="submit" value="ログアウト">
 </form>
-
 
 
 </body>

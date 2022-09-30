@@ -1,13 +1,19 @@
 package com.example.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.app.domain.User;
 import com.example.app.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -16,7 +22,38 @@ public class UserController {
 	@GetMapping("/userList")
 	public String selectUserAll(Model model) throws Exception {
 		model.addAttribute("userList", userService.getUserAllDetailList());
-		return "user_list";
+		return "/user/user_list";
+	}
+	
+	@GetMapping("/top")
+	public String topGet() throws Exception{
+		return "/user/top";
+	}
+	
+	@GetMapping("/mypage")
+	public String mypageGet(Model model) throws Exception{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserDetails userDetail = (UserDetails) auth.getPrincipal();
+		String loginId = userDetail.getUsername();
+		User user = new User();
+		user = userService.getUserByLoginId(loginId);
+		model.addAttribute("user", user);
+		
+		return "/user/mypage";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

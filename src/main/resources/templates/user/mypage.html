@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>マイページ</title>
+</head>
+<body>
+<h1>マイページ</h1>
+
+<table border=1>
+
+	<tr>
+		<th>ニックネーム</th>
+		<td>[[${user.userBD.name}]]</td>
+	</tr>
+	<tr>
+		<th>年齢</th>
+		<td>[[${user.userBD.age}]]歳</td>
+	</tr>
+	<tr>
+		<th>身長</th>
+		<td>[[${user.userRD.height}]]cm</td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td></td>
+	</tr>
+
+</table>
+
+<p><a th:href="@{/}">トップページへ戻る</a></p>
+
+<form th:action="@{/logout}"
+      method="post">
+   <input type="submit" value="ログアウト">
+</form>
+
+</body>
+</html>
