@@ -33,8 +33,8 @@ public class UserController {
 	@GetMapping("/top")
 	public String topGet() throws Exception{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		UserDetails userDetail = (UserDetails) auth.getPrincipal();
-		String loginId = userDetail.getUsername();
+		UserDetails userDetails = (UserDetails) auth.getPrincipal();
+		String loginId = userDetails.getUsername();
 		
 		session.setAttribute("login_id", loginId);
 		
