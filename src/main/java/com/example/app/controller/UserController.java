@@ -1,12 +1,9 @@
 package com.example.app.controller;
 
-import java.util.Collection;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -37,8 +34,7 @@ public class UserController {
 	public String topGet() throws Exception{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		UserDetails userDetails = (UserDetails) auth.getPrincipal();
-		Collection<? extends GrantedAuthority> userRoles = auth.getAuthorities();
-		userRoles.toString();
+		String userRoles = auth.getAuthorities().toString();
 		String loginId = userDetails.getUsername();
 		System.out.println("login_id : " + loginId);
 		System.out.println("login_role : " + userRoles);
