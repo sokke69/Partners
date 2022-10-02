@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserRequiredDetail;
+import com.example.app.mapper.MatchingMapper;
 import com.example.app.mapper.UserBasicDetailMapper;
 import com.example.app.mapper.UserFreeDetailMapper;
 import com.example.app.mapper.UserMapper;
@@ -37,7 +38,10 @@ public class RegistController {
 	UserRequiredDetailMapper userRDMapper;
 	
 	@Autowired
-	UserFreeDetailMapper userFDMapper;	
+	UserFreeDetailMapper userFDMapper;
+	
+	@Autowired
+	MatchingMapper matchingMapper;
 	
 	@Autowired
 	JavaMailSender mailSender;
@@ -250,11 +254,15 @@ public class RegistController {
 		userRDMapper.insertUserRD(userRD);
 		userFDMapper.insertUserFD();
 		
+		String email = (String) session.getAttribute("regist_email");
+		String userId = userMapper.getUserIdByEmail(email).toString();
+		matchingMapper.createTable(userId);
+		
 		session.invalidate();
 		
 		session.setMaxInactiveInterval(1800);
-        int intervalTime = session.getMaxInactiveInterval();
-        System.out.println("セッション有効期限を" + intervalTime/60 + "分に変更しました。");
+		int intervalTime = session.getMaxInactiveInterval();
+		System.out.println("セッション有効期限を" + intervalTime/60 + "分に変更しました。");
 		
 		return "regist/done";
 	}

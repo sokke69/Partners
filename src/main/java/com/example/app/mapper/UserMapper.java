@@ -13,6 +13,7 @@ public interface UserMapper {
 	User checkLoginByEmail(String email) throws Exception;
 	List<User> selectUserAllDetailList() throws Exception;
 	String selectEmailByEmail() throws Exception;
+	Integer getUserIdByEmail(String email) throws Exception;
 	void insertUser(User user) throws Exception;
 
 }

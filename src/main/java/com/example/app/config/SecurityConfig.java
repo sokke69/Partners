@@ -17,9 +17,9 @@ public class SecurityConfig {
 		// HttpSecurityの設定
 		http
 		.authorizeHttpRequests(req -> {
-			req.antMatchers("/", "/home", "/css/**","user")
+			req.antMatchers("/", "/home", "/css/**", "user", "/regist", "/regist/**")
 			   .permitAll();
-			req.antMatchers("/user/**").authenticated();
+			req.antMatchers("/user/**", "user").authenticated();
 		}).formLogin();
 		
 		return http.build();
