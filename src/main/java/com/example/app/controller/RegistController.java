@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,9 @@ public class RegistController {
 	
 	@Autowired
 	MatchingMapper matchingMapper;
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	JavaMailSender mailSender;
@@ -234,7 +238,7 @@ public class RegistController {
 		UserRequiredDetail userRD = new UserRequiredDetail();
 		
 		user.setLoginId((String) session.getAttribute("regist_email"));
-		user.setLoginPass((String) session.getAttribute("regist_email"));
+		user.setLoginPass(passwordEncoder.encode((String) session.getAttribute("regist_email")));
 		userBD.setSex((Integer) session.getAttribute("regist_sex"));
 		userBD.setAge((Integer) session.getAttribute("regist_age"));
 		userBD.setName((String) session.getAttribute("regist_name"));

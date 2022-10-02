@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>ユーザー登録 : 年齢</h1>
-<form action="" method="post" th:object="${userBD}">
+<form th:action="@{/regist/age}" method="post" th:object="${userBD}">
 
 <p>年齢:
 <input type="text" th:field="*{age}"/></p>

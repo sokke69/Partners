@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>ユーザー登録 : ニックネーム</h1>
-<form action="" method="post" th:object="${user}">
+<form th:action="@{/regist/name}" method="post" th:object="${user}">
 
 <p>ニックネーム:
 <input type="text" name="name"  th:value="${session.regist_name}" /></p>

@@ -19,7 +19,7 @@ public class SecurityConfig {
 		.authorizeHttpRequests(req -> {
 			req.antMatchers("/", "/home", "/css/**", "user", "/regist", "/regist/**")
 			   .permitAll();
-			req.antMatchers("/user/**", "user").authenticated();
+			req.antMatchers("/user/**", "/user").authenticated();
 		}).formLogin();
 		
 		return http.build();

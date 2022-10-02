@@ -57,8 +57,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public String selectEmail() throws Exception {
-		return userMapper.selectEmailByEmail();
+	public List<String> selectEmail() throws Exception {
+		return userMapper.selectEmail();
 	}
 
 	@Override
@@ -69,6 +69,11 @@ public class UserServiceImpl implements UserService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public Integer getUserIdByEmail(String email) throws Exception {
+		return userMapper.getUserIdByEmail(email);
 	}
 
 }

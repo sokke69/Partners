@@ -122,8 +122,8 @@
 			 
 	</select>
 	
-	<select id="selectEmailByEmail" resultType="String" parameterType="String">
-		SELECT login_id FROM users WHERE id = #{email}
+	<select id="selectEmail" resultType="String" parameterType="String">
+		SELECT login_id FROM users
 	</select>
 	
 	<insert id="insertUser" parameterType="com.example.app.domain.User">
@@ -271,10 +271,10 @@
 		WHERE login_id = #{email}
 	</select>
 	
-	<select id="getUserIdByEmail" parameterType="String">
+	<select id="getUserIdByEmail" parameterType="String" resultType="int">
 		SELECT id
 		FROM users
-		WHERE id=#{email}
+		WHERE login_id=#{email}
 	</select>
 	
 </mapper>
