@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: partners
 -- ------------------------------------------------------
@@ -426,6 +426,29 @@ INSERT INTO `marital_statuses` VALUES (1,'選択しない'),(2,'独身(未婚)')
 UNLOCK TABLES;
 
 --
+-- Table structure for table `matching_statuses`
+--
+
+DROP TABLE IF EXISTS `matching_statuses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `matching_statuses` (
+  `id` int NOT NULL,
+  `mathing_status` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `matching_statuses`
+--
+
+LOCK TABLES `matching_statuses` WRITE;
+/*!40000 ALTER TABLE `matching_statuses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `matching_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `matching_times`
 --
 
@@ -783,7 +806,7 @@ CREATE TABLE `user_basic_details` (
   `like_point` int DEFAULT '30',
   `registed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -792,7 +815,7 @@ CREATE TABLE `user_basic_details` (
 
 LOCK TABLES `user_basic_details` WRITE;
 /*!40000 ALTER TABLE `user_basic_details` DISABLE KEYS */;
-INSERT INTO `user_basic_details` VALUES (1,2,26,'山田花子',NULL,'2022-09-20 00:00:00'),(2,1,32,'風の銀次',NULL,'2022-09-26 23:01:06'),(3,2,20,'なつみ',30,'2022-09-26 23:20:15'),(4,1,51,'キムタクにぃ',30,'2022-09-26 23:22:46'),(5,2,20,'紗奈',30,'2022-09-26 23:36:21'),(6,1,40,'きなこもち',30,'2022-09-26 23:36:21'),(7,2,51,'ゆきちゃん',30,'2022-09-26 23:36:21'),(8,2,26,'みにー☆',30,'2022-09-26 23:45:40'),(9,2,19,'じじ',30,'2022-09-26 23:50:13'),(10,1,22,'りょーた',30,'2022-09-27 08:47:23'),(11,1,19,'タダナリ',30,'2022-09-27 08:56:14'),(12,1,42,'はやぶさ',30,'2022-09-27 15:13:30'),(13,2,26,'ひなこ',30,'2022-09-27 15:17:38'),(14,1,45,'ツッキー',30,'2022-09-28 13:56:13'),(15,2,22,'あいこ',30,'2022-09-28 13:59:18'),(16,2,28,'ゆきみ',30,'2022-09-30 11:45:52'),(17,2,31,'たまみ',30,'2022-09-30 11:48:30'),(18,2,23,'わかな',30,'2022-09-30 11:48:30'),(19,2,42,'あや',30,'2022-09-30 11:48:30'),(20,1,35,'よしだ',30,'2022-09-30 11:48:30'),(21,1,25,'はやと',30,'2022-09-30 11:48:30'),(22,1,22,'ピエール',30,'2022-09-30 11:48:30'),(23,1,51,'よしくに',30,'2022-09-30 12:42:16');
+INSERT INTO `user_basic_details` VALUES (1,2,26,'山田花子',NULL,'2022-09-20 00:00:00'),(2,1,32,'風の銀次',NULL,'2022-09-26 23:01:06'),(3,2,20,'なつみ',30,'2022-09-26 23:20:15'),(4,1,51,'キムタクにぃ',30,'2022-09-26 23:22:46'),(5,2,20,'紗奈',30,'2022-09-26 23:36:21'),(6,1,40,'きなこもち',30,'2022-09-26 23:36:21'),(7,2,51,'ゆきちゃん',30,'2022-09-26 23:36:21'),(8,2,26,'みにー☆',30,'2022-09-26 23:45:40'),(9,2,19,'じじ',30,'2022-09-26 23:50:13'),(10,1,22,'りょーた',30,'2022-09-27 08:47:23'),(11,1,19,'タダナリ',30,'2022-09-27 08:56:14'),(12,1,42,'はやぶさ',30,'2022-09-27 15:13:30'),(13,2,26,'ひなこ',30,'2022-09-27 15:17:38'),(14,1,45,'ツッキー',30,'2022-09-28 13:56:13'),(15,2,22,'あいこ',30,'2022-09-28 13:59:18'),(16,2,28,'ゆきみ',30,'2022-09-30 11:45:52'),(17,2,31,'たまみ',30,'2022-09-30 11:48:30'),(18,2,23,'わかな',30,'2022-09-30 11:48:30'),(19,2,42,'あや',30,'2022-09-30 11:48:30'),(20,1,35,'よしだ',30,'2022-09-30 11:48:30'),(21,1,25,'はやと',30,'2022-09-30 11:48:30'),(22,1,22,'ピエール',30,'2022-09-30 11:48:30'),(23,1,51,'よしくに',30,'2022-09-30 12:42:16'),(24,1,41,'明夫',30,'2022-10-02 21:07:52'),(25,2,24,'つづ',30,'2022-10-02 21:14:57'),(26,1,37,'yuu',30,'2022-10-02 21:24:21'),(27,2,28,'もえ。',30,'2022-10-02 21:30:47'),(28,1,27,'竜',30,'2022-10-02 21:40:11'),(29,2,29,'まどか',30,'2022-10-02 21:43:20'),(30,2,29,'ずっこ',30,'2022-10-02 21:46:59'),(31,2,29,'れーこ',30,'2022-10-02 21:50:39'),(32,1,28,'いたチャイ',30,'2022-10-02 22:16:10'),(33,1,27,'ヒロシ',30,'2022-10-02 22:27:10'),(34,1,37,'とっしー',30,'2022-10-02 22:31:27');
 /*!40000 ALTER TABLE `user_basic_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -825,7 +848,7 @@ CREATE TABLE `user_free_details` (
   `hobby_three` varchar(15) DEFAULT NULL,
   `vaccination` int DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -834,7 +857,7 @@ CREATE TABLE `user_free_details` (
 
 LOCK TABLES `user_free_details` WRITE;
 /*!40000 ALTER TABLE `user_free_details` DISABLE KEYS */;
-INSERT INTO `user_free_details` VALUES (1,4,3,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,2,1,2,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,5,2,5,2,2,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,4,5,1,1,3,NULL,NULL,1,2,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,4,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,3,2,2,3,4,NULL,NULL,2,2,5,3,4,1,2,4,'サウナ','温泉','旅行',2),(9,4,3,37,1,1,'緑茶大学',NULL,3,2,4,2,3,3,3,3,'映画','カフェ','ビリヤード',1),(10,2,4,38,3,2,NULL,NULL,3,3,3,4,1,1,2,3,'youtube','tiktok','instagram',1),(11,2,5,39,2,1,'ミンティア高校','ひみつ',2,2,2,3,2,1,3,3,'カフェ','水族館','演劇鑑賞',2),(12,3,3,40,1,2,NULL,NULL,2,4,3,3,4,1,4,4,'野球','テニス','サッカー',1),(13,4,2,8,3,2,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,5,4,12,1,3,NULL,NULL,2,1,4,3,3,2,2,3,NULL,NULL,NULL,1),(15,4,5,30,2,4,NULL,NULL,3,2,3,1,3,1,2,2,NULL,NULL,NULL,1),(16,5,3,36,1,2,NULL,NULL,2,3,4,2,2,2,1,3,NULL,NULL,NULL,1),(17,5,2,31,1,1,'ハンカチ高専',NULL,2,2,2,1,1,1,2,1,NULL,NULL,NULL,2),(18,2,5,35,2,2,NULL,NULL,2,3,1,4,4,2,1,4,NULL,NULL,NULL,1),(19,4,4,34,2,3,'ひよこ高校',NULL,2,4,3,1,3,1,2,1,NULL,NULL,NULL,3),(20,2,2,2,3,3,NULL,NULL,2,2,1,4,2,1,4,2,NULL,NULL,NULL,1),(21,2,2,34,1,2,'アップル大学',NULL,2,5,5,3,2,2,2,3,NULL,NULL,NULL,2),(22,3,3,33,2,2,NULL,NULL,2,3,2,2,4,1,3,4,NULL,NULL,NULL,3),(23,3,4,32,1,2,NULL,NULL,2,2,2,2,2,1,2,2,NULL,NULL,NULL,1);
+INSERT INTO `user_free_details` VALUES (1,4,3,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,2,1,2,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,5,2,5,2,2,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,4,5,1,1,3,NULL,NULL,1,2,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,4,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,3,2,2,3,4,NULL,NULL,2,2,5,3,4,1,2,4,'サウナ','温泉','旅行',2),(9,4,3,37,1,1,'緑茶大学',NULL,3,2,4,2,3,3,3,3,'映画','カフェ','ビリヤード',1),(10,2,4,38,3,2,NULL,NULL,3,3,3,4,1,1,2,3,'youtube','tiktok','instagram',1),(11,2,5,39,2,1,'ミンティア高校','ひみつ',2,2,2,3,2,1,3,3,'カフェ','水族館','演劇鑑賞',2),(12,3,3,40,1,2,NULL,NULL,2,4,3,3,4,1,4,4,'野球','テニス','サッカー',1),(13,4,2,8,3,2,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,5,4,12,1,3,NULL,NULL,2,1,4,3,3,2,2,3,NULL,NULL,NULL,1),(15,4,5,30,2,4,NULL,NULL,3,2,3,1,3,1,2,2,NULL,NULL,NULL,1),(16,5,3,36,1,2,NULL,NULL,2,3,4,2,2,2,1,3,NULL,NULL,NULL,1),(17,5,2,31,1,1,'ハンカチ高専',NULL,2,2,2,1,1,1,2,1,NULL,NULL,NULL,2),(18,2,5,35,2,2,NULL,NULL,2,3,1,4,4,2,1,4,NULL,NULL,NULL,1),(19,4,4,34,2,3,'ひよこ高校',NULL,2,4,3,1,3,1,2,1,NULL,NULL,NULL,3),(20,2,2,2,3,3,NULL,NULL,2,2,1,4,2,1,4,2,NULL,NULL,NULL,1),(21,2,2,34,1,2,'アップル大学',NULL,2,5,5,3,2,2,2,3,NULL,NULL,NULL,2),(22,3,3,33,2,2,NULL,NULL,2,3,2,2,4,1,3,4,NULL,NULL,NULL,3),(23,3,4,32,1,2,NULL,NULL,2,2,2,2,2,1,2,2,NULL,NULL,NULL,1),(24,4,3,39,3,4,NULL,NULL,3,4,3,2,4,1,4,4,NULL,NULL,NULL,3),(25,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(26,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(27,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(28,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(29,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(30,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(31,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(32,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(33,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(34,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `user_free_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -857,7 +880,7 @@ CREATE TABLE `user_required_details` (
   `smoking` int NOT NULL,
   `housemate` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -866,7 +889,7 @@ CREATE TABLE `user_required_details` (
 
 LOCK TABLES `user_required_details` WRITE;
 /*!40000 ALTER TABLE `user_required_details` DISABLE KEYS */;
-INSERT INTO `user_required_details` VALUES (1,149,10,20,5,2,3,2,1,1),(2,180,8,1,5,1,1,1,1,1),(3,155,9,2,4,2,4,1,2,1),(4,162,13,33,2,2,5,5,7,5),(5,145,16,54,2,3,2,4,3,4),(6,160,5,10,1,2,1,1,1,1),(7,180,2,1,3,1,2,2,2,2),(8,156,5,43,4,2,1,2,1,4),(9,165,45,13,6,2,6,2,7,3),(10,177,38,10,4,2,5,3,5,4),(11,181,13,48,5,2,4,4,3,4),(12,169,47,31,3,3,6,4,3,2),(13,152,17,6,3,2,1,2,1,4),(14,167,15,45,5,2,5,2,3,2),(15,156,27,46,2,2,4,2,2,2),(16,153,20,54,3,2,2,4,3,2),(17,160,31,25,2,2,2,2,2,2),(18,163,14,5,4,2,3,4,3,2),(19,157,14,4,1,1,1,1,4,2),(20,165,17,10,2,2,2,2,2,2),(21,174,15,20,3,3,3,3,5,3),(22,175,16,30,4,1,4,4,6,4),(23,172,28,22,7,2,4,3,4,5);
+INSERT INTO `user_required_details` VALUES (1,149,10,20,5,2,3,2,1,1),(2,180,8,1,5,1,1,1,1,1),(3,155,9,2,4,2,4,1,2,1),(4,162,13,33,2,2,5,5,7,5),(5,145,16,54,2,3,2,4,3,4),(6,160,5,10,1,2,1,1,1,1),(7,180,2,1,3,1,2,2,2,2),(8,156,5,43,4,2,1,2,1,4),(9,165,45,13,6,2,6,2,7,3),(10,177,38,10,4,2,5,3,5,4),(11,181,13,48,5,2,4,4,3,4),(12,169,47,31,3,3,6,4,3,2),(13,152,17,6,3,2,1,2,1,4),(14,167,15,45,5,2,5,2,3,2),(15,156,27,46,2,2,4,2,2,2),(16,153,20,54,3,2,2,4,3,2),(17,160,31,25,2,2,2,2,2,2),(18,163,14,5,4,2,3,4,3,2),(19,157,14,4,1,1,1,1,4,2),(20,165,17,10,2,2,2,2,2,2),(21,174,15,20,3,3,3,3,5,3),(22,175,16,30,4,1,4,4,6,4),(23,172,28,22,7,2,4,3,4,5),(24,157,46,17,6,2,3,4,3,4),(25,164,45,36,4,3,4,3,2,2),(26,163,23,2,5,3,4,2,2,2),(27,174,37,43,3,2,3,2,2,3),(28,181,4,35,6,2,6,2,2,2),(29,154,32,47,4,2,2,2,2,2),(30,150,25,5,3,2,3,2,2,2),(31,153,33,4,3,2,4,2,2,2),(32,163,23,43,5,2,2,2,2,4),(33,176,6,9,3,3,6,5,4,4),(34,178,43,48,5,2,5,2,6,5);
 /*!40000 ALTER TABLE `user_required_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -937,7 +960,7 @@ CREATE TABLE `users` (
   `login_pass` char(60) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_id` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -946,7 +969,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'aaa@aaa.jp','$2a$08$ZY.ZRD6yYO..MauiQ7.j.exKvfqRYYAgSuKjBxQSVHy0rlGiyA1d6'),(2,'bbb@bbb.jp','$2a$08$RAUF9BmxRFDOGJZLxxgXbu20HARwb5jfgKXE32..KPiuBQMhaTase'),(3,'ccc@ccc.jp','$2a$08$geSPwoEYnILrui5u4If8mOKZHiSBNm9ha/smDpIfZFdlo/LqCt9wO'),(4,'ddd@ddd.jp','$2a$08$vrUyd3qxKBnSB4VqPkE2G.eBdgZCxa6w5mL9n/f2OI84GGgpQxIbK'),(5,'eee@eee.jp','$2a$08$.9D92rD0ltS.dzxFDHNxqeUKsdtpvxxv7UDBHFlP8Rtt.cQrR0EIq'),(6,'fff@fff.jp','$2a$08$rqwbw0ChEa95uAont5zCguaE8d/c0wQgynT4gg3VD9c7npSPOYUx6'),(7,'ggg@ggg.jp','$2a$08$atZC1ZmMa06Ew2qtGz360eS3QDObFLNFNvGWvwjZNDzK1ZTb9j6na'),(8,'hhh@hhh.jp','$2a$08$9l/4.914mQ1IBwezRzUQSe2oqgiXi.ZjP6JQUmN1elP7ADDa.xD3q'),(9,'iii@iii.jp','$2a$08$NirTW4W.oX0mhn.QBZuGlemY4iX//4o/Iu35KmqyTwKsaKUAzTOoa'),(10,'jjj@jjj.jp','$2a$08$AT9kYgkXHN/A4L8SzayjRueoGn3ylnSAPw.YFhZDkBsvEfTPxOJl6'),(11,'kkk@kkk.jp','$2a$08$QXEhkvC1wcgGfBcvEXfCUO.ajDxKs8d/YosgvE7jwUgQANGA5MaOy'),(12,'lll@lll.jp','$2a$08$5fd0pjoAEhGai3Kal3yk9OxH08DnCv8xf3axqlu7Gt8/bCeBEY3gC'),(13,'mmm@mmm.jp','$2a$08$SOqPDiqYJ.djPBfoQGXjIunj1Zs0HgU/3M3l/YQS5BzAh/3ebMjTC'),(14,'nnn@nnn.jp','$2a$08$s9sRz0xMsvTYzT2ibXnxgOnN48V4UKX9au5U/vRyMf4s1G.2U69fu'),(15,'ooo@ooo.jp','$2a$08$RaoFSwojCOQwQ8irWpSDl.mOxJ6v/52l7.a8c4cYwhKdyUq0TfR22'),(16,'ppp@ppp.jp','$2a$08$W83rp/TBkORTcpftOGPCkerQxWuoXilm/tGb2tzeKbf.nZCAVqe2.'),(17,'rrr@rrr.jp','$2a$08$lPYkcfQTStplr9g1X/crTOslx4n8NQf98Ks9AWtAdB7yxxtmPWiPK'),(18,'sss@sss.jp','$2a$08$TlE4ZNpc2wuJE8tHfxDdQurXC6quDIqHFpLhXjhY4NbbBhe47AGo6'),(19,'ttt@ttt.jp','$2a$08$loiRd/PTRF0Fx9qNixeHX.5z9IxeLSmUF08NQI2OnE4Ql4l1oCebK'),(20,'uuu@uuu.jp','$2a$08$veTVJO4uGF6hzJxx6yOY6.Z6u9AMH866eKZG2mFM0Qj/jKu6NSDD6'),(21,'vvv@vvv.jp','$2a$08$Oy01GFKDrwz.gqnDHWfb6.YtNhbxjpezz9jRRsh0c5jeZLHjmWFI2'),(22,'qqq@qqq.jp','$2a$08$z9RuIwZ74fbFwSFWmyFuxOI0pNeV9Mad8ktNp/Zb64F.9FR/vtvKe'),(23,'www@www.jp','$2a$08$aqBRVIE2ABZqJEVeYgLsTOJjP6mnSg.MVXS8YSl99WdQXwb4BdnuK');
+INSERT INTO `users` VALUES (1,'aaa@aaa.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(2,'bbb@bbb.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(3,'ccc@ccc.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(4,'ddd@ddd.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(5,'eee@eee.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(6,'fff@fff.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(7,'ggg@ggg.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(8,'hhh@hhh.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(9,'iii@iii.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(10,'jjj@jjj.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(11,'kkk@kkk.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(12,'lll@lll.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(13,'mmm@mmm.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(14,'nnn@nnn.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(15,'ooo@ooo.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(16,'ppp@ppp.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(17,'rrr@rrr.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(18,'sss@sss.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(19,'ttt@ttt.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(20,'uuu@uuu.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(21,'vvv@vvv.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(22,'qqq@qqq.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(23,'www@www.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(24,'xxx@xxx.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(26,'yyy@yyy.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(27,'zzz@zzz.jp','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(28,'abc@abc.com','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(29,'bb@bb.com','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(30,'cc@cc.com','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(31,'dd@dd.com','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(32,'ee@ee.com','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(33,'ff@ff.com','$2a$08$n6CnJeewPt7acXCj4lazz.Qv8zZA0RZVOuishzmpyIx0YhcYgUM9u'),(34,'gg@gg.com','$2a$10$eRpkcT/K2bCPF61OHmNIb.5UYGW3nwJWFB17P/ptHMfM8R2nmjsHC'),(35,'hh@hh.com','$2a$10$boac4t3UA7yyigyfUHgxd.3ca5Z3Fk/zJMrOhyLmX6K0hA8wG9ogO');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -973,6 +996,811 @@ LOCK TABLES `vaccinations` WRITE;
 INSERT INTO `vaccinations` VALUES (1,'選択しない'),(2,'接種済み'),(3,'接種中');
 /*!40000 ALTER TABLE `vaccinations` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `z10_matchings`
+--
+
+DROP TABLE IF EXISTS `z10_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z10_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z10_matchings`
+--
+
+LOCK TABLES `z10_matchings` WRITE;
+/*!40000 ALTER TABLE `z10_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z10_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z11_matchings`
+--
+
+DROP TABLE IF EXISTS `z11_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z11_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z11_matchings`
+--
+
+LOCK TABLES `z11_matchings` WRITE;
+/*!40000 ALTER TABLE `z11_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z11_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z12_matchings`
+--
+
+DROP TABLE IF EXISTS `z12_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z12_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z12_matchings`
+--
+
+LOCK TABLES `z12_matchings` WRITE;
+/*!40000 ALTER TABLE `z12_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z12_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z13_matchings`
+--
+
+DROP TABLE IF EXISTS `z13_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z13_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z13_matchings`
+--
+
+LOCK TABLES `z13_matchings` WRITE;
+/*!40000 ALTER TABLE `z13_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z13_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z14_matchings`
+--
+
+DROP TABLE IF EXISTS `z14_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z14_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z14_matchings`
+--
+
+LOCK TABLES `z14_matchings` WRITE;
+/*!40000 ALTER TABLE `z14_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z14_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z15_matchings`
+--
+
+DROP TABLE IF EXISTS `z15_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z15_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z15_matchings`
+--
+
+LOCK TABLES `z15_matchings` WRITE;
+/*!40000 ALTER TABLE `z15_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z15_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z16_matchings`
+--
+
+DROP TABLE IF EXISTS `z16_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z16_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z16_matchings`
+--
+
+LOCK TABLES `z16_matchings` WRITE;
+/*!40000 ALTER TABLE `z16_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z16_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z17_matchings`
+--
+
+DROP TABLE IF EXISTS `z17_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z17_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z17_matchings`
+--
+
+LOCK TABLES `z17_matchings` WRITE;
+/*!40000 ALTER TABLE `z17_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z17_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z18_matchings`
+--
+
+DROP TABLE IF EXISTS `z18_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z18_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z18_matchings`
+--
+
+LOCK TABLES `z18_matchings` WRITE;
+/*!40000 ALTER TABLE `z18_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z18_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z19_matchings`
+--
+
+DROP TABLE IF EXISTS `z19_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z19_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z19_matchings`
+--
+
+LOCK TABLES `z19_matchings` WRITE;
+/*!40000 ALTER TABLE `z19_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z19_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z1_matchings`
+--
+
+DROP TABLE IF EXISTS `z1_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z1_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z1_matchings`
+--
+
+LOCK TABLES `z1_matchings` WRITE;
+/*!40000 ALTER TABLE `z1_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z1_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z20_matchings`
+--
+
+DROP TABLE IF EXISTS `z20_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z20_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z20_matchings`
+--
+
+LOCK TABLES `z20_matchings` WRITE;
+/*!40000 ALTER TABLE `z20_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z20_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z21_matchings`
+--
+
+DROP TABLE IF EXISTS `z21_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z21_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z21_matchings`
+--
+
+LOCK TABLES `z21_matchings` WRITE;
+/*!40000 ALTER TABLE `z21_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z21_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z22_matchings`
+--
+
+DROP TABLE IF EXISTS `z22_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z22_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z22_matchings`
+--
+
+LOCK TABLES `z22_matchings` WRITE;
+/*!40000 ALTER TABLE `z22_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z22_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z23_matchings`
+--
+
+DROP TABLE IF EXISTS `z23_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z23_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z23_matchings`
+--
+
+LOCK TABLES `z23_matchings` WRITE;
+/*!40000 ALTER TABLE `z23_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z23_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z24_matchings`
+--
+
+DROP TABLE IF EXISTS `z24_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z24_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z24_matchings`
+--
+
+LOCK TABLES `z24_matchings` WRITE;
+/*!40000 ALTER TABLE `z24_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z24_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z25_matchings`
+--
+
+DROP TABLE IF EXISTS `z25_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z25_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z25_matchings`
+--
+
+LOCK TABLES `z25_matchings` WRITE;
+/*!40000 ALTER TABLE `z25_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z25_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z26_matchings`
+--
+
+DROP TABLE IF EXISTS `z26_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z26_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z26_matchings`
+--
+
+LOCK TABLES `z26_matchings` WRITE;
+/*!40000 ALTER TABLE `z26_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z26_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z27_matchings`
+--
+
+DROP TABLE IF EXISTS `z27_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z27_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z27_matchings`
+--
+
+LOCK TABLES `z27_matchings` WRITE;
+/*!40000 ALTER TABLE `z27_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z27_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z28_matchings`
+--
+
+DROP TABLE IF EXISTS `z28_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z28_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z28_matchings`
+--
+
+LOCK TABLES `z28_matchings` WRITE;
+/*!40000 ALTER TABLE `z28_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z28_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z29_matchings`
+--
+
+DROP TABLE IF EXISTS `z29_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z29_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z29_matchings`
+--
+
+LOCK TABLES `z29_matchings` WRITE;
+/*!40000 ALTER TABLE `z29_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z29_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z2_matchings`
+--
+
+DROP TABLE IF EXISTS `z2_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z2_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z2_matchings`
+--
+
+LOCK TABLES `z2_matchings` WRITE;
+/*!40000 ALTER TABLE `z2_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z2_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z30_matchings`
+--
+
+DROP TABLE IF EXISTS `z30_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z30_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z30_matchings`
+--
+
+LOCK TABLES `z30_matchings` WRITE;
+/*!40000 ALTER TABLE `z30_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z30_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z31_matchings`
+--
+
+DROP TABLE IF EXISTS `z31_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z31_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z31_matchings`
+--
+
+LOCK TABLES `z31_matchings` WRITE;
+/*!40000 ALTER TABLE `z31_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z31_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z32_matchings`
+--
+
+DROP TABLE IF EXISTS `z32_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z32_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z32_matchings`
+--
+
+LOCK TABLES `z32_matchings` WRITE;
+/*!40000 ALTER TABLE `z32_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z32_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z33_matchings`
+--
+
+DROP TABLE IF EXISTS `z33_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z33_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z33_matchings`
+--
+
+LOCK TABLES `z33_matchings` WRITE;
+/*!40000 ALTER TABLE `z33_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z33_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z34_matchings`
+--
+
+DROP TABLE IF EXISTS `z34_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z34_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z34_matchings`
+--
+
+LOCK TABLES `z34_matchings` WRITE;
+/*!40000 ALTER TABLE `z34_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z34_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z35_matchings`
+--
+
+DROP TABLE IF EXISTS `z35_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z35_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z35_matchings`
+--
+
+LOCK TABLES `z35_matchings` WRITE;
+/*!40000 ALTER TABLE `z35_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z35_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z3_matchings`
+--
+
+DROP TABLE IF EXISTS `z3_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z3_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z3_matchings`
+--
+
+LOCK TABLES `z3_matchings` WRITE;
+/*!40000 ALTER TABLE `z3_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z3_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z4_matchings`
+--
+
+DROP TABLE IF EXISTS `z4_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z4_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z4_matchings`
+--
+
+LOCK TABLES `z4_matchings` WRITE;
+/*!40000 ALTER TABLE `z4_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z4_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z5_matchings`
+--
+
+DROP TABLE IF EXISTS `z5_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z5_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z5_matchings`
+--
+
+LOCK TABLES `z5_matchings` WRITE;
+/*!40000 ALTER TABLE `z5_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z5_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z6_matchings`
+--
+
+DROP TABLE IF EXISTS `z6_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z6_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z6_matchings`
+--
+
+LOCK TABLES `z6_matchings` WRITE;
+/*!40000 ALTER TABLE `z6_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z6_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z7_matchings`
+--
+
+DROP TABLE IF EXISTS `z7_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z7_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z7_matchings`
+--
+
+LOCK TABLES `z7_matchings` WRITE;
+/*!40000 ALTER TABLE `z7_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z7_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z8_matchings`
+--
+
+DROP TABLE IF EXISTS `z8_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z8_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z8_matchings`
+--
+
+LOCK TABLES `z8_matchings` WRITE;
+/*!40000 ALTER TABLE `z8_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z8_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `z9_matchings`
+--
+
+DROP TABLE IF EXISTS `z9_matchings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `z9_matchings` (
+  `id` int NOT NULL,
+  `matching` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `z9_matchings`
+--
+
+LOCK TABLES `z9_matchings` WRITE;
+/*!40000 ALTER TABLE `z9_matchings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `z9_matchings` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -983,4 +1811,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-30 14:56:54
+-- Dump completed on 2022-10-02 22:55:26
