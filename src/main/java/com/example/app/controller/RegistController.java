@@ -21,6 +21,7 @@ import com.example.app.mapper.UserBasicDetailMapper;
 import com.example.app.mapper.UserFreeDetailMapper;
 import com.example.app.mapper.UserMapper;
 import com.example.app.mapper.UserRequiredDetailMapper;
+import com.example.app.service.UserServiceImpl;
 
 @Controller
 @RequestMapping("/regist")
@@ -28,6 +29,9 @@ public class RegistController {
 	
 	@Autowired
 	HttpSession session;
+	
+	@Autowired
+	UserServiceImpl userService;
 	
 	@Autowired
 	UserMapper userMapper;
@@ -238,7 +242,7 @@ public class RegistController {
 		UserRequiredDetail userRD = new UserRequiredDetail();
 		
 		user.setLoginId((String) session.getAttribute("regist_email"));
-		user.setLoginPass(passwordEncoder.encode((String) session.getAttribute("regist_email")));
+		user.setLoginPass(passwordEncoder.encode("partners"));
 		userBD.setSex((Integer) session.getAttribute("regist_sex"));
 		userBD.setAge((Integer) session.getAttribute("regist_age"));
 		userBD.setName((String) session.getAttribute("regist_name"));
@@ -260,7 +264,8 @@ public class RegistController {
 		
 		String email = (String) session.getAttribute("regist_email");
 		String userId = userMapper.getUserIdByEmail(email).toString();
-		matchingMapper.createTable(userId);
+		
+		userService.insertUserRole(userId);
 		
 		session.invalidate();
 		

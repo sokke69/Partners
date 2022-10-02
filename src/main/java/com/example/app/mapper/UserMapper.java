@@ -15,5 +15,6 @@ public interface UserMapper {
 	List<String> selectEmail() throws Exception;
 	Integer getUserIdByEmail(String email) throws Exception;
 	void insertUser(User user) throws Exception;
+	void insertUserRole(String userId) throws Exception;
 
 }

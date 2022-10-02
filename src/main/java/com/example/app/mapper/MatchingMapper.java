@@ -6,5 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MatchingMapper {
 	
 	void createTable(String id) throws Exception;
+	void insertUserRole(String userId) throws Exception;
 
 }

@@ -17,5 +17,6 @@ public interface UserService extends UserDetailsService{
 	void editUser(User user, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;
 	void deleteUser(int i) throws Exception;
 	Integer getUserIdByEmail(String email) throws Exception;
+	void insertUserRole(String userId) throws Exception;
 
 }
