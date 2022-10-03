@@ -58,13 +58,15 @@ public class RegistController {
 	
 	@GetMapping("/sex")
 	public String registSexGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/sex";
 	}
 	
 	@PostMapping("/sex")
-	public String registSexPost(@ModelAttribute("user") User user) {
-		Integer registSex = user.getUserBD().getSex();
+	public String registSexPost(@Valid @ModelAttribute("user") UserBasicDetail userBD,
+			Errors errors,
+			Model model) {
+		Integer registSex = userBD.getSex();
 		session.setAttribute("regist_sex", registSex);
 		return "redirect:/regist/age";
 	}
