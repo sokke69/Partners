@@ -7,9 +7,9 @@
 <body>
 <h1>ユーザー登録 : 職種</h1>
 
-<form th:action="@{/regist/occupation}" method="post" th:object="${userRD}">
+<form th:action="@{/regist/occupation}" method="post" th:object="${user}">
 	<p>
-	<select th:field="*{occupation}" id="">
+	<select th:field="*{userRD.occupation}" id="">
 	<th:block th:each="occupation : ${occupations}">
 		<option th:value="${occupation.id}">[[${occupation.occupation}]]</option>
 	</th:block>

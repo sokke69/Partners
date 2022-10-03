@@ -7,9 +7,9 @@
 <body>
 <h1>ユーザー登録 : 休日</h1>
 
-<form th:action="@{/regist/holiday}" method="post" th:object="${userRD}">
+<form th:action="@{/regist/holiday}" method="post" th:object="${user}">
 	<p>
-	<select th:field="*{holiday}" id="">
+	<select th:field="*{userRD.holiday}" id="">
 	<th:block th:each="holiday : ${holidays}">
 		<option th:value="${holiday.id}">[[${holiday.holiday}]]</option>
 	</th:block>

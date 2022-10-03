@@ -7,9 +7,9 @@
 <body>
 <h1>ユーザー登録 : 結婚歴</h1>
 
-<form th:action="@{/regist/marital_status}" method="post" th:object="${userRD}">
+<form th:action="@{/regist/marital_status}" method="post" th:object="${user}">
 	<p>
-	<select th:field="*{maritalStatus}" id="">
+	<select th:field="*{userRD.maritalStatus}" id="">
 	<th:block th:each="marital_status : ${marital_statuses}">
 		<option th:value="${marital_status.id}">[[${marital_status.maritalStatus}]]</option>
 	</th:block>

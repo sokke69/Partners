@@ -1,12 +1,14 @@
 package com.example.app.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,165 +58,170 @@ public class RegistController {
 	
 	@GetMapping("/sex")
 	public String registSexGet(Model model) {
-		model.addAttribute("userBD", new UserBasicDetail());
+		model.addAttribute("user", new User());
 		return "regist/sex";
 	}
 	
 	@PostMapping("/sex")
-	public String registSexPost(@ModelAttribute("userBD") UserBasicDetail userBD) {
-		Integer registSex = userBD.getSex();
+	public String registSexPost(@ModelAttribute("user") User user) {
+		Integer registSex = user.getUserBD().getSex();
 		session.setAttribute("regist_sex", registSex);
 		return "redirect:/regist/age";
 	}
 	
 	@GetMapping("/age")
 	public String registAgeGet(Model model) {
-		model.addAttribute("userBD", new UserBasicDetail());
+		model.addAttribute("user", new User());
 		return "regist/age";
 	}
 	
 	@PostMapping("/age")
-	public String registAgePost(@ModelAttribute("userBD") UserBasicDetail userBD) {
-		Integer registAge = userBD.getAge();
+	public String registAgePost(@Valid @ModelAttribute("user") User user,
+			Errors errors,
+			Model model) {
+		Integer registAge = user.getUserBD().getAge();
 		session.setAttribute("regist_age", registAge);
+		model.addAttribute("user", user);
 		return "redirect:/regist/name";
 	}
 	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
-		model.addAttribute("userBD", new UserBasicDetail());
+		model.addAttribute("user", new User());
 		return "regist/name";
 	}
 	
 	@PostMapping("/name")
-	public String registNamePost(@ModelAttribute("user") UserBasicDetail userBD) {
-		String registName = userBD.getName();
+	public String registNamePost(@Valid @ModelAttribute("user") User user,
+			Errors errors,
+			Model model) {
+		String registName = user.getUserBD().getName();
 		session.setAttribute("regist_name", registName);
 		return "redirect:/regist/height";
 	}
 	
 	@GetMapping("/height")
 	public String registHeightGet(Model model) {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		return "regist/height";
 	}
 	
 	@PostMapping("/height")
-	public String registHeightPost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int registHeight = userRD.getHeight();
+	public String registHeightPost(@ModelAttribute("user") User user) {
+		int registHeight = user.getUserRD().getHeight();
 		session.setAttribute("regist_height", registHeight);
 		return "redirect:/regist/residence";
 	}
 	
 	@GetMapping("/residence")
 	public String registResidenceGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("residences", userService.selectResidenceAll());
 		return "regist/residence";
 	}
 	
 	@PostMapping("/residence")
-	public String registResidencePost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int residenceId = userRD.getResidence();
+	public String registResidencePost(@ModelAttribute("user") User user) {
+		int residenceId = user.getUserRD().getResidence();
 		session.setAttribute("regist_residence", residenceId);
 		return "redirect:/regist/occupation";
 	}
 	
 	@GetMapping("/occupation")
 	public String registOccupationGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("occupations", userService.selectOccupationAll());
 		return "regist/occupation";
 	}
 	
 	@PostMapping("/occupation")
-	public String registOccupationPost(@ModelAttribute("urerRD") UserRequiredDetail userRD) {
-		int occupationId = userRD.getOccupation();
+	public String registOccupationPost(@ModelAttribute("urer") User user) {
+		int occupationId = user.getUserRD().getOccupation();
 		session.setAttribute("regist_occupation", occupationId);
 		return "redirect:/regist/annual_income";
 	}
 	
 	@GetMapping("/annual_income")
 	public String registAnnualIncomeGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
 		return "regist/annual_income";
 		
 	}
 	
 	@PostMapping("/annual_income")
-	public String registAnnualIncomePost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int annualIncomeId = userRD.getAnnualIncome();
+	public String registAnnualIncomePost(@ModelAttribute("user") User user) {
+		int annualIncomeId = user.getUserRD().getAnnualIncome();
 		session.setAttribute("regist_annual_income", annualIncomeId);
 		return "redirect:/regist/marital_status";
 	}
 	
 	@GetMapping("/marital_status")
 	public String registMaritalStatusGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("marital_statuses", userService.selectMaritalStatusAll());
 		return "regist/marital_status";
 	}
 	
 	@PostMapping("/marital_status")
-	public String registMaritalStatusPost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int maritalStatusId = userRD.getMaritalStatus();
+	public String registMaritalStatusPost(@ModelAttribute("user") User user) {
+		int maritalStatusId = user.getUserRD().getMaritalStatus();
 		session.setAttribute("regist_marital_status", maritalStatusId);
 		return "redirect:/regist/desire_to_marry";
 	}
 	
 	@GetMapping("/desire_to_marry")
 	public String registDesireToMarry(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("desire_to_marries", userService.selectDesireToMarryAll());
 		return "regist/desire_to_marry";
 	}
 	
 	@PostMapping("/desire_to_marry")
-	public String registDesireToMarry(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int desireToMarryId = userRD.getDesireToMarry();
+	public String registDesireToMarry(@ModelAttribute("user") User user) {
+		int desireToMarryId = user.getUserRD().getDesireToMarry();
 		session.setAttribute("regist_desire_to_marry", desireToMarryId);
 		return "redirect:/regist/holiday";
 	}
 	
 	@GetMapping("holiday")
 	public String holidayGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("holidays", userService.selectHolidayAll());
 		return "regist/holiday";
 	}
 	
 	@PostMapping("holiday")
-	public String holidayPost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int holidayId = userRD.getHoliday();
+	public String holidayPost(@ModelAttribute("user") User user) {
+		int holidayId = user.getUserRD().getHoliday();
 		session.setAttribute("regist_holiday", holidayId);
 		return "redirect:/regist/smoking";
 	}
 	
 	@GetMapping("smoking")
 	public String smokingGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("smokings", userService.selectSmokingAll());
 		return "regist/smoking";
 	}
 	
 	@PostMapping("smoking")
-	public String smokingPost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int smokingId = userRD.getSmoking();
+	public String smokingPost(@ModelAttribute("user") User user) {
+		int smokingId = user.getUserRD().getSmoking();
 		session.setAttribute("regist_smoking", smokingId);
 		return "redirect:/regist/housemate";
 	}
 	
 	@GetMapping("housemate")
 	public String housemateGet(Model model) throws Exception {
-		model.addAttribute("userRD", new UserRequiredDetail());
+		model.addAttribute("user", new User());
 		model.addAttribute("housemate", userService.selectHousemateAll());
 		return "regist/housemate";
 	}
 	
 	@PostMapping("housemate")
-	public String housematePost(@ModelAttribute("userRD") UserRequiredDetail userRD) {
-		int housemateId = userRD.getHousemate();
+	public String housematePost(@ModelAttribute("user") User user) {
+		int housemateId = user.getUserRD().getHousemate();
 		session.setAttribute("regist_housemate", housemateId);
 		return "redirect:/regist/done";
 	}

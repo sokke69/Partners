@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 	// AllRegist ここから
 	
 	@Override
-	public void insertUserAllDetail(User user,UserBasicDetail userBD, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception {
+	public void insertUserAllDetail(User user, UserBasicDetail userBD, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception {
 		userMapper.insertUser(user);
 		userBDMapper.insertUserBD(userBD);
 		userRDMapper.insertUserRD(userRD);

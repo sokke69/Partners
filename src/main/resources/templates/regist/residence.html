@@ -7,9 +7,9 @@
 <body>
 <h1>ユーザー登録 : 居住地</h1>
 
-<form th:action="@{/regist/residence}" method="post" th:object="${userRD}">
+<form th:action="@{/regist/residence}" method="post" th:object="${user}">
 	<p>
-	<select th:field="*{residence}" id="">
+	<select th:field="*{userRD.residence}" id="">
 	<th:block th:each="residence : ${residences}">
 		<option th:value="${residence.id}">[[${residence.residence}]]</option>
 	</th:block>

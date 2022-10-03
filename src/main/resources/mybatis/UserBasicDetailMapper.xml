@@ -4,7 +4,7 @@
 <mapper namespace="com.example.app.mapper.UserBasicDetailMapper">
 
 	<insert id="insertUserBD" parameterType="com.example.app.domain.UserBasicDetail">
-		INSERT INTO user_basic_details (sex, age, name, like_point, registed)
+		INSERT INTO user_basic_details (sex, age, name, like_point, registered)
 		VALUES (#{sex}, #{age}, #{name}, 30, NOW())
 	</insert>
 

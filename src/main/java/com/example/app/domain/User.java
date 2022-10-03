@@ -3,6 +3,10 @@ package com.example.app.domain;
 import java.util.Collection;
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,12 +17,16 @@ import lombok.Data;
 public class User implements UserDetails{
 	
 	private int id;
+	@NotBlank
+	@Email(message="※ メールアドレスが正しく入力されていません")
 	private String loginId;
 	private String loginPass;
 	private List<String> roles;
-	
+	@Valid
 	private UserBasicDetail userBD;
+	@Valid
 	private UserRequiredDetail userRD;
+	@Valid
 	private UserFreeDetail userFD;
 	
 	@Override

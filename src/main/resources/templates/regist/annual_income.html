@@ -7,9 +7,9 @@
 <body>
 <h1>ユーザー登録 : 年収</h1>
 
-<form th:action="@{/regist/annual_income}" method="post" th:object="${userRD}">
+<form th:action="@{/regist/annual_income}" method="post" th:object="${user}">
 	<p>
-	<select th:field="*{annualIncome}" id="">
+	<select th:field="*{userRD.annualIncome}" id="">
 	<th:block th:each="annual_income : ${annual_incomes}">
 		<option th:value="${annual_income.id}">[[${annual_income.annualIncome}]]</option>
 	</th:block>

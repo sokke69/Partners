@@ -7,9 +7,9 @@
 <body>
 <h1>ユーザー登録 : タバコ</h1>
 
-<form th:action="@{/regist/smoking}" method="post" th:object="${userRD}">
+<form th:action="@{/regist/smoking}" method="post" th:object="${user}">
 	<p>
-	<select th:field="*{smoking}" id="">
+	<select th:field="*{userRD.smoking}" id="">
 	<th:block th:each="smoking : ${smokings}">
 		<option th:value="${smoking.id}">[[${smoking.smoking}]]</option>
 	</th:block>

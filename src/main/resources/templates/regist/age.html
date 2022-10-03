@@ -6,10 +6,11 @@
 </head>
 <body>
 <h1>ユーザー登録 : 年齢</h1>
-<form th:action="@{/regist/age}" method="post" th:object="${userBD}">
+<form th:action="@{/regist/age}" method="post" th:object="${user}">
 
+<p th:errors="*{userBD.age}" class="error"></p>
 <p>年齢:
-<input type="text" th:field="*{age}"/></p>
+<input type="text" th:field="*{userBD.age}"/></p>
 
 <button type="button" onclick="location.href='/regist/sex'">戻る</button>
 <input type="submit" value="次へ"/>

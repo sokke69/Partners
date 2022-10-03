@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.error{
+	color: #F00;
+	margin-bottom: 0;
+}
+
+.error + p{
+	margin-top: 0;
+}

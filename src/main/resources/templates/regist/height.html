@@ -7,10 +7,10 @@
 <body>
 	<h1>ユーザー登録 : 身長</h1>
 
-	<form th:action="@{/regist/height}" method="post" th:object="${userRD}">
+	<form th:action="@{/regist/height}" method="post" th:object="${user}">
 
 		<p>
-			<select th:field="*{height}" id="">
+			<select th:field="*{userRD.height}" id="">
 				<option th:value="1">選択しない</option>
 				<option th:value="130">130</option>
 				<option th:value="131">131</option>

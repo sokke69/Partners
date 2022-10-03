@@ -20,7 +20,7 @@ import com.example.app.domain.UserRequiredDetail;
 public interface UserService extends UserDetailsService{
 	
 	// AllRegist
-	void insertUserAllDetail(User user,UserBasicDetail userBD , UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;
+	void insertUserAllDetail(User user, UserBasicDetail userBD, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;
 	
 	
 	// UserMapper.java
