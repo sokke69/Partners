@@ -67,8 +67,6 @@ public class IndexController {
 	        mailSender.send(mimeMsg);
 	        
 	        session.setMaxInactiveInterval(600);
-	        int intervalTime = session.getMaxInactiveInterval();
-	        System.out.println("セッション有効期限を" + intervalTime/60 + "分に変更しました。");
 			
 			return "sended_mail";
 		}

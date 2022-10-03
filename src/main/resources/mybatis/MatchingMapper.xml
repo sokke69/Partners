@@ -3,10 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.app.mapper.MatchingMapper">
 
-<update id="createTable" parameterType="String">
-	CREATE TABLE z${id}_matchings 
-	(id INT PRIMARY KEY,
-	matching INT);
-</update>
+
 	
 </mapper>

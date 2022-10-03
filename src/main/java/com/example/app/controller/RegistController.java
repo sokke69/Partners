@@ -17,10 +17,6 @@ import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserRequiredDetail;
 import com.example.app.mapper.MatchingMapper;
-import com.example.app.mapper.UserBasicDetailMapper;
-import com.example.app.mapper.UserFreeDetailMapper;
-import com.example.app.mapper.UserMapper;
-import com.example.app.mapper.UserRequiredDetailMapper;
 import com.example.app.service.UserServiceImpl;
 
 @Controller
@@ -32,18 +28,6 @@ public class RegistController {
 	
 	@Autowired
 	UserServiceImpl userService;
-	
-	@Autowired
-	UserMapper userMapper;
-	
-	@Autowired
-	UserBasicDetailMapper userBDMapper;
-	
-	@Autowired
-	UserRequiredDetailMapper userRDMapper;
-	
-	@Autowired
-	UserFreeDetailMapper userFDMapper;
 	
 	@Autowired
 	MatchingMapper matchingMapper;
@@ -125,7 +109,7 @@ public class RegistController {
 	@GetMapping("/residence")
 	public String registResidenceGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("residences", userRDMapper.selectResidenceAll());
+		model.addAttribute("residences", userService.selectResidenceAll());
 		return "regist/residence";
 	}
 	
@@ -139,7 +123,7 @@ public class RegistController {
 	@GetMapping("/occupation")
 	public String registOccupationGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("occupations", userRDMapper.selectOccupationAll());
+		model.addAttribute("occupations", userService.selectOccupationAll());
 		return "regist/occupation";
 	}
 	
@@ -153,7 +137,7 @@ public class RegistController {
 	@GetMapping("/annual_income")
 	public String registAnnualIncomeGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("annual_incomes", userRDMapper.selectAnnualIncomeAll());
+		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
 		return "regist/annual_income";
 		
 	}
@@ -168,7 +152,7 @@ public class RegistController {
 	@GetMapping("/marital_status")
 	public String registMaritalStatusGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("marital_statuses", userRDMapper.selectMaritalStatusAll());
+		model.addAttribute("marital_statuses", userService.selectMaritalStatusAll());
 		return "regist/marital_status";
 	}
 	
@@ -182,7 +166,7 @@ public class RegistController {
 	@GetMapping("/desire_to_marry")
 	public String registDesireToMarry(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("desire_to_marries", userRDMapper.selectDesireToMarryAll());
+		model.addAttribute("desire_to_marries", userService.selectDesireToMarryAll());
 		return "regist/desire_to_marry";
 	}
 	
@@ -196,7 +180,7 @@ public class RegistController {
 	@GetMapping("holiday")
 	public String holidayGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("holidays", userRDMapper.selectHolidayAll());
+		model.addAttribute("holidays", userService.selectHolidayAll());
 		return "regist/holiday";
 	}
 	
@@ -210,7 +194,7 @@ public class RegistController {
 	@GetMapping("smoking")
 	public String smokingGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("smokings", userRDMapper.selectSmokingAll());
+		model.addAttribute("smokings", userService.selectSmokingAll());
 		return "regist/smoking";
 	}
 	
@@ -224,7 +208,7 @@ public class RegistController {
 	@GetMapping("housemate")
 	public String housemateGet(Model model) throws Exception {
 		model.addAttribute("userRD", new UserRequiredDetail());
-		model.addAttribute("housemate", userRDMapper.selectHousemateAll());
+		model.addAttribute("housemate", userService.selectHousemateAll());
 		return "regist/housemate";
 	}
 	
@@ -243,6 +227,7 @@ public class RegistController {
 		
 		user.setLoginId((String) session.getAttribute("regist_email"));
 		user.setLoginPass(passwordEncoder.encode("partners"));
+		
 		userBD.setSex((Integer) session.getAttribute("regist_sex"));
 		userBD.setAge((Integer) session.getAttribute("regist_age"));
 		userBD.setName((String) session.getAttribute("regist_name"));
@@ -257,21 +242,17 @@ public class RegistController {
 		userRD.setSmoking((int) session.getAttribute("regist_smoking"));
 		userRD.setHousemate((int) session.getAttribute("regist_housemate"));
 		
-		userMapper.insertUser(user);
-		userBDMapper.insertUserBD(userBD);
-		userRDMapper.insertUserRD(userRD);
-		userFDMapper.insertUserFD();
+		userService.insertUserAllDetail(user, userBD, userRD, null);
 		
 		String email = (String) session.getAttribute("regist_email");
-		String userId = userMapper.getUserIdByEmail(email).toString();
+		String userId = userService.getUserIdByEmail(email).toString();
 		
+		userService.createTable(userId);
 		userService.insertUserRole(userId);
 		
 		session.invalidate();
 		
 		session.setMaxInactiveInterval(1800);
-		int intervalTime = session.getMaxInactiveInterval();
-		System.out.println("セッション有効期限を" + intervalTime/60 + "分に変更しました。");
 		
 		return "regist/done";
 	}
