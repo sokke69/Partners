@@ -3,14 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー登録 : 年齢</title>
+<link rel="stylesheet" th:href="@{/css/error.css}" />
 </head>
 <body>
 <h1>ユーザー登録 : 年齢</h1>
-<form th:action="@{/regist/age}" method="post" th:object="${user}">
+<form th:action="@{/regist/age}" method="post" th:object="${userBD}">
 
-<p th:errors="*{userBD.age}" class="error"></p>
+<p th:errors="*{age}" class="error"></p>
 <p>年齢:
-<input type="text" th:field="*{userBD.age}"/></p>
+<input type="text" th:field="*{age}"/></p>
+
+<input type="hidden" name="name" th:value="text"/>
+<input type="hidden" name="sex" th:value="1"/>
 
 <button type="button" onclick="location.href='/regist/sex'">戻る</button>
 <input type="submit" value="次へ"/>

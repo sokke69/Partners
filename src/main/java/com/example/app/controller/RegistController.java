@@ -63,42 +63,55 @@ public class RegistController {
 	}
 	
 	@PostMapping("/sex")
-	public String registSexPost(@Valid @ModelAttribute("user") UserBasicDetail userBD,
+	public String registSexPost(@Valid @ModelAttribute("userBD") UserBasicDetail userBD,
 			Errors errors,
 			Model model) {
-		Integer registSex = userBD.getSex();
-		session.setAttribute("regist_sex", registSex);
+		if (errors.hasErrors()) {
+			model.addAttribute("userBD", userBD);
+			return "regist/sex";
+		} else {
+		session.setAttribute("regist_sex", userBD.getSex());
 		return "redirect:/regist/age";
+		}
 	}
 	
 	@GetMapping("/age")
 	public String registAgeGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/age";
 	}
 	
 	@PostMapping("/age")
-	public String registAgePost(@Valid @ModelAttribute("user") User user,
+	public String registAgePost(@Valid @ModelAttribute("userBD") UserBasicDetail userBD,
 			Errors errors,
 			Model model) {
-		Integer registAge = user.getUserBD().getAge();
+		if (errors.hasErrors()) {
+			model.addAttribute("userBD", userBD);
+			return "regist/age";
+		}
+		Integer registAge = userBD.getAge();
 		session.setAttribute("regist_age", registAge);
-		model.addAttribute("user", user);
+		model.addAttribute("userBD", userBD);
 		return "redirect:/regist/name";
 	}
 	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/name";
 	}
 	
 	@PostMapping("/name")
-	public String registNamePost(@Valid @ModelAttribute("user") User user,
+	public String registNamePost(@Valid @ModelAttribute("userBD") UserBasicDetail userBD,
 			Errors errors,
 			Model model) {
-		String registName = user.getUserBD().getName();
+		if (errors.hasErrors()) {
+			model.addAttribute("userBD", userBD);
+			return "regist/name";
+		}
+		String registName = userBD.getName();
 		session.setAttribute("regist_name", registName);
+		model.addAttribute("userBD", userBD);
 		return "redirect:/regist/height";
 	}
 	

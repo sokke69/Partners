@@ -3,16 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー登録 : 性別</title>
+<link rel="stylesheet" th:href="@{/css/error.css}" />
 </head>
 <body>
 
 <h1>ユーザー登録 : 性別</h1>
 <form th:action="@{/regist/sex}" method="post" th:object="${userBD}">
 <p th:errors="*{sex}" class="error"></p>
+<p th:errors="*{age}" class="error"></p>
+<p th:errors="*{name}" class="error"></p>
 <p><input type="radio" th:field="*{sex}" value="1" id="male"/><label for="male">男性</label></p>
 <p><input type="radio" th:field="*{sex}" value="2" id="female"/><label for="female">女性</label></p>
 
-<button type="button" onclick="location.href='/regist/top'">戻る</button> 
+<input type="hidden" name="name" th:value="text"/>
+<input type="hidden" name="age" th:value="20"/>
+
 <input type="submit" value="次へ"/>
 </form>
 </body>
