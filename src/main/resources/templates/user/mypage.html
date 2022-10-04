@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/user_table.css}" />
 <head>
 <meta charset="UTF-8">
 <title>マイページ</title>
@@ -7,85 +8,103 @@
 <body>
 <h1>マイページ</h1>
 
-<table border=1>
+<table>
+<tr><th>[[${user.userBD.name}]]</th></tr>
+<tr><td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]
+<th:block th:if="${user.userFD.vaccinationStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.vaccinationStr} == '接種済み'">[[${user.userFD.vaccinationStr}]]</th:block>
+<th:block th:if="${user.userFD.vaccinationStr} == '接種中'">[[${user.userFD.vaccinationStr}]]</th:block></td>
+</tr>
+</table>
 
-	<tr>
-		<th>ニックネーム</th>
-		<td>[[${user.userBD.name}]]</td>
-	</tr>
-	<tr>
-		<th>年齢</th>
-		<td>[[${user.userBD.age}]]歳</td>
-	</tr>
-	<tr>
-		<th>身長</th>
-		<td>[[${user.userRD.height}]]cm</td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
-	<tr>
-		<th></th>
-		<td></td>
-	</tr>
 
+
+<table>
+<tr><th>自己紹介</th></tr>
+<tr><td></td></tr>
+</table>
+
+<table>
+<tr><th colspan="2">基本情報</th></tr>
+<tr><th>ニックネーム</th><td>[[${user.userBD.name}]]</td></tr>
+
+<th:block th:if="${user.userBD.age} == '選択しない'"></th:block>
+<th:block th:if="${user.userBD.age} != '選択しない'"><tr><th>年齢</th><td>[[${user.userBD.age}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.bloodTypeStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.bloodTypeStr} != '選択しない'"><tr><th>血液型</th><td>[[${user.userFD.bloodTypeStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.siblingStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.siblingStr} != '選択しない'"><tr><th>兄弟姉妹</th><td>[[${user.userFD.siblingStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.residenceStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.residenceStr} != '選択しない'"><tr><th>居住地</th><td>[[${user.userRD.residenceStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.birthPlaceStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.birthPlaceStr} != '選択しない'"><tr><th>出身地</th><td>[[${user.userFD.birthPlaceStr}]]</td></tr></th:block>
+
+</table>
+
+<table>
+<tr><th colspan="2">学歴・職歴・外見</th></tr>
+<th:block th:if="${user.userFD.educationalStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.educationalStr} != '選択しない'"><tr><th>学歴</th><td>[[${user.userFD.educationalStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.occupationStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.occupationStr} != '選択しない'"><tr><th>職種</th><td>[[${user.userRD.occupationStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.annualIncomeStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.annualIncomeStr} != '選択しない'"><tr><th>年収</th><td>[[${user.userRD.annualIncomeStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.height} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.height} != '選択しない'"><tr><th>身長</th><td>[[${user.userRD.height}]]cm</td></tr></th:block>
+
+<th:block th:if="${user.userFD.figureStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.figureStr} != '選択しない'"><tr><th>体型</th><td>[[${user.userFD.figureStr}]]</td></tr></th:block>
+
+</table>
+
+<table>
+<tr><th colspan="2">恋愛・結婚について</th></tr>
+<th:block th:if="${user.userFD.haveChildrenStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.haveChildrenStr} != '選択しない'"><tr><th>子供の有無</th><td>[[${user.userFD.haveChildrenStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.desireToMarryStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.desireToMarryStr} != '選択しない'"><tr><th>結婚に対する意思</th><td>[[${user.userRD.desireToMarryStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.desireToGetchildStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.desireToGetchildStr} != '選択しない'"><tr><th>子どもが欲しいか</th><td>[[${user.userFD.desireToGetchildStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.houseworkStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.houseworkStr} != '選択しない'"><tr><th>家事・育児</th><td>[[${user.userFD.houseworkStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.timeToMeetStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.timeToMeetStr} != '選択しない'"><tr><th>出会うまでの希望</th><td>[[${user.userFD.timeToMeetStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.paymentStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.paymentStr} != '選択しない'"><tr><th>デート費用</th><td>[[${user.userFD.paymentStr}]]</td></tr></th:block>
+
+</table>
+
+<table>
+<tr><th colspan="2">性格・趣味・生活</th></tr>
+<th:block th:if="${user.userFD.sociabilityStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.sociabilityStr} != '選択しない'"><tr><th>社交性</th><td>[[${user.userFD.sociabilityStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.housemateStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.housemateStr} != '選択しない'"><tr><th>同居人</th><td>[[${user.userRD.housemateStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.holidayStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.holidayStr} != '選択しない'"><tr><th>休日</th><td>[[${user.userRD.holidayStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.alcoholStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userFD.alcoholStr} != '選択しない'"><tr><th>お酒</th><td>[[${user.userFD.alcoholStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userRD.smokingStr} == '選択しない'"></th:block>
+<th:block th:if="${user.userRD.smokingStr} != '選択しない'"><tr><th>タバコ</th><td>[[${user.userRD.smokingStr}]]</td></tr></th:block>
+
+<th:block th:if="${user.userFD.hobbyOne} == null"></th:block>
+<th:block th:if="${user.userFD.hobbyOne} != null"><tr><th>好きなこと・趣味</th><td>[[${user.userFD.hobbyOne}]],[[${user.userFD.hobbyTwo}]],[[${user.userFD.hobbyThree}]]</td></tr></th:block>
 </table>
 
 <p><a th:href="@{/user/top}">戻る</a></p>
