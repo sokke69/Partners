@@ -31,10 +31,25 @@ public class IndexController {
 
 	@Autowired
 	UserService userService;
+	
+	@GetMapping("/")
+	public String startGet() {
+		if (session.getAttribute("status") == null) {
+			return "/index";
+		} else if (session.getAttribute("status").equals("login")) {
+			return "/user/top";
+		}
+		return "/";
+	}
 
 	@GetMapping("/index")
-	public String index() {
-		return "index";
+	public String indexGet() {
+		if (session.getAttribute("status") == null) {
+			return "/index";
+		} else if (session.getAttribute("status").equals("login")) {
+			return "/user/top";
+		}
+		return "/index";
 	}
 
 	@GetMapping("/regist")
@@ -138,5 +153,10 @@ public class IndexController {
 
 	}
 	
+	@GetMapping("/logout")
+	public String logoutGet() throws Exception{
+		session.invalidate();
+		return "redirect:/index";
+	}
 
 }

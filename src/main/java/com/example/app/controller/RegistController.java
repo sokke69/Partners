@@ -57,9 +57,9 @@ public class RegistController {
 		
 	}
 	
-	@GetMapping("/invalid_url")
+	@GetMapping("/invalid")
 	public String invalidUrl() {
-		return "regist/invalid_url";
+		return "regist/invalid";
 	}
 	
 	

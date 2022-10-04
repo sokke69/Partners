@@ -51,6 +51,9 @@ public class UserController {
 	
 	@GetMapping("/top")
 	public String topGet() throws Exception{
+		if (session.getAttribute("status") == null) {
+			return "/invalid";
+		}
 		/*
 		 * Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		 * UserDetails userDetails = (UserDetails) auth.getPrincipal();
@@ -62,16 +65,17 @@ public class UserController {
 		 * 
 		 * session.setAttribute("login_id", loginId);
 		 */
-		
-		System.out.println("status : " + session.getAttribute("status"));
-		System.out.println("login_id : " + session.getAttribute("login_id"));
-		System.out.println("email : " + session.getAttribute("email"));
-		
+
 		return "/user/top";
 	}
 	
 	@GetMapping("/mypage")
 	public String mypageGet(Model model) throws Exception{
+		if (!session.getAttribute("status").equals("login") || session.getAttribute("status") == null) {
+			return "/invalid";
+		}
+		
+		
 		String loginId = (String) session.getAttribute("login_id");
 		User user = new User();
 		user = userService.getUserByLoginId(loginId);
