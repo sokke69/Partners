@@ -2,8 +2,6 @@ package com.example.app.service;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
-
 import com.example.app.domain.AnnualIncome;
 import com.example.app.domain.DesireToMarry;
 import com.example.app.domain.Holiday;
@@ -17,7 +15,7 @@ import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
 
-public interface UserService extends UserDetailsService{
+public interface UserService/* extends UserDetailsService */{
 	
 	// AllRegist
 	void insertUserAllDetail(User user, UserBasicDetail userBD, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;

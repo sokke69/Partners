@@ -5,7 +5,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -34,19 +33,27 @@ public class RegistController {
 	@Autowired
 	MatchingMapper matchingMapper;
 	
-	@Autowired
-	PasswordEncoder passwordEncoder;
+	/*
+	 * @Autowired PasswordEncoder passwordEncoder;
+	 */
 	
 	@Autowired
 	JavaMailSender mailSender;
 	
 	@GetMapping("/regist_user/{registUrl}")
 	public String registStart(@PathVariable("registUrl") String registUrl) {
+		String status = (String) session.getAttribute("email");
+		if (!status.equals("sended")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		String sessionRegistUrl = (String) session.getAttribute("regist_url");
-		if (sessionRegistUrl.equals(registUrl) || sessionRegistUrl.equals(null)) {
+		if (sessionRegistUrl.equals(sessionRegistUrl)) {
+			session.setAttribute("status", "regist");
 			return "redirect:/regist/sex";
 		}
-		return "regist/invalid_url";
+		return "invalid_url";
 		
 	}
 	
@@ -58,8 +65,14 @@ public class RegistController {
 	
 	@GetMapping("/sex")
 	public String registSexGet(Model model) {
-		model.addAttribute("userBD", new UserBasicDetail());
-		return "regist/sex";
+		String status = (String) session.getAttribute("status");
+		if (status == "regist") {
+			model.addAttribute("userBD", new UserBasicDetail());
+			return "regist/sex";
+		}
+		session.setAttribute("error_title", "このページは開けません");
+		session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+		return "error";
 	}
 	
 	@PostMapping("/sex")
@@ -77,6 +90,12 @@ public class RegistController {
 	
 	@GetMapping("/age")
 	public String registAgeGet(Model model) {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/age";
 	}
@@ -97,6 +116,12 @@ public class RegistController {
 	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/name";
 	}
@@ -117,6 +142,12 @@ public class RegistController {
 	
 	@GetMapping("/height")
 	public String registHeightGet(Model model) {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		return "regist/height";
 	}
@@ -130,6 +161,12 @@ public class RegistController {
 	
 	@GetMapping("/residence")
 	public String registResidenceGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("residences", userService.selectResidenceAll());
 		return "regist/residence";
@@ -144,6 +181,12 @@ public class RegistController {
 	
 	@GetMapping("/occupation")
 	public String registOccupationGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("occupations", userService.selectOccupationAll());
 		return "regist/occupation";
@@ -158,6 +201,12 @@ public class RegistController {
 	
 	@GetMapping("/annual_income")
 	public String registAnnualIncomeGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
 		return "regist/annual_income";
@@ -173,6 +222,12 @@ public class RegistController {
 	
 	@GetMapping("/marital_status")
 	public String registMaritalStatusGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("marital_statuses", userService.selectMaritalStatusAll());
 		return "regist/marital_status";
@@ -187,6 +242,12 @@ public class RegistController {
 	
 	@GetMapping("/desire_to_marry")
 	public String registDesireToMarry(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("desire_to_marries", userService.selectDesireToMarryAll());
 		return "regist/desire_to_marry";
@@ -201,6 +262,12 @@ public class RegistController {
 	
 	@GetMapping("holiday")
 	public String holidayGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("holidays", userService.selectHolidayAll());
 		return "regist/holiday";
@@ -215,6 +282,12 @@ public class RegistController {
 	
 	@GetMapping("smoking")
 	public String smokingGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("smokings", userService.selectSmokingAll());
 		return "regist/smoking";
@@ -229,6 +302,12 @@ public class RegistController {
 	
 	@GetMapping("housemate")
 	public String housemateGet(Model model) throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
 		model.addAttribute("user", new User());
 		model.addAttribute("housemate", userService.selectHousemateAll());
 		return "regist/housemate";
@@ -243,12 +322,20 @@ public class RegistController {
 	
 	@GetMapping("/done")
 	public String registDone() throws Exception {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
+		
 		User user = new User();
 		UserBasicDetail userBD = new UserBasicDetail();
 		UserRequiredDetail userRD = new UserRequiredDetail();
 		
 		user.setLoginId((String) session.getAttribute("regist_email"));
-		user.setLoginPass(passwordEncoder.encode("partners"));
+		user.setLoginPass("$2a$10$6h/QFk2vSOdvUmBTF08lqe90.HPGdbFgXEYz.NRN1Ns0W7suRviqq");
+		/* user.setLoginPass(passwordEncoder.encode("partners")); */
 		
 		userBD.setSex((Integer) session.getAttribute("regist_sex"));
 		userBD.setAge((Integer) session.getAttribute("regist_age"));
@@ -273,6 +360,8 @@ public class RegistController {
 		userService.insertUserRole(userId);
 		
 		session.invalidate();
+		session.setAttribute("status", "login");
+		session.setAttribute("login_id", (String) session.getAttribute("regist_email"));
 		
 		session.setMaxInactiveInterval(1800);
 		

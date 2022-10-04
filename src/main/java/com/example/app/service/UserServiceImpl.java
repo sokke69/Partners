@@ -3,8 +3,6 @@ package com.example.app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -240,15 +238,11 @@ public class UserServiceImpl implements UserService {
 	
 	// SpringSecurity ここから
 	
-	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		try {
-			return userMapper.checkLoginByEmail(email);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	/*
+	 * @Override public UserDetails loadUserByUsername(String email) throws
+	 * UsernameNotFoundException { try { return userMapper.checkLoginByEmail(email);
+	 * } catch (Exception e) { e.printStackTrace(); } return null; }
+	 */
 
 	/* SpringSecurity ここまで */
 	
