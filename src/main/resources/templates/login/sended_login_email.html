@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>メールを送信しました</title>
+</head>
+<body>
+<h1>メールを送信しました</h1>
+
+<p>送信されたメールを確認してください</p>
+<p>[[${session.emailFrom}]] から</p>
+<p>[[${session.emailTo}]]</p>
+<p>にメールアドレスの認証用メールを送信しました。</p>
+<p>10分以内に、送信されたメールを確認してください。経過した場合は、再度メールアドレスを入力してください。</p>
+
+<p><a th:href="@{loginAuth}">認証用コードを入力する</a></p>
+
+
+<p><a th:href="@{/}">トップへ戻る</a></p>
+
+</body>
+</html>

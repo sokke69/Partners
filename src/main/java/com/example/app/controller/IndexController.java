@@ -98,65 +98,14 @@ public class IndexController {
 		session.setMaxInactiveInterval(600);
 		
 
-		return "sended_mail";
+		return "sended_email";
 
 	}
 	
-	
-	@GetMapping("/login")
-	public String loginGet(Model model) {
-		model.addAttribute("user", new User());
-		session.removeAttribute("error_title");
-		session.removeAttribute("error_detail");
-		return "login";
-	}
-	
-	@PostMapping("/login")
-	public String loginPost(@Valid @ModelAttribute("user") User user, 
-			Errors errors,
-			Model model) throws Exception {
-
-		List<String> emailbyDB = userService.selectEmail();
-		String email = user.getLoginId();
-
-		if (errors.hasErrors()) {
-			model.addAttribute("user", user);
-			return "regist";
-		} else if (!emailbyDB.contains(email)) {
-			errors.rejectValue("loginId", "error.this_email_isnot_registered");
-			model.addAttribute("user", user);
-			return "regist";
-		}
-		
-		session.setAttribute("send_email", email);
-
-		UUID uuid = UUID.randomUUID();
-		String uuidStr = uuid.toString();
-		uuidStr = uuidStr.replace("-", "");
-		session.setAttribute("login_url", uuidStr);
-		session.setAttribute("email", "sended");
-
-		MimeMessage mimeMsg = mailSender.createMimeMessage();
-		MimeMessageHelper helper = new MimeMessageHelper(mimeMsg, true);
-
-		helper.setFrom("sokke.school@gmail.com");
-		helper.setTo(email);
-		helper.setSubject("[Partners] ログインメール");
-		helper.setText("以下のアドレスでマイページへ移動します\r\n" + "\r\n" + "http://localhost:8080/user/login/" + uuidStr
-				+ "\r\n" + "※ URLの有効期限は10分です。");
-		mailSender.send(mimeMsg);
-
-		session.setMaxInactiveInterval(600);
-		
-
-		return "sended_mail";
-
-	}
-	
-	@GetMapping("/logout")
+	@GetMapping("logout")
 	public String logoutGet() throws Exception{
 		session.invalidate();
 		return "redirect:/index";
 	}
-
+	
 }
