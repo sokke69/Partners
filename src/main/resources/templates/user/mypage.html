@@ -3,10 +3,12 @@
 <link rel="stylesheet" th:href="@{/css/user_table.css}" />
 <head>
 <meta charset="UTF-8">
-<title>マイページ</title>
+<title>プロフィール</title>
 </head>
 <body>
-<h1>マイページ</h1>
+<h1>プロフィール</h1>
+
+<p>	<a th:href="@{/user/mypage/update}">プロフィールを編集する</a></p>
 
 <table>
 <tr><th>[[${user.userBD.name}]]</th></tr>
@@ -29,7 +31,7 @@
 <tr><th>ニックネーム</th><td>[[${user.userBD.name}]]</td></tr>
 
 <th:block th:if="${user.userBD.age} == '選択しない'"></th:block>
-<th:block th:if="${user.userBD.age} != '選択しない'"><tr><th>年齢</th><td>[[${user.userBD.age}]]</td></tr></th:block>
+<th:block th:if="${user.userBD.age} != '選択しない'"><tr><th>年齢</th><td>[[${user.userBD.age}]]歳</td></tr></th:block>
 
 <th:block th:if="${user.userFD.bloodTypeStr} == '選択しない'"></th:block>
 <th:block th:if="${user.userFD.bloodTypeStr} != '選択しない'"><tr><th>血液型</th><td>[[${user.userFD.bloodTypeStr}]]</td></tr></th:block>

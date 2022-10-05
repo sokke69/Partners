@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
+import com.example.app.domain.UserBasicDetail;
+import com.example.app.domain.UserFreeDetail;
+import com.example.app.domain.UserRequiredDetail;
 import com.example.app.service.UserService;
 
 @Controller
@@ -84,7 +87,25 @@ public class UserController {
 		return "/user/mypage";
 	}
 
-	
+	@GetMapping("/mypage/update")
+	public String profileUpdateGet(Model model) throws Exception {
+		String loginId = (String) session.getAttribute("login_id");
+		User user = new User();
+		user = userService.getUserDetailOfNumberByLoginId(loginId);
+		model.addAttribute("user", user);
+		
+		UserBasicDetail userBD = user.getUserBD();
+		UserRequiredDetail userRD = user.getUserRD();
+		UserFreeDetail userFD = user.getUserFD();
+		
+		model.addAttribute("holidays", userService.selectHolidayAll());
+		model.addAttribute("holidaySelected", userRD.getHoliday());
+		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
+		model.addAttribute("annualIncomeSelected", userRD.getAnnualIncome());
+		
+
+		return "/user/profile_update";
+	}
 	
 	
 	

@@ -12,7 +12,7 @@ public class UserFreeDetail {
 	private String bloodTypeStr;
 	private int birthPlace;
 	private String birthPlaceStr;
-	private int educaational;
+	private int educational;
 	private String educationalStr;
 	private int sibling;
 	private String siblingStr;
@@ -22,7 +22,7 @@ public class UserFreeDetail {
 	private String haveChildrenStr;
 	private int desireToGetchild;
 	private String desireToGetchildStr;
-	private int hosuework;
+	private int housework;
 	private String houseworkStr;
 	private int timeToMeet;
 	private String timeToMeetStr;

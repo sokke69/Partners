@@ -2,14 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>ユーザー登録 : 身長</title>
+<title>プロフィール：編集</title>
+
+<link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
-	<h1>ユーザー登録 : 身長</h1>
 
-	<form th:action="@{/regist/height}" method="post" th:object="${user}">
+<form action="" th:object="${user}">
 
-		<p>
+<table>
+	<tr><th colspan=2>つぶやき</th></tr>
+	<tr><td><input type="text" /></td></tr>
+</table>
+
+<table>
+	<tr><th colspan=2>コミュニティ</th></tr>
+	<tr><td></td></tr>
+</table>
+
+<table>
+	<tr><th colspan=2>自己紹介文</th></tr>
+	<tr><td><textarea name="" id="" cols="30" rows="10"></textarea></td></tr>
+</table>
+<table>
+	<tr><th colspan=2>Partnersプロフィール</th></tr>
+	<tr><th>身長</th>
+		<td>
 			<select th:field="*{userRD.height}" id="">
 				<option th:value="1">選択しない</option>
 				<option th:value="130">130cm</option>
@@ -84,11 +102,60 @@
 				<option th:value="199">199cm</option>
 				<option th:value="200">200cm</option>
 			</select>
-		</p>
+		</td>
+	</tr>
+	<tr><th>体型</th>
+	<td>
+		
+	</td></tr>
+	<tr><th>血液型</th><td></td></tr>
+	<tr><th>居住地</th><td></td></tr>
+	<tr><th>出身地</th><td></td></tr>
+	<tr><th>職種</th><td></td></tr>
+	<tr><th>学歴</th><td></td></tr>
+	<tr><th>同居人</th><td></td></tr>
+	<tr><th>お酒</th><td></td></tr>
+</table>
+<table>
+	<tr><th colspan=2>詳細プロフィール</th></tr>
+	<tr><th>ニックネーム</th><td></td></tr>
+	<tr><th>兄弟姉妹</th><td></td></tr>
+	<tr><th>学校名</th><td></td></tr>
+	<tr><th>職業名</th><td></td></tr>
+	<tr><th>年収</th>
+	<td>
+		<select th:field="*{userRD.annualIncome}" id="">
+			<th:block th:each="annual_income : ${annual_incomes}">
+			<option th:value="${annual_income.id}" th:selected="${annual_income.id == annualIncomeSelected}">[[${annual_income.annualIncome}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>結婚歴</th><td></td></tr>
+	<tr><th>子供の有無</th><td></td></tr>
+	<tr><th>結婚に対する意思</th><td></td></tr>
+	<tr><th>子供が欲しいか</th><td></td></tr>
+	<tr><th>家事・育児</th><td></td></tr>
+	<tr><th>出会うまでの希望</th><td></td></tr>
+	<tr><th>デート費用</th><td></td></tr>
+	<tr><th>性格・タイプ</th><td></td></tr>
+	<tr><th>社交性</th><td></td></tr>
+	<tr><th>休日</th>
+	<td>
+		<select th:field="*{userRD.holiday}" id="">
+			<th:block th:each="holiday : ${holidays}">
+			<option th:value="${holiday.id}" th:selected="${holiday.id == holidaySelected}">[[${holiday.holiday}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>タバコ</th><td></td></tr>
+	<tr><th>好きなこと・趣味</th><td></td></tr>
+	<tr><th>ワクチン接種状況</th><td></td></tr>
+	
+</table>
 
-		<button type="button" onclick="location.href='/regist/name'">戻る</button>
-		<input type="submit" value="次へ"/>
-	</form>
+</form>
+
+<p><a th:href="@{/user/top}">戻る</a></p>
 
 </body>
 </html>

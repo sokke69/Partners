@@ -93,6 +93,11 @@ public class UserServiceImpl implements UserService {
 	public User getUserByLoginId(String loginId) throws Exception {
 		return userMapper.getUserByLoginId(loginId);
 	}
+	
+	@Override
+	public User getUserDetailOfNumberByLoginId(String loginId) throws Exception {
+		return userMapper.getUserDetailOfNumberByLoginId(loginId);
+	}
 
 	@Override
 	public Integer getUserIdByEmail(String email) throws Exception {
@@ -225,6 +230,7 @@ public class UserServiceImpl implements UserService {
 	public void insertUserRole(String userId) throws Exception {
 		registMapper.insertUserRole(userId);
 	}
+
 	
 	// RegistMapper ここまで //
 	
