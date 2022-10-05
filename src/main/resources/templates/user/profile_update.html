@@ -7,12 +7,14 @@
 <link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
+<h1>プロフィール：編集</h1>
+
 
 <form action="" th:object="${user}">
 
 <table>
 	<tr><th colspan=2>つぶやき</th></tr>
-	<tr><td><input type="text" /></td></tr>
+	<tr><td><input type="text" th:value="*{userT.oneWord}"/></td></tr>
 </table>
 
 <table>
@@ -22,7 +24,7 @@
 
 <table>
 	<tr><th colspan=2>自己紹介文</th></tr>
-	<tr><td><textarea name="" id="" cols="30" rows="10"></textarea></td></tr>
+	<tr><td><textarea name="" id="" cols="30" rows="10" th:text="*{userT.selfIntroduction}"></textarea></td></tr>
 </table>
 <table>
 	<tr><th colspan=2>Partnersプロフィール</th></tr>
@@ -106,22 +108,91 @@
 	</tr>
 	<tr><th>体型</th>
 	<td>
-		
+		<select th:field="*{userFD.figure}" id="">
+			<th:block th:each="figure : ${figures}">
+			<option th:value="${figure.id}" th:selected="${figure.id == figureSelected}">[[${figure.figure}]]</option>
+			</th:block>
+		</select>
 	</td></tr>
-	<tr><th>血液型</th><td></td></tr>
-	<tr><th>居住地</th><td></td></tr>
-	<tr><th>出身地</th><td></td></tr>
-	<tr><th>職種</th><td></td></tr>
-	<tr><th>学歴</th><td></td></tr>
-	<tr><th>同居人</th><td></td></tr>
-	<tr><th>お酒</th><td></td></tr>
+	<tr><th>血液型</th>
+	<td>
+		<select th:field="*{userFD.bloodType}" id="">
+			<th:block th:each="blood_type : ${blood_types}">
+			<option th:value="${blood_type.id}" th:selected="${blood_type.id == bloodTypeSelected}">[[${blood_type.bloodType}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>居住地</th>
+	<td>
+		<select th:field="*{userRD.residence}" id="">
+			<th:block th:each="residence : ${residences}">
+			<option th:value="${residence.id}" th:selected="${residence.id == residenceSelected}">[[${residence.residence}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>出身地</th>
+	<td>
+		<select th:field="*{userFD.birthPlace}" id="">
+			<th:block th:each="birth_place : ${birth_places}">
+			<option th:value="${birth_place.id}" th:selected="${birth_place.id == birthPlaceSelected}">[[${birth_place.birthPlace}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>職種</th>
+	<td>
+		<select th:field="*{userRD.occupation}" id="">
+			<th:block th:each="occupation : ${occupations}">
+			<option th:value="${occupation.id}" th:selected="${occupation.id == occupationSelected}">[[${occupation.occupation}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>学歴</th>
+	<td>
+		<select th:field="*{userFD.educational}" id="">
+			<th:block th:each="educational : ${educationals}">
+			<option th:value="${educational.id}" th:selected="${educational.id == educationalSelected}">[[${educational.educational}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>同居人</th>
+	<td>
+		<select th:field="*{userRD.housemate}" id="">
+			<th:block th:each="housemate : ${housemates}">
+			<option th:value="${housemate.id}" th:selected="${housemate.id == housemateSelected}">[[${housemate.housemate}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>お酒</th>
+	<td>
+		<select th:field="*{userFD.alcohol}" id="">
+			<th:block th:each="alcohol : ${alcohols}">
+			<option th:value="${alcohol.id}" th:selected="${alcohol.id == alcoholSelected}">[[${alcohol.alcohol}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
 </table>
 <table>
 	<tr><th colspan=2>詳細プロフィール</th></tr>
-	<tr><th>ニックネーム</th><td></td></tr>
-	<tr><th>兄弟姉妹</th><td></td></tr>
-	<tr><th>学校名</th><td></td></tr>
-	<tr><th>職業名</th><td></td></tr>
+	<tr><th>ニックネーム</th>
+	<td>
+		<input type="text" th:field="*{userBD.name}">
+	</td></tr>
+	<tr><th>兄弟姉妹</th>
+	<td>
+		<select th:field="*{userFD.sibling}" id="">
+			<th:block th:each="sibling : ${siblings}">
+			<option th:value="${sibling.id}" th:selected="${sibling.id == siblingSelected}">[[${sibling.sibling}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>学校名</th>
+	<td>
+		<input type="text" th:field="*{userFD.schoolName}">
+	</td></tr>
+	<tr><th>職業名</th>
+	<td>
+		<input type="text" th:field="*{userFD.jobName}">
+	</td></tr>
 	<tr><th>年収</th>
 	<td>
 		<select th:field="*{userRD.annualIncome}" id="">
@@ -130,15 +201,74 @@
 			</th:block>
 		</select>
 	</td></tr>
-	<tr><th>結婚歴</th><td></td></tr>
-	<tr><th>子供の有無</th><td></td></tr>
-	<tr><th>結婚に対する意思</th><td></td></tr>
-	<tr><th>子供が欲しいか</th><td></td></tr>
-	<tr><th>家事・育児</th><td></td></tr>
-	<tr><th>出会うまでの希望</th><td></td></tr>
-	<tr><th>デート費用</th><td></td></tr>
-	<tr><th>性格・タイプ</th><td></td></tr>
-	<tr><th>社交性</th><td></td></tr>
+	<tr><th>結婚歴</th>
+	<td>
+		<select th:field="*{userRD.maritalStatus}" id="">
+			<th:block th:each="marital_status : ${marital_statuses}">
+			<option th:value="${marital_status.id}" th:selected="${marital_status.id == maritalStatusSelected}">[[${marital_status.maritalStatus}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>子供の有無</th>
+	<td>
+		<select th:field="*{userFD.haveChildren}" id="">
+			<th:block th:each="have_children : ${have_childrens}">
+			<option th:value="${have_children.id}" th:selected="${have_children.id == haveChildrenSelected}">[[${have_children.haveChildren}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>結婚に対する意思</th>
+	<td>
+		<select th:field="*{userRD.desireToMarry}" id="">
+			<th:block th:each="desire_to_marry : ${desire_to_marries}">
+			<option th:value="${desire_to_marry.id}" th:selected="${desire_to_marry.id == desireToMarrySelected}">[[${desire_to_marry.desireToMarry}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>子供が欲しいか</th>
+	<td>
+		<select th:field="*{userFD.desireToGetchild}" id="">
+			<th:block th:each="desire_to_getchild : ${desire_to_getchilds}">
+			<option th:value="${desire_to_getchild.id}" th:selected="${desire_to_getchild.id == DesireToGetchildSelected}">[[${desire_to_getchild.desireToGetchild}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>家事・育児</th>
+	<td>
+		<select th:field="*{userFD.housework}" id="">
+			<th:block th:each="housework : ${houseworks}">
+			<option th:value="${housework.id}" th:selected="${housework.id == houseworkSelected}">[[${housework.housework}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>出会うまでの希望</th>
+	<td>
+		<select th:field="*{userFD.timeToMeet}" id="">
+			<th:block th:each="time_to_meet : ${time_to_meets}">
+			<option th:value="${time_to_meet.id}" th:selected="${time_to_meet.id == TimeToMeetSelected}">[[${time_to_meet.timeToMeet}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>デート費用</th>
+	<td>
+		<select th:field="*{userFD.payment}" id="">
+			<th:block th:each="payment : ${payments}">
+			<option th:value="${payment.id}" th:selected="${payment.id == paymentSelected}">[[${payment.payment}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+<!-- 	<tr><th>性格・タイプ</th>
+	<td>
+		
+	</td></tr> -->
+	<tr><th>社交性</th>
+	<td>
+		<select th:field="*{userFD.sociability}" id="">
+			<th:block th:each="sociability : ${sociabilities}">
+			<option th:value="${sociability.id}" th:selected="${sociability.id == sociabilitySelected}">[[${sociability.sociability}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
 	<tr><th>休日</th>
 	<td>
 		<select th:field="*{userRD.holiday}" id="">
@@ -147,15 +277,34 @@
 			</th:block>
 		</select>
 	</td></tr>
-	<tr><th>タバコ</th><td></td></tr>
-	<tr><th>好きなこと・趣味</th><td></td></tr>
-	<tr><th>ワクチン接種状況</th><td></td></tr>
+	<tr><th>タバコ</th>
+	<td>
+		<select th:field="*{userRD.smoking}" id="">
+			<th:block th:each="smoking : ${smokings}">
+			<option th:value="${smoking.id}" th:selected="${smoking.id == smokingSelected}">[[${smoking.smoking}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
+	<tr><th>好きなこと・趣味</th>
+	<td>
+		<input type="text" th:field="*{userFD.hobbyOne}"><br>
+		<input type="text" th:field="*{userFD.hobbyTwo}"><br>
+		<input type="text" th:field="*{userFD.hobbyThree}">
+	</td></tr>
+	<tr><th>ワクチン接種状況</th>
+	<td>
+		<select th:field="*{userFD.vaccination}" id="">
+			<th:block th:each="vaccination : ${vaccinations}">
+			<option th:value="${vaccination.id}" th:selected="${vaccination.id == vaccinationSelected}">[[${vaccination.vaccination}]]</option>
+			</th:block>
+		</select>
+	</td></tr>
 	
 </table>
 
 </form>
 
-<p><a th:href="@{/user/top}">戻る</a></p>
+<p><a th:href="@{/user/mypage}">戻る</a></p>
 
 </body>
 </html>

@@ -143,7 +143,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("loginAuth")
-	public String loginAuthPost(@ModelAttribute("loginRandomInt") LoginRandomInt loginRandomInt) {
+	public String loginAuthPost(@ModelAttribute("loginRandomInt") LoginRandomInt loginRandomInt) throws Exception {
 		if (loginRandomInt.getRandom6of1() != (int)session.getAttribute("random6of1")) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
@@ -174,6 +174,7 @@ public class LoginController {
 		
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", session.getAttribute("emailTo"));
+		session.setAttribute("user_id", userService.getUserIdByEmail((String)session.getAttribute("emailTo")));
 		
 		session.removeAttribute("emailFrom");
 		session.removeAttribute("emailTo");

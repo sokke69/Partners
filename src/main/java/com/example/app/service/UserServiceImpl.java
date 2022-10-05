@@ -6,24 +6,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.app.domain.Alcohol;
 import com.example.app.domain.AnnualIncome;
+import com.example.app.domain.BirthPlace;
+import com.example.app.domain.BloodType;
+import com.example.app.domain.DesireToGetchild;
 import com.example.app.domain.DesireToMarry;
+import com.example.app.domain.Educational;
+import com.example.app.domain.Figure;
+import com.example.app.domain.HaveChildren;
 import com.example.app.domain.Holiday;
 import com.example.app.domain.Housemate;
+import com.example.app.domain.Housework;
 import com.example.app.domain.MaritalStatus;
 import com.example.app.domain.Occupation;
+import com.example.app.domain.Payment;
 import com.example.app.domain.Residence;
+import com.example.app.domain.Sibling;
 import com.example.app.domain.Smoking;
+import com.example.app.domain.Sociability;
+import com.example.app.domain.TimeToMeet;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
+import com.example.app.domain.Vaccination;
 import com.example.app.mapper.MatchingMapper;
 import com.example.app.mapper.RegistMapper;
 import com.example.app.mapper.UserBasicDetailMapper;
 import com.example.app.mapper.UserFreeDetailMapper;
 import com.example.app.mapper.UserMapper;
 import com.example.app.mapper.UserRequiredDetailMapper;
+import com.example.app.mapper.UserTextMapper;
 
 @Service
 @Transactional
@@ -42,6 +56,9 @@ public class UserServiceImpl implements UserService {
 	UserFreeDetailMapper userFDMapper;
 	
 	@Autowired
+	UserTextMapper userTMapper;
+	
+	@Autowired
 	RegistMapper registMapper;
 	
 	@Autowired
@@ -53,11 +70,12 @@ public class UserServiceImpl implements UserService {
 	// AllRegist ここから
 	
 	@Override
-	public void insertUserAllDetail(User user, UserBasicDetail userBD, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception {
+	public void insertUserAllDetail(User user, UserBasicDetail userBD, UserRequiredDetail userRD) throws Exception {
 		userMapper.insertUser(user);
 		userBDMapper.insertUserBD(userBD);
 		userRDMapper.insertUserRD(userRD);
 		userFDMapper.insertUserFD();
+		userTMapper.insertUserT();
 	}
 	
 	// AllRegist ここまで
@@ -208,10 +226,84 @@ public class UserServiceImpl implements UserService {
 		userFDMapper.insertUserFD();
 	}
 	
+	@Override
+	public List<Figure> selectFigureAll() throws Exception {
+		return userFDMapper.selectFigureAll();
+	}
+
+	@Override
+	public List<BloodType> selectBloodTypeAll() throws Exception {
+		return userFDMapper.selectBloodTypeAll();
+	}
+
+	@Override
+	public List<BirthPlace> selectBirthPlaceAll() throws Exception {
+		return userFDMapper.selectBirthPlaceAll();
+	}
+
+	@Override
+	public List<Educational> selectEducationalAll() throws Exception {
+		return userFDMapper.selectEducationalAll();
+	}
+
+	@Override
+	public List<Sibling> selectSiblingAll() throws Exception {
+		return userFDMapper.selectSiblingAll();
+	}
+
+	@Override
+	public List<HaveChildren> selectHaveChildrenAll() throws Exception {
+		return userFDMapper.selectHaveChildrenAll();
+	}
+
+	@Override
+	public List<DesireToGetchild> selectDesireToGetchildAll() throws Exception {
+		return userFDMapper.selectDesireToGetchildAll();
+	}
+
+	@Override
+	public List<Housework> selectHouseworkAll() throws Exception {
+		return userFDMapper.selectHouseworkAll();
+	}
+
+	@Override
+	public List<TimeToMeet> selectTimeToMeetAll() throws Exception {
+		return userFDMapper.selectTimeToMeetAll();
+	}
+
+	@Override
+	public List<Payment> selectPaymentAll() throws Exception {
+		return userFDMapper.selectPaymentAll();
+	}
+
+	@Override
+	public List<Sociability> selectSociabilityAll() throws Exception {
+		return userFDMapper.selectSociabilityAll();
+	}
+
+	@Override
+	public List<Alcohol> selectAlcoholAll() throws Exception {
+		return userFDMapper.selectAlcoholAll();
+	}
+
+	@Override
+	public List<Vaccination> selectVaccinationAll() throws Exception {
+		return userFDMapper.selectVaccinationAll();
+	}
+	
 	// UserFreeiredDetailMapper.java ここまで
 	
 	
 	
+	
+	
+	// UserTextMapper.java ここから
+	
+	public void insertUserT() throws Exception{
+		userTMapper.insertUserT();
+	}
+	
+	// UserTextMapper.java ここまで
 	
 	
 	
@@ -230,6 +322,8 @@ public class UserServiceImpl implements UserService {
 	public void insertUserRole(String userId) throws Exception {
 		registMapper.insertUserRole(userId);
 	}
+
+
 
 	
 	// RegistMapper ここまで //

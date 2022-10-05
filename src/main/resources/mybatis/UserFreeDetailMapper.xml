@@ -6,5 +6,57 @@
 	<insert id="insertUserFD">
 		INSERT INTO user_free_details (figure) VALUES (1)
 	</insert>
+	<select id="selectFigureAll"
+		resultType="com.example.app.domain.Figure">
+		SELECT * FROM figures
+	</select>
+	<select id="selectBloodTypeAll"
+		resultType="com.example.app.domain.BloodType">
+		SELECT * FROM blood_types
+	</select>
+	<select id="selectBirthPlaceAll"
+		resultType="com.example.app.domain.BirthPlace">
+		SELECT * FROM birth_places
+	</select>
+	<select id="selectEducationalAll"
+		resultType="com.example.app.domain.Educational">
+		SELECT * FROM educationals
+	</select>
+	<select id="selectSiblingAll"
+		resultType="com.example.app.domain.Sibling">
+		SELECT * FROM siblings
+	</select>
+	<select id="selectHaveChildrenAll"
+		resultType="com.example.app.domain.HaveChildren">
+		SELECT * FROM have_childrens
+	</select>
+	<select id="selectDesireToGetchildAll"
+		resultType="com.example.app.domain.DesireToGetchild">
+		SELECT * FROM desire_to_getchilds
+	</select>
+	<select id="selectHouseworkAll"
+		resultType="com.example.app.domain.Housework">
+		SELECT * FROM houseworks
+	</select>
+	<select id="selectTimeToMeetAll"
+		resultType="com.example.app.domain.TimeToMeet">
+		SELECT * FROM time_to_meets
+	</select>
+	<select id="selectPaymentAll"
+		resultType="com.example.app.domain.Payment">
+		SELECT * FROM payments
+	</select>
+	<select id="selectSociabilityAll"
+		resultType="com.example.app.domain.Sociability">
+		SELECT * FROM sociabilities
+	</select>
+	<select id="selectAlcoholAll"
+		resultType="com.example.app.domain.Alcohol">
+		SELECT * FROM alcohols
+	</select>
+	<select id="selectVaccinationAll"
+		resultType="com.example.app.domain.Vaccination">
+		SELECT * FROM vaccinations
+	</select>
 	
 </mapper>

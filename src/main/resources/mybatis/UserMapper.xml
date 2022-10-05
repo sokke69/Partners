@@ -161,8 +161,8 @@
 			<result column = "birth_place" property="birthPlaceStr"/>
 			<result column = "educational" property="educationalStr"/>
 			<result column = "sibling" property="siblingStr"/>
-			<result column = "school_name" property="schoolNameStr"/>
-			<result column = "job_name" property="jobNameStr"/>
+			<result column = "school_name" property="schoolName"/>
+			<result column = "job_name" property="jobName"/>
 			<result column = "have_children" property="haveChildrenStr"/>
 			<result column = "desire_to_getchild" property="desireToGetchildStr"/>
 			<result column = "housework" property="houseworkStr"/>
@@ -176,6 +176,11 @@
 			<result column = "hobby_three" property="hobbyThree"/>
 			<result column = "vaccination" property="vaccinationStr"/>
 		</association> 
+		
+		<association property="userT" javaType="com.example.app.domain.UserText">
+			<result column = "one_word" property="oneWord"/>
+			<result column = "self_introduction" property="selfIntroduction"/>
+		</association>
 
 	</resultMap>
 	
@@ -201,9 +206,11 @@
 			
 			figures.figure AS figure,
 			blood_types.blood_type AS blood_type,
-			birth_places.prefecture AS birth_place,
+			birth_places.birth_place AS birth_place,
 			educationals.educational AS educational,
 			siblings.sibling AS sibling,
+			user_free_details.school_name,
+			user_free_details.job_name,
 			have_childrens.have_children AS have_children,
 			desire_to_getchilds.desire_to_getchild AS desire_to_getchild,
 			houseworks.housework AS housework,
@@ -214,12 +221,16 @@
 			hobby_one,
 			hobby_two,
 			hobby_three,
-			vaccinations.vaccination AS vaccination
+			vaccinations.vaccination AS vaccination,
+			
+			user_texts.one_word,
+			user_texts.self_introduction
 			
 		FROM users 
 		LEFT JOIN user_basic_details ON users.id = user_basic_details.id
 		LEFT JOIN user_required_details ON users.id = user_required_details.id
 		LEFT JOIN user_free_details ON users.id = user_free_details.id
+		LEFT JOIN user_texts ON users.id = user_texts.id
 		
 			LEFT JOIN sexs ON user_basic_details.sex = sexs.id
 			LEFT JOIN residences ON user_required_details.residence = residences.id
@@ -311,6 +322,11 @@
 			<result column = "hobby_three" property="hobbyThree"/>
 			<result column = "vaccination" property="vaccination"/>
 		</association> 
+		
+		<association property="userT" javaType="com.example.app.domain.UserText">
+			<result column = "one_word" property="oneWord"/>
+			<result column = "self_introduction" property="selfIntroduction"/>
+		</association>
 
 	</resultMap>
 	
@@ -325,7 +341,7 @@
 			user_basic_details.like_point, 
 			user_basic_details.registered,
 			height,
-			residences.id, 
+			residences.id AS residence,
 			occupations.id AS occupation,
 			annual_incomes.id AS annual_income,
 			marital_statuses.id AS marital_status,
@@ -339,6 +355,8 @@
 			birth_places.id AS birth_place,
 			educationals.id AS educational,
 			siblings.id AS sibling,
+			user_free_details.school_name,
+			user_free_details.job_name,
 			have_childrens.id AS have_children,
 			desire_to_getchilds.id AS desire_to_getchild,
 			houseworks.id AS housework,
@@ -349,12 +367,16 @@
 			hobby_one,
 			hobby_two,
 			hobby_three,
-			vaccinations.id AS vaccination
+			vaccinations.id AS vaccination,
+			
+			user_texts.one_word,
+			user_texts.self_introduction
 			
 		FROM users 
 		LEFT JOIN user_basic_details ON users.id = user_basic_details.id
 		LEFT JOIN user_required_details ON users.id = user_required_details.id
 		LEFT JOIN user_free_details ON users.id = user_free_details.id
+		LEFT JOIN user_texts ON users.id = user_texts.id
 		
 			LEFT JOIN sexs ON user_basic_details.sex = sexs.id
 			LEFT JOIN residences ON user_required_details.residence = residences.id

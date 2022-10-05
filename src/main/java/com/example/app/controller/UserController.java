@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
-import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
 import com.example.app.service.UserService;
@@ -46,6 +45,7 @@ public class UserController {
 			session.setAttribute("login_id", session.getAttribute("send_email"));
 			session.removeAttribute("send_email");
 			session.removeAttribute("email");
+			session.setMaxInactiveInterval(1800);
 			return "redirect:/user/top";
 		}
 		return "/invalid_url";
@@ -78,7 +78,6 @@ public class UserController {
 			return "/invalid";
 		}
 		
-		
 		String loginId = (String) session.getAttribute("login_id");
 		User user = new User();
 		user = userService.getUserByLoginId(loginId);
@@ -94,14 +93,53 @@ public class UserController {
 		user = userService.getUserDetailOfNumberByLoginId(loginId);
 		model.addAttribute("user", user);
 		
-		UserBasicDetail userBD = user.getUserBD();
 		UserRequiredDetail userRD = user.getUserRD();
 		UserFreeDetail userFD = user.getUserFD();
 		
-		model.addAttribute("holidays", userService.selectHolidayAll());
+		
 		model.addAttribute("holidaySelected", userRD.getHoliday());
-		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
 		model.addAttribute("annualIncomeSelected", userRD.getAnnualIncome());
+		model.addAttribute("residenceSelected", userRD.getResidence());
+		model.addAttribute("occupationSelected", userRD.getOccupation());
+		model.addAttribute("maritaltatusSelected", userRD.getMaritalStatus());
+		model.addAttribute("desireToMarrySelected", userRD.getDesireToMarry());
+		model.addAttribute("smokingSelected", userRD.getSmoking());
+		model.addAttribute("housemateSelected", userRD.getHousemate());
+		model.addAttribute("holidays", userService.selectHolidayAll());
+		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
+		model.addAttribute("residences", userService.selectResidenceAll());
+		model.addAttribute("occupations", userService.selectOccupationAll());
+		model.addAttribute("marital_statuses", userService.selectMaritalStatusAll());
+		model.addAttribute("desire_to_marries", userService.selectDesireToMarryAll());
+		model.addAttribute("smokings", userService.selectSmokingAll());
+		model.addAttribute("housemates", userService.selectHousemateAll());
+		
+		model.addAttribute("figureSelected", userFD.getFigure());
+		model.addAttribute("bloodTypeSelected", userFD.getBloodType());
+		model.addAttribute("birthPlaceSelected", userFD.getBirthPlace());
+		model.addAttribute("educationalSelected", userFD.getEducational());
+		model.addAttribute("siblingSelected", userFD.getSibling());
+		model.addAttribute("haveChildrenSelected", userFD.getHaveChildren());
+		model.addAttribute("desireToGetchildSelected", userFD.getDesireToGetchild());
+		model.addAttribute("houseworkSelected", userFD.getHousework());
+		model.addAttribute("timeToMeetSelected", userFD.getTimeToMeet());
+		model.addAttribute("paymentSelected", userFD.getPayment());
+		model.addAttribute("SociabilitySelected", userFD.getSociability());
+		model.addAttribute("alcoholSelected", userFD.getAlcohol());
+		model.addAttribute("vaccinationSelected", userFD.getVaccination());
+		model.addAttribute("figures", userService.selectFigureAll());
+		model.addAttribute("blood_types", userService.selectBloodTypeAll());
+		model.addAttribute("birth_places", userService.selectBirthPlaceAll());
+		model.addAttribute("educationals", userService.selectEducationalAll());
+		model.addAttribute("siblings", userService.selectSiblingAll());
+		model.addAttribute("have_childrens", userService.selectHaveChildrenAll());
+		model.addAttribute("desire_to_getchilds", userService.selectDesireToGetchildAll());
+		model.addAttribute("houseworks", userService.selectHouseworkAll());
+		model.addAttribute("time_to_meets", userService.selectTimeToMeetAll());
+		model.addAttribute("payments", userService.selectPaymentAll());
+		model.addAttribute("sociabilities", userService.selectSociabilityAll());
+		model.addAttribute("alcohols", userService.selectAlcoholAll());
+		model.addAttribute("vaccinations", userService.selectVaccinationAll());
 		
 
 		return "/user/profile_update";

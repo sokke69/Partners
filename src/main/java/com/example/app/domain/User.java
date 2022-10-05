@@ -19,6 +19,7 @@ public class User/* implements UserDetails */{
 	private UserBasicDetail userBD;
 	private UserRequiredDetail userRD;
 	private UserFreeDetail userFD;
+	private UserText userT;
 	
 	/*
 	 * @Override public Collection<? extends GrantedAuthority> getAuthorities() {

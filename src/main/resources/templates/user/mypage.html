@@ -17,13 +17,14 @@
 <th:block th:if="${user.userFD.vaccinationStr} == '接種済み'">[[${user.userFD.vaccinationStr}]]</th:block>
 <th:block th:if="${user.userFD.vaccinationStr} == '接種中'">[[${user.userFD.vaccinationStr}]]</th:block></td>
 </tr>
+<tr><td>[[${user.userT.oneWord}]]</td></tr>
 </table>
 
 
 
 <table>
 <tr><th>自己紹介</th></tr>
-<tr><td></td></tr>
+<tr><td>[[${user.userT.selfIntroduction}]]</td></tr>
 </table>
 
 <table>
@@ -50,10 +51,15 @@
 <table>
 <tr><th colspan="2">学歴・職歴・外見</th></tr>
 <th:block th:if="${user.userFD.educationalStr} == '選択しない'"></th:block>
-<th:block th:if="${user.userFD.educationalStr} != '選択しない'"><tr><th>学歴</th><td>[[${user.userFD.educationalStr}]]</td></tr></th:block>
+<th:block th:if="${user.userFD.educationalStr} != '選択しない'"><tr><th>学歴</th><td>[[${user.userFD.educationalStr}]]
+<th:block th:if="${user.userFD.schoolName}">([[${user.userFD.schoolName}]]
+</th:block>
+</td></tr></th:block>
 
 <th:block th:if="${user.userRD.occupationStr} == '選択しない'"></th:block>
-<th:block th:if="${user.userRD.occupationStr} != '選択しない'"><tr><th>職種</th><td>[[${user.userRD.occupationStr}]]</td></tr></th:block>
+<th:block th:if="${user.userRD.occupationStr} != '選択しない'"><tr><th>職種</th><td>[[${user.userRD.occupationStr}]]
+<th:block th:if="${user.userFD.jobName}">([[${user.userFD.jobName}]])</th:block>
+</td></tr></th:block>
 
 <th:block th:if="${user.userRD.annualIncomeStr} == '選択しない'"></th:block>
 <th:block th:if="${user.userRD.annualIncomeStr} != '選択しない'"><tr><th>年収</th><td>[[${user.userRD.annualIncomeStr}]]</td></tr></th:block>
@@ -106,7 +112,10 @@
 <th:block th:if="${user.userRD.smokingStr} != '選択しない'"><tr><th>タバコ</th><td>[[${user.userRD.smokingStr}]]</td></tr></th:block>
 
 <th:block th:if="${user.userFD.hobbyOne} == null"></th:block>
-<th:block th:if="${user.userFD.hobbyOne} != null"><tr><th>好きなこと・趣味</th><td>[[${user.userFD.hobbyOne}]],[[${user.userFD.hobbyTwo}]],[[${user.userFD.hobbyThree}]]</td></tr></th:block>
+<th:block th:if="${user.userFD.hobbyOne} != null"><tr><th>好きなこと・趣味</th>
+<td>[[${user.userFD.hobbyOne}]] <th:block th:if="${user.userFD.hobbyTwo != ''}">,</th:block>
+[[${user.userFD.hobbyTwo}]]<th:block th:if="${user.userFD.hobbyThree != ''}">,</th:block>
+[[${user.userFD.hobbyThree}]]</td></tr></th:block>
 </table>
 
 <p><a th:href="@{/user/top}">戻る</a></p>

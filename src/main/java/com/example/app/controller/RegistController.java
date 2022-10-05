@@ -407,7 +407,7 @@ public class RegistController {
 		userRD.setSmoking((int) session.getAttribute("regist_smoking"));
 		userRD.setHousemate((int) session.getAttribute("regist_housemate"));
 		
-		userService.insertUserAllDetail(user, userBD, userRD, null);
+		userService.insertUserAllDetail(user, userBD, userRD);
 		
 		String email = (String) session.getAttribute("regist_email");
 		String userId = userService.getUserIdByEmail(email).toString();
