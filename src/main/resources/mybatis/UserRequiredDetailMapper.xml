@@ -9,34 +9,51 @@
 		VALUES (#{height}, #{residence}, #{occupation}, #{annualIncome}, #{maritalStatus}, 
 			#{desireToMarry}, #{holiday}, #{smoking}, #{housemate})
 	</insert>
+	
+	<update id="editUserRD" parameterType="com.example.app.domain.User">
+		UPDATE user_required_details
+		SET height=#{userRD.height}, residence=#{userRD.residence}, occupation=#{userRD.occupation},
+			annual_income=#{userRD.annualIncome}, marital_status=#{userRD.maritalStatus},
+			desire_to_marry=#{userRD.desireToMarry}, holiday=#{userRD.holiday},
+			smoking=#{userRD.smoking}, housemate=#{userRD.housemate}
+		WHERE id=#{id}
+	</update>
+	
 	<select id="selectResidenceAll"
 		resultType="com.example.app.domain.Residence">
 		SELECT * FROM residences
 	</select>
+	
 	<select id="selectOccupationAll"
 		resultType="com.example.app.domain.Occupation">
 		SELECT * FROM occupations
 	</select>
+	
 	<select id="selectAnnualIncomeAll"
 		resultType="com.example.app.domain.AnnualIncome">
 		SELECT * FROM annual_incomes
 	</select>
+	
 	<select id="selectMaritalStatusAll"
 		resultType="com.example.app.domain.MaritalStatus">
 		SELECT * FROM marital_statuses
 	</select>
+	
 	<select id="selectDesireToMarryAll"
 		resultType="com.example.app.domain.DesireToMarry">
 		SELECT * FROM desire_to_marries
 	</select>
+	
 	<select id="selectHolidayAll"
 		resultType="com.example.app.domain.Holiday">
 		SELECT * FROM holidays
 	</select>
+	
 	<select id="selectSmokingAll"
 		resultType="com.example.app.domain.Smoking">
 		SELECT * FROM smokings
 	</select>
+	
 	<select id="selectHousemateAll"
 		resultType="com.example.app.domain.Housemate">
 		SELECT * FROM housemates

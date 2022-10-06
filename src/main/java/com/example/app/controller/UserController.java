@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
+import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
+import com.example.app.domain.UserText;
 import com.example.app.service.UserService;
 
 @Controller
@@ -68,6 +72,8 @@ public class UserController {
 		 * 
 		 * session.setAttribute("login_id", loginId);
 		 */
+		
+		System.out.println(session.getAttribute("id"));
 
 		return "/user/top";
 	}
@@ -95,7 +101,6 @@ public class UserController {
 		
 		UserRequiredDetail userRD = user.getUserRD();
 		UserFreeDetail userFD = user.getUserFD();
-		
 		
 		model.addAttribute("holidaySelected", userRD.getHoliday());
 		model.addAttribute("annualIncomeSelected", userRD.getAnnualIncome());
@@ -141,12 +146,31 @@ public class UserController {
 		model.addAttribute("alcohols", userService.selectAlcoholAll());
 		model.addAttribute("vaccinations", userService.selectVaccinationAll());
 		
-
 		return "/user/profile_update";
 	}
 	
-	
-	
+	@PostMapping("mypage/update")
+	public String profileUpdatePost(@ModelAttribute User user) throws Exception{
+		
+		user.setId((int)session.getAttribute("id"));
+		
+		UserBasicDetail userBD = user.getUserBD();
+		UserRequiredDetail userRD = user.getUserRD();
+		UserFreeDetail userFD = user.getUserFD();
+		UserText userT = user.getUserT();
+		
+		userBD.setId(user.getId());
+		userRD.setId(user.getId());
+		userFD.setId(user.getId());
+		userT.setId(user.getId());
+		
+		userService.editUserBD(user);
+		userService.editUserRD(user);
+		userService.editUserFD(user);
+		userService.editUserT(user);
+			
+		return "redirect:/user/mypage";
+	}
 	
 	
 	

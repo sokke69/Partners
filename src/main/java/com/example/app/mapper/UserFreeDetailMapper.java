@@ -16,12 +16,14 @@ import com.example.app.domain.Payment;
 import com.example.app.domain.Sibling;
 import com.example.app.domain.Sociability;
 import com.example.app.domain.TimeToMeet;
+import com.example.app.domain.User;
 import com.example.app.domain.Vaccination;
 
 @Mapper
 public interface UserFreeDetailMapper {
 	
 	void insertUserFD() throws Exception;
+	void editUserFD(User user) throws Exception;
 	List<Figure> selectFigureAll() throws Exception;
 	List<BloodType> selectBloodTypeAll() throws Exception;
 	List<BirthPlace> selectBirthPlaceAll() throws Exception;

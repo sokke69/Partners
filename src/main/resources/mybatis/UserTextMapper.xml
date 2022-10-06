@@ -3,9 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.app.mapper.UserTextMapper">
 
-<insert id="insertUserT" parameterType="com.example.app.domain.UserText">
-	INSERT INTO user_texts (one_word, self_introduction)
-	VALUES ('', '')
-</insert>
+	<insert id="insertUserT" parameterType="com.example.app.domain.UserText">
+		INSERT INTO user_texts (one_word, self_introduction)
+		VALUES ('', '')
+	</insert>
+	
+	<update id="editUserT" parameterType="com.example.app.domain.User">
+		UPDATE user_texts
+		SET one_word=#{userT.oneWord}, self_introduction=#{userT.selfIntroduction}
+		WHERE id=#{id}
+	</update>
 
 </mapper>

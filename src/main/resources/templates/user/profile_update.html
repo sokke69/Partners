@@ -10,11 +10,11 @@
 <h1>プロフィール：編集</h1>
 
 
-<form action="" th:object="${user}">
+<form th:action="@{/user/mypage/update}" th:object="${user}" method="post">
 
 <table>
 	<tr><th colspan=2>つぶやき</th></tr>
-	<tr><td><input type="text" th:value="*{userT.oneWord}"/></td></tr>
+	<tr><td><input type="text" th:field="*{userT.oneWord}" th:value="*{userT.oneWord}"/></td></tr>
 </table>
 
 <table>
@@ -24,7 +24,7 @@
 
 <table>
 	<tr><th colspan=2>自己紹介文</th></tr>
-	<tr><td><textarea name="" id="" cols="30" rows="10" th:text="*{userT.selfIntroduction}"></textarea></td></tr>
+	<tr><td><textarea th:field="*{userT.selfIntroduction}" id="" cols="30" rows="10" th:text="*{userT.selfIntroduction}"></textarea></td></tr>
 </table>
 <table>
 	<tr><th colspan=2>Partnersプロフィール</th></tr>
@@ -301,6 +301,8 @@
 	</td></tr>
 	
 </table>
+
+<input type="submit" value="変更する" />
 
 </form>
 

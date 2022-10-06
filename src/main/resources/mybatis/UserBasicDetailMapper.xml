@@ -7,5 +7,9 @@
 		INSERT INTO user_basic_details (sex, age, name, like_point, registered)
 		VALUES (#{sex}, #{age}, #{name}, 30, NOW())
 	</insert>
+	
+	<update id="editUserBD"  parameterType="com.example.app.domain.User" >
+		UPDATE user_basic_details SET name=#{userBD.name} WHERE id=#{id};
+	</update>
 
 </mapper>

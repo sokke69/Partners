@@ -28,7 +28,6 @@ import com.example.app.domain.Sociability;
 import com.example.app.domain.TimeToMeet;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
-import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
 import com.example.app.domain.Vaccination;
 import com.example.app.mapper.MatchingMapper;
@@ -98,6 +97,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public void editUser(User user) throws Exception {
+		userMapper.editUser(user);
+		
+	}
+		
+	@Override
+	public void deleteUser(int i) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+	
+	@Override
 	public List<User> getUserAllDetailList() throws Exception {
 		return userMapper.selectUserAllDetailList();
 	}
@@ -122,17 +133,6 @@ public class UserServiceImpl implements UserService {
 		return userMapper.getUserIdByEmail(email);
 	}
 	
-	@Override
-	public void editUser(User user, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
-	
-	@Override
-	public void deleteUser(int i) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-		
-	}
 	
 	// UserMapper.java ここまで
 	
@@ -152,6 +152,11 @@ public class UserServiceImpl implements UserService {
 		userBDMapper.insertUserBD(userBD);
 	}
 	
+	@Override
+	public void editUserBD(User user) throws Exception {
+		userBDMapper.editUserBD(user);
+	}
+	
 	// UserBasicDetailMapper.java ここまで
 	
 	
@@ -167,6 +172,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void insertUserRD(UserRequiredDetail userRD) throws Exception {
 		userRDMapper.insertUserRD(userRD);
+	}
+	
+	@Override
+	public void editUserRD(User user) throws Exception {
+		userRDMapper.editUserRD(user);
 	}
 	
 	@Override
@@ -224,6 +234,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void insertUserFD() throws Exception {
 		userFDMapper.insertUserFD();
+	}
+	
+	@Override
+	public void editUserFD(User user) throws Exception {
+		userFDMapper.editUserFD(user);
 	}
 	
 	@Override
@@ -299,8 +314,14 @@ public class UserServiceImpl implements UserService {
 	
 	// UserTextMapper.java ここから
 	
+	@Override
 	public void insertUserT() throws Exception{
 		userTMapper.insertUserT();
+	}
+	
+	@Override
+	public void editUserT(User user) throws Exception {
+		userTMapper.editUserT(user);
 	}
 	
 	// UserTextMapper.java ここまで
@@ -322,9 +343,6 @@ public class UserServiceImpl implements UserService {
 	public void insertUserRole(String userId) throws Exception {
 		registMapper.insertUserRole(userId);
 	}
-
-
-
 	
 	// RegistMapper ここまで //
 	

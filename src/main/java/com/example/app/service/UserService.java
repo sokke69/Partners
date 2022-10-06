@@ -24,7 +24,6 @@ import com.example.app.domain.Sociability;
 import com.example.app.domain.TimeToMeet;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
-import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
 import com.example.app.domain.Vaccination;
 
@@ -36,21 +35,23 @@ public interface UserService/* extends UserDetailsService */{
 	
 	// UserMapper.java
 	void insertUser(User user) throws Exception;
+	void editUser(User user) throws Exception;
+	void deleteUser(int i) throws Exception;
 	List<User> getUserAllDetailList() throws Exception;
 	List<String> selectEmail() throws Exception;
 	User getUserByLoginId(String loginId) throws Exception;
 	User getUserDetailOfNumberByLoginId(String loginId) throws Exception;
 	Integer getUserIdByEmail(String email) throws Exception;
-	void editUser(User user, UserRequiredDetail userRD, UserFreeDetail userFD) throws Exception;
-	void deleteUser(int i) throws Exception;
 	
 	
 	//UserBasicDetailMapper.java
 	void insertUserBD(UserBasicDetail userBD) throws Exception;
+	void editUserBD(User user) throws Exception;
 	
 	
 	// UserRequiredDetailMapper.java
 	void insertUserRD(UserRequiredDetail userRD) throws Exception;	
+	void editUserRD(User user) throws Exception;
 	List<Residence> selectResidenceAll() throws Exception;
 	List<Occupation> selectOccupationAll() throws Exception;
 	List<AnnualIncome> selectAnnualIncomeAll() throws Exception;
@@ -63,6 +64,7 @@ public interface UserService/* extends UserDetailsService */{
 	
 	// UserFreeDetailMapper.java
 	void insertUserFD() throws Exception;
+	void editUserFD(User user) throws Exception;
 	List<Figure> selectFigureAll() throws Exception;
 	List<BloodType> selectBloodTypeAll() throws Exception;
 	List<BirthPlace> selectBirthPlaceAll() throws Exception;
@@ -80,7 +82,7 @@ public interface UserService/* extends UserDetailsService */{
 	
 	//UserTextMapper.java
 	void insertUserT() throws Exception; 
-	
+	void editUserT(User user) throws Exception;
 	
 	
 	

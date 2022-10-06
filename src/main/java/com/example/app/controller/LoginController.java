@@ -174,10 +174,12 @@ public class LoginController {
 		
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", session.getAttribute("emailTo"));
-		session.setAttribute("user_id", userService.getUserIdByEmail((String)session.getAttribute("emailTo")));
+		session.setAttribute("id", userService.getUserIdByEmail((String)session.getAttribute("emailTo")));
 		
 		session.removeAttribute("emailFrom");
 		session.removeAttribute("emailTo");
+		
+		session.setMaxInactiveInterval(1800);
 		
 		return "/user/top";
 	}

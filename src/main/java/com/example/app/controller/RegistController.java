@@ -419,6 +419,9 @@ public class RegistController {
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", email);
 		
+		session.setAttribute("id", userService.getUserIdByEmail(email));
+		
+		
 		session.setMaxInactiveInterval(1800);
 		
 		return "regist/done";

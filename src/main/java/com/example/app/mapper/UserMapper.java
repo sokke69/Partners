@@ -11,11 +11,12 @@ public interface UserMapper {
 	
 	List<User> selectUserAllDetailList() throws Exception;
 	List<String> selectEmail() throws Exception;
+	void insertUser(User user) throws Exception;
+	void insertUserRole(String userId) throws Exception;
+	void editUser(User user) throws Exception;
 	User getUserByLoginId(String loginId) throws Exception;
 	User getUserDetailOfNumberByLoginId(String loginId) throws Exception;
 	User checkLoginByEmail(String email) throws Exception;
 	Integer getUserIdByEmail(String email) throws Exception;
-	void insertUser(User user) throws Exception;
-	void insertUserRole(String userId) throws Exception;
 
 }
