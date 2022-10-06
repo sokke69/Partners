@@ -170,6 +170,16 @@ public class RegistController {
 		return "redirect:/regist/name";
 	}
 	
+	@GetMapping("/birthday")
+	public String registBirthdayGet(Model model) {
+		model.addAttribute("userBD", new UserBasicDetail());
+		return "regist/birthday";
+	}
+	
+	
+	
+	
+	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
 		String status = (String) session.getAttribute("status");

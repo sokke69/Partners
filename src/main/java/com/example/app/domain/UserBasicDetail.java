@@ -26,5 +26,11 @@ public class UserBasicDetail {
 	private String name;
 	private int likePoint;
 	private Date registed;
-
+	
+	private Date birthday;
+	private Integer year;
+	private Integer month;
+	private Integer day;
+	
+	
 }

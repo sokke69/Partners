@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録 : 生年月日</title>
+<link rel="stylesheet" th:href="@{/css/error.css}" />
+<link rel="stylesheet" th:href="@{/css/regist.css}" />
+</head>
+<body>
+<h1>ユーザー登録 : 生年月日</h1>
+<form th:action="@{/regist/birthday}" method="post" th:object="${userBD}">
+
+<input type="text" th:field="*{year}" class="birthday"/>年 
+<input type="text" th:field="*{month}" class="birthday"/>月 
+<input type="text" th:field="*{day}" class="birthday"/>日 
+
+<input type="hidden" name="age" th:value="20"/>
+<input type="hidden" name="name" th:value="text"/>
+<input type="hidden" name="sex" th:value="1"/>
+
+<p><button type="button" onclick="location.href='/regist/sex'">戻る</button> <input type="submit" value="次へ"/></p>
+
+</form>
+</body>
+</html>
