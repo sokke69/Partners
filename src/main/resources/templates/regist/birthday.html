@@ -10,6 +10,8 @@
 <h1>ユーザー登録 : 生年月日</h1>
 <form th:action="@{/regist/birthday}" method="post" th:object="${userBD}">
 
+<th:block th:if="${session.age_error}"><p class="error">[[${session.age_error}]]</p></th:block>
+
 <input type="text" th:field="*{year}" class="birthday"/>年 
 <input type="text" th:field="*{month}" class="birthday"/>月 
 <input type="text" th:field="*{day}" class="birthday"/>日 

@@ -1,5 +1,7 @@
 package com.example.app.controller;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.UUID;
 
@@ -128,6 +130,9 @@ public class RegistController {
 		}
 		session.setAttribute("error_title", "このページは開けません");
 		session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+		
+		session.removeAttribute("age_error");
+		
 		return "error";
 	}
 	
@@ -140,7 +145,7 @@ public class RegistController {
 			return "regist/sex";
 		} else {
 		session.setAttribute("regist_sex", userBD.getSex());
-		return "redirect:/regist/age";
+		return "redirect:/regist/birthday";
 		}
 	}
 	
@@ -172,16 +177,42 @@ public class RegistController {
 	
 	@GetMapping("/birthday")
 	public String registBirthdayGet(Model model) {
+		String status = (String) session.getAttribute("status");
+		if (!status.equals("regist")) {
+			session.setAttribute("error_title", "このページは開けません");
+			session.setAttribute("error_detail", "申し訳ございませんがトップページまでお戻りください");
+			return "redirect:/error";
+		}
+		
 		model.addAttribute("userBD", new UserBasicDetail());
 		return "regist/birthday";
 	}
 	
-	
+	@PostMapping("/birthday")
+	public String registBirthdayPost(@ModelAttribute("userBD") UserBasicDetail userBD) {
+		LocalDate birthday = LocalDate.of(userBD.getYear(), userBD.getMonth(), userBD.getDay());
+		LocalDate today = LocalDate.now();
+		
+		Integer age = (int) ChronoUnit.YEARS.between(birthday, today);
+		session.setAttribute("regist_age", age);
+		
+		if (age < 18) {
+			session.setAttribute("age_error", "18歳未満は登録できません。");
+			return "regist/birthday";
+		} else if (age > 120) {
+			session.setAttribute("age_error", "登録できる年齢は120歳までです");
+			return "regist/birthday";
+		}
+		
+		return "redirect:/regist/name";
+	}
 	
 	
 	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
+		session.removeAttribute("age_error");
+		
 		String status = (String) session.getAttribute("status");
 		if (!status.equals("regist")) {
 			session.setAttribute("error_title", "このページは開けません");
