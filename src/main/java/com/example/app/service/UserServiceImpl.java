@@ -157,6 +157,31 @@ public class UserServiceImpl implements UserService {
 		userBDMapper.editUserBD(user);
 	}
 	
+	@Override
+	public UserBasicDetail getInfoLikePoint(Integer id) throws Exception {
+		return userBDMapper.getInfoLikePoint(id);
+	}
+	
+	@Override
+	public void addLikePointDay(Integer id, Integer addedLikePoint) throws Exception {
+		userBDMapper.addLikePointDay(id, addedLikePoint);
+	}
+	
+	@Override
+	public void addLikePointMonth(Integer id, Integer addedLikePoint) throws Exception {
+		userBDMapper.addLikePointMonth(id, addedLikePoint);
+	}
+	
+	@Override
+	public void updateLasttimeGotLikePointDay(Integer id) throws Exception {
+		userBDMapper.updateLasttimeGotLikePointDay(id);
+	}
+	
+	@Override
+	public void updateLasttimeGotLikePointMonth(Integer id) throws Exception {
+		userBDMapper.updateLasttimeGotLikePointMonth(id);
+	}
+	
 	// UserBasicDetailMapper.java ここまで
 	
 	

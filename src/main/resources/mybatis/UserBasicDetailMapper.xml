@@ -4,12 +4,53 @@
 <mapper namespace="com.example.app.mapper.UserBasicDetailMapper">
 
 	<insert id="insertUserBD" parameterType="com.example.app.domain.UserBasicDetail">
-		INSERT INTO user_basic_details (sex, age, name, like_point, registered)
-		VALUES (#{sex}, #{age}, #{name}, 30, NOW())
+		INSERT INTO user_basic_details (sex, age, name, birthday, like_point, registered, lasttime_of_got_lp_day, lasttime_of_got_lp_month)
+		VALUES (#{sex}, #{age}, #{name}, #{birthday}, 30, NOW(), NOW(), NOW())
 	</insert>
 	
 	<update id="editUserBD"  parameterType="com.example.app.domain.User" >
 		UPDATE user_basic_details SET name=#{userBD.name} WHERE id=#{id};
 	</update>
+	
+	
+	
+	
+	<resultMap id="getInfoLikePoint" type="com.example.app.domain.UserBasicDetail">
+		<result column="lasttime_of_got_lp_day" property="lasttimeOfGotLikePointDay"/>
+		<result column="lasttime_of_got_lp_month" property="lasttimeOfGotLikePointMonth"/>
+		<result column="like_point" property="likePoint"/>
+	</resultMap>
+	
+	<select id="getInfoLikePoint" resultMap="getInfoLikePoint">
+		SELECT like_point,lasttime_of_got_lp_day, lasttime_of_got_lp_month FROM user_basic_details WHERE id=#{id};
+	</select>
+	
+	
+	
+	<update id="addLikePointDay" parameterType="Integer">
+		UPDATE user_basic_details
+		SET like_point=#{addedLikePoint}
+		WHERE id=#{id}
+	</update>
+	
+	<update id="addLikePointMonth" parameterType="Integer">
+		UPDATE user_basic_details
+		SET like_point=#{addedLikePoint}
+		WHERE id=#{id}
+	</update>
+	
+	<update id="updateLasttimeGotLikePointDay">
+		UPDATE user_basic_details
+		SET lasttime_of_got_lp_day=NOW()
+		WHERE id=#{id}
+	</update>
+	
+	<update id="updateLasttimeGotLikePointMonth">
+		UPDATE user_basic_details
+		SET lasttime_of_got_lp_month=NOW()
+		WHERE id=#{id}
+	</update>
+	
+	
 
 </mapper>

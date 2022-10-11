@@ -1,5 +1,7 @@
 package com.example.app.controller;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.app.domain.EmailSended;
 import com.example.app.domain.LoginRandomInt;
 import com.example.app.domain.User;
+import com.example.app.domain.UserBasicDetail;
 import com.example.app.service.UserService;
 
 @Controller
@@ -172,16 +175,57 @@ public class LoginController {
 		session.removeAttribute("Random6of6");
 		session.removeAttribute("email");
 		
+		Integer id = userService.getUserIdByEmail((String)session.getAttribute("emailTo"));
+		
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", session.getAttribute("emailTo"));
-		session.setAttribute("id", userService.getUserIdByEmail((String)session.getAttribute("emailTo")));
+		session.setAttribute("id", id);
 		
 		session.removeAttribute("emailFrom");
 		session.removeAttribute("emailTo");
 		
 		session.setMaxInactiveInterval(1800);
 		
+		check_lp_day(id);
+		check_lp_month(id);
+		
 		return "/user/top";
+	}
+	
+	
+	private void check_lp_day(Integer id) throws Exception {
+		UserBasicDetail userBD = userService.getInfoLikePoint(id);
+		
+		LocalDate today = LocalDate.now();
+		
+		LocalDate lastGotDay = userBD.getLasttimeOfGotLikePointDay().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		if (today.isAfter(lastGotDay)) {
+			Integer oldLikePoint = userBD.getLikePoint();
+			
+			Integer addedLikePoint = oldLikePoint + 1;
+			userService.addLikePointDay(id, addedLikePoint);
+			userService.updateLasttimeGotLikePointDay(id);
+			session.setAttribute("add_like_point_day", "");
+		}
+		
+		
+	}
+	private void check_lp_month(Integer id) throws Exception {
+		UserBasicDetail userBD = userService.getInfoLikePoint(id);
+		
+		LocalDate today = LocalDate.now();
+		
+		LocalDate lastGotMonth = userBD.getLasttimeOfGotLikePointMonth().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		LocalDate lastGotMonthPlus1 = lastGotMonth.plusMonths(1);
+		if (!today.isBefore(lastGotMonthPlus1)) {
+			Integer oldLikePoint = userBD.getLikePoint();
+			
+			Integer addedLikePoint = oldLikePoint + 30;
+			userService.addLikePointMonth(id, addedLikePoint);
+			userService.updateLasttimeGotLikePointMonth(id);
+			session.setAttribute("add_like_point_month", "");
+		}
+		
 	}
 	
 

@@ -26,8 +26,11 @@ public class UserBasicDetail {
 	private String name;
 	private int likePoint;
 	private Date registed;
+	private Date lasttimeOfGotLikePointDay;
+	private Date lasttimeOfGotLikePointMonth;
 	
-	private Date birthday;
+	
+	private java.sql.Date birthday;
 	private Integer year;
 	private Integer month;
 	private Integer day;

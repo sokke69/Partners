@@ -1,5 +1,6 @@
 package com.example.app.controller;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -190,6 +191,9 @@ public class RegistController {
 	
 	@PostMapping("/birthday")
 	public String registBirthdayPost(@ModelAttribute("userBD") UserBasicDetail userBD) {
+		Date sqlDate = Date.valueOf(userBD.getYear() + "-" + userBD.getMonth() + "-" + userBD.getDay());
+		session.setAttribute("regist_birthday", sqlDate);
+		
 		LocalDate birthday = LocalDate.of(userBD.getYear(), userBD.getMonth(), userBD.getDay());
 		LocalDate today = LocalDate.now();
 		
@@ -437,6 +441,7 @@ public class RegistController {
 		userBD.setSex((Integer) session.getAttribute("regist_sex"));
 		userBD.setAge((Integer) session.getAttribute("regist_age"));
 		userBD.setName((String) session.getAttribute("regist_name"));
+		userBD.setBirthday((java.sql.Date) session.getAttribute("regist_birthday"));
 		
 		userRD.setHeight((int) session.getAttribute("regist_height"));
 		userRD.setResidence((int) session.getAttribute("regist_residence"));
