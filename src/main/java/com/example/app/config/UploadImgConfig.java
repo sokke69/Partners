@@ -10,6 +10,7 @@ public class UploadImgConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/imgs/**").addResourceLocations("file:///C:/Users/zd2L17/imgs/");
+		//registry.addResourceHandler("/imgs/**").addResourceLocations("file:///D:/pleiades/workspace2/Partners/imgs/");
 	}
 
 }
