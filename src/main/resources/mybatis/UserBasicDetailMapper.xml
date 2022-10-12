@@ -27,13 +27,13 @@
 	
 	
 	
-	<update id="addLikePointDay" parameterType="Integer">
+	<update id="addLikePointDay" >
 		UPDATE user_basic_details
 		SET like_point=#{addedLikePoint}
 		WHERE id=#{id}
 	</update>
 	
-	<update id="addLikePointMonth" parameterType="Integer">
+	<update id="addLikePointMonth">
 		UPDATE user_basic_details
 		SET like_point=#{addedLikePoint}
 		WHERE id=#{id}
