@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザーリスト</title>
+<link rel="stylesheet" th:href="@{/css/user_list.css}" />
+</head>
+<body>
+<h1>ユーザーリスト</h1>
+
+
+<th:block th:each="user : ${userList}">
+
+<table border=1 class="user_list">
+
+<tr>
+	<th>年齢</th>
+	<th>ニックネーム</th>
+	
+	<th>身長</th>
+	<th>居住地</th>
+	<th>職種</th>
+	<th>年収</th>
+	<th>結婚歴</th>
+	<th>結婚に対する意思</th>
+	<th>休日</th>
+	<th>タバコ</th>
+	<th>同居者</th>
+	
+	<th>体型</th>
+	<th>血液型</th>
+	<th>出身地</th>
+	<th>学歴</th>
+	<th>兄弟姉妹</th>
+	<th>学校名</th>
+	<th>職業名</th>
+	<th>子どもの有無</th>
+	<th>子どもが欲しいか</th>
+	<th>家事・育児</th>
+	<th>出会うまでの希望</th>
+	<th>デート費用</th>
+	<th>性格・タイプ</th>
+	<th>社交性</th>
+	<th>お酒</th>
+	<th>好きなこと・趣味1</th>
+	<th>好きなこと・趣味2</th>
+	<th>好きなこと・趣味3</th>
+	<th>ワクチン接種状況</th>
+</tr>
+<tr>
+	
+	<td>[[${user.userBD.age}]]</td>
+	<td>[[${user.userBD.name}]]</td>
+	
+	<td>[[${user.userRD.height}]]</td>
+	<td>[[${user.userRD.residenceStr}]]</td>
+	<td>[[${user.userRD.occupationStr}]]</td>
+	<td>[[${user.userRD.annualIncomeStr}]]</td>
+	<td>[[${user.userRD.maritalStatusStr}]]</td>
+	<td>[[${user.userRD.desireToMarryStr}]]</td>
+	<td>[[${user.userRD.holidayStr}]]</td>
+	<td>[[${user.userRD.smokingStr}]]</td>
+	<td>[[${user.userRD.housemateStr}]]</td>
+	
+	<td>[[${user.userFD.figureStr}]]</td>
+	<td>[[${user.userFD.bloodTypeStr}]]</td>
+	<td>[[${user.userFD.birthPlaceStr}]]</td>
+	<td>[[${user.userFD.educationalStr}]]</td>
+	<td>[[${user.userFD.siblingStr}]]</td>
+	<td>[[${user.userFD.schoolName}]]</td>
+	<td>[[${user.userFD.jobName}]]</td>
+	<td>[[${user.userFD.haveChildrenStr}]]</td>
+	<td>[[${user.userFD.desireToGetchildStr}]]</td>
+	<td>[[${user.userFD.houseworkStr}]]</td>
+	<td>[[${user.userFD.timeToMeetStr}]]</td>
+	<td>[[${user.userFD.paymentStr}]]</td>
+	<td>[[${user.userFD.characterType}]]</td>
+	<td>[[${user.userFD.sociabilityStr}]]</td>
+	<td>[[${user.userFD.alcoholStr}]]</td>
+	<td>[[${user.userFD.hobbyOne}]]</td>
+	<td>[[${user.userFD.hobbyTwo}]]</td>
+	<td>[[${user.userFD.hobbyThree}]]</td>
+	<td>[[${user.userFD.vaccinationStr}]]</td>
+</tr>
+
+</table>
+
+</th:block>
+
+<p><a th:href="@{/}">トップページへ戻る</a></p>
+<p><a th:href="@{/logout}">ログアウト</a></p>
+
+</body>
+</html>

@@ -61,20 +61,7 @@ public class UserController {
 		if (session.getAttribute("status") == null) {
 			return "/invalid";
 		}
-		/*
-		 * Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		 * UserDetails userDetails = (UserDetails) auth.getPrincipal();
-		 */
-		/*
-		 * String userRoles = auth.getAuthorities().toString(); String loginId =
-		 * userDetails.getUsername(); System.out.println("login_id : " + loginId);
-		 * System.out.println("login_role : " + userRoles);
-		 * 
-		 * session.setAttribute("login_id", loginId);
-		 */
 		
-		System.out.println(session.getAttribute("id"));
-
 		return "/user/top";
 	}
 	

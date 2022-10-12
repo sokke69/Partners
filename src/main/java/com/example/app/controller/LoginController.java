@@ -175,21 +175,29 @@ public class LoginController {
 		session.removeAttribute("Random6of6");
 		session.removeAttribute("email");
 		
-		Integer id = userService.getUserIdByEmail((String)session.getAttribute("emailTo"));
+		User user = userService.getUserByLoginId((String)session.getAttribute("emailTo"));
 		
 		session.setAttribute("status", "login");
-		session.setAttribute("login_id", session.getAttribute("emailTo"));
-		session.setAttribute("id", id);
+		session.setAttribute("login_id", user.getLoginId());
+		session.setAttribute("id", user.getId());
+		
+		if (user.getUserBD().getSexStr().equals("男性")) {
+			session.setAttribute("sex", 1);			
+		} else if (user.getUserBD().getSexStr().equals("女性")) {
+			session.setAttribute("sex", 2);			
+		}
+		
+		
 		
 		session.removeAttribute("emailFrom");
 		session.removeAttribute("emailTo");
 		
 		session.setMaxInactiveInterval(1800);
 		
-		check_lp_day(id);
-		check_lp_month(id);
+		check_lp_day(user.getId());
+		check_lp_month(user.getId());
 		
-		return "/user/top";
+		return "redirect:/user/top";
 	}
 	
 	
