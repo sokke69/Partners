@@ -8,9 +8,12 @@
 <body>
 <h1>プロフィール</h1>
 
-<p>	<a th:href="@{/user/mypage/update}">プロフィールを編集する</a></p>
+<p>	<a th:href="@{/user/mypage/edit}">プロフィールを編集する</a></p>
 
-<table>
+<table width="210px">
+<tr><td><img th:src="@{/imgs/{id}/img01.jpg(id=${id})}" alt=""  height="210px"></td></tr>
+	<tr><td><img th:each="file : ${fileList}"
+		th:src="@{/imgs/{id}/{img}(id=${id}, img=${file.name})}" height="70px"></td></tr>
 <tr><th>[[${user.userBD.name}]]</th></tr>
 <tr><td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]
 <th:block th:if="${user.userFD.vaccinationStr} == '選択しない'"></th:block>

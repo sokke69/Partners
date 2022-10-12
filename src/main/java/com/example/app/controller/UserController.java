@@ -1,5 +1,7 @@
 package com.example.app.controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
@@ -27,6 +31,11 @@ public class UserController {
 	
 	@Autowired
 	HttpSession session;
+	
+	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/imgs/";
+	
+	
+	
 	
 	@GetMapping("/userList")
 	public String selectUserAll(Model model) throws Exception {
@@ -76,10 +85,15 @@ public class UserController {
 		user = userService.getUserByLoginId(loginId);
 		model.addAttribute("user", user);
 		
+		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+		File[] fileList = uploadsDirectory.listFiles();
+		model.addAttribute("fileList", fileList);
+		model.addAttribute("id", user.getId());
+		
 		return "/user/mypage";
 	}
 
-	@GetMapping("/mypage/update")
+	@GetMapping("/mypage/edit")
 	public String profileUpdateGet(Model model) throws Exception {
 		String loginId = (String) session.getAttribute("login_id");
 		User user = new User();
@@ -88,6 +102,11 @@ public class UserController {
 		
 		UserRequiredDetail userRD = user.getUserRD();
 		UserFreeDetail userFD = user.getUserFD();
+		
+		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+		File[] fileList = uploadsDirectory.listFiles();
+		model.addAttribute("fileList", fileList);
+		model.addAttribute("id", user.getId());
 		
 		model.addAttribute("holidaySelected", userRD.getHoliday());
 		model.addAttribute("annualIncomeSelected", userRD.getAnnualIncome());
@@ -133,11 +152,15 @@ public class UserController {
 		model.addAttribute("alcohols", userService.selectAlcoholAll());
 		model.addAttribute("vaccinations", userService.selectVaccinationAll());
 		
+		
 		return "/user/profile_update";
 	}
 	
-	@PostMapping("mypage/update")
+	@PostMapping("mypage/edit")
 	public String profileUpdatePost(@ModelAttribute User user) throws Exception{
+		if (!session.getAttribute("status").equals("login") || session.getAttribute("status") == null) {
+			return "/invalid";
+		}
 		
 		user.setId((int)session.getAttribute("id"));
 		
@@ -160,11 +183,38 @@ public class UserController {
 	}
 	
 	
+	@GetMapping("/mypage/edit/img")
+	public String editImgGet(Model model) throws Exception {
+		Integer userId = userService.getUserIdByEmail((String)session.getAttribute("login_id"));
+		File uploadsDirectory = new File(UPLOAD_DIRECTORY + userId);
+		File[] fileList = uploadsDirectory.listFiles();
+		Integer fileCount = fileList.length;
+		model.addAttribute("fileCount", fileCount);
+		model.addAttribute("fileList", fileList);
+		model.addAttribute("id", userId);
+		return "user/img_update";
+	}
 	
+	@PostMapping("mypage/edit/img/")
+	public String editImgPost(@RequestParam MultipartFile upfile, Model model) throws Exception {
+		if (!upfile.isEmpty()) {
+			User user = userService.getUserByLoginId((String)session.getAttribute("login_id"));
+			File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+			File[] fileList = uploadsDirectory.listFiles();
+			Integer fileCount = fileList.length;
+			File dest = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + (fileCount+1) + ".jpg");
+			upfile.transferTo(dest);
+			return "user/img_update_done";
+		} else {
+			return "redirect:/mypage/edit/img";
+		}
+	}
 	
-	
-	
-	
+	@RequestMapping("mypage/edit/img/{number}")
+	public String editImgUpdateGet(@PathVariable("number") Integer number) {
+		return null;
+		
+	}
 	
 	
 	

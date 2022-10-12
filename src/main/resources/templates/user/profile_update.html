@@ -10,7 +10,14 @@
 <h1>プロフィール：編集</h1>
 
 
-<form th:action="@{/user/mypage/update}" th:object="${user}" method="post">
+<form action="" th:object="${user}" method="post">
+
+<table class="prof_img">
+	<tr><td><img th:src="@{/imgs/{id}/img01.jpg(id=${id})}" alt=""  height="210px"></td></tr>
+	<tr><td><img th:each="file : ${fileList}"
+		th:src="@{/imgs/{id}/{img}(id=${id}, img=${file.name})}" height="70px"></td></tr>
+	<tr><td><a th:href="@{/user/mypage/edit/img}">プロフィール写真を編集</a></td></tr>
+</table>
 
 <table>
 	<tr><th colspan=2>つぶやき</th></tr>

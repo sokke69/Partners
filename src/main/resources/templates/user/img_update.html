@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>プロフィール写真：編集</title>
+<link rel="stylesheet" th:href="@{/css/edit.css}" />
+</head>
+<body>
+
+<h1>プロフィール写真：編集</h1>
+
+<p>画像ファイルをアップロード</p>
+<form th:action="@{/user/mypage/edit/img/}" method="post" enctype="multipart/form-data">
+
+<th:block th:if="${fileCount} < 9">
+	<p>ファイル：<input type="file" name="upfile"></p>
+	<p><input type="submit" value="アップロード"></p>
+</th:block>
+<th:block th:if="${fileCount} >= 9">
+	<p>プロフィール写真は9枚までです。</p>
+	<p>追加するには削除してください。</p>
+</th:block>
+
+
+	
+<th:block th:each="file, number : ${fileList}">
+	<table>
+		<tr><td><img th:src="@{/imgs/{id}/{img}(id=${id}, img=${file.name})}" width="250px" alt="" /></td></tr>
+		<tr><td><span><a th:href="@{/user/mypage/edit/img/update/{number}(number=${number.count})}">編集</a></span> 
+		<span><a th:href="@{/user/mypage/edit/img/delete/{number}(number=${number.count})}">削除</a></span></td></tr>
+	</table>
+</th:block>
+		
+
+</form>
+
+<p><a th:href="@{/user/mypage/}">プロフィールを編集へ戻る</a></p>
+
+</body>
+</html>
