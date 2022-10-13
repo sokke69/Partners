@@ -32,7 +32,8 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/imgs/";
+	private static final String NOIMAGE = "";
+	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
 	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
@@ -90,6 +91,8 @@ public class UserController {
 		File[] fileList = uploadsDirectory.listFiles();
 		model.addAttribute("fileList", fileList);
 		model.addAttribute("id", user.getId());
+		
+		session.setAttribute("haveImage", haveImage1(user.getId()));
 		
 		return "/user/mypage";
 	}
@@ -187,25 +190,38 @@ public class UserController {
 	@GetMapping("/mypage/edit/img")
 	public String editImgGet(Model model) throws Exception {
 		Integer userId = userService.getUserIdByEmail((String)session.getAttribute("login_id"));
-		File uploadsDirectory = new File(UPLOAD_DIRECTORY + userId);
-		File[] fileList = uploadsDirectory.listFiles();
-		Integer fileCount = fileList.length;
-		model.addAttribute("fileCount", fileCount);
-		model.addAttribute("fileList", fileList);
-		model.addAttribute("id", userId);
-		return "user/img_update";
+		File uploadDirectory = new File(UPLOAD_DIRECTORY + userId);
+		try {
+			File[] fileList = uploadDirectory.listFiles();
+			Integer fileCount = fileList.length;
+			model.addAttribute("fileCount", fileCount);
+			model.addAttribute("fileList", fileList);
+			model.addAttribute("id", userId);
+			return "user/img_update";
+		} catch (Exception e) {
+			model.addAttribute("fileCount", 0);
+			model.addAttribute("fileList", null);
+			model.addAttribute("id", userId);
+			return "user/img_update";
+		}
 	}
 	
 	@PostMapping("mypage/edit/img/")
 	public String editImgPost(@RequestParam MultipartFile upfile, Model model) throws Exception {
 		if (!upfile.isEmpty()) {
-			User user = userService.getUserByLoginId((String)session.getAttribute("login_id"));
-			File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
-			File[] fileList = uploadsDirectory.listFiles();
+			User user = userService.getUserByLoginId((String)session.getAttribute("login_id"));			
+			File uploadDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+			
+			if (!uploadDirectory.exists()) {
+				uploadDirectory.mkdir();
+			}
+			
+			File[] fileList = uploadDirectory.listFiles();
 			Integer fileCount = fileList.length;
 			File dest = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + (fileCount+1) + ".jpg");
 			upfile.transferTo(dest);
 			return "user/img_update_done";
+			
 		} else {
 			return "redirect:/mypage/edit/img";
 		}
@@ -217,6 +233,13 @@ public class UserController {
 		
 	}
 	
-	
+	private boolean haveImage1(Integer id) {
+		File image1jpg = new File(UPLOAD_DIRECTORY + id + "/img1.jpg");
+		File image1png = new File(UPLOAD_DIRECTORY + id + "/img1.png");
+		if (image1jpg.exists() || image1png.exists()) {
+			return true;
+		}
+		return false;
+	}
 	
 }

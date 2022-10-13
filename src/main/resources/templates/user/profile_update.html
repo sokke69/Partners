@@ -13,9 +13,15 @@
 <form action="" th:object="${user}" method="post">
 
 <table class="prof_img">
-	<tr><td><img th:src="@{/imgs/{id}/img1.jpg(id=${id})}" alt=""  height="210px"></td></tr>
-	<tr><td><img th:each="file : ${fileList}"
-		th:src="@{/imgs/{id}/{img}(id=${id}, img=${file.name})}" height="70px"></td></tr>
+	<tr><td>
+	<img th:if="${session.haveImage == false}" th:src="@{/img/noimage.jpg}" alt=""  height="210px">
+	<img th:if="${session.haveImage == true}" th:src="@{/imgs/{id}/img1.jpg(id=${id})}" alt=""  height="210px">
+</td></tr>
+
+	<th:block th:each="file : ${fileList}">
+	<tr><td><img th:src="@{/imgs/{id}/{img}(id=${id}, img=${file.name})}" height="70px"></td></tr>
+</th:block>
+		
 	<tr><td><a th:href="@{/user/mypage/edit/img}">プロフィール写真を編集</a></td></tr>
 </table>
 
