@@ -95,6 +95,18 @@ public class UserServiceImpl implements UserService {
 	public void insertUser(User user) throws Exception {
 		userMapper.insertUser(user);
 	}
+	
+	@Override
+	public void insertImage() throws Exception {
+		userMapper.insertImage();
+	}
+	
+	@Override
+	public void updateImage(Integer id, Integer img) throws Exception {
+		userMapper.updateImage(id, img);
+		
+	}
+	
 
 	@Override
 	public void editUser(User user) throws Exception {
@@ -364,32 +376,10 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	
-	@Override
-	public void insertUserRole(String userId) throws Exception {
-		registMapper.insertUserRole(userId);
-	}
-	
 	// RegistMapper ここまで //
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	// SpringSecurity ここから
-	
-	/*
-	 * @Override public UserDetails loadUserByUsername(String email) throws
-	 * UsernameNotFoundException { try { return userMapper.checkLoginByEmail(email);
-	 * } catch (Exception e) { e.printStackTrace(); } return null; }
-	 */
 
-	/* SpringSecurity ここまで */
-	
-	
-	
-	
 }

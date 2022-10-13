@@ -5,51 +5,25 @@
 
 	<!-- selectUserAllDetailList ここから -->
 	
-	<resultMap id="usersResult" type="com.example.app.domain.User" autoMapping="true">
+	<resultMap id="usersResult" type="com.example.app.domain.User">
 		<id column="id" property="id" />
-		<result column = "login_id" property="loginId"/>
 		
 		<association property="userBD" javaType="com.example.app.domain.UserBasicDetail">
-			<result column="sex" property="sexStr"/>
 			<result column="age" property="age"/>
-			<result column="name" property="name"/>
-			<result column="like_point" property="likePoint"/>
-			<result column="registed" property="registed"/>
 		</association>
 		
 		<association property="userRD" javaType="com.example.app.domain.UserRequiredDetail">
-			<result column="height" property="height"/>
 			<result column="residence" property="residenceStr"/>
-			<result column="occupation" property="occupationStr"/>
-			<result column="annual_income" property="annualIncomeStr"/>
-			<result column="marital_status" property="maritalStatusStr"/>
-			<result column="desire_to_marry" property="desireToMarryStr"/>
-			<result column="holiday" property="holidayStr"/>
-			<result column="smoking" property="smokingStr"/>
-			<result column="housemate" property="housemateStr"/>
+		</association> 
+		
+		<association property="userT" javaType="com.example.app.domain.UserText">
+			<result column="one_word" property="oneWord"/>
+			<result column="self_introduction" property="selfIntroduction"/>
 		</association>
 		
-		<association property="userFD" javaType="com.example.app.domain.UserFreeDetail">
-			<result column="figure" property="figureStr" />
-			<result column="blood_type" property="bloodTypeStr" />
-			<result column="birth_place" property="birthPlaceStr"/>
-			<result column="educational" property="educationalStr"/>
-			<result column="sibling" property="siblingStr"/>
-			<result column="school_name" property="schoolNameStr"/>
-			<result column="job_name" property="jobNameStr"/>
-			<result column="have_children" property="haveChildrenStr"/>
-			<result column="desire_to_getchild" property="desireToGetchildStr"/>
-			<result column="housework" property="houseworkStr"/>
-			<result column="time_to_meet" property="timeToMeetStr"/>
-			<result column="payment" property="paymentStr"/>
-			<result column="character_type" property="characterType"/>
-			<result column="sociability" property="sociabilityStr"/>
-			<result column="alcohol" property="alcoholStr"/>
-			<result column="hobby_one" property="hobbyOne"/>
-			<result column="hobby_two" property="hobbyTwo"/>
-			<result column="hobby_three" property="hobbyThree"/>
-			<result column="vaccination" property="vaccinationStr"/>
-		</association> 
+		<association property="userI" javaType="com.example.app.domain.UserImage">
+			<result column="img" property="img"/>
+		</association>
 
 	</resultMap>
 	
@@ -57,67 +31,19 @@
 	<select id="searchUserAllDetailList" parameterType="int" resultMap="usersResult">
 		SELECT 
 			users.id, 
-			users.login_id, 
-			sexs.sex, 
 			user_basic_details.age, 
-			user_basic_details.name, 
-			user_basic_details.like_point, 
-			user_basic_details.registered,
-			height,
-			residences.residence, 
-			occupations.occupation AS occupation,
-			annual_incomes.annual_income AS annual_income,
-			marital_statuses.marital_status AS marital_status,
-			desire_to_marries.desire_to_marry AS desire_to_marry,
-			holidays.holiday AS holiday,
-			smokings.smoking AS smoking,
-			housemates.housemate AS housemate,
-			
-			figures.figure AS figure,
-			blood_types.blood_type AS blood_type,
-			birth_places.birth_place AS birth_place,
-			educationals.educational AS educational,
-			siblings.sibling AS sibling,
-			have_childrens.have_children AS have_children,
-			desire_to_getchilds.desire_to_getchild AS desire_to_getchild,
-			houseworks.housework AS housework,
-			time_to_meets.time_to_meet AS time_to_meet,
-			payments.payment AS payment,
-			sociabilities.sociability AS sociability,
-			alcohols.alcohol AS alcohol,
-			hobby_one,
-			hobby_two,
-			hobby_three,
-			vaccinations.vaccination AS vaccination
+			residences.residence,
+			user_texts.one_word,
+            user_texts.self_introduction,
+            imgs.img
 			
 		FROM users 
 		LEFT JOIN user_basic_details ON users.id = user_basic_details.id
-		LEFT JOIN user_required_details ON users.id = user_required_details.id
-		LEFT JOIN user_free_details ON users.id = user_free_details.id
+        LEFT JOIN user_required_details ON users.id = user_required_details.id
+		LEFT JOIN user_texts ON users.id = user_texts.id
+		LEFT JOIN imgs ON users.id = imgs.id
 		
-			LEFT JOIN sexs ON user_basic_details.sex = sexs.id
-			LEFT JOIN residences ON user_required_details.residence = residences.id
-			LEFT JOIN occupations ON user_required_details.occupation = occupations.id
-			LEFT JOIN annual_incomes ON user_required_details.annual_income = annual_incomes.id
-			LEFT JOIN marital_statuses ON user_required_details.marital_status = marital_statuses.id
-			LEFT JOIN desire_to_marries ON user_required_details.desire_to_marry = desire_to_marries.id
-			LEFT JOIN holidays ON user_required_details.holiday = holidays.id
-			LEFT JOIN smokings ON user_required_details.smoking = smokings.id
-			LEFT JOIN housemates ON user_required_details.housemate = housemates.id
-			 
-			LEFT JOIN figures ON user_free_details.figure = figures.id
-			LEFT JOIN blood_types ON user_free_details.blood_type = blood_types.id
-			LEFT JOIN birth_places ON user_free_details.birth_place = birth_places.id
-			LEFT JOIN educationals ON user_free_details.educational = educationals.id
-			LEFT JOIN siblings ON user_free_details.sibling = siblings.id
-			LEFT JOIN have_childrens ON user_free_details.have_children = have_childrens.id
-			LEFT JOIN desire_to_getchilds ON user_free_details.desire_to_getchild = desire_to_getchilds.id
-			LEFT JOIN houseworks ON user_free_details.housework = houseworks.id
-			LEFT JOIN time_to_meets ON user_free_details.time_to_meet = time_to_meets.id
-			LEFT JOIN payments ON user_free_details.payment = payments.id
-			LEFT JOIN sociabilities ON user_free_details.sociability = sociabilities.id
-			LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
-			LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
+		LEFT JOIN residences ON user_required_details.residence = residences.id
 			
 		WHERE user_basic_details.sex = <choose>
 											<when test="sex == 1">2</when>

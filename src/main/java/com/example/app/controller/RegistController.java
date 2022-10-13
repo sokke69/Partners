@@ -459,11 +459,13 @@ public class RegistController {
 		String userId = userService.getUserIdByEmail(email).toString();
 		
 		userService.createTable(userId);
-		userService.insertUserRole(userId);
+		userService.insertImage();
 		
 		session.invalidate();
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", email);
+		session.setAttribute("sex", userBD.getSex());
+		
 		
 		session.setAttribute("id", userService.getUserIdByEmail(email));
 		

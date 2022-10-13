@@ -32,7 +32,6 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	private static final String NOIMAGE = "";
 	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
 	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
@@ -220,6 +219,11 @@ public class UserController {
 			Integer fileCount = fileList.length;
 			File dest = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + (fileCount+1) + ".jpg");
 			upfile.transferTo(dest);
+			
+			System.out.println((Integer) session.getAttribute("id"));
+			System.out.println(fileCount+1);
+			userService.updateImage((Integer) session.getAttribute("id"), (fileCount+1));
+			
 			return "user/img_update_done";
 			
 		} else {

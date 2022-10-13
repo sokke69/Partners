@@ -203,8 +203,8 @@
 		</association> 
 		
 		<association property="userT" javaType="com.example.app.domain.UserText">
-			<result column = "one_word" property="oneWord"/>
-			<result column = "self_introduction" property="selfIntroduction"/>
+			<result column="one_word" property="oneWord"/>
+			<result column="self_introduction" property="selfIntroduction"/>
 		</association>
 
 	</resultMap>
@@ -472,5 +472,14 @@
 		WHERE id=#{id};
 	</update>
 	
+	<insert id="insertImage" parameterType="int">
+		INSERT INTO imgs (img) VALUES (0) 
+	</insert>
+	
+	<update id="updateImage">
+		UPDATE imgs 
+		SET img=#{img} 
+		WHERE id=#{id}
+	</update>
 	
 </mapper>

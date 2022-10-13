@@ -20,25 +20,6 @@ public class User/* implements UserDetails */{
 	private UserRequiredDetail userRD;
 	private UserFreeDetail userFD;
 	private UserText userT;
+	private UserImage userI;
 	
-	/*
-	 * @Override public Collection<? extends GrantedAuthority> getAuthorities() {
-	 * return roles.stream().map(role -> new SimpleGrantedAuthority(role)).toList();
-	 * }
-	 * 
-	 * @Override public String getPassword() { return loginPass; }
-	 * 
-	 * @Override public String getUsername() { return loginId; }
-	 * 
-	 * @Override public boolean isAccountNonExpired() { // TODO 自動生成されたメソッド・スタブ
-	 * return true; }
-	 * 
-	 * @Override public boolean isAccountNonLocked() { // TODO 自動生成されたメソッド・スタブ
-	 * return true; }
-	 * 
-	 * @Override public boolean isCredentialsNonExpired() { // TODO 自動生成されたメソッド・スタブ
-	 * return true; }
-	 * 
-	 * @Override public boolean isEnabled() { // TODO 自動生成されたメソッド・スタブ return true; }
-	 */
 }

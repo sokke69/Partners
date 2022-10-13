@@ -35,6 +35,8 @@ public interface UserService/* extends UserDetailsService */{
 	
 	// UserMapper.java
 	void insertUser(User user) throws Exception;
+	void insertImage() throws Exception;
+	void updateImage(Integer id, Integer img) throws Exception;
 	void editUser(User user) throws Exception;
 	void deleteUser(int i) throws Exception;
 	List<User> getUserAllDetailList() throws Exception;
@@ -93,7 +95,6 @@ public interface UserService/* extends UserDetailsService */{
 	
 	// RegistMapper.java
 	void createTable(String id) throws Exception;
-	void insertUserRole(String userId) throws Exception;
 
 	
 	
