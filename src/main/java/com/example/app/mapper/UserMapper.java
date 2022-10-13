@@ -15,6 +15,7 @@ public interface UserMapper {
 	void insertUser(User user) throws Exception;
 	void insertImage() throws Exception;
 	void updateImage(@Param("id") Integer id, @Param("img") Integer img) throws Exception;
+	void deleteImage(@Param("id") Integer id, @Param("img") Integer img) throws Exception;
 	void editUser(User user) throws Exception;
 	User getUserByLoginId(String loginId) throws Exception;
 	User getUserDetailOfNumberByLoginId(String loginId) throws Exception;

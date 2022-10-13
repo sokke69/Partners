@@ -1,6 +1,8 @@
 package com.example.app.controller;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -86,6 +88,11 @@ public class UserController {
 		user = userService.getUserByLoginId(loginId);
 		model.addAttribute("user", user);
 		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
 		File[] fileList = uploadsDirectory.listFiles();
 		model.addAttribute("fileList", fileList);
@@ -108,6 +115,12 @@ public class UserController {
 		
 		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
 		File[] fileList = uploadsDirectory.listFiles();
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		model.addAttribute("fileList", fileList);
 		model.addAttribute("id", user.getId());
 		
@@ -188,6 +201,11 @@ public class UserController {
 	
 	@GetMapping("/mypage/edit/img")
 	public String editImgGet(Model model) throws Exception {
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer userId = userService.getUserIdByEmail((String)session.getAttribute("login_id"));
 		File uploadDirectory = new File(UPLOAD_DIRECTORY + userId);
 		try {
@@ -230,11 +248,28 @@ public class UserController {
 			return "redirect:/mypage/edit/img";
 		}
 	}
+
+	@GetMapping("/mypage/edit/img/delete/{number}")
+	public String deleteImageGet(@PathVariable("number") Integer number,Model model) throws Exception{
+		model.addAttribute("imgNumber", number);
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		return "user/img_delete";
+	}
 	
-	@RequestMapping("mypage/edit/img/{number}")
-	public String editImgUpdateGet(@PathVariable("number") Integer number) {
-		return null;
+	@PostMapping("/mypage/edit/img/delete/{number}")
+	public String deleteImagePost(@PathVariable("number") Integer number) throws Exception{
+		User user = userService.getUserByLoginId((String)session.getAttribute("login_id"));			
+		File directory = new File(UPLOAD_DIRECTORY + user.getId());
+		File deleteFile = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + number + ".jpg");
+		deleteFile.delete();
 		
+		File[] fileList = directory.listFiles();
+		Integer fileCount = fileList.length;
+		userService.updateImage((Integer) session.getAttribute("id"),(fileCount));
+		return "redirect:/user/mypage/edit/img";
 	}
 	
 	private boolean haveImage1(Integer id) {

@@ -7,6 +7,7 @@
 <body>
 <h1>プロフィール写真の削除</h1>
 
+<img th:src="@{/imgs/{id}/img{number}.jpg?{today}(id=${session.id},number=${imgNumber}, today=${today})}" alt=""  height="210px">
 
 <p>この画像を本当に削除しますか。</p>
 
