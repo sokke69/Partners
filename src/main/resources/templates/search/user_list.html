@@ -6,28 +6,649 @@
 <link rel="stylesheet" th:href="@{/css/search.css}" />
 </head>
 <body>
-<h1>ユーザーリスト</h1>
+	<h1>ユーザーリスト</h1>
+
+	<form action="" method="post"
+		th:object="${user}">
+
+		<table class="detail">
+			<tr>
+				<th>エリア</th>
+			</tr>
+			<tr>
+				<td>居住地 <select th:field="*{userRD.residence}">
+						<option value="0">選択しない</option>
+						<option value="1">北海道</option>
+						<option value="2">青森県</option>
+						<option value="3">岩手県</option>
+						<option value="4">宮城県</option>
+						<option value="5">秋田県</option>
+						<option value="6">山形県</option>
+						<option value="7">福島県</option>
+						<option value="8">茨城県</option>
+						<option value="9">栃木県</option>
+						<option value="10">群馬県</option>
+						<option value="11">埼玉県</option>
+						<option value="12">千葉県</option>
+						<option value="13">東京都</option>
+						<option value="14">神奈川県</option>
+						<option value="15">新潟県</option>
+						<option value="16">富山県</option>
+						<option value="17">石川県</option>
+						<option value="18">福井県</option>
+						<option value="19">山梨県</option>
+						<option value="20">長野県</option>
+						<option value="21">岐阜県</option>
+						<option value="22">静岡県</option>
+						<option value="23">愛知県</option>
+						<option value="24">三重県</option>
+						<option value="25">滋賀県</option>
+						<option value="26">京都府</option>
+						<option value="27">大阪府</option>
+						<option value="28">兵庫県</option>
+						<option value="29">奈良県</option>
+						<option value="30">和歌山県</option>
+						<option value="31">鳥取県</option>
+						<option value="32">島根県</option>
+						<option value="33">岡山県</option>
+						<option value="34">広島県</option>
+						<option value="35">山口県</option>
+						<option value="36">徳島県</option>
+						<option value="37">香川県</option>
+						<option value="38">愛媛県</option>
+						<option value="39">高知県</option>
+						<option value="40">福岡県</option>
+						<option value="41">佐賀県</option>
+						<option value="42">長崎県</option>
+						<option value="43">熊本県</option>
+						<option value="44">大分県</option>
+						<option value="45">宮崎県</option>
+						<option value="46">鹿児島県</option>
+						<option value="47">沖縄県</option>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<th>プロフィール</th>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						年齢 <select th:field="*{userBD.ageMin}">
+							<option value="">選択しない</option>
+							<option value="18">18歳</option>
+							<option value="19">19歳</option>
+							<option value="20">20歳</option>
+							<option value="21">21歳</option>
+							<option value="22">22歳</option>
+							<option value="23">23歳</option>
+							<option value="24">24歳</option>
+							<option value="25">25歳</option>
+							<option value="26">26歳</option>
+							<option value="27">27歳</option>
+							<option value="28">28歳</option>
+							<option value="29">29歳</option>
+							<option value="30">30歳</option>
+							<option value="31">31歳</option>
+							<option value="32">32歳</option>
+							<option value="33">33歳</option>
+							<option value="34">34歳</option>
+							<option value="35">35歳</option>
+							<option value="36">36歳</option>
+							<option value="37">37歳</option>
+							<option value="38">38歳</option>
+							<option value="39">39歳</option>
+							<option value="40">40歳</option>
+							<option value="41">41歳</option>
+							<option value="42">42歳</option>
+							<option value="43">43歳</option>
+							<option value="44">44歳</option>
+							<option value="45">45歳</option>
+							<option value="46">46歳</option>
+							<option value="47">47歳</option>
+							<option value="48">48歳</option>
+							<option value="49">49歳</option>
+							<option value="50">50歳</option>
+							<option value="51">51歳</option>
+							<option value="52">52歳</option>
+							<option value="53">53歳</option>
+							<option value="54">54歳</option>
+							<option value="55">55歳</option>
+							<option value="56">56歳</option>
+							<option value="57">57歳</option>
+							<option value="58">58歳</option>
+							<option value="59">59歳</option>
+							<option value="60">60歳</option>
+							<option value="61">61歳</option>
+							<option value="62">62歳</option>
+							<option value="63">63歳</option>
+							<option value="64">64歳</option>
+							<option value="65">65歳</option>
+							<option value="66">66歳</option>
+							<option value="67">67歳</option>
+							<option value="68">68歳</option>
+							<option value="69">69歳</option>
+							<option value="70">70歳</option>
+							<option value="71">71歳</option>
+							<option value="72">72歳</option>
+							<option value="73">73歳</option>
+							<option value="74">74歳</option>
+							<option value="75">75歳</option>
+							<option value="76">76歳</option>
+							<option value="77">77歳</option>
+							<option value="78">78歳</option>
+							<option value="79">79歳</option>
+							<option value="80">80歳</option>
+							<option value="81">81歳</option>
+							<option value="82">82歳</option>
+							<option value="83">83歳</option>
+							<option value="84">84歳</option>
+							<option value="85">85歳</option>
+							<option value="86">86歳</option>
+							<option value="87">87歳</option>
+							<option value="88">88歳</option>
+							<option value="89">89歳</option>
+							<option value="90">90歳</option>
+							<option value="91">91歳</option>
+							<option value="92">92歳</option>
+							<option value="93">93歳</option>
+							<option value="94">94歳</option>
+							<option value="95">95歳</option>
+							<option value="96">96歳</option>
+							<option value="97">97歳</option>
+							<option value="98">98歳</option>
+							<option value="99">99歳</option>
+						</select> - <select th:field="*{userBD.ageMax}">
+							<option value="">選択しない</option>
+							<option value="18">18歳</option>
+							<option value="19">19歳</option>
+							<option value="20">20歳</option>
+							<option value="21">21歳</option>
+							<option value="22">22歳</option>
+							<option value="23">23歳</option>
+							<option value="24">24歳</option>
+							<option value="25">25歳</option>
+							<option value="26">26歳</option>
+							<option value="27">27歳</option>
+							<option value="28">28歳</option>
+							<option value="29">29歳</option>
+							<option value="30">30歳</option>
+							<option value="31">31歳</option>
+							<option value="32">32歳</option>
+							<option value="33">33歳</option>
+							<option value="34">34歳</option>
+							<option value="35">35歳</option>
+							<option value="36">36歳</option>
+							<option value="37">37歳</option>
+							<option value="38">38歳</option>
+							<option value="39">39歳</option>
+							<option value="40">40歳</option>
+							<option value="41">41歳</option>
+							<option value="42">42歳</option>
+							<option value="43">43歳</option>
+							<option value="44">44歳</option>
+							<option value="45">45歳</option>
+							<option value="46">46歳</option>
+							<option value="47">47歳</option>
+							<option value="48">48歳</option>
+							<option value="49">49歳</option>
+							<option value="50">50歳</option>
+							<option value="51">51歳</option>
+							<option value="52">52歳</option>
+							<option value="53">53歳</option>
+							<option value="54">54歳</option>
+							<option value="55">55歳</option>
+							<option value="56">56歳</option>
+							<option value="57">57歳</option>
+							<option value="58">58歳</option>
+							<option value="59">59歳</option>
+							<option value="60">60歳</option>
+							<option value="61">61歳</option>
+							<option value="62">62歳</option>
+							<option value="63">63歳</option>
+							<option value="64">64歳</option>
+							<option value="65">65歳</option>
+							<option value="66">66歳</option>
+							<option value="67">67歳</option>
+							<option value="68">68歳</option>
+							<option value="69">69歳</option>
+							<option value="70">70歳</option>
+							<option value="71">71歳</option>
+							<option value="72">72歳</option>
+							<option value="73">73歳</option>
+							<option value="74">74歳</option>
+							<option value="75">75歳</option>
+							<option value="76">76歳</option>
+							<option value="77">77歳</option>
+							<option value="78">78歳</option>
+							<option value="79">79歳</option>
+							<option value="80">80歳</option>
+							<option value="81">81歳</option>
+							<option value="82">82歳</option>
+							<option value="83">83歳</option>
+							<option value="84">84歳</option>
+							<option value="85">85歳</option>
+							<option value="86">86歳</option>
+							<option value="87">87歳</option>
+							<option value="88">88歳</option>
+							<option value="89">89歳</option>
+							<option value="90">90歳</option>
+							<option value="91">91歳</option>
+							<option value="92">92歳</option>
+							<option value="93">93歳</option>
+							<option value="94">94歳</option>
+							<option value="95">95歳</option>
+							<option value="96">96歳</option>
+							<option value="97">97歳</option>
+							<option value="98">98歳</option>
+							<option value="99">99歳</option>
+						</select>
+					</div>
+					<div>
+						身長 <select th:field="*{userRD.heightMin}">
+							<option th:value="129">選択しない</option>
+							<option th:value="130">130cm</option>
+							<option th:value="131">131cm</option>
+							<option th:value="132">132cm</option>
+							<option th:value="133">133cm</option>
+							<option th:value="134">134cm</option>
+							<option th:value="135">135cm</option>
+							<option th:value="136">136cm</option>
+							<option th:value="137">137cm</option>
+							<option th:value="138">138cm</option>
+							<option th:value="139">139cm</option>
+							<option th:value="140">140cm</option>
+							<option th:value="141">141cm</option>
+							<option th:value="142">142cm</option>
+							<option th:value="143">143cm</option>
+							<option th:value="144">144cm</option>
+							<option th:value="145">145cm</option>
+							<option th:value="146">146cm</option>
+							<option th:value="147">147cm</option>
+							<option th:value="148">148cm</option>
+							<option th:value="149">149cm</option>
+							<option th:value="150">150cm</option>
+							<option th:value="151">151cm</option>
+							<option th:value="152">152cm</option>
+							<option th:value="153">153cm</option>
+							<option th:value="154">154cm</option>
+							<option th:value="155">155cm</option>
+							<option th:value="156">156cm</option>
+							<option th:value="157">157cm</option>
+							<option th:value="158">158cm</option>
+							<option th:value="159">159cm</option>
+							<option th:value="160">160cm</option>
+							<option th:value="161">161cm</option>
+							<option th:value="162">162cm</option>
+							<option th:value="163">163cm</option>
+							<option th:value="164">164cm</option>
+							<option th:value="165">165cm</option>
+							<option th:value="166">166cm</option>
+							<option th:value="167">167cm</option>
+							<option th:value="168">168cm</option>
+							<option th:value="169">169cm</option>
+							<option th:value="170">170cm</option>
+							<option th:value="171">171cm</option>
+							<option th:value="172">172cm</option>
+							<option th:value="173">173cm</option>
+							<option th:value="174">174cm</option>
+							<option th:value="175">175cm</option>
+							<option th:value="176">176cm</option>
+							<option th:value="177">177cm</option>
+							<option th:value="178">178cm</option>
+							<option th:value="179">179cm</option>
+							<option th:value="180">180cm</option>
+							<option th:value="181">181cm</option>
+							<option th:value="182">182cm</option>
+							<option th:value="183">183cm</option>
+							<option th:value="184">184cm</option>
+							<option th:value="185">185cm</option>
+							<option th:value="186">186cm</option>
+							<option th:value="187">187cm</option>
+							<option th:value="188">188cm</option>
+							<option th:value="189">189cm</option>
+							<option th:value="190">190cm</option>
+							<option th:value="191">191cm</option>
+							<option th:value="192">192cm</option>
+							<option th:value="193">193cm</option>
+							<option th:value="194">194cm</option>
+							<option th:value="195">195cm</option>
+							<option th:value="196">196cm</option>
+							<option th:value="197">197cm</option>
+							<option th:value="198">198cm</option>
+							<option th:value="199">199cm</option>
+							<option th:value="200">200cm</option>
+						</select> - <select th:field="*{userRD.heightMax}">
+							<option th:value="201">選択しない</option>
+							<option th:value="130">130cm</option>
+							<option th:value="131">131cm</option>
+							<option th:value="132">132cm</option>
+							<option th:value="133">133cm</option>
+							<option th:value="134">134cm</option>
+							<option th:value="135">135cm</option>
+							<option th:value="136">136cm</option>
+							<option th:value="137">137cm</option>
+							<option th:value="138">138cm</option>
+							<option th:value="139">139cm</option>
+							<option th:value="140">140cm</option>
+							<option th:value="141">141cm</option>
+							<option th:value="142">142cm</option>
+							<option th:value="143">143cm</option>
+							<option th:value="144">144cm</option>
+							<option th:value="145">145cm</option>
+							<option th:value="146">146cm</option>
+							<option th:value="147">147cm</option>
+							<option th:value="148">148cm</option>
+							<option th:value="149">149cm</option>
+							<option th:value="150">150cm</option>
+							<option th:value="151">151cm</option>
+							<option th:value="152">152cm</option>
+							<option th:value="153">153cm</option>
+							<option th:value="154">154cm</option>
+							<option th:value="155">155cm</option>
+							<option th:value="156">156cm</option>
+							<option th:value="157">157cm</option>
+							<option th:value="158">158cm</option>
+							<option th:value="159">159cm</option>
+							<option th:value="160">160cm</option>
+							<option th:value="161">161cm</option>
+							<option th:value="162">162cm</option>
+							<option th:value="163">163cm</option>
+							<option th:value="164">164cm</option>
+							<option th:value="165">165cm</option>
+							<option th:value="166">166cm</option>
+							<option th:value="167">167cm</option>
+							<option th:value="168">168cm</option>
+							<option th:value="169">169cm</option>
+							<option th:value="170">170cm</option>
+							<option th:value="171">171cm</option>
+							<option th:value="172">172cm</option>
+							<option th:value="173">173cm</option>
+							<option th:value="174">174cm</option>
+							<option th:value="175">175cm</option>
+							<option th:value="176">176cm</option>
+							<option th:value="177">177cm</option>
+							<option th:value="178">178cm</option>
+							<option th:value="179">179cm</option>
+							<option th:value="180">180cm</option>
+							<option th:value="181">181cm</option>
+							<option th:value="182">182cm</option>
+							<option th:value="183">183cm</option>
+							<option th:value="184">184cm</option>
+							<option th:value="185">185cm</option>
+							<option th:value="186">186cm</option>
+							<option th:value="187">187cm</option>
+							<option th:value="188">188cm</option>
+							<option th:value="189">189cm</option>
+							<option th:value="190">190cm</option>
+							<option th:value="191">191cm</option>
+							<option th:value="192">192cm</option>
+							<option th:value="193">193cm</option>
+							<option th:value="194">194cm</option>
+							<option th:value="195">195cm</option>
+							<option th:value="196">196cm</option>
+							<option th:value="197">197cm</option>
+							<option th:value="198">198cm</option>
+							<option th:value="199">199cm</option>
+							<option th:value="200">200cm</option>
+						</select>
+					</div>
+					<div>
+						体型 <select th:field="*{userFD.figure}" id="">
+							<th:block th:each="figure : ${figures}">
+								<option th:value="${figure.id}"
+									th:selected="${figure.id == figureSelected}">[[${figure.figure}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						職種 <select th:field="*{userRD.occupation}" id="">
+							<th:block th:each="occupation : ${occupations}">
+								<option th:value="${occupation.id}"
+									th:selected="${occupation.id == occupationSelected}">[[${occupation.occupation}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						年収 <select th:field="*{userRD.annualIncomeMin}">
+							<option value="1">選択しない</option>
+							<option value="2">200万円</option>
+							<option value="3">400万円</option>
+							<option value="4">600万円</option>
+							<option value="5">800万円</option>
+							<option value="6">1000万円</option>
+							<option value="7">1500万円</option>
+							<option value="8">2000万円</option>
+							<option value="9">3000万円</option>
+						</select> - <select th:field="*{userRD.annualIncomeMax}">
+							<option value="1">選択しない</option>
+							<option value="2">200万円</option>
+							<option value="3">400万円</option>
+							<option value="4">600万円</option>
+							<option value="5">800万円</option>
+							<option value="6">1000万円</option>
+							<option value="7">1500万円</option>
+							<option value="8">2000万円</option>
+							<option value="9">3000万円</option>
+						</select>
+					</div>
+					<div>
+						休日 <select th:field="*{userRD.holiday}" id="">
+							<th:block th:each="holiday : ${holidays}">
+								<option th:value="${holiday.id}"
+									th:selected="${holiday.id == holidaySelected}">[[${holiday.holiday}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						学歴 <select th:field="*{userFD.educational}" id="">
+							<th:block th:each="educational : ${educationals}">
+								<option th:value="${educational.id}"
+									th:selected="${educational.id == educationalSelected}">[[${educational.educational}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						出身地 <select th:field="*{userFD.birthPlace}">
+							<option value="99">選択しない</option>
+							<option value="1">北海道</option>
+							<option value="2">青森県</option>
+							<option value="3">岩手県</option>
+							<option value="4">宮城県</option>
+							<option value="5">秋田県</option>
+							<option value="6">山形県</option>
+							<option value="7">福島県</option>
+							<option value="8">茨城県</option>
+							<option value="9">栃木県</option>
+							<option value="10">群馬県</option>
+							<option value="11">埼玉県</option>
+							<option value="12">千葉県</option>
+							<option value="13">東京都</option>
+							<option value="14">神奈川県</option>
+							<option value="15">新潟県</option>
+							<option value="16">富山県</option>
+							<option value="17">石川県</option>
+							<option value="18">福井県</option>
+							<option value="19">山梨県</option>
+							<option value="20">長野県</option>
+							<option value="21">岐阜県</option>
+							<option value="22">静岡県</option>
+							<option value="23">愛知県</option>
+							<option value="24">三重県</option>
+							<option value="25">滋賀県</option>
+							<option value="26">京都府</option>
+							<option value="27">大阪府</option>
+							<option value="28">兵庫県</option>
+							<option value="29">奈良県</option>
+							<option value="30">和歌山県</option>
+							<option value="31">鳥取県</option>
+							<option value="32">島根県</option>
+							<option value="33">岡山県</option>
+							<option value="34">広島県</option>
+							<option value="35">山口県</option>
+							<option value="36">徳島県</option>
+							<option value="37">香川県</option>
+							<option value="38">愛媛県</option>
+							<option value="39">高知県</option>
+							<option value="40">福岡県</option>
+							<option value="41">佐賀県</option>
+							<option value="42">長崎県</option>
+							<option value="43">熊本県</option>
+							<option value="44">大分県</option>
+							<option value="45">宮崎県</option>
+							<option value="46">鹿児島県</option>
+							<option value="47">沖縄県</option>
+						</select>
+					</div>
+					<div>
+						同居人 <select th:field="*{userRD.housemate}" id="">
+							<th:block th:each="housemate : ${housemates}">
+								<option th:value="${housemate.id}"
+									th:selected="${housemate.id == housemateSelected}">[[${housemate.housemate}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						社交性 <select th:field="*{userFD.sociability}" id="">
+							<th:block th:each="sociability : ${sociabilities}">
+								<option th:value="${sociability.id}"
+									th:selected="${sociability.id == sociabilitySelected}">[[${sociability.sociability}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						タバコ <select th:field="*{userRD.smoking}" id="">
+							<th:block th:each="smoking : ${smokings}">
+								<option th:value="${smoking.id}"
+									th:selected="${smoking.id == smokingSelected}">[[${smoking.smoking}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						お酒 <select th:field="*{userFD.alcohol}" id="">
+							<th:block th:each="alcohol : ${alcohols}">
+								<option th:value="${alcohol.id}"
+									th:selected="${alcohol.id == alcoholSelected}">[[${alcohol.alcohol}]]</option>
+							</th:block>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>恋愛観/価値観</th>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						結婚に対する意思 <select th:field="*{userRD.desireToMarry}" id="">
+							<th:block th:each="desire_to_marry : ${desire_to_marries}">
+								<option th:value="${desire_to_marry.id}"
+									th:selected="${desire_to_marry.id == desireToMarrySelected}">[[${desire_to_marry.desireToMarry}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						子供が欲しいか <select th:field="*{userFD.desireToGetchild}" id="">
+							<th:block th:each="desire_to_getchild : ${desire_to_getchilds}">
+								<option th:value="${desire_to_getchild.id}"
+									th:selected="${desire_to_getchild.id == DesireToGetchildSelected}">[[${desire_to_getchild.desireToGetchild}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						家事・育児 <select th:field="*{userFD.housework}" id="">
+							<th:block th:each="housework : ${houseworks}">
+								<option th:value="${housework.id}"
+									th:selected="${housework.id == houseworkSelected}">[[${housework.housework}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						結婚歴 <select th:field="*{userRD.maritalStatus}" id="">
+							<th:block th:each="marital_status : ${marital_statuses}">
+								<option th:value="${marital_status.id}"
+									th:selected="${marital_status.id == maritalStatusSelected}">[[${marital_status.maritalStatus}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						子供の有無 <select th:field="*{userFD.haveChildren}" id="">
+							<th:block th:each="have_children : ${have_childrens}">
+								<option th:value="${have_children.id}"
+									th:selected="${have_children.id == haveChildrenSelected}">[[${have_children.haveChildren}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						出会うまでの希望 <select th:field="*{userFD.timeToMeet}" id="">
+							<th:block th:each="time_to_meet : ${time_to_meets}">
+								<option th:value="${time_to_meet.id}"
+									th:selected="${time_to_meet.id == TimeToMeetSelected}">[[${time_to_meet.timeToMeet}]]</option>
+							</th:block>
+						</select>
+					</div>
+					<div>
+						デート費用 <select th:field="*{userFD.payment}" id="">
+							<th:block th:each="payment : ${payments}">
+								<option th:value="${payment.id}"
+									th:selected="${payment.id == paymentSelected}">[[${payment.payment}]]</option>
+							</th:block>
+						</select>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>表示設定</th>
+			</tr>
+			<tr>
+				<td>
+					<div>自己紹介文あり</div>
+					<div>サブ写真あり</div>
+					<div>最終ログイン</div>
+					<div>登録日が3日以内</div>
+					<div>共通のコミュニティ</div>
+					<div>並び替え</div>
+					<div>フリーワード</div>
+				</td>
+			</tr>
+		</table>
+
+		<input type="submit" value="検索" class="submit"/>
+
+	</form>
 
 
-<th:block th:each="user : ${userList}">
+	<th:block th:each="user : ${userList}">
 
-<table border=1 class="user_list">
-
-	
-	<tr><td>
-		<img th:if="${user.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${user.id})}" alt=""  height="210px">
-		<img th:if="${user.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt=""  height="210px">
-	</td></tr>
-	<tr><td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</td></tr>
-	<th:block th:if="${user.userT.oneWord !=''}"><tr><td>[[${user.userT.oneWord}]]</td></tr></th:block>
+		<table class="user_list">
 
 
-</table>
+			<tr>
+				<td><img th:if="${user.userI.img > 0}"
+					th:src="@{/imgs/{id}/img1.jpg(id=${user.id})}" alt=""
+					height="210px"> <img th:if="${user.userI.img == 0}"
+					th:src="@{/img/noimage.jpg}" alt="" height="210px"></td>
+			</tr>
+			<tr>
+				<td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</td>
+			</tr>
+			<th:block th:if="${user.userT.oneWord !=''}">
+				<tr>
+					<td>[[${user.userT.oneWord}]]</td>
+				</tr>
+			</th:block>
 
-</th:block>
 
-<p><a th:href="@{/}">トップページへ戻る</a></p>
-<p><a th:href="@{/logout}">ログアウト</a></p>
+		</table>
+
+	</th:block>
+
+	<p>
+		<a th:href="@{/}">トップページへ戻る</a>
+	</p>
+	<p>
+		<a th:href="@{/logout}">ログアウト</a>
+	</p>
 
 </body>
 </html>

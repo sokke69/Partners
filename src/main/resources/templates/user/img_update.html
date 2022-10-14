@@ -26,8 +26,7 @@
 <th:block th:each="file, number : ${fileList}">
 	<table>
 		<tr><td><img th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name},today=${today})}" width="250px" alt="" /></td></tr>
-		<tr><td><span><a th:href="@{/user/mypage/edit/img/update/{number}(number=${number.count})}">編集</a></span> 
-		<span><a th:href="@{/user/mypage/edit/img/delete/{number}(number=${number.count})}">削除</a></span></td></tr>
+		<tr><td><a th:href="@{/user/mypage/edit/img/delete/{number}(number=${number.count})}">削除</a></td></tr>
 	</table>
 </th:block>
 		

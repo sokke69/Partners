@@ -21,6 +21,8 @@ public class UserBasicDetail {
 	@Min(18)
 	@Max(120)
 	private Integer age;
+	private Integer ageMax;
+	private Integer ageMin;
 	@NotBlank
 	@Size(max=16)
 	private String name;

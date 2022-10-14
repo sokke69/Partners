@@ -192,7 +192,7 @@ public class LoginController {
 		session.removeAttribute("emailFrom");
 		session.removeAttribute("emailTo");
 		
-		session.setMaxInactiveInterval(1800);
+		session.setMaxInactiveInterval(3600);
 		
 		check_lp_day(user.getId());
 		check_lp_month(user.getId());

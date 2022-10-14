@@ -17,7 +17,7 @@
 			<result column="age" property="age"/>
 			<result column="name" property="name"/>
 			<result column="like_point" property="likePoint"/>
-			<result column="registed" property="registed"/>
+			<result column="registered" property="registered"/>
 		</association>
 		
 		<association property="userRD" javaType="com.example.app.domain.UserRequiredDetail">

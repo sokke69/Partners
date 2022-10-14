@@ -470,7 +470,7 @@ public class RegistController {
 		session.setAttribute("id", userService.getUserIdByEmail(email));
 		
 		
-		session.setMaxInactiveInterval(1800);
+		session.setMaxInactiveInterval(3600);
 		
 		return "regist/done";
 	}

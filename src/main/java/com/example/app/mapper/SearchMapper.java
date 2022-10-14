@@ -10,5 +10,6 @@ import com.example.app.domain.User;
 public interface SearchMapper {
 	
 	List<User> searchUserAllDetailList(Integer sex) throws Exception;
+	List<User> searchUserAllDetailListDetail(User user) throws Exception;
 
 }

@@ -18,5 +18,12 @@ public class SearchServiceImpl implements SearchService{
 	public List<User> searchUserAllDetailList(Integer sex) throws Exception {
 		return searchMapper.searchUserAllDetailList(sex);
 	}
+	
+	@Override
+	public List<User> searchUserAllDetailListDetail(User user) throws Exception {
+		return searchMapper.searchUserAllDetailListDetail(user);
+	}
+
+
 
 }

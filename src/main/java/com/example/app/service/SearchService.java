@@ -7,5 +7,6 @@ import com.example.app.domain.User;
 public interface SearchService {
 	
 	List<User> searchUserAllDetailList(Integer sex) throws Exception;
+	List<User> searchUserAllDetailListDetail(User user) throws Exception;
 
 }
