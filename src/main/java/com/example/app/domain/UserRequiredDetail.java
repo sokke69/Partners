@@ -6,26 +6,27 @@ import lombok.Data;
 public class UserRequiredDetail {
 	
 	private int id;
-	private int height;
-	private int heightMin;
-	private int heightMax;
-	private int residence;
+	private Integer height;
+	private Integer heightMin;
+	private Integer heightMax;
+	private Integer residence;
 	private String residenceStr;
-	private int occupation;
+	private Integer occupation;
 	private String occupationStr;
-	private int annualIncome;
-	private int annualIncomeMin;
-	private int annualIncomeMax;
+	private Integer annualIncome;
+	private Integer annualIncomePrice;
+	private Integer annualIncomeMin;
+	private Integer annualIncomeMax;
 	private String annualIncomeStr;
-	private int maritalStatus;
+	private Integer maritalStatus;
 	private String maritalStatusStr;
-	private int desireToMarry;
+	private Integer desireToMarry;
 	private String desireToMarryStr;
-	private int holiday;
+	private Integer holiday;
 	private String holidayStr;
-	private int smoking;
+	private Integer smoking;
 	private String smokingStr;
-	private int housemate;
+	private Integer housemate;
 	private String housemateStr;
 
 }

@@ -2,14 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>ユーザーリスト</title>
+<title>さがす</title>
 <link rel="stylesheet" th:href="@{/css/search.css}" />
 </head>
 <body>
-	<h1>ユーザーリスト</h1>
+	<h1>さがす</h1>
 
-	<form action="" method="post"
-		th:object="${user}">
+	<form action="" method="post" th:object="${user}">
 
 		<table class="detail">
 			<tr>
@@ -75,7 +74,7 @@
 				<td>
 					<div>
 						年齢 <select th:field="*{userBD.ageMin}">
-							<option value="">選択しない</option>
+							<option value="0">選択しない</option>
 							<option value="18">18歳</option>
 							<option value="19">19歳</option>
 							<option value="20">20歳</option>
@@ -159,7 +158,7 @@
 							<option value="98">98歳</option>
 							<option value="99">99歳</option>
 						</select> - <select th:field="*{userBD.ageMax}">
-							<option value="">選択しない</option>
+							<option value="0">選択しない</option>
 							<option value="18">18歳</option>
 							<option value="19">19歳</option>
 							<option value="20">20歳</option>
@@ -246,7 +245,7 @@
 					</div>
 					<div>
 						身長 <select th:field="*{userRD.heightMin}">
-							<option th:value="129">選択しない</option>
+							<option th:value="0">選択しない</option>
 							<option th:value="130">130cm</option>
 							<option th:value="131">131cm</option>
 							<option th:value="132">132cm</option>
@@ -319,7 +318,7 @@
 							<option th:value="199">199cm</option>
 							<option th:value="200">200cm</option>
 						</select> - <select th:field="*{userRD.heightMax}">
-							<option th:value="201">選択しない</option>
+							<option th:value="0">選択しない</option>
 							<option th:value="130">130cm</option>
 							<option th:value="131">131cm</option>
 							<option th:value="132">132cm</option>
@@ -411,25 +410,25 @@
 					</div>
 					<div>
 						年収 <select th:field="*{userRD.annualIncomeMin}">
-							<option value="1">選択しない</option>
-							<option value="2">200万円</option>
-							<option value="3">400万円</option>
-							<option value="4">600万円</option>
-							<option value="5">800万円</option>
-							<option value="6">1000万円</option>
-							<option value="7">1500万円</option>
-							<option value="8">2000万円</option>
-							<option value="9">3000万円</option>
+							<option value="0">選択しない</option>
+							<option value="200">200万円</option>
+							<option value="400">400万円</option>
+							<option value="600">600万円</option>
+							<option value="800">800万円</option>
+							<option value="1000">1000万円</option>
+							<option value="1500">1500万円</option>
+							<option value="2000">2000万円</option>
+							<option value="3000">3000万円</option>
 						</select> - <select th:field="*{userRD.annualIncomeMax}">
-							<option value="1">選択しない</option>
-							<option value="2">200万円</option>
-							<option value="3">400万円</option>
-							<option value="4">600万円</option>
-							<option value="5">800万円</option>
-							<option value="6">1000万円</option>
-							<option value="7">1500万円</option>
-							<option value="8">2000万円</option>
-							<option value="9">3000万円</option>
+							<option value="0">選択しない</option>
+							<option value="200">200万円</option>
+							<option value="400">400万円</option>
+							<option value="600">600万円</option>
+							<option value="800">800万円</option>
+							<option value="1000">1000万円</option>
+							<option value="1500">1500万円</option>
+							<option value="2000">2000万円</option>
+							<option value="3000">3000万円</option>
 						</select>
 					</div>
 					<div>
@@ -450,7 +449,7 @@
 					</div>
 					<div>
 						出身地 <select th:field="*{userFD.birthPlace}">
-							<option value="99">選択しない</option>
+							<option value="0">選択しない</option>
 							<option value="1">北海道</option>
 							<option value="2">青森県</option>
 							<option value="3">岩手県</option>
@@ -613,7 +612,7 @@
 			</tr>
 		</table>
 
-		<input type="submit" value="検索" class="submit"/>
+		<input type="submit" value="検索" class="submit" />
 
 	</form>
 
@@ -622,23 +621,17 @@
 
 		<table class="user_list">
 
-
 			<tr>
-				<td><img th:if="${user.userI.img > 0}"
+				<td class="user_list_bg"><a th:href="@{/search/user/{id}(id=${user.id})}" target="_blank">
+				<img th:if="${user.userI.img > 0}"
 					th:src="@{/imgs/{id}/img1.jpg(id=${user.id})}" alt=""
 					height="210px"> <img th:if="${user.userI.img == 0}"
-					th:src="@{/img/noimage.jpg}" alt="" height="210px"></td>
+					th:src="@{/img/noimage.jpg}" alt="" height="210px">
+					<span>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</span> <th:block
+						th:if="${user.userT.oneWord !=''}">[[${user.userT.oneWord}]]</th:block>
+				</a>
+				</td>
 			</tr>
-			<tr>
-				<td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</td>
-			</tr>
-			<th:block th:if="${user.userT.oneWord !=''}">
-				<tr>
-					<td>[[${user.userT.oneWord}]]</td>
-				</tr>
-			</th:block>
-
-
 		</table>
 
 	</th:block>

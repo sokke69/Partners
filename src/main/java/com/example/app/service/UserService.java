@@ -42,6 +42,7 @@ public interface UserService/* extends UserDetailsService */{
 	List<User> getUserAllDetailList() throws Exception;
 	List<String> selectEmail() throws Exception;
 	User getUserByLoginId(String loginId) throws Exception;
+	User getUserById(Integer id) throws Exception;
 	User getUserDetailOfNumberByLoginId(String loginId) throws Exception;
 	Integer getUserIdByEmail(String email) throws Exception;
 	

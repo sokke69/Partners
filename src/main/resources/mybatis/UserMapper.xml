@@ -206,6 +206,10 @@
 			<result column="one_word" property="oneWord"/>
 			<result column="self_introduction" property="selfIntroduction"/>
 		</association>
+		
+		<association property="userI" javaType="com.example.app.domain.UserImage">
+			<result column="img" property="img"/>
+		</association>
 
 	</resultMap>
 	
@@ -288,6 +292,90 @@
 	
 	
 	
+	
+	
+	
+	<!-- getUserById ここから -->
+	
+	
+	<select id="getUserById" resultMap="userResult">
+		SELECT 
+			users.id, 
+			users.login_id, 
+			sexs.sex, 
+			user_basic_details.age, 
+			user_basic_details.name, 
+			user_basic_details.like_point, 
+			user_basic_details.registered,
+			height,
+			residences.residence, 
+			occupations.occupation AS occupation,
+			annual_incomes.annual_income AS annual_income,
+			marital_statuses.marital_status AS marital_status,
+			desire_to_marries.desire_to_marry AS desire_to_marry,
+			holidays.holiday AS holiday,
+			smokings.smoking AS smoking,
+			housemates.housemate AS housemate,
+			
+			figures.figure AS figure,
+			blood_types.blood_type AS blood_type,
+			birth_places.birth_place AS birth_place,
+			educationals.educational AS educational,
+			siblings.sibling AS sibling,
+			user_free_details.school_name,
+			user_free_details.job_name,
+			have_childrens.have_children AS have_children,
+			desire_to_getchilds.desire_to_getchild AS desire_to_getchild,
+			houseworks.housework AS housework,
+			time_to_meets.time_to_meet AS time_to_meet,
+			payments.payment AS payment,
+			sociabilities.sociability AS sociability,
+			alcohols.alcohol AS alcohol,
+			hobby_one,
+			hobby_two,
+			hobby_three,
+			vaccinations.vaccination AS vaccination,
+			
+			user_texts.one_word,
+			user_texts.self_introduction,
+			
+			imgs.img
+			
+		FROM users 
+		LEFT JOIN user_basic_details ON users.id = user_basic_details.id
+		LEFT JOIN user_required_details ON users.id = user_required_details.id
+		LEFT JOIN user_free_details ON users.id = user_free_details.id
+		LEFT JOIN user_texts ON users.id = user_texts.id
+		LEFT JOIN imgs ON users.id = imgs.id
+		
+			LEFT JOIN sexs ON user_basic_details.sex = sexs.id
+			LEFT JOIN residences ON user_required_details.residence = residences.id
+			LEFT JOIN occupations ON user_required_details.occupation = occupations.id
+			LEFT JOIN annual_incomes ON user_required_details.annual_income = annual_incomes.id
+			LEFT JOIN marital_statuses ON user_required_details.marital_status = marital_statuses.id
+			LEFT JOIN desire_to_marries ON user_required_details.desire_to_marry = desire_to_marries.id
+			LEFT JOIN holidays ON user_required_details.holiday = holidays.id
+			LEFT JOIN smokings ON user_required_details.smoking = smokings.id
+			LEFT JOIN housemates ON user_required_details.housemate = housemates.id
+			 
+			LEFT JOIN figures ON user_free_details.figure = figures.id
+			LEFT JOIN blood_types ON user_free_details.blood_type = blood_types.id
+			LEFT JOIN birth_places ON user_free_details.birth_place = birth_places.id
+			LEFT JOIN educationals ON user_free_details.educational = educationals.id
+			LEFT JOIN siblings ON user_free_details.sibling = siblings.id
+			LEFT JOIN have_childrens ON user_free_details.have_children = have_childrens.id
+			LEFT JOIN desire_to_getchilds ON user_free_details.desire_to_getchild = desire_to_getchilds.id
+			LEFT JOIN houseworks ON user_free_details.housework = houseworks.id
+			LEFT JOIN time_to_meets ON user_free_details.time_to_meet = time_to_meets.id
+			LEFT JOIN payments ON user_free_details.payment = payments.id
+			LEFT JOIN sociabilities ON user_free_details.sociability = sociabilities.id
+			LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
+			LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
+			
+		WHERE users.id = #{id} 
+	</select>
+	
+	<!-- getUserById ここまで -->
 	
 	
 	

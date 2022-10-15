@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body{
+	background-color:#add8e6;
+}
 table{
 	width:250px;
 	border-collapse:collapse;
@@ -9,7 +12,23 @@ table div{
 .user_list{
 	margin-bottom: 30px;
 }
-
+.user_list span{
+	display:block;
+}
+.user_list td{
+	width:100%;
+}
+.user_list td a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+.user_list_bg{
+	background-color:#FFF;
+}
+.user_list p{
+	margin:0;
+}
 .detail{
 	width:80%;
 }

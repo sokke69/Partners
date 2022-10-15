@@ -18,6 +18,7 @@ public interface UserMapper {
 	void deleteImage(@Param("id") Integer id, @Param("img") Integer img) throws Exception;
 	void editUser(User user) throws Exception;
 	User getUserByLoginId(String loginId) throws Exception;
+	User getUserById(Integer id) throws Exception;
 	User getUserDetailOfNumberByLoginId(String loginId) throws Exception;
 	User checkLoginByEmail(String email) throws Exception;
 	Integer getUserIdByEmail(String email) throws Exception;

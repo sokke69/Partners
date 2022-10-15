@@ -212,6 +212,7 @@
 			<result column="occupation" property="occupation"/>
 			<result column="occupation_str" property="occupationStr"/>
 			<result column="annual_income" property="annualIncome"/>
+			<result column="annual_income_price" property="annualIncomePrice"/>
 			<result column="annual_income_str" property="annualIncomeStr"/>
 			<result column="marital_status" property="maritalStatus"/>
 			<result column="marital_status_str" property="maritalStatusStr"/>
@@ -311,6 +312,7 @@
 			residences.residence AS residence_str,
 			occupations.occupation AS occupation_str,
 			annual_incomes.annual_income AS annual_income_str,
+			annual_incomes.annual_income_price AS annual_income_price,
 			marital_statuses.marital_status AS marital_str,
 			desire_to_marries.desire_to_marry AS desire_to_marry_str,
 			holidays.holiday AS holiday_str,
@@ -369,23 +371,82 @@
 			LEFT JOIN alcohols ON user_free_details.alcohol = alcohols.id
 			LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
 			
-		<where> <choose>
-					<when test="userBD.sex = 1">user_basic_details.sex = 2</when>
-					<when test="userBD.sex = 2">user_basic_details.sex = 1</when>
-				 </choose>
-				<if test="userBD.ageMin != null">
-					AND age <![CDATA[ >= ]]> #{userBD.ageMin}
-				</if>
-				<if test="userBD.ageMax != null">
-					AND age <![CDATA[ <= ]]> #{userBD.ageMax}
-				</if>
-				<if test="userRD.heightMin != null">
-					AND height <![CDATA[ >= ]]> #{userRD.heightMin}
-				</if>
-				<if test="userRD.heightMax != null">
-					AND height <![CDATA[ <= ]]> #{userRD.heightMax}
-				</if>
-				
+		<where>
+			<choose>
+				<when test="userBD.sex = 1">user_basic_details.sex = 2</when>
+				<when test="userBD.sex = 2">user_basic_details.sex = 1</when>
+			</choose>
+			<if test="userRD.residence != null">
+				AND user_required_details.residence = #{userRD.residence}
+			</if>
+			<if test="userBD.ageMin != null">
+				AND age <![CDATA[ >= ]]> #{userBD.ageMin}
+			</if>
+			<if test="userBD.ageMax != null">
+				AND age <![CDATA[ <= ]]> #{userBD.ageMax}
+			</if>
+			<if test="userRD.heightMin != null">
+				AND height <![CDATA[ >= ]]> #{userRD.heightMin}
+			</if>
+			<if test="userRD.heightMax != null">
+				AND height <![CDATA[ <= ]]> #{userRD.heightMax}
+			</if>
+			<if test="userFD.figure != null">
+				AND user_free_details.figure = #{userFD.figure}
+			</if>
+			<if test="userRD.occupation != null">
+				AND user_required_details.occupation = #{userRD.occupation}
+			</if>
+			<if test="userRD.annualIncomeMin != null">
+				AND annual_income_price <![CDATA[ >= ]]> #{userRD.annualIncomeMin}
+			</if>
+			<if test="userRD.annualIncomeMax != null">
+				AND annual_income_price <![CDATA[ <= ]]> #{userRD.annualIncomeMax}
+			</if>
+			<if test="userRD.holiday != null">
+				AND user_required_details.holiday = #{userRD.holiday}
+			</if>
+			<if test="userFD.educational != null">
+				AND user_free_details.educational = #{userFD.educational}
+			</if>
+			<if test="userFD.birthPlace != null">
+				AND user_free_details.birth_place = #{userFD.birthPlace}
+			</if>
+			<if test="userRD.housemate != null">
+				AND user_required_details.housemate = #{userRD.housemate}
+			</if>
+			<if test="userFD.sociability != null">
+				AND user_free_details.sociability = #{userFD.sociability}
+			</if>
+			<if test="userRD.smoking != null">
+				AND user_required_details.smoking = #{userRD.smoking}
+			</if>
+			<if test="userFD.alcohol != null">
+				AND user_free_details.alcohol = #{userFD.alcohol}
+			</if>
+			<if test="userRD.desireToMarry != null">
+				AND user_required_details.desire_to_marry = #{userRD.desireToMarry}
+			</if>
+			<if test="userFD.desireToGetchild != null">
+				AND user_free_details.desire_to_getchild = #{userFD.desireToGetchild}
+			</if>
+			<if test="userFD.housework != null">
+				AND user_free_details.housework = #{userFD.housework}
+			</if>
+			<if test="userRD.maritalStatus != null">
+				AND user_required_details.marital_status = #{userRD.maritalStatus}
+			</if>
+			<if test="userFD.haveChildren != null">
+				AND user_free_details.have_children = #{userFD.haveChildren}
+			</if>
+			<if test="userFD.timeToMeet != null">
+				AND user_free_details.time_to_meet = #{userFD.timeToMeet}
+			</if>
+			<if test="userFD.payment != null">
+				AND user_free_details.payment = #{userFD.payment}
+			</if>
+			
+			
 		</where>
 									   
 		ORDER BY id DESC

@@ -136,6 +136,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public User getUserById(Integer id) throws Exception {
+		return userMapper.getUserById(id);
+	}
+	
+	@Override
 	public User getUserDetailOfNumberByLoginId(String loginId) throws Exception {
 		return userMapper.getUserDetailOfNumberByLoginId(loginId);
 	}
