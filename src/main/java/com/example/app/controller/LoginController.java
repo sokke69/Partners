@@ -100,7 +100,7 @@ public class LoginController {
 		MimeMessage mimeMsg = mailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMsg, true);
 		
-		String emailFrom = "sokke.mm@gmail.com";
+		String emailFrom = "sokke.school@gmail.com";
 		
 		
 		helper.setFrom(emailFrom);
@@ -179,7 +179,7 @@ public class LoginController {
 		
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", user.getLoginId());
-		session.setAttribute("id", user.getId());
+		session.setAttribute("myId", user.getId());
 		
 		if (user.getUserBD().getSexStr().equals("男性")) {
 			session.setAttribute("sex", 1);			
@@ -201,8 +201,8 @@ public class LoginController {
 	}
 	
 	
-	private void check_lp_day(Integer id) throws Exception {
-		UserBasicDetail userBD = userService.getInfoLikePoint(id);
+	private void check_lp_day(Integer myId) throws Exception {
+		UserBasicDetail userBD = userService.getInfoLikePoint(myId);
 		
 		LocalDate today = LocalDate.now();
 		
@@ -211,15 +211,15 @@ public class LoginController {
 			Integer oldLikePoint = userBD.getLikePoint();
 			
 			Integer addedLikePoint = oldLikePoint + 1;
-			userService.addLikePointDay(id, addedLikePoint);
-			userService.updateLasttimeGotLikePointDay(id);
+			userService.addLikePointDay(myId, addedLikePoint);
+			userService.updateLasttimeGotLikePointDay(myId);
 			session.setAttribute("add_like_point_day", "");
 		}
 		
 		
 	}
-	private void check_lp_month(Integer id) throws Exception {
-		UserBasicDetail userBD = userService.getInfoLikePoint(id);
+	private void check_lp_month(Integer myId) throws Exception {
+		UserBasicDetail userBD = userService.getInfoLikePoint(myId);
 		
 		LocalDate today = LocalDate.now();
 		
@@ -229,8 +229,8 @@ public class LoginController {
 			Integer oldLikePoint = userBD.getLikePoint();
 			
 			Integer addedLikePoint = oldLikePoint + 30;
-			userService.addLikePointMonth(id, addedLikePoint);
-			userService.updateLasttimeGotLikePointMonth(id);
+			userService.addLikePointMonth(myId, addedLikePoint);
+			userService.updateLasttimeGotLikePointMonth(myId);
 			session.setAttribute("add_like_point_month", "");
 		}
 		

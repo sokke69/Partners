@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
+import com.example.app.service.MatchingService;
 import com.example.app.service.SearchService;
 import com.example.app.service.UserService;
 
@@ -30,6 +31,9 @@ public class SearchController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	MatchingService matchingService;
 	
 	@GetMapping("")
 	public String searchTopGet(Model model) throws Exception {
@@ -176,12 +180,47 @@ public class SearchController {
 	}
 	
 	@GetMapping("/user/{id}")
-	public String userGet(@PathVariable("id") Integer id,Model model) throws Exception {
-		User user = userService.getUserById(id);
+	public String userGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
+		Integer myId = (Integer) session.getAttribute("myId");
+		System.out.println("myId : " + myId);
+		Integer checkRowOfMe = matchingService.checkRowOfMe((Integer) session.getAttribute("myId"), partnersId);
+		System.out.println("checkRowOfMe : " + checkRowOfMe);
+		if (checkRowOfMe == 1) {
+			if (matchingService.checkSendedNiceOfMe(myId, partnersId) == 1) {
+				System.out.println("checkSendedNiceOfMe : " + matchingService.checkSendedNiceOfMe(myId, partnersId));
+				session.setAttribute("matched", 1);
+			}
+		}
+		User user = userService.getUserById(partnersId);
 		model.addAttribute("user", user);
 		
 		return "/search/user";
 		
+	}
+	
+	@PostMapping("/user/{id}")
+	public String userPost(@PathVariable("id") Integer partnersId,@ModelAttribute("user") User user,Model model) throws Exception {
+		
+		Integer myId = (Integer) session.getAttribute("myId");
+		
+		if (user.getNiceStatus() == 1) {
+			Integer checkRowOfMe = matchingService.checkRowOfMe((Integer) session.getAttribute("myId"), partnersId);
+			Integer checkRowOfPartners = matchingService.checkRowOfPartners(partnersId, myId);
+
+			if (checkRowOfMe == 0) {
+				matchingService.createRowOfMe(myId, partnersId);
+			}
+			matchingService.addSendedNiceOfMe(myId, partnersId);
+			
+			
+			if (checkRowOfPartners == 0) {
+				matchingService.createRowOfPartners(partnersId, myId);
+			}
+			matchingService.addReceivedNiceOfPartners(partnersId, myId);
+			
+		}
+		
+		return "/search/user";
 	}
 
 }

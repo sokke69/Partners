@@ -21,5 +21,7 @@ public class User/* implements UserDetails */{
 	private UserFreeDetail userFD;
 	private UserText userT;
 	private UserImage userI;
+	private Integer niceStatus;
+	private Integer favoriteStatus;
 	
 }

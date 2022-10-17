@@ -467,7 +467,7 @@ public class RegistController {
 		session.setAttribute("sex", userBD.getSex());
 		
 		
-		session.setAttribute("id", userService.getUserIdByEmail(email));
+		session.setAttribute("myId", userService.getUserIdByEmail(email));
 		
 		
 		session.setMaxInactiveInterval(3600);

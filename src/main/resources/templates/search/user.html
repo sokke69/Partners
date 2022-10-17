@@ -6,11 +6,70 @@
 <link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
+	<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+	<script>
+		$(document).ready(function(){
+			$('#nice').click(function(){
+				$('#niceStatus').attr('value', '1')
+			})
+		});
+		$(document).ready(function(){
+			$('#favorite').click(function(){
+				$('#favoriteStatus').attr('value', '1')
+			})
+		});
+	</script>
 
 	<h1>[[${user.userBD.name}]]</h1>
-
-	<h3><span>気になる</span>
-	<span>いいね</span></h3>
+	
+	<form action="" method="post" name="userform" th:object="${user}">
+		
+		<input type="hidden" name="favoriteStatus" th:value="0" id="favoriteStatus"/>
+		<input type="hidden" name="niceStatus" th:value="0" id="niceStatus"/>
+		<input type="hidden" th:field="*{userRD.height}" th:value="*{userRD.height}" />
+		<input type="hidden" th:field="*{userRD.residenceStr}" th:value="*{userRD.residenceStr}" />
+		<input type="hidden" th:field="*{userRD.occupationStr}" th:value="*{userRD.occupationStr}" />
+		<input type="hidden" th:field="*{userRD.annualIncomeStr}" th:value="*{userRD.annualIncomeStr}" />
+		<input type="hidden" th:field="*{userRD.maritalStatusStr}" th:value="*{userRD.maritalStatusStr}" />
+		<input type="hidden" th:field="*{userRD.desireToMarryStr}" th:value="*{userRD.desireToMarryStr}" />
+		<input type="hidden" th:field="*{userRD.holidayStr}" th:value="*{userRD.holidayStr}" />
+		<input type="hidden" th:field="*{userRD.smokingStr}" th:value="*{userRD.smokingStr}" />
+		<input type="hidden" th:field="*{userRD.housemateStr}" th:value="*{userRD.housemateStr}" />
+		
+		<input type="hidden" th:field="*{userBD.age}" th:value="*{userBD.age}" />
+		<input type="hidden" th:field="*{userBD.name}" th:value="*{userBD.name}" />
+		
+		<input type="hidden" th:field="*{userFD.figureStr}" th:value="*{userFD.figureStr}" />
+		<input type="hidden" th:field="*{userFD.bloodTypeStr}" th:value="*{userFD.bloodTypeStr}" />
+		<input type="hidden" th:field="*{userFD.birthPlaceStr}" th:value="*{userFD.birthPlaceStr}" />
+		<input type="hidden" th:field="*{userFD.educationalStr}" th:value="*{userFD.educationalStr}" />
+		<input type="hidden" th:field="*{userFD.siblingStr}" th:value="*{userFD.siblingStr}" />
+		<input type="hidden" th:field="*{userFD.schoolName}" th:value="*{userFD.schoolName}" />
+		<input type="hidden" th:field="*{userFD.jobName}" th:value="*{userFD.jobName}" />
+		<input type="hidden" th:field="*{userFD.haveChildrenStr}" th:value="*{userFD.haveChildrenStr}" />
+		<input type="hidden" th:field="*{userFD.desireToGetchildStr}" th:value="*{userFD.desireToGetchildStr}" />
+		<input type="hidden" th:field="*{userFD.houseworkStr}" th:value="*{userFD.houseworkStr}" />
+		<input type="hidden" th:field="*{userFD.timeToMeetStr}" th:value="*{userFD.timeToMeetStr}" />
+		<input type="hidden" th:field="*{userFD.paymentStr}" th:value="*{userFD.paymentStr}" />
+		<input type="hidden" th:field="*{userFD.sociabilityStr}" th:value="*{userFD.sociabilityStr}" />
+		<input type="hidden" th:field="*{userFD.hobbyOne}" th:value="*{userFD.hobbyOne}" />
+		<input type="hidden" th:field="*{userFD.hobbyTwo}" th:value="*{userFD.hobbyTwo}" />
+		<input type="hidden" th:field="*{userFD.hobbyThree}" th:value="*{userFD.hobbyThree}" />
+		<input type="hidden" th:field="*{userFD.vaccinationStr}" th:value="*{userFD.vaccinationStr}" />
+		<input type="hidden" th:field="*{userFD.alcoholStr}" th:value="*{userFD.alcoholStr}" />
+		
+		<input type="hidden" th:field="*{userT.oneWord}" th:value="*{userT.oneWord}" />
+		<input type="hidden" th:field="*{userT.selfIntroduction}" th:value="*{userT.selfIntroduction}" />
+		
+		<input type="hidden" th:field="*{userI.img}" th:value="*{userI.img}" />
+		
+		<h3><span><a href="javascript:document.userform.submit()" id="favorite">気になる</a></span>
+		<span th:if="${session.matched}"><a href="javascript:document.userform.submit()" id="nice">いいね</a></span>
+		<span th:if="${session.matched}">いいね送信済み</span></h3>
+		
+	</form>
+	
+	
 
 
 	<table width="210px">

@@ -27,7 +27,7 @@ public class UserBasicDetail {
 	@Size(max=16)
 	private String name;
 	private int likePoint;
-	private Date registed;
+	private Date registered;
 	private Date lasttimeOfGotLikePointDay;
 	private Date lasttimeOfGotLikePointMonth;
 	
