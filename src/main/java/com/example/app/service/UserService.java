@@ -55,7 +55,8 @@ public interface UserService/* extends UserDetailsService */{
 	void addLikePointMonth(Integer id, Integer addedLikePoint) throws Exception;
 	void updateLasttimeGotLikePointDay (Integer id) throws Exception;
 	void updateLasttimeGotLikePointMonth (Integer id) throws Exception;
-	
+	Integer checkLikePoint(Integer id) throws Exception;
+	Integer useLikePoint(Integer id, Integer useLikePoint) throws Exception;
 	
 	// UserRequiredDetailMapper.java
 	void insertUserRD(UserRequiredDetail userRD) throws Exception;	

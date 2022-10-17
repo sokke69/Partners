@@ -47,6 +47,31 @@ public class MatchingServiceImpl implements MatchingService{
 		return matchingMapper.checkSendedNiceOfMe(myId, partnersId);
 	}
 
+	@Override
+	public Integer checkReceivedNiceOfMe(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkReceivedNiceOfMe(myId, partnersId);
+	}
+
+	@Override
+	public void addMatchingOfMe(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.addMatchingOfMe(myId, partnersId);
+	}
+
+	@Override
+	public void addMatchingOfPartners(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.addMatchingOfPartners(partnersId, myId);
+	}
+
+	@Override
+	public Integer checkMatchingOfMe(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkMatchingOfMe(myId, partnersId);
+	}
+
+	@Override
+	public Integer checkMatchingOfPartners(Integer partnersId, Integer myId) throws Exception {
+		return matchingMapper.checkMatchingOfPartners(partnersId, myId);
+	}
+
 
 
 }

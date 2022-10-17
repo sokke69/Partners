@@ -17,9 +17,11 @@
 	<img th:if="${session.haveImage == true}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${id}, today=${today})}" alt=""  height="210px">
 </td></tr>
 
-<th:block th:each="file : ${fileList}">
-	<tr><td><img th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}" height="70px"></td></tr>
-</th:block>
+
+	<tr><td><th:block th:each="file : ${fileList}">
+	<img th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}" height="70px">
+	</th:block></td></tr>
+
 
 <tr><th>[[${user.userBD.name}]]</th></tr>
 <tr><td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]

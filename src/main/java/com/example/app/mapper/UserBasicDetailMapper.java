@@ -16,5 +16,7 @@ public interface UserBasicDetailMapper {
 	void addLikePointMonth(@Param("id")Integer id, @Param("addedLikePoint")Integer addedLikePoint) throws Exception;
 	void updateLasttimeGotLikePointDay (Integer id) throws Exception;
 	void updateLasttimeGotLikePointMonth (Integer id) throws Exception;
+	Integer checkLikePoint(Integer id) throws Exception;
+	Integer useLikePoint(Integer id, Integer useLikePoint) throws Exception;
 
 }

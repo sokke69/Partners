@@ -34,8 +34,8 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	//private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
-	private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
+	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
+	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
 	
@@ -69,10 +69,15 @@ public class UserController {
 	}
 	
 	@GetMapping("/top")
-	public String topGet() throws Exception{
+	public String topGet(Model model) throws Exception{
 		if (session.getAttribute("status") == null) {
 			return "/invalid";
 		}
+		
+		Integer likePoint = userService.checkLikePoint((Integer) session.getAttribute("myId"));
+		System.out.println("myId : " + (Integer) session.getAttribute("myId"));
+		System.out.println("likePoint : " + likePoint);
+		session.setAttribute("likePoint", likePoint);
 		
 		return "/user/top";
 	}

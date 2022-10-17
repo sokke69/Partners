@@ -182,15 +182,43 @@ public class SearchController {
 	@GetMapping("/user/{id}")
 	public String userGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
 		Integer myId = (Integer) session.getAttribute("myId");
-		System.out.println("myId : " + myId);
 		Integer checkRowOfMe = matchingService.checkRowOfMe((Integer) session.getAttribute("myId"), partnersId);
+		Integer checkSendedNiceOfMe = matchingService.checkSendedNiceOfMe(myId, partnersId);
+		Integer checkMatchingOfMe = matchingService.checkMatchingOfMe(myId, partnersId);
+		Integer checkMatchingOfPartners = matchingService.checkMatchingOfPartners(partnersId, myId);
 		System.out.println("checkRowOfMe : " + checkRowOfMe);
+		System.out.println("checkSendedNiceOfMe : " + checkSendedNiceOfMe);
+		System.out.println("checkMatchingOfMe : " + checkMatchingOfMe);
+		System.out.println("checkMatchingOfPartners : " + checkMatchingOfPartners);
+		
+		// 自分のマッチングテーブルに対象IDのrowがあるか確認
 		if (checkRowOfMe == 1) {
-			if (matchingService.checkSendedNiceOfMe(myId, partnersId) == 1) {
-				System.out.println("checkSendedNiceOfMe : " + matchingService.checkSendedNiceOfMe(myId, partnersId));
-				session.setAttribute("matched", 1);
+			// 1(ある)なら更に自分がいいねを送っているか確認。
+			if (checkSendedNiceOfMe == 1) {
+				// 1(ある)ならsession.sendedNiceに1を格納(Thymelefeで使用)
+				session.setAttribute("sendedNice", 1);
+			// 0(ない)ならsession.sendedNiceに0を格納(Thymelefeで使用)
+			} else if (checkSendedNiceOfMe == 0) {
+				session.setAttribute("sendedNice", 0);
 			}
+			
+			// お互いのマッチングテーブルのmatchingを確認
+			// 1(成立している)ならsession.matchingに1を格納(Thymelefeで使用)
+			if (checkMatchingOfMe == 1 && checkMatchingOfPartners == 1) {
+				session.setAttribute("matching", 1);
+			} else {
+				session.setAttribute("matching", 0);
+			}
+			
+		// 0(ない)ならsession.sendedNiceに0を格納(Thymelefeで使用)
+		} else if (checkRowOfMe == 0) {
+			session.setAttribute("sendedNice", 0);
+			session.setAttribute("matching", 0);
 		}
+		
+		
+		
+		
 		User user = userService.getUserById(partnersId);
 		model.addAttribute("user", user);
 		
@@ -203,24 +231,47 @@ public class SearchController {
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		
+		// いいねボタンを押したときの動作
 		if (user.getNiceStatus() == 1) {
+			
+			// 自分のマッチングテーブルに対象IDのrowがあるか確認
+			// 0(ない)なら対象IDのrow作成
 			Integer checkRowOfMe = matchingService.checkRowOfMe((Integer) session.getAttribute("myId"), partnersId);
-			Integer checkRowOfPartners = matchingService.checkRowOfPartners(partnersId, myId);
-
 			if (checkRowOfMe == 0) {
 				matchingService.createRowOfMe(myId, partnersId);
 			}
+			// 自分のマッチングテーブルの対象IDのsended_niceに1(sended)を格納
 			matchingService.addSendedNiceOfMe(myId, partnersId);
 			
-			
+			// 対象IDのマッチングテーブルに自分のIDのrowがあるか確認
+			// 0(ない)なら自分のrow作成
+			Integer checkRowOfPartners = matchingService.checkRowOfPartners(partnersId, myId);
 			if (checkRowOfPartners == 0) {
 				matchingService.createRowOfPartners(partnersId, myId);
 			}
+			// 対象のマッチングテーブルの自分のsended_niceに1(sended)を格納
 			matchingService.addReceivedNiceOfPartners(partnersId, myId);
+			
+			// 自分のマッチングテーブルに対象IDからのReceivedNiceがきているか確認
+			// 0 or null(きていない)なら自分のいいねポイントから1減らす
+			Integer checkReceivedNiceOfMe = matchingService.checkReceivedNiceOfMe(myId, partnersId);
+			if (checkReceivedNiceOfMe == 0) {
+				Integer oldLikePoint = (Integer) session.getAttribute("likePoint");
+				Integer newLikePoint = oldLikePoint-1;
+				session.setAttribute("likePoint", newLikePoint);
+				userService.useLikePoint(myId, newLikePoint);
+			}
+			
+			// 1(きている)ならマッチング成立
+			// お互いのマッチングテーブルのmatchingに1(matching)を格納
+			if (checkReceivedNiceOfMe == 1) {
+				matchingService.addMatchingOfMe(myId, partnersId);
+				matchingService.addMatchingOfPartners(myId, partnersId);
+			}
 			
 		}
 		
-		return "/search/user";
+		return "redirect:/search/user/" + partnersId;
 	}
 
 }

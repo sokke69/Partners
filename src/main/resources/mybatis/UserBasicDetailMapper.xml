@@ -51,6 +51,17 @@
 		WHERE id=#{id}
 	</update>
 	
+	<select id="checkLikePoint" resultType="int" parameterType="int">
+		SELECT like_point 
+		FROM user_basic_details
+		WHERE id=#{id}
+	</select>
+	
+	<update id="useLikePoint" parameterType="int">
+		UPDATE user_basic_details
+		SET like_point=#{useLikePoint}
+		WHERE id=#{id}
+	</update>
 	
 
 </mapper>

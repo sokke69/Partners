@@ -199,6 +199,16 @@ public class UserServiceImpl implements UserService {
 		userBDMapper.updateLasttimeGotLikePointMonth(id);
 	}
 	
+	@Override
+	public Integer checkLikePoint(Integer id) throws Exception{
+		return userBDMapper.checkLikePoint(id);
+	}
+	
+	@Override
+	public Integer useLikePoint(Integer id, Integer useLikePoint) throws Exception{
+		return userBDMapper.useLikePoint(id, useLikePoint);
+	}
+	
 	// UserBasicDetailMapper.java ここまで
 	
 	

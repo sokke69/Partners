@@ -12,7 +12,11 @@
 	<update id="createTable" parameterType="String">
 		CREATE TABLE z${id}_matchings
 		(id INT PRIMARY KEY,
-		matching INT);
+		matching INT DEFAULT 0,
+		favorite INT DEFAULT 0,
+		sended_nice INT DEFAULT 0,
+		received_nice INT DEFAULT 0,
+		blocking INT DEFAULT 0);
 	</update>
 
 </mapper>

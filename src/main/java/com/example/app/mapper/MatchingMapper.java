@@ -13,6 +13,10 @@ public interface MatchingMapper {
 	void addSendedNiceOfMe(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
 	void addReceivedNiceOfPartners(@Param("partnersId") Integer partnersId, @Param("myId") Integer myId) throws Exception;
 	Integer checkSendedNiceOfMe(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
+	Integer checkReceivedNiceOfMe(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
+	void addMatchingOfMe(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
+	void addMatchingOfPartners(@Param("partnersId") Integer partnersId, @Param("myId") Integer myId) throws Exception;
+	Integer checkMatchingOfMe(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
+	Integer checkMatchingOfPartners(@Param("partnersId") Integer partnersId,@Param("myId") Integer myId) throws Exception;
 	
-
 }
