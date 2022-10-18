@@ -628,7 +628,7 @@
 					height="210px"> <img th:if="${user.userI.img == 0}"
 					th:src="@{/img/noimage.jpg}" alt="" height="210px">
 					<span>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</span> <th:block
-						th:if="${user.userT.oneWord != null}">[[${user.userT.oneWord}]]</th:block>
+						th:if="${user.userT.oneWord != null and user.userT.oneWord != '' }">[[${user.userT.oneWord}]]</th:block>
 				</a>
 				</td>
 			</tr>

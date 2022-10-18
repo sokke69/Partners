@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
+import com.example.app.domain.UserFreeDetail;
+import com.example.app.domain.UserImage;
+import com.example.app.domain.UserRequiredDetail;
+import com.example.app.domain.UserText;
 import com.example.app.service.MatchingService;
 import com.example.app.service.SearchService;
 import com.example.app.service.UserService;
@@ -36,15 +40,14 @@ public class SearchController {
 	MatchingService matchingService;
 	
 	@GetMapping("")
-	public String searchTopGet(Model model) throws Exception {
-		model.addAttribute("user", new User());
-		UserBasicDetail userBD = new UserBasicDetail();
+	public String searchTopGet(Model model,User user,UserRequiredDetail userRD, UserBasicDetail userBD,
+			UserFreeDetail userFD, UserImage userI, UserText userT) throws Exception {
+		model.addAttribute("user", user);
 		userBD.setSex((Integer)session.getAttribute("sex"));
 		
-		List<User> userList = searchService.searchUserAllDetailList((Integer)session.getAttribute("sex"));
+		List<User> userList = searchService.searchUserAllDetailList(userBD);
 		model.addAttribute("userList", userList);
 		
-
 		model.addAttribute("holidays", userService.selectHolidayAll());
 		model.addAttribute("annual_incomes", userService.selectAnnualIncomeAll());
 		model.addAttribute("residences", userService.selectResidenceAll());
@@ -73,8 +76,6 @@ public class SearchController {
 	
 	@PostMapping("/")
 	public String searchTopPost(@ModelAttribute User user,Model model) throws Exception{
-		
-		System.out.println("educational : " + user.getUserFD().getEducational());
 		
 		if (user.getUserRD().getResidence() == 0) {
 			user.getUserRD().setResidence(null);
@@ -217,19 +218,16 @@ public class SearchController {
 			} else if (checkSendedNiceOfMine == 0 && checkReceivedNiceOfMine == 1) {
 				session.setAttribute("receivedNice", 1);
 				session.setAttribute("sendedNice", 0);
+				// 訪問した場合の処理
+				Integer checkCheckedReceivedNice = matchingService.checkCheckedReceivedNice(myId, partnersId);
+				Integer checkNotMatchingAndReceivedNiceOfMine = matchingService.checkNotMatchingAndReceivedNiceOfMine(myId, partnersId, checkCheckedReceivedNice);
+				if (checkNotMatchingAndReceivedNiceOfMine == 0) {
+					matchingService.updateCheckedReceivedNiceOfMine(myId, partnersId);
+				}
 			// 自分がいいねを送ってなく、かつ相手からもいいねが来ていない
 			} else if (checkSendedNiceOfMine == 0) {
 				session.setAttribute("receivedNice", 0);
 				session.setAttribute("sendedNice", 0);
-			}
-			
-			// 相手からいいねが来ていたが未訪問だったところへ訪問した場合の処理
-			Integer checkCheckedReceivedNice = matchingService.checkCheckedReceivedNice(myId, partnersId);
-			System.out.println("checkCheckedReceivedNice : " + checkCheckedReceivedNice);
-			Integer checkNotMatchingAndReceivedNiceOfMine = matchingService.checkNotMatchingAndReceivedNiceOfMine(myId, partnersId, checkCheckedReceivedNice);
-			System.out.println("checked_received_nice : " + checkNotMatchingAndReceivedNiceOfMine);
-			if (checkNotMatchingAndReceivedNiceOfMine == 0) {
-				matchingService.updateCheckedReceivedNiceOfMine(myId, partnersId);
 			}
 			
 			// お互いのマッチングテーブルのmatchingを確認

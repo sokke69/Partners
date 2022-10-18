@@ -5,11 +5,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.app.domain.User;
+import com.example.app.domain.UserBasicDetail;
 
 @Mapper
 public interface SearchMapper {
 	
-	List<User> searchUserAllDetailList(Integer sex) throws Exception;
+	List<User> searchUserAllDetailList(UserBasicDetail userBD) throws Exception;
 	List<User> searchUserAllDetailListDetail(User user) throws Exception;
 
 }

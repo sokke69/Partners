@@ -65,11 +65,11 @@
 </select>
 
 <select id="checkNotMatchingAndReceivedNiceOfMineList" resultType="integer">
-	SELECT id FROM z#{myId}_matchings WHERE matching=0 AND received_nice=1 AND checked_received_nice=0
+	SELECT id FROM z#{myId}_matchings WHERE received_nice=1 AND checked_received_nice=0
 </select>
 
 <select id="checkNotMatchingAndReceivedNiceOfMine" resultType="integer">
-	SELECT checked_received_nice FROM z#{myId}_matchings WHERE matching=0 AND received_nice=#{checkCheckedReceivedNice} AND id=#{partnersId}
+	SELECT checked_received_nice FROM z#{myId}_matchings WHERE received_nice=1 AND checked_received_nice=#{checkCheckedReceivedNice} AND id=#{partnersId}
 </select>
 
 <select id="newReceivedNiceList" resultMap="newReceivedNiceMap" parameterType="integer">

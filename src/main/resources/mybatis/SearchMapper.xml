@@ -79,7 +79,7 @@
 	</resultMap>
 	
 	
-	<select id="searchUserAllDetailList" parameterType="int" resultMap="usersResult">
+	<select id="searchUserAllDetailList" parameterType="com.example.app.domain.UserBasicDetail" resultMap="usersResult">
 		SELECT 
 			users.id, 
 			
@@ -142,8 +142,8 @@
 			hobby_three,
 			vaccinations.vaccination AS vaccination_str,
 			
-			user_texts.one_word,
-            user_texts.self_introduction,
+			user_texts.one_word AS one_word,
+            user_texts.self_introduction AS self_introduction,
             
             imgs.img
 			
@@ -181,10 +181,6 @@
 											<when test="sex == 1">2</when>
 											<when test="sex == 2">1</when>
 									   </choose>
-				<if test="ageMin != null">
-					AND age > #{userBD.ageMin}
-				</if>
-				
 		</where>
 									   
 		ORDER BY id DESC
