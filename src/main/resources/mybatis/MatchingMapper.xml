@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.app.mapper.MatchingMapper">
 
-<select id="checkRowOfMe" resultType="integer">
+<select id="checkRowOfMine" resultType="integer">
 	SELECT COUNT(id) FROM z#{myId}_matchings WHERE id=#{partnersId} 
 </select>
 
@@ -13,7 +13,7 @@
 
 
 
-<insert id="createRowOfMe" parameterType="integer">
+<insert id="createRowOfMine" parameterType="integer">
 	INSERT INTO z#{myId}_matchings (id) VALUES (#{partnersId})
 </insert>
 
@@ -23,7 +23,7 @@
 
 
 
-<update id="addSendedNiceOfMe" parameterType="integer">
+<update id="addSendedNiceOfMine" parameterType="integer">
 	UPDATE z#{myId}_matchings SET sended_nice=1
 	WHERE id=#{partnersId}
 </update>
@@ -36,17 +36,17 @@
 
 
 
-<select id="checkSendedNiceOfMe" resultType="integer">
+<select id="checkSendedNiceOfMine" resultType="integer">
 	SELECT sended_nice FROM z#{myId}_matchings WHERE id=#{partnersId} 
 </select>
 
-<select id="checkReceivedNiceOfMe" resultType="integer">
+<select id="checkReceivedNiceOfMine" resultType="integer">
 	SELECT received_nice FROM z#{myId}_matchings WHERE id=#{partnersId} 
 </select>
 
 
 
-<update id="addMatchingOfMe" parameterType="integer">
+<update id="addMatchingOfMine" parameterType="integer">
 	UPDATE z#{myId}_matchings SET matching=1
 	WHERE id=#{partnersId}
 </update>
@@ -56,7 +56,7 @@
 	WHERE id=#{myId}
 </update>
 
-<select id="checkMatchingOfMe" resultType="integer">
+<select id="checkMatchingOfMine" resultType="integer">
 	SELECT matching FROM z#{myId}_matchings WHERE id=#{partnersId}
 </select>
 
@@ -64,6 +64,51 @@
 	SELECT matching FROM z#{partnersId}_matchings WHERE id=#{myId}
 </select>
 
+<select id="checkNotMatchingAndReceivedNiceOfMineList" resultType="integer">
+	SELECT id FROM z#{myId}_matchings WHERE matching=0 AND received_nice=1 AND checked_received_nice=0
+</select>
 
+<select id="checkNotMatchingAndReceivedNiceOfMine" resultType="integer">
+	SELECT checked_received_nice FROM z#{myId}_matchings WHERE matching=0 AND received_nice=#{checkCheckedReceivedNice} AND id=#{partnersId}
+</select>
+
+<select id="newReceivedNiceList" resultMap="newReceivedNiceMap" parameterType="integer">
+	SELECT z#{myId}_matchings.id, age, one_word, img, residences.residence
+    FROM z#{myId}_matchings
+	LEFT JOIN user_basic_details ON z#{myId}_matchings.id=user_basic_details.id
+    LEFT JOIN user_required_details ON z#{myId}_matchings.id=user_required_details.id
+	LEFT JOIN user_texts ON z#{myId}_matchings.id=user_texts.id
+	LEFT JOIN imgs ON z#{myId}_matchings.id=imgs.id
+    LEFT JOIN residences ON user_required_details.residence=residences.id
+    WHERE received_nice=1 AND checked_received_nice=0
+</select>
+
+<resultMap id="newReceivedNiceMap" type="com.example.app.domain.User">
+	<id column = "id" property="id"/>
+	
+	<association property="userBD" javaType="com.example.app.domain.UserBasicDetail">
+		<result column="age" property="age"/>
+	</association>
+	
+	<association property="userRD" javaType="com.example.app.domain.UserRequiredDetail">
+		<result column="residence" property="residenceStr"/>
+	</association>
+	
+	<association property="userT" javaType="com.example.app.domain.UserText">
+		<result column="one_word" property="oneWord"/>
+	</association>
+	
+	<association property="userI" javaType="com.example.app.domain.UserImage">
+		<result column="img" property="img"/>
+	</association>
+</resultMap>
+
+<update id="updateCheckedReceivedNiceOfMine" parameterType="integer">
+	UPDATE z#{myId}_matchings SET checked_received_nice=1 WHERE id=#{partnersId}
+</update>
+
+<select id="checkCheckedReceivedNice" parameterType="integer" resultType="integer">
+	SELECT checked_received_nice FROM z#{myId}_matchings WHERE id=#{partnersId}
+</select>
 
 </mapper>

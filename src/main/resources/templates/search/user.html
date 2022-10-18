@@ -63,10 +63,17 @@
 		
 		<input type="hidden" th:field="*{userI.img}" th:value="*{userI.img}" />
 		
-		<h3><span><a href="javascript:document.userform.submit()" id="favorite" th:if="${session.matching == 0}">気になる</a></span>
-		<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0}">いいね</a></span>
-		<span th:if="${session.sendedNice == 1 && session.matching == 0}">いいね送信済み</span>
-		<span th:if="${session.sendedNice == 1 && session.matching == 1}">マッチング済み</span></h3>
+		
+		<th:block th:if="${session.matching == 1}">
+			<h3>マッチング済み</h3>
+		</th:block>
+		<th:block th:if="${session.matching == 0}">
+			<h3><span><a href="javascript:document.userform.submit()" id="favorite">気になる(未実装)</a></span>
+			<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 0}">いいね</a></span>
+			<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 1}">いいねを返す</a></span>
+			<span th:if="${session.sendedNice == 1}">いいね送信済み</span></h3>
+		</th:block>
+		
 		
 	</form>
 	

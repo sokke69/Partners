@@ -1,8 +1,11 @@
 package com.example.app.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.app.domain.User;
 import com.example.app.mapper.MatchingMapper;
 
 @Service
@@ -12,13 +15,13 @@ public class MatchingServiceImpl implements MatchingService{
 	MatchingMapper matchingMapper;
 	
 	@Override
-	public void createRowOfMe(Integer myId, Integer partnersId) throws Exception {
-		matchingMapper.createRowOfMe(myId, partnersId);
+	public void createRowOfMine(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.createRowOfMine(myId, partnersId);
 	}
 
 	@Override
-	public Integer checkRowOfMe(Integer myId, Integer partnersId) throws Exception {
-		return matchingMapper.checkRowOfMe(myId, partnersId);
+	public Integer checkRowOfMine(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkRowOfMine(myId, partnersId);
 		
 	}
 
@@ -28,8 +31,8 @@ public class MatchingServiceImpl implements MatchingService{
 	}
 	
 	@Override
-	public void addSendedNiceOfMe(Integer myId, Integer partnersId) throws Exception{
-		matchingMapper.addSendedNiceOfMe(myId, partnersId);
+	public void addSendedNiceOfMine(Integer myId, Integer partnersId) throws Exception{
+		matchingMapper.addSendedNiceOfMine(myId, partnersId);
 	}
 
 	@Override
@@ -43,18 +46,18 @@ public class MatchingServiceImpl implements MatchingService{
 	}
 
 	@Override
-	public Integer checkSendedNiceOfMe(Integer myId, Integer partnersId) throws Exception {
-		return matchingMapper.checkSendedNiceOfMe(myId, partnersId);
+	public Integer checkSendedNiceOfMine(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkSendedNiceOfMine(myId, partnersId);
 	}
 
 	@Override
-	public Integer checkReceivedNiceOfMe(Integer myId, Integer partnersId) throws Exception {
-		return matchingMapper.checkReceivedNiceOfMe(myId, partnersId);
+	public Integer checkReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkReceivedNiceOfMine(myId, partnersId);
 	}
 
 	@Override
-	public void addMatchingOfMe(Integer myId, Integer partnersId) throws Exception {
-		matchingMapper.addMatchingOfMe(myId, partnersId);
+	public void addMatchingOfMine(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.addMatchingOfMine(myId, partnersId);
 	}
 
 	@Override
@@ -63,13 +66,38 @@ public class MatchingServiceImpl implements MatchingService{
 	}
 
 	@Override
-	public Integer checkMatchingOfMe(Integer myId, Integer partnersId) throws Exception {
-		return matchingMapper.checkMatchingOfMe(myId, partnersId);
+	public Integer checkMatchingOfMine(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkMatchingOfMine(myId, partnersId);
 	}
 
 	@Override
 	public Integer checkMatchingOfPartners(Integer partnersId, Integer myId) throws Exception {
 		return matchingMapper.checkMatchingOfPartners(partnersId, myId);
+	}
+
+	@Override
+	public List<Integer> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception {
+		return matchingMapper.checkNotMatchingAndReceivedNiceOfMineList(myId);
+	}
+
+	@Override
+	public List<User> newReceivedNiceList(Integer myId) throws Exception {
+		return matchingMapper.newReceivedNiceList(myId);
+	}
+
+	@Override
+	public Integer checkNotMatchingAndReceivedNiceOfMine(Integer myId, Integer partnersId,Integer checkCheckedReceivedNice) throws Exception {
+		return matchingMapper.checkNotMatchingAndReceivedNiceOfMine(myId, partnersId, checkCheckedReceivedNice);
+	}
+
+	@Override
+	public void updateCheckedReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.updateCheckedReceivedNiceOfMine(myId, partnersId);
+	}
+
+	@Override
+	public Integer checkCheckedReceivedNice(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkCheckedReceivedNice(myId, partnersId);
 	}
 
 

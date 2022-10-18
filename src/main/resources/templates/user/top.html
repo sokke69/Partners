@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Partners</title>
+<style>
+.new{
+	color:#F00;
+}
+</style>
 </head>
 <body>
 
 <h1>Partners</h1>
+
+<h4><span th:if="${session.newReceivedNice == 1}" class="new"><a th:href="@{/user/newReceivedNice}" target="_blank">いいねが届いています！</a></span></h4>
 
 <h4>残いいね : [[${session.likePoint}]]</h4>
 

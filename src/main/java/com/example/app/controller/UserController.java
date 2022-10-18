@@ -3,6 +3,7 @@ package com.example.app.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,6 +23,7 @@ import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
 import com.example.app.domain.UserText;
+import com.example.app.service.MatchingService;
 import com.example.app.service.UserService;
 
 @Controller
@@ -30,6 +32,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	MatchingService matchingService;
 	
 	@Autowired
 	HttpSession session;
@@ -74,10 +79,19 @@ public class UserController {
 			return "/invalid";
 		}
 		
-		Integer likePoint = userService.checkLikePoint((Integer) session.getAttribute("myId"));
-		System.out.println("myId : " + (Integer) session.getAttribute("myId"));
-		System.out.println("likePoint : " + likePoint);
+		Integer myId = (Integer) session.getAttribute("myId");
+		Integer likePoint = userService.checkLikePoint(myId);
 		session.setAttribute("likePoint", likePoint);
+		
+		List<Integer> checkNotMatchingAndReceivedNiceOfMe = matchingService.checkNotMatchingAndReceivedNiceOfMineList(myId);
+		if (checkNotMatchingAndReceivedNiceOfMe.size() > 0) {
+			session.setAttribute("newReceivedNice", 1);
+		} else if (checkNotMatchingAndReceivedNiceOfMe.size() == 0) {
+			session.setAttribute("newReceivedNice", 0);
+		}
+		
+		System.out.println("checkNotMatchingAndReceivedNiceOfMe.size() : " + checkNotMatchingAndReceivedNiceOfMe.size());
+		System.out.println("newReceivedNice : " + session.getAttribute("newReceivedNice"));
 		
 		return "/user/top";
 	}
@@ -275,6 +289,22 @@ public class UserController {
 		Integer fileCount = fileList.length;
 		userService.updateImage((Integer) session.getAttribute("myId"),(fileCount));
 		return "redirect:/user/mypage/edit/img";
+	}
+	
+	@GetMapping("/newReceivedNice")
+	public String newReceivedNiceGet(Model model) throws Exception {
+		
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<User> newReceivedNiceList = matchingService.newReceivedNiceList(myId);
+		model.addAttribute("newReceivedNiceList", newReceivedNiceList);
+		
+		return "/user/new_received_nice";
+		
+	}
+	
+	@PostMapping("/newReceivedNice")
+	public String newReceivedNicePost() {
+		return "redirect:/user/newReceivedNice";
 	}
 	
 	private boolean haveImage1(Integer id) {

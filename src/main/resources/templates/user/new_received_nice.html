@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>新しく届いた「いいね」</title>
+<link rel="stylesheet" th:href="@{/css/search.css}" />
+</head>
+<body>
+
+<h1>新しく届いた「いいね」</h1>
+
+<th:block th:each="user : ${newReceivedNiceList}">
+	<table class="user_list">
+			<tr>
+				<td class="user_list_bg">
+				<a th:href="@{/search/user/{id}(id=${user.id})}" target="_blank">
+					<img th:if="${user.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${user.id})}" alt="" height="210px">
+					<img th:if="${user.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+					<span>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</span> <th:block
+						th:if="${user.userT.oneWord != null}">[[${user.userT.oneWord}]]</th:block>
+				</a>
+				</td>
+			</tr>
+		</table>
+</th:block>
+
+</body>
+</html>

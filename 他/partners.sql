@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: partners
 -- ------------------------------------------------------
@@ -373,7 +373,7 @@ CREATE TABLE `imgs` (
 
 LOCK TABLES `imgs` WRITE;
 /*!40000 ALTER TABLE `imgs` DISABLE KEYS */;
-INSERT INTO `imgs` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,0),(8,0),(9,0),(10,1),(11,1),(12,1),(13,0),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(22,1),(23,0),(24,0),(25,0),(26,1),(27,1),(28,0),(29,1),(30,1),(31,1),(32,0),(33,0),(34,0),(35,1),(36,0),(37,0),(38,1),(39,1),(40,0),(41,0),(42,1),(43,1),(44,0),(45,0),(46,0),(47,1),(48,0),(49,0),(50,0),(51,1),(52,1),(53,1),(54,0),(55,1),(56,0),(57,1),(58,1),(59,0),(60,0),(61,0),(62,1),(63,1),(64,0),(65,0),(66,0),(67,0),(68,1),(69,0),(70,0),(71,0),(72,0),(73,2),(74,1),(75,1);
+INSERT INTO `imgs` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,0),(8,0),(9,0),(10,1),(11,1),(12,1),(13,0),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(22,1),(23,0),(24,0),(25,0),(26,1),(27,1),(28,0),(29,1),(30,1),(31,1),(32,0),(33,0),(34,0),(35,1),(36,0),(37,0),(38,1),(39,1),(40,0),(41,0),(42,1),(43,1),(44,0),(45,0),(46,0),(47,1),(48,0),(49,0),(50,0),(51,1),(52,1),(53,1),(54,0),(55,1),(56,0),(57,1),(58,1),(59,0),(60,0),(61,0),(62,1),(63,1),(64,0),(65,0),(66,0),(67,0),(68,1),(69,0),(70,0),(71,0),(72,0),(73,1),(74,1),(75,1);
 /*!40000 ALTER TABLE `imgs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -843,7 +843,7 @@ CREATE TABLE `user_basic_details` (
 
 LOCK TABLES `user_basic_details` WRITE;
 /*!40000 ALTER TABLE `user_basic_details` DISABLE KEYS */;
-INSERT INTO `user_basic_details` VALUES (1,2,26,'はなちゃん','1980-07-01',NULL,'2022-09-20 00:00:00','2022-09-20','2022-09-20'),(2,1,32,'ミナト','1981-08-02',NULL,'2022-09-26 23:01:06','2022-09-20','2022-09-20'),(3,2,20,'なつみ','1982-09-03',30,'2022-09-26 23:20:15','2022-09-20','2022-09-20'),(4,1,51,'キムタクにぃ','1984-10-04',30,'2022-09-26 23:22:46','2022-09-20','2022-09-20'),(5,2,20,'紗奈','1985-11-05',30,'2022-09-26 23:36:21','2022-09-20','2022-09-20'),(6,1,40,'きなこもち','1986-12-06',30,'2022-09-26 23:36:21','2022-09-20','2022-09-20'),(7,2,51,'ゆきちゃん','1987-01-07',30,'2022-09-26 23:36:21','2022-09-20','2022-09-20'),(8,2,26,'みにー☆','1988-02-08',30,'2022-09-26 23:45:40','2022-09-20','2022-09-20'),(9,2,19,'じじ','1989-03-09',30,'2022-09-26 23:50:13','2022-09-20','2022-09-20'),(10,1,22,'りょーた','1990-04-10',30,'2022-09-27 08:47:23','2022-09-20','2022-09-20'),(11,1,19,'タダナリ','1991-05-11',30,'2022-09-27 08:56:14','2022-09-20','2022-09-20'),(12,1,42,'はやぶさ','1992-06-12',30,'2022-09-27 15:13:30','2022-09-20','2022-09-20'),(13,2,26,'ひなこ','1993-07-13',30,'2022-09-27 15:17:38','2022-09-20','2022-09-20'),(14,1,45,'ツッキー','1994-08-14',30,'2022-09-28 13:56:13','2022-09-20','2022-09-20'),(15,2,22,'あいこ','1995-09-15',30,'2022-09-28 13:59:18','2022-09-20','2022-09-20'),(16,2,28,'ゆきみ','1996-10-16',30,'2022-09-30 11:45:52','2022-09-20','2022-09-20'),(17,2,31,'たまみ','1997-11-17',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(18,2,23,'わかな','1998-12-18',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(19,2,42,'あや','1999-01-19',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(20,1,35,'よしだ','2000-02-20',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(21,1,25,'はやと','2001-03-21',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(22,1,22,'ピエール','2002-04-22',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(23,1,51,'よしくに','2003-05-23',30,'2022-09-30 12:42:16','2022-09-20','2022-09-20'),(24,1,41,'明夫','2004-05-25',30,'2022-10-02 21:07:52','2022-09-20','2022-09-20'),(25,2,24,'つづ','1970-06-26',30,'2022-10-02 21:14:57','2022-09-20','2022-09-20'),(26,1,37,'yuu','1973-07-27',30,'2022-10-02 21:24:21','2022-09-20','2022-09-20'),(27,2,28,'もえ。','1976-08-29',30,'2022-10-02 21:30:47','2022-09-20','2022-09-20'),(28,1,27,'竜','1979-09-30',30,'2022-10-02 21:40:11','2022-09-20','2022-09-20'),(29,2,29,'まどか','1980-10-01',30,'2022-10-02 21:43:20','2022-09-20','2022-09-20'),(30,2,29,'ずっこ','1981-11-02',30,'2022-10-02 21:46:59','2022-09-20','2022-09-20'),(31,2,29,'れーこ','1982-12-03',30,'2022-10-02 21:50:39','2022-09-20','2022-09-20'),(32,1,28,'いたチャイ','1983-01-04',30,'2022-10-02 22:16:10','2022-09-20','2022-09-20'),(33,1,27,'ヒロシ','1984-02-05',30,'2022-10-02 22:27:10','2022-09-20','2022-09-20'),(34,1,37,'とっしー','1985-03-06',30,'2022-10-02 22:31:27','2022-09-20','2022-09-20'),(35,2,22,'薫','1986-04-07',30,'2022-10-02 23:18:46','2022-09-20','2022-09-20'),(36,1,28,'TAKUMA','1987-05-08',30,'2022-10-02 23:27:09','2022-09-20','2022-09-20'),(37,1,20,'いそべ','1988-06-09',30,'2022-10-02 23:27:09','2022-09-20','2022-09-20'),(38,2,29,'sachiko','1989-07-10',30,'2022-10-03 11:37:02','2022-09-20','2022-09-20'),(39,2,34,'ねぎま','1990-08-11',30,'2022-10-03 11:42:31','2022-09-20','2022-09-20'),(40,1,28,'だるお','1991-09-12',30,'2022-10-03 11:47:29','2022-09-20','2022-09-20'),(41,1,21,'すんげ','1992-10-13',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(42,2,22,'かりん','1993-11-14',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(43,2,23,'きゅーわ','1994-12-15',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(44,1,24,'たろー','1995-01-16',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(45,1,20,'まーくん','1996-02-17',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(46,1,25,'ジョン','1997-03-18',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(47,2,25,'あかり','1998-04-19',30,'2022-10-03 15:19:09','2022-09-20','2022-09-20'),(48,1,25,'でゅーてぃー','1999-05-20',30,'2022-10-03 15:25:18','2022-09-20','2022-09-20'),(49,1,22,'なかじま','2000-06-21',30,'2022-10-04 10:47:25','2022-09-20','2022-09-20'),(50,1,28,'たくむげ','2001-07-22',30,'2022-10-04 11:43:00','2022-09-20','2022-09-20'),(51,2,28,'ゆっきー','2002-08-23',30,'2022-10-04 11:46:35','2022-09-20','2022-09-20'),(52,2,28,'スナイパー','2003-09-24',30,'2022-10-04 11:50:10','2022-09-20','2022-09-20'),(53,2,32,'しげ','1990-10-25',30,'2022-10-05 12:54:10','2022-09-20','2022-09-20'),(54,1,22,'だっち','1991-11-26',30,'2022-10-05 13:01:31','2022-09-20','2022-09-20'),(55,2,22,'エリ','1992-12-27',30,'2022-10-05 13:04:43','2022-09-20','2022-09-20'),(56,1,29,'コースケ','1993-01-28',30,'2022-10-05 13:09:46','2022-09-20','2022-09-20'),(57,2,26,'Yukina','1994-02-01',30,'2022-10-05 20:29:56','2022-09-20','2022-09-20'),(58,2,28,'みき','1995-03-02',30,'2022-10-05 20:41:00','2022-09-20','2022-09-20'),(59,1,47,'西岡義弘','1996-04-03',30,'2022-10-05 20:49:58','2022-09-20','2022-09-20'),(60,1,48,'中島孝之','1997-05-04',30,'2022-10-05 20:49:58','2022-09-20','2022-09-20'),(61,1,51,'よしぴ！！！','1998-06-05',30,'2022-10-05 20:53:18','2022-09-20','2022-09-20'),(62,2,25,'おもち','1999-07-06',30,'2022-10-06 12:46:38','2022-09-20','2022-09-20'),(63,2,45,'ケンシロウ','2000-08-07',30,'2022-10-06 12:50:17','2022-09-20','2022-09-20'),(64,1,28,'スター☆','2001-09-08',30,'2022-10-06 12:55:20','2022-09-20','2022-09-20'),(65,1,29,'田中 聡','2002-10-09',30,'2022-10-06 12:57:23','2022-09-20','2022-09-20'),(66,1,42,'ひむらけんしん','2003-11-10',30,'2022-10-06 12:59:28','2022-09-20','2022-09-20'),(67,1,34,'ここいち','1990-12-11',30,'2022-10-08 01:22:58','2022-09-20','2022-09-20'),(68,2,27,'ティファ','1991-01-12',34,'2022-10-08 10:17:43','2022-09-20','2022-09-20'),(69,1,22,'須田','2000-01-01',125,'2022-09-10 21:45:43','2022-10-13','2022-10-11'),(70,2,47,'ちょこれーと','1975-04-01',30,'2022-10-13 13:41:43','2022-10-13','2022-10-13'),(71,1,25,'ミンティア','1980-05-05',30,'2022-10-13 13:41:43','2022-10-13','2022-10-13'),(72,2,30,'スナフキン','1992-01-10',30,'2022-10-13 13:51:39','2022-10-13','2022-10-13'),(73,1,31,'パンデモ太郎','1991-04-04',34,'2022-10-13 14:01:17','2022-10-17','2022-10-13'),(74,2,21,'あいちゃん','2000-11-05',30,'2022-10-17 21:27:41','2022-10-17','2022-10-17'),(75,2,27,'杏。','1995-08-08',25,'2022-10-17 22:15:48','2022-10-17','2022-10-17');
+INSERT INTO `user_basic_details` VALUES (1,2,26,'はなちゃん','1980-07-01',NULL,'2022-09-20 00:00:00','2022-09-20','2022-09-20'),(2,1,32,'ミナト','1981-08-02',NULL,'2022-09-26 23:01:06','2022-09-20','2022-09-20'),(3,2,20,'なつみ','1982-09-03',30,'2022-09-26 23:20:15','2022-09-20','2022-09-20'),(4,1,51,'キムタクにぃ','1984-10-04',30,'2022-09-26 23:22:46','2022-09-20','2022-09-20'),(5,2,20,'紗奈','1985-11-05',30,'2022-09-26 23:36:21','2022-09-20','2022-09-20'),(6,1,40,'きなこもち','1986-12-06',30,'2022-09-26 23:36:21','2022-09-20','2022-09-20'),(7,2,51,'ゆきちゃん','1987-01-07',30,'2022-09-26 23:36:21','2022-09-20','2022-09-20'),(8,2,26,'みにー☆','1988-02-08',30,'2022-09-26 23:45:40','2022-09-20','2022-09-20'),(9,2,19,'じじ','1989-03-09',30,'2022-09-26 23:50:13','2022-09-20','2022-09-20'),(10,1,22,'りょーた','1990-04-10',30,'2022-09-27 08:47:23','2022-09-20','2022-09-20'),(11,1,19,'タダナリ','1991-05-11',30,'2022-09-27 08:56:14','2022-09-20','2022-09-20'),(12,1,42,'はやぶさ','1992-06-12',30,'2022-09-27 15:13:30','2022-09-20','2022-09-20'),(13,2,26,'ひなこ','1993-07-13',30,'2022-09-27 15:17:38','2022-09-20','2022-09-20'),(14,1,45,'ツッキー','1994-08-14',30,'2022-09-28 13:56:13','2022-09-20','2022-09-20'),(15,2,22,'あいこ','1995-09-15',30,'2022-09-28 13:59:18','2022-09-20','2022-09-20'),(16,2,28,'ゆきみ','1996-10-16',30,'2022-09-30 11:45:52','2022-09-20','2022-09-20'),(17,2,31,'たまみ','1997-11-17',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(18,2,23,'わかな','1998-12-18',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(19,2,42,'あや','1999-01-19',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(20,1,35,'よしだ','2000-02-20',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(21,1,25,'はやと','2001-03-21',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(22,1,22,'ピエール','2002-04-22',30,'2022-09-30 11:48:30','2022-09-20','2022-09-20'),(23,1,51,'よしくに','2003-05-23',30,'2022-09-30 12:42:16','2022-09-20','2022-09-20'),(24,1,41,'明夫','2004-05-25',30,'2022-10-02 21:07:52','2022-09-20','2022-09-20'),(25,2,24,'つづ','1970-06-26',30,'2022-10-02 21:14:57','2022-09-20','2022-09-20'),(26,1,37,'yuu','1973-07-27',30,'2022-10-02 21:24:21','2022-09-20','2022-09-20'),(27,2,28,'もえ。','1976-08-29',30,'2022-10-02 21:30:47','2022-09-20','2022-09-20'),(28,1,27,'竜','1979-09-30',30,'2022-10-02 21:40:11','2022-09-20','2022-09-20'),(29,2,29,'まどか','1980-10-01',30,'2022-10-02 21:43:20','2022-09-20','2022-09-20'),(30,2,29,'ずっこ','1981-11-02',30,'2022-10-02 21:46:59','2022-09-20','2022-09-20'),(31,2,29,'れーこ','1982-12-03',30,'2022-10-02 21:50:39','2022-09-20','2022-09-20'),(32,1,28,'いたチャイ','1983-01-04',30,'2022-10-02 22:16:10','2022-09-20','2022-09-20'),(33,1,27,'ヒロシ','1984-02-05',30,'2022-10-02 22:27:10','2022-09-20','2022-09-20'),(34,1,37,'とっしー','1985-03-06',30,'2022-10-02 22:31:27','2022-09-20','2022-09-20'),(35,2,22,'薫','1986-04-07',30,'2022-10-02 23:18:46','2022-09-20','2022-09-20'),(36,1,28,'TAKUMA','1987-05-08',30,'2022-10-02 23:27:09','2022-09-20','2022-09-20'),(37,1,20,'いそべ','1988-06-09',30,'2022-10-02 23:27:09','2022-09-20','2022-09-20'),(38,2,29,'sachiko','1989-07-10',30,'2022-10-03 11:37:02','2022-09-20','2022-09-20'),(39,2,34,'ねぎま','1990-08-11',30,'2022-10-03 11:42:31','2022-09-20','2022-09-20'),(40,1,28,'だるお','1991-09-12',30,'2022-10-03 11:47:29','2022-09-20','2022-09-20'),(41,1,21,'すんげ','1992-10-13',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(42,2,22,'かりん','1993-11-14',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(43,2,23,'きゅーわ','1994-12-15',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(44,1,24,'たろー','1995-01-16',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(45,1,20,'まーくん','1996-02-17',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(46,1,25,'ジョン','1997-03-18',30,'2022-10-03 15:12:15','2022-09-20','2022-09-20'),(47,2,25,'あかり','1998-04-19',30,'2022-10-03 15:19:09','2022-09-20','2022-09-20'),(48,1,25,'でゅーてぃー','1999-05-20',30,'2022-10-03 15:25:18','2022-09-20','2022-09-20'),(49,1,22,'なかじま','2000-06-21',30,'2022-10-04 10:47:25','2022-09-20','2022-09-20'),(50,1,28,'たくむげ','2001-07-22',30,'2022-10-04 11:43:00','2022-09-20','2022-09-20'),(51,2,28,'ゆっきー','2002-08-23',30,'2022-10-04 11:46:35','2022-09-20','2022-09-20'),(52,2,28,'スナイパー','2003-09-24',30,'2022-10-04 11:50:10','2022-09-20','2022-09-20'),(53,2,32,'しげ','1990-10-25',30,'2022-10-05 12:54:10','2022-09-20','2022-09-20'),(54,1,22,'だっち','1991-11-26',30,'2022-10-05 13:01:31','2022-09-20','2022-09-20'),(55,2,22,'エリ','1992-12-27',30,'2022-10-05 13:04:43','2022-09-20','2022-09-20'),(56,1,29,'コースケ','1993-01-28',30,'2022-10-05 13:09:46','2022-09-20','2022-09-20'),(57,2,26,'Yukina','1994-02-01',30,'2022-10-05 20:29:56','2022-09-20','2022-09-20'),(58,2,28,'みき','1995-03-02',30,'2022-10-05 20:41:00','2022-09-20','2022-09-20'),(59,1,47,'西岡義弘','1996-04-03',30,'2022-10-05 20:49:58','2022-09-20','2022-09-20'),(60,1,48,'中島孝之','1997-05-04',30,'2022-10-05 20:49:58','2022-09-20','2022-09-20'),(61,1,51,'よしぴ！！！','1998-06-05',30,'2022-10-05 20:53:18','2022-09-20','2022-09-20'),(62,2,25,'おもち','1999-07-06',30,'2022-10-06 12:46:38','2022-09-20','2022-09-20'),(63,2,45,'ケンシロウ','2000-08-07',30,'2022-10-06 12:50:17','2022-09-20','2022-09-20'),(64,1,28,'スター☆','2001-09-08',30,'2022-10-06 12:55:20','2022-09-20','2022-09-20'),(65,1,29,'田中 聡','2002-10-09',30,'2022-10-06 12:57:23','2022-09-20','2022-09-20'),(66,1,42,'ひむらけんしん','2003-11-10',30,'2022-10-06 12:59:28','2022-09-20','2022-09-20'),(67,1,34,'ここいち','1990-12-11',30,'2022-10-08 01:22:58','2022-09-20','2022-09-20'),(68,2,27,'ティファ','1991-01-12',34,'2022-10-08 10:17:43','2022-09-20','2022-09-20'),(69,1,22,'須田','2000-01-01',125,'2022-09-10 21:45:43','2022-10-13','2022-10-11'),(70,2,47,'ちょこれーと','1975-04-01',30,'2022-10-13 13:41:43','2022-10-13','2022-10-13'),(71,1,25,'ミンティア','1980-05-05',30,'2022-10-13 13:41:43','2022-10-13','2022-10-13'),(72,2,30,'スナフキン','1992-01-10',30,'2022-10-13 13:51:39','2022-10-13','2022-10-13'),(73,1,31,'パンデモ太郎','1991-04-04',34,'2022-10-13 14:01:17','2022-10-18','2022-10-13'),(74,2,21,'あいちゃん','2000-11-05',30,'2022-10-17 21:27:41','2022-10-17','2022-10-17'),(75,2,27,'杏。','1995-08-08',24,'2022-10-17 22:15:48','2022-10-18','2022-10-17');
 /*!40000 ALTER TABLE `user_basic_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -885,7 +885,7 @@ CREATE TABLE `user_free_details` (
 
 LOCK TABLES `user_free_details` WRITE;
 /*!40000 ALTER TABLE `user_free_details` DISABLE KEYS */;
-INSERT INTO `user_free_details` VALUES (1,4,3,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,2,1,2,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,5,2,5,2,2,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,4,5,1,1,3,NULL,NULL,1,2,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,4,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,3,2,2,3,4,NULL,NULL,2,2,5,3,4,1,2,4,'サウナ','温泉','旅行',2),(9,4,3,37,1,1,'緑茶大学',NULL,3,2,4,2,3,3,3,3,'映画','カフェ','ビリヤード',1),(10,2,4,38,3,2,NULL,NULL,3,3,3,4,1,1,2,3,'youtube','tiktok','instagram',1),(11,2,5,39,2,1,'ミンティア高校','ひみつ',2,2,2,3,2,1,3,3,'カフェ','水族館','演劇鑑賞',2),(12,3,3,40,1,2,NULL,NULL,2,4,3,3,4,1,4,4,'野球','テニス','サッカー',1),(13,4,2,8,3,2,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,5,4,12,1,3,NULL,NULL,2,1,4,3,3,2,2,3,NULL,NULL,NULL,1),(15,4,5,30,2,4,NULL,NULL,3,2,3,1,3,1,2,2,NULL,NULL,NULL,1),(16,5,3,36,1,2,NULL,NULL,2,3,4,2,2,2,1,3,NULL,NULL,NULL,1),(17,5,2,31,1,1,'ハンカチ高専',NULL,2,2,2,1,1,1,2,1,NULL,NULL,NULL,2),(18,2,5,35,2,2,NULL,NULL,2,3,1,4,4,2,1,4,NULL,NULL,NULL,1),(19,4,4,34,2,3,'ひよこ高校',NULL,2,4,3,1,3,1,2,1,NULL,NULL,NULL,3),(20,2,2,2,3,3,NULL,NULL,2,2,1,4,2,1,4,2,NULL,NULL,NULL,1),(21,2,2,34,1,2,'アップル大学',NULL,2,5,5,3,2,2,2,3,NULL,NULL,NULL,2),(22,3,3,33,2,2,NULL,NULL,2,3,2,2,4,1,3,4,NULL,NULL,NULL,3),(23,3,4,32,2,2,NULL,NULL,2,2,2,2,2,1,2,2,NULL,NULL,NULL,1),(24,4,3,39,3,4,NULL,NULL,3,4,3,2,4,1,4,4,NULL,NULL,NULL,3),(25,3,2,20,1,2,NULL,NULL,2,2,2,2,3,1,2,2,NULL,NULL,NULL,2),(26,4,3,21,3,4,NULL,NULL,3,3,3,3,4,1,3,3,NULL,NULL,NULL,2),(27,5,4,22,4,3,NULL,NULL,2,4,4,4,4,1,4,4,NULL,NULL,NULL,2),(28,2,3,23,2,2,NULL,NULL,3,5,2,2,3,1,3,3,NULL,NULL,NULL,2),(29,3,4,24,2,3,NULL,NULL,1,2,1,3,2,1,2,2,NULL,NULL,NULL,2),(30,4,2,25,3,2,NULL,NULL,2,3,3,4,1,1,1,1,NULL,NULL,NULL,2),(31,5,1,26,2,1,NULL,NULL,3,4,4,1,2,1,2,2,NULL,NULL,NULL,1),(32,2,3,27,4,3,NULL,NULL,2,5,2,3,3,1,3,3,NULL,NULL,NULL,2),(33,3,2,28,3,3,NULL,NULL,1,2,3,2,4,1,4,4,NULL,NULL,NULL,2),(34,4,3,29,2,1,NULL,NULL,3,3,4,4,3,1,3,2,NULL,NULL,NULL,1),(35,5,4,30,4,2,NULL,NULL,2,4,2,3,2,1,2,4,NULL,NULL,NULL,2),(36,2,3,31,3,4,NULL,NULL,1,5,3,2,1,1,1,3,NULL,NULL,NULL,3),(37,2,3,23,2,3,NULL,NULL,2,3,2,3,3,2,3,3,NULL,NULL,NULL,2),(38,3,2,24,2,3,NULL,NULL,1,5,2,2,3,2,1,2,NULL,NULL,NULL,1),(39,4,3,25,3,4,NULL,NULL,2,4,3,3,3,1,2,2,NULL,NULL,NULL,2),(40,2,4,26,4,2,NULL,NULL,3,3,4,3,3,2,1,3,NULL,NULL,NULL,1),(41,3,2,27,2,3,NULL,NULL,1,2,4,1,2,2,2,1,NULL,NULL,NULL,2),(42,4,3,28,3,4,NULL,NULL,2,3,5,4,3,1,2,2,NULL,NULL,NULL,1),(43,2,4,29,4,3,NULL,NULL,3,4,4,1,1,2,1,3,NULL,NULL,NULL,2),(44,3,1,30,2,2,NULL,NULL,3,3,3,3,2,1,1,4,NULL,NULL,NULL,3),(45,4,2,31,3,3,NULL,NULL,2,2,2,1,1,1,1,1,NULL,NULL,NULL,1),(46,5,3,32,4,3,NULL,NULL,2,1,2,2,1,2,2,3,NULL,NULL,NULL,2),(47,2,4,33,5,3,NULL,NULL,2,2,3,1,2,1,2,4,NULL,NULL,NULL,3),(48,3,2,34,2,2,NULL,NULL,3,3,4,2,2,1,3,2,NULL,NULL,NULL,1),(49,2,3,35,2,2,NULL,NULL,3,4,2,2,3,1,4,2,NULL,NULL,NULL,3),(50,3,2,10,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,1),(51,4,3,11,3,3,NULL,NULL,2,3,2,3,2,1,6,3,NULL,NULL,NULL,1),(52,2,4,12,4,4,NULL,NULL,2,4,2,4,3,1,6,4,NULL,NULL,NULL,2),(53,3,2,13,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,2),(54,4,3,14,3,3,NULL,NULL,2,3,2,3,5,1,6,3,NULL,NULL,NULL,2),(55,2,4,15,4,4,NULL,NULL,2,4,2,4,2,1,5,4,NULL,NULL,NULL,2),(56,2,2,16,5,2,'ファブリーズ大学','Webエンジニア',2,2,2,2,3,1,4,2,'漫画','アニメ','ゲーム',2),(57,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(58,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(59,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(60,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(61,2,5,1,4,1,'スターボックス大学院','大学事務',3,2,2,3,6,1,4,3,'食う','寝る','タバコ',2),(62,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(63,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(64,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(65,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(66,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1),(67,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(68,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(69,1,1,2,4,1,'','営業',1,1,1,1,1,1,1,1,'女装','美容ケア','',1),(70,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(71,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(72,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(73,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1),(74,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(75,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1);
+INSERT INTO `user_free_details` VALUES (1,4,3,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,2,1,2,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,5,2,5,2,2,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,4,5,1,1,3,NULL,NULL,1,2,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,4,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,3,2,2,3,4,NULL,NULL,2,2,5,3,4,1,2,4,'サウナ','温泉','旅行',2),(9,4,3,37,1,1,'緑茶大学',NULL,3,2,4,2,3,3,3,3,'映画','カフェ','ビリヤード',1),(10,2,4,38,3,2,NULL,NULL,3,3,3,4,1,1,2,3,'youtube','tiktok','instagram',1),(11,2,5,39,2,1,'ミンティア高校','ひみつ',2,2,2,3,2,1,3,3,'カフェ','水族館','演劇鑑賞',2),(12,3,3,40,1,2,NULL,NULL,2,4,3,3,4,1,4,4,'野球','テニス','サッカー',1),(13,4,2,8,3,2,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,5,4,12,1,3,NULL,NULL,2,1,4,3,3,2,2,3,NULL,NULL,NULL,1),(15,4,5,30,2,4,NULL,NULL,3,2,3,1,3,1,2,2,NULL,NULL,NULL,1),(16,5,3,36,1,2,NULL,NULL,2,3,4,2,2,2,1,3,NULL,NULL,NULL,1),(17,5,2,31,1,1,'ハンカチ高専',NULL,2,2,2,1,1,1,2,1,NULL,NULL,NULL,2),(18,2,5,35,2,2,NULL,NULL,2,3,1,4,4,2,1,4,NULL,NULL,NULL,1),(19,4,4,34,2,3,'ひよこ高校',NULL,2,4,3,1,3,1,2,1,NULL,NULL,NULL,3),(20,2,2,2,3,3,NULL,NULL,2,2,1,4,2,1,4,2,NULL,NULL,NULL,1),(21,2,2,34,1,2,'アップル大学',NULL,2,5,5,3,2,2,2,3,NULL,NULL,NULL,2),(22,3,3,33,2,2,NULL,NULL,2,3,2,2,4,1,3,4,NULL,NULL,NULL,3),(23,3,4,32,2,2,NULL,NULL,2,2,2,2,2,1,2,2,NULL,NULL,NULL,1),(24,4,3,39,3,4,NULL,NULL,3,4,3,2,4,1,4,4,NULL,NULL,NULL,3),(25,3,2,20,1,2,NULL,NULL,2,2,2,2,3,1,2,2,NULL,NULL,NULL,2),(26,4,3,21,3,4,NULL,NULL,3,3,3,3,4,1,3,3,NULL,NULL,NULL,2),(27,5,4,22,4,3,NULL,NULL,2,4,4,4,4,1,4,4,NULL,NULL,NULL,2),(28,2,3,23,2,2,NULL,NULL,3,5,2,2,3,1,3,3,NULL,NULL,NULL,2),(29,3,4,24,2,3,NULL,NULL,1,2,1,3,2,1,2,2,NULL,NULL,NULL,2),(30,4,2,25,3,2,NULL,NULL,2,3,3,4,1,1,1,1,NULL,NULL,NULL,2),(31,5,1,26,2,1,NULL,NULL,3,4,4,1,2,1,2,2,NULL,NULL,NULL,1),(32,2,3,27,4,3,NULL,NULL,2,5,2,3,3,1,3,3,NULL,NULL,NULL,2),(33,3,2,28,3,3,NULL,NULL,1,2,3,2,4,1,4,4,NULL,NULL,NULL,2),(34,4,3,29,2,1,NULL,NULL,3,3,4,4,3,1,3,2,NULL,NULL,NULL,1),(35,5,4,30,4,2,NULL,NULL,2,4,2,3,2,1,2,4,NULL,NULL,NULL,2),(36,2,3,31,3,4,NULL,NULL,1,5,3,2,1,1,1,3,NULL,NULL,NULL,3),(37,2,3,23,2,3,NULL,NULL,2,3,2,3,3,2,3,3,NULL,NULL,NULL,2),(38,3,2,24,2,3,NULL,NULL,1,5,2,2,3,2,1,2,NULL,NULL,NULL,1),(39,4,3,25,3,4,NULL,NULL,2,4,3,3,3,1,2,2,NULL,NULL,NULL,2),(40,2,4,26,4,2,NULL,NULL,3,3,4,3,3,2,1,3,NULL,NULL,NULL,1),(41,3,2,27,2,3,NULL,NULL,1,2,4,1,2,2,2,1,NULL,NULL,NULL,2),(42,4,3,28,3,4,NULL,NULL,2,3,5,4,3,1,2,2,NULL,NULL,NULL,1),(43,2,4,29,4,3,NULL,NULL,3,4,4,1,1,2,1,3,NULL,NULL,NULL,2),(44,3,1,30,2,2,NULL,NULL,3,3,3,3,2,1,1,4,NULL,NULL,NULL,3),(45,4,2,31,3,3,NULL,NULL,2,2,2,1,1,1,1,1,NULL,NULL,NULL,1),(46,5,3,32,4,3,NULL,NULL,2,1,2,2,1,2,2,3,NULL,NULL,NULL,2),(47,2,4,33,5,3,NULL,NULL,2,2,3,1,2,1,2,4,NULL,NULL,NULL,3),(48,3,2,34,2,2,NULL,NULL,3,3,4,2,2,1,3,2,NULL,NULL,NULL,1),(49,2,3,35,2,2,NULL,NULL,3,4,2,2,3,1,4,2,NULL,NULL,NULL,3),(50,3,2,10,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,1),(51,4,3,11,3,3,NULL,NULL,2,3,2,3,2,1,6,3,NULL,NULL,NULL,1),(52,2,4,12,4,4,NULL,NULL,2,4,2,4,3,1,6,4,NULL,NULL,NULL,2),(53,3,2,13,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,2),(54,4,3,14,3,3,NULL,NULL,2,3,2,3,5,1,6,3,NULL,NULL,NULL,2),(55,2,4,15,4,4,NULL,NULL,2,4,2,4,2,1,5,4,NULL,NULL,NULL,2),(56,2,2,16,5,2,'ファブリーズ大学','Webエンジニア',2,2,2,2,3,1,4,2,'漫画','アニメ','ゲーム',2),(57,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(58,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(59,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(60,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(61,2,5,1,4,1,'スターボックス大学院','大学事務',3,2,2,3,6,1,4,3,'食う','寝る','タバコ',2),(62,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(63,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(64,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(65,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(66,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1),(67,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(68,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(69,1,1,2,4,1,'','営業',1,1,1,1,1,1,1,1,'女装','美容ケア','',1),(70,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(71,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(72,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(73,4,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1),(74,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(75,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1);
 /*!40000 ALTER TABLE `user_free_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -996,7 +996,7 @@ CREATE TABLE `user_texts` (
 
 LOCK TABLES `user_texts` WRITE;
 /*!40000 ALTER TABLE `user_texts` DISABLE KEYS */;
-INSERT INTO `user_texts` VALUES (1,'こんにちは',' '),(2,'ありがとう',' '),(3,'こんばんは',' '),(4,'よろしくおねがいします！',' '),(5,'おなか減った！',' '),(6,'つかれた～',' '),(7,'今日もいい一日でした！',' '),(8,'いい男いないかな',' '),(9,'むかつく',' '),(11,'映画いきたい',' '),(12,'adoちゃんかわいい～',' '),(13,'焼肉たべたいなー',' '),(14,'男友達がほしいです',' '),(15,'えっ？',' '),(16,'こんにちは～',' '),(17,'こんばんは～',' '),(18,'おはよー！',' '),(19,'働きたくない',' '),(20,'ダイエットしなきゃ',' '),(21,'ミンティアおいしい',' '),(22,'漫画かった！',' '),(23,'スマホ新しくしたい',' '),(24,'それな',' '),(25,'ジャスミン茶しか勝たん',' '),(26,'ゲームしたい',' '),(27,'ゲームする気力がない',' '),(28,'そーらんそーらん',' '),(29,'は～',' '),(30,'こんにちは！',' '),(31,'よろしくおねがいします！',' '),(32,'おっすおっす',' '),(33,'ダイエット～',' '),(34,'甘いもの食べたい！',' '),(35,'猫が好き！',' '),(36,'ねこ～',' '),(37,'犬が好き',' '),(38,'動物が好き！',' '),(39,'つかれた',' '),(40,'早く寝たい',' '),(41,'眠い',' '),(42,'出勤したくない',' '),(43,'サッカー観に行きたい',' '),(44,'ディズニーいきたいな～',' '),(45,'ユニバって面白いの？',' '),(46,'ねむねむねむ',' '),(47,'よ～',' '),(48,'ざわ・・・',' '),(49,'チョコはおいしい',' '),(50,'チョコ食べたい',' '),(51,'チョコねー',' '),(52,'冬だね！',' '),(53,'金木製ちっちゃったー',' '),(54,'こたつ出す・・・？',' '),(55,'あったかくて眠い',' '),(56,'アイスたべたい',' '),(57,'ダイエット頑張ります',' '),(58,'転職したい',' '),(59,'写真撮りに行きたい',' '),(60,'キャンプいってきました！',' '),(61,'おれが！',' '),(62,'英語習いたい',' '),(63,'勉強したくない',' '),(64,'お昼が一番眠い',' '),(65,'色々不安・・・',' '),(66,'おろ～',' '),(67,'脂肪を燃やせ！',' '),(68,'お茶',' '),(69,'女装が好きというわけではないです',' '),(70,'',''),(71,'',''),(72,'',''),(73,'かたこり辛い','よね'),(74,'',''),(75,'はじめてみました','よろぽっくる');
+INSERT INTO `user_texts` VALUES (1,'こんにちは',' '),(2,'ありがとう',' '),(3,'こんばんは',' '),(4,'よろしくおねがいします！',' '),(5,'おなか減った！',' '),(6,'つかれた～',' '),(7,'今日もいい一日でした！',' '),(8,'いい男いないかな',' '),(9,'むかつく',' '),(11,'映画いきたい',' '),(12,'adoちゃんかわいい～',' '),(13,'焼肉たべたいなー',' '),(14,'男友達がほしいです',' '),(15,'えっ？',' '),(16,'こんにちは～',' '),(17,'こんばんは～',' '),(18,'おはよー！',' '),(19,'働きたくない',' '),(20,'ダイエットしなきゃ',' '),(21,'ミンティアおいしい',' '),(22,'漫画かった！',' '),(23,'スマホ新しくしたい',' '),(24,'それな',' '),(25,'ジャスミン茶しか勝たん',' '),(26,'ゲームしたい',' '),(27,'ゲームする気力がない',' '),(28,'そーらんそーらん',' '),(29,'は～',' '),(30,'こんにちは！',' '),(31,'よろしくおねがいします！',' '),(32,'おっすおっす',' '),(33,'ダイエット～',' '),(34,'甘いもの食べたい！',' '),(35,'猫が好き！',' '),(36,'ねこ～',' '),(37,'犬が好き',' '),(38,'動物が好き！',' '),(39,'つかれた',' '),(40,'早く寝たい',' '),(41,'眠い',' '),(42,'出勤したくない',' '),(43,'サッカー観に行きたい',' '),(44,'ディズニーいきたいな～',' '),(45,'ユニバって面白いの？',' '),(46,'ねむねむねむ',' '),(47,'よ～',' '),(48,'ざわ・・・',' '),(49,'チョコはおいしい',' '),(50,'チョコ食べたい',' '),(51,'チョコねー',' '),(52,'冬だね！',' '),(53,'金木製ちっちゃったー',' '),(54,'こたつ出す・・・？',' '),(55,'あったかくて眠い',' '),(56,'アイスたべたい',' '),(57,'ダイエット頑張ります',' '),(58,'転職したい',' '),(59,'写真撮りに行きたい',' '),(60,'キャンプいってきました！',' '),(61,'おれが！',' '),(62,'英語習いたい',' '),(63,'勉強したくない',' '),(64,'お昼が一番眠い',' '),(65,'色々不安・・・',' '),(66,'おろ～',' '),(67,'脂肪を燃やせ！',' '),(68,'お茶',' '),(69,'女装が好きというわけではないです',' '),(70,'',''),(71,'',''),(72,'',''),(73,'かたこり辛い','よね～'),(74,'',''),(75,'はじめてみました','よろぽっくる');
 /*!40000 ALTER TABLE `user_texts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1085,11 +1085,12 @@ DROP TABLE IF EXISTS `z10_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z10_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1112,11 +1113,12 @@ DROP TABLE IF EXISTS `z11_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z11_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1139,11 +1141,12 @@ DROP TABLE IF EXISTS `z12_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z12_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1166,11 +1169,12 @@ DROP TABLE IF EXISTS `z13_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z13_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1193,11 +1197,12 @@ DROP TABLE IF EXISTS `z14_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z14_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1220,11 +1225,12 @@ DROP TABLE IF EXISTS `z15_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z15_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1247,11 +1253,12 @@ DROP TABLE IF EXISTS `z16_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z16_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1274,11 +1281,12 @@ DROP TABLE IF EXISTS `z17_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z17_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1301,11 +1309,12 @@ DROP TABLE IF EXISTS `z18_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z18_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1328,11 +1337,12 @@ DROP TABLE IF EXISTS `z19_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z19_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1355,11 +1365,12 @@ DROP TABLE IF EXISTS `z1_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z1_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1370,6 +1381,7 @@ CREATE TABLE `z1_matchings` (
 
 LOCK TABLES `z1_matchings` WRITE;
 /*!40000 ALTER TABLE `z1_matchings` DISABLE KEYS */;
+INSERT INTO `z1_matchings` VALUES (73,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z1_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1382,11 +1394,12 @@ DROP TABLE IF EXISTS `z20_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z20_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1409,11 +1422,12 @@ DROP TABLE IF EXISTS `z21_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z21_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1436,11 +1450,12 @@ DROP TABLE IF EXISTS `z22_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z22_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1463,11 +1478,12 @@ DROP TABLE IF EXISTS `z23_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z23_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1490,11 +1506,12 @@ DROP TABLE IF EXISTS `z24_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z24_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1517,11 +1534,12 @@ DROP TABLE IF EXISTS `z25_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z25_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1544,11 +1562,12 @@ DROP TABLE IF EXISTS `z26_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z26_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1571,11 +1590,12 @@ DROP TABLE IF EXISTS `z27_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z27_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1598,11 +1618,12 @@ DROP TABLE IF EXISTS `z28_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z28_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1625,11 +1646,12 @@ DROP TABLE IF EXISTS `z29_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z29_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1652,11 +1674,12 @@ DROP TABLE IF EXISTS `z2_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z2_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1679,11 +1702,12 @@ DROP TABLE IF EXISTS `z30_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z30_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1706,11 +1730,12 @@ DROP TABLE IF EXISTS `z31_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z31_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1733,11 +1758,12 @@ DROP TABLE IF EXISTS `z32_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z32_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1760,11 +1786,12 @@ DROP TABLE IF EXISTS `z33_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z33_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1787,11 +1814,12 @@ DROP TABLE IF EXISTS `z34_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z34_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1814,11 +1842,12 @@ DROP TABLE IF EXISTS `z35_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z35_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1841,11 +1870,12 @@ DROP TABLE IF EXISTS `z36_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z36_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1868,11 +1898,12 @@ DROP TABLE IF EXISTS `z37_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z37_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1895,11 +1926,12 @@ DROP TABLE IF EXISTS `z38_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z38_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1922,11 +1954,12 @@ DROP TABLE IF EXISTS `z39_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z39_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1949,11 +1982,12 @@ DROP TABLE IF EXISTS `z3_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z3_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1964,6 +1998,7 @@ CREATE TABLE `z3_matchings` (
 
 LOCK TABLES `z3_matchings` WRITE;
 /*!40000 ALTER TABLE `z3_matchings` DISABLE KEYS */;
+INSERT INTO `z3_matchings` VALUES (73,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z3_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1976,11 +2011,12 @@ DROP TABLE IF EXISTS `z40_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z40_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2003,11 +2039,12 @@ DROP TABLE IF EXISTS `z41_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z41_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2030,11 +2067,12 @@ DROP TABLE IF EXISTS `z42_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z42_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2057,11 +2095,12 @@ DROP TABLE IF EXISTS `z43_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z43_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2084,11 +2123,12 @@ DROP TABLE IF EXISTS `z44_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z44_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2111,11 +2151,12 @@ DROP TABLE IF EXISTS `z45_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z45_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2138,11 +2179,12 @@ DROP TABLE IF EXISTS `z46_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z46_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2165,11 +2207,12 @@ DROP TABLE IF EXISTS `z47_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z47_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2192,11 +2235,12 @@ DROP TABLE IF EXISTS `z48_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z48_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2219,11 +2263,12 @@ DROP TABLE IF EXISTS `z49_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z49_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2246,11 +2291,12 @@ DROP TABLE IF EXISTS `z4_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z4_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2273,11 +2319,12 @@ DROP TABLE IF EXISTS `z50_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z50_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2300,11 +2347,12 @@ DROP TABLE IF EXISTS `z51_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z51_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2327,11 +2375,12 @@ DROP TABLE IF EXISTS `z52_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z52_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2354,11 +2403,12 @@ DROP TABLE IF EXISTS `z53_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z53_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2381,11 +2431,12 @@ DROP TABLE IF EXISTS `z54_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z54_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2408,11 +2459,12 @@ DROP TABLE IF EXISTS `z55_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z55_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2435,11 +2487,12 @@ DROP TABLE IF EXISTS `z56_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z56_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2462,11 +2515,12 @@ DROP TABLE IF EXISTS `z57_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z57_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2489,11 +2543,12 @@ DROP TABLE IF EXISTS `z58_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z58_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2516,11 +2571,12 @@ DROP TABLE IF EXISTS `z59_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z59_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2543,11 +2599,12 @@ DROP TABLE IF EXISTS `z5_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z5_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2570,11 +2627,12 @@ DROP TABLE IF EXISTS `z60_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z60_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2597,11 +2655,12 @@ DROP TABLE IF EXISTS `z61_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z61_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2624,11 +2683,12 @@ DROP TABLE IF EXISTS `z62_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z62_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2651,11 +2711,12 @@ DROP TABLE IF EXISTS `z63_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z63_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2678,11 +2739,12 @@ DROP TABLE IF EXISTS `z64_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z64_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2705,11 +2767,12 @@ DROP TABLE IF EXISTS `z65_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z65_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2732,11 +2795,12 @@ DROP TABLE IF EXISTS `z66_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z66_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2759,11 +2823,12 @@ DROP TABLE IF EXISTS `z67_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z67_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2774,6 +2839,7 @@ CREATE TABLE `z67_matchings` (
 
 LOCK TABLES `z67_matchings` WRITE;
 /*!40000 ALTER TABLE `z67_matchings` DISABLE KEYS */;
+INSERT INTO `z67_matchings` VALUES (75,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z67_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2786,11 +2852,12 @@ DROP TABLE IF EXISTS `z68_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z68_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2801,6 +2868,7 @@ CREATE TABLE `z68_matchings` (
 
 LOCK TABLES `z68_matchings` WRITE;
 /*!40000 ALTER TABLE `z68_matchings` DISABLE KEYS */;
+INSERT INTO `z68_matchings` VALUES (73,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z68_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2813,11 +2881,12 @@ DROP TABLE IF EXISTS `z69_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z69_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2828,6 +2897,7 @@ CREATE TABLE `z69_matchings` (
 
 LOCK TABLES `z69_matchings` WRITE;
 /*!40000 ALTER TABLE `z69_matchings` DISABLE KEYS */;
+INSERT INTO `z69_matchings` VALUES (75,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z69_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2840,11 +2910,12 @@ DROP TABLE IF EXISTS `z6_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z6_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2867,11 +2938,12 @@ DROP TABLE IF EXISTS `z70_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z70_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2882,6 +2954,7 @@ CREATE TABLE `z70_matchings` (
 
 LOCK TABLES `z70_matchings` WRITE;
 /*!40000 ALTER TABLE `z70_matchings` DISABLE KEYS */;
+INSERT INTO `z70_matchings` VALUES (73,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z70_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2894,11 +2967,12 @@ DROP TABLE IF EXISTS `z71_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z71_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2909,7 +2983,7 @@ CREATE TABLE `z71_matchings` (
 
 LOCK TABLES `z71_matchings` WRITE;
 /*!40000 ALTER TABLE `z71_matchings` DISABLE KEYS */;
-INSERT INTO `z71_matchings` VALUES (75,NULL,NULL,NULL,1,NULL);
+INSERT INTO `z71_matchings` VALUES (75,0,0,0,1,0,0);
 /*!40000 ALTER TABLE `z71_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2922,11 +2996,12 @@ DROP TABLE IF EXISTS `z72_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z72_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2937,7 +3012,7 @@ CREATE TABLE `z72_matchings` (
 
 LOCK TABLES `z72_matchings` WRITE;
 /*!40000 ALTER TABLE `z72_matchings` DISABLE KEYS */;
-INSERT INTO `z72_matchings` VALUES (73,NULL,NULL,NULL,1,NULL);
+INSERT INTO `z72_matchings` VALUES (73,0,0,0,1,0,0);
 /*!40000 ALTER TABLE `z72_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2950,11 +3025,12 @@ DROP TABLE IF EXISTS `z73_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z73_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2965,6 +3041,7 @@ CREATE TABLE `z73_matchings` (
 
 LOCK TABLES `z73_matchings` WRITE;
 /*!40000 ALTER TABLE `z73_matchings` DISABLE KEYS */;
+INSERT INTO `z73_matchings` VALUES (1,0,0,0,0,0,1),(3,0,0,0,0,0,0),(68,0,0,0,0,0,0),(70,0,0,0,1,0,0),(72,0,0,0,0,0,0),(74,0,0,0,0,0,0),(75,0,0,0,1,0,1);
 /*!40000 ALTER TABLE `z73_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2977,11 +3054,12 @@ DROP TABLE IF EXISTS `z74_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z74_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2992,6 +3070,7 @@ CREATE TABLE `z74_matchings` (
 
 LOCK TABLES `z74_matchings` WRITE;
 /*!40000 ALTER TABLE `z74_matchings` DISABLE KEYS */;
+INSERT INTO `z74_matchings` VALUES (73,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `z74_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3009,6 +3088,7 @@ CREATE TABLE `z75_matchings` (
   `sended_nice` int DEFAULT '0',
   `received_nice` int DEFAULT '0',
   `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3019,7 +3099,7 @@ CREATE TABLE `z75_matchings` (
 
 LOCK TABLES `z75_matchings` WRITE;
 /*!40000 ALTER TABLE `z75_matchings` DISABLE KEYS */;
-INSERT INTO `z75_matchings` VALUES (71,0,0,1,0,0);
+INSERT INTO `z75_matchings` VALUES (67,0,0,0,0,0,0),(69,0,0,0,0,0,0),(71,0,0,1,0,0,0),(73,0,0,1,0,0,0);
 /*!40000 ALTER TABLE `z75_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3032,11 +3112,12 @@ DROP TABLE IF EXISTS `z7_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z7_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3059,11 +3140,12 @@ DROP TABLE IF EXISTS `z8_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z8_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3086,11 +3168,12 @@ DROP TABLE IF EXISTS `z9_matchings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `z9_matchings` (
   `id` int NOT NULL,
-  `matching` int DEFAULT NULL,
-  `sended_nice` int DEFAULT NULL,
-  `favorite` int DEFAULT NULL,
-  `received_nice` int DEFAULT NULL,
-  `blocking` int DEFAULT NULL,
+  `matching` int DEFAULT '0',
+  `sended_nice` int DEFAULT '0',
+  `favorite` int DEFAULT '0',
+  `received_nice` int DEFAULT '0',
+  `blocking` int DEFAULT '0',
+  `checked_received_nice` int DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3113,4 +3196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-17 23:09:46
+-- Dump completed on 2022-10-18 15:42:55
