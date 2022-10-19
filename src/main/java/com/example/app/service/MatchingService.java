@@ -24,4 +24,8 @@ public interface MatchingService {
 	void updateCheckedReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception;
 	Integer checkCheckedReceivedNice(Integer myId, Integer partnersId) throws Exception;
 	List<User> checkMatchingList(Integer myId) throws Exception;
+	void addFavorite(Integer myId, Integer partnersId) throws Exception;
+	Integer checkFavorite(Integer myId, Integer partnersId) throws Exception;
+	List<User> checkFavoriteList(Integer myId) throws Exception;
+	void cancelFavorite(Integer myId, Integer partnersId) throws Exception;
 }

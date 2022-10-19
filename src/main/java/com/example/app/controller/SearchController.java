@@ -209,6 +209,7 @@ public class SearchController {
 		
 		// 自分のマッチングテーブルに対象IDのrowが1(ある)なら
 		if (checkRowOfMine == 1) {
+			
 			// 自分がいいねを送っているか確認
 			Integer checkSendedNiceOfMine = matchingService.checkSendedNiceOfMine(myId, partnersId);
 			// 相手からいいねが来ているか確認
@@ -231,6 +232,18 @@ public class SearchController {
 				session.setAttribute("receivedNice", 0);
 				session.setAttribute("sendedNice", 0);
 			}
+			
+			
+			
+			// 自分がきになるを送っているか確認
+			Integer checkFavorite = matchingService.checkFavorite(myId, partnersId);
+			// 自分がきになるを送っている
+			if (checkFavorite == 1) {
+				session.setAttribute("favorite", 1);
+			} else if (checkFavorite == 0) {
+				session.setAttribute("favorite", 0);
+			}
+			
 			
 			// お互いのマッチングテーブルのmatchingを確認
 			// 成立しているならsession.matchingに1を格納(Thymelefeで使用)
@@ -285,7 +298,15 @@ public class SearchController {
 				matchingService.addMatchingOfMine(myId, partnersId);
 				matchingService.addMatchingOfPartners(myId, partnersId);
 			}
-			
+
+		}
+		
+		//気になるを押したときの動作
+		System.out.println("user.getFavoriteStatus() : " + user.getFavoriteStatus());
+		if (user.getFavoriteStatus() == 1) {
+				matchingService.addFavorite(myId, partnersId);
+		} else if (user.getFavoriteStatus() == 3) {
+				matchingService.cancelFavorite(myId, partnersId);
 		}
 		
 		return "redirect:/search/user/" + partnersId;

@@ -310,6 +310,23 @@ public class UserController {
 		return "/user/matching_list";
 	}
 	
+	
+	@GetMapping("/favoriteList")
+	public String matchingFavoriteGet(Model model) throws Exception {
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<User> favoriteList = matchingService.checkFavoriteList(myId);
+		System.out.println(favoriteList.size());
+		if (favoriteList.size() == 0) {
+			session.setAttribute("countFavorite", 0);
+		} else {
+			session.setAttribute("countFavorite", 1);
+		}
+		model.addAttribute("favoriteList", favoriteList);
+		return "/user/favorite_list";
+	}
+	
+	
+	
 	private boolean haveImage1(Integer id) {
 		File image1jpg = new File(UPLOAD_DIRECTORY + id + "/img1.jpg");
 		File image1png = new File(UPLOAD_DIRECTORY + id + "/img1.png");

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>気になる相手</title>
+<link rel="stylesheet" th:href="@{/css/search.css}" />
+</head>
+<body>
+
+<h1>気になる相手</h1>
+
+<h3 th:if="${session.countFavorite == 0}">気になる を押した人はまだいません</h3>
+
+<th:block th:each="favorite : ${favoriteList}" th:if="${session.countFavorite > 0}">
+	<table class="user_list">
+			<tr>
+				<td class="user_list_bg">
+				<a th:href="@{/search/user/{id}(id=${favorite.id})}" target="_blank">
+					<img th:if="${favorite.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${favorite.id})}" alt="" height="210px">
+					<img th:if="${favorite.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+					<span>[[${favorite.userBD.age}]]歳 [[${favorite.userRD.residenceStr}]]</span> <th:block
+						th:if="${favorite.userT.oneWord != null}">[[${favorite.userT.oneWord}]]</th:block>
+				</a>
+				</td>
+			</tr>
+		</table>
+</th:block>
+
+</body>
+</html>

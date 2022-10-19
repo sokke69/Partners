@@ -13,18 +13,28 @@
 				$('#niceStatus').attr('value', '1')
 			})
 		});
-		$(document).ready(function(){
-			$('#favorite').click(function(){
-				$('#favoriteStatus').attr('value', '1')
-			})
-		});
+	</script>
+	<script th:if="${session.favorite == 0}">
+	$(document).ready(function(){
+		$('#favorite').click(function(){
+			$('#favoriteStatus').attr('value', '1')
+		})
+	});
+	</script>
+	<script th:if="${session.favorite == 1}">
+	$(document).ready(function(){
+		$('#favorite').click(function(){
+			$('#favoriteStatus').attr('value', '3')
+		})
+	});
 	</script>
 
 	<h1>[[${user.userBD.name}]]</h1>
 	
 	<form action="" method="post" name="userform" th:object="${user}">
 		
-		<input type="hidden" name="favoriteStatus" th:value="0" id="favoriteStatus"/>
+		<input type="hidden" name="favoriteStatus" th:value="0" id="favoriteStatus" th:if="${session.favorite == 0}"/>
+		<input type="hidden" name="favoriteStatus" th:value="1" id="favoriteStatus" th:if="${session.favorite == 1}"/>
 		<input type="hidden" name="niceStatus" th:value="0" id="niceStatus"/>
 		<input type="hidden" th:field="*{userRD.height}" th:value="*{userRD.height}" />
 		<input type="hidden" th:field="*{userRD.residenceStr}" th:value="*{userRD.residenceStr}" />
@@ -68,10 +78,13 @@
 			<h3>マッチング済み</h3>
 		</th:block>
 		<th:block th:if="${session.matching == 0}">
-			<h3><span><a href="javascript:document.userform.submit()" id="favorite">気になる(未実装)</a></span>
-			<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 0}">いいね</a></span>
-			<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 1}">いいねを返す</a></span>
-			<span th:if="${session.sendedNice == 1}">いいね送信済み</span></h3>
+			<h3>
+				<span><a href="javascript:document.userform.submit()" id="favorite" th:if="${session.favorite == 0}">気になる</a></span>
+				<span><a href="javascript:document.userform.submit()" id="favorite" th:if="${session.favorite == 1}">気になるを解除</a></span>
+				<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 0}">いいね</a></span>
+				<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 1}">いいねを返す</a></span>
+				<span th:if="${session.sendedNice == 1}">いいね送信済み</span>
+			</h3>
 		</th:block>
 		
 		

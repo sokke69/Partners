@@ -105,6 +105,26 @@ public class MatchingServiceImpl implements MatchingService{
 		return matchingMapper.checkMatchingList(myId);
 	}
 
+	@Override
+	public void addFavorite(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.addFavorite(myId, partnersId);
+	}
+
+	@Override
+	public Integer checkFavorite(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkFavorite(myId, partnersId);
+	}
+
+	@Override
+	public List<User> checkFavoriteList(Integer myId) throws Exception {
+		return matchingMapper.checkFavoriteList(myId);
+	}
+
+	@Override
+	public void cancelFavorite(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.cancelFavorite(myId, partnersId);
+	}
+
 
 
 }

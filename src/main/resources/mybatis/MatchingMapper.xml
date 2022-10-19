@@ -122,4 +122,27 @@
     WHERE matching=1
 </select>
 
+<update id="addFavorite" parameterType="integer">
+	UPDATE z#{myId}_matchings SET favorite=1 WHERE id=#{partnersId}
+</update>
+
+<select id="checkFavorite" resultType="integer" parameterType="integer">
+	SELECT favorite FROM z#{myId}_matchings WHERE id=#{partnersId}
+</select>
+
+<select id="checkFavoriteList" parameterType="integer" resultMap="matchingMap" >
+	SELECT z#{myId}_matchings.id, age, one_word, img, residences.residence
+    FROM z#{myId}_matchings
+	LEFT JOIN user_basic_details ON z#{myId}_matchings.id=user_basic_details.id
+    LEFT JOIN user_required_details ON z#{myId}_matchings.id=user_required_details.id
+	LEFT JOIN user_texts ON z#{myId}_matchings.id=user_texts.id
+	LEFT JOIN imgs ON z#{myId}_matchings.id=imgs.id
+    LEFT JOIN residences ON user_required_details.residence=residences.id
+    WHERE favorite=1
+</select>
+
+<update id="cancelFavorite" parameterType="integer">
+	UPDATE z#{myId}_matchings SET favorite=0 WHERE id=#{partnersId}
+</update>
+
 </mapper>
