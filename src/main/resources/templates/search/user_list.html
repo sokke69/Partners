@@ -9,6 +9,8 @@
 	<h1>さがす</h1>
 
 	<form action="" method="post" th:object="${user}">
+	
+	<input type="hidden" name="userBD.sex" th:value="${session.sex}"/>
 
 		<table class="detail">
 			<tr>

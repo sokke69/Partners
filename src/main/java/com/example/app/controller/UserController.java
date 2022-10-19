@@ -337,6 +337,11 @@ public class UserController {
 		return "/user/not_matching_and_received_nice";
 	}
 	
+	@GetMapping("/message")
+	public String messageGet() {
+		return null;
+		
+	}
 	
 	private boolean haveImage1(Integer id) {
 		File image1jpg = new File(UPLOAD_DIRECTORY + id + "/img1.jpg");

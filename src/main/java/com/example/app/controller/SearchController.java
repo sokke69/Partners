@@ -46,7 +46,7 @@ public class SearchController {
 			UserText userT) throws Exception {
 
 		userBD.setSex((Integer)session.getAttribute("sex"));
-		
+		System.out.println(userBD);
 		List<User> userList = searchService.searchUserAllDetailList(userBD);
 		model.addAttribute("userList", userList);
 		
@@ -77,7 +77,10 @@ public class SearchController {
 	}
 	
 	@PostMapping("/")
-	public String searchTopPost(@ModelAttribute User user,Model model) throws Exception{
+	public String searchTopPost(@ModelAttribute User user,Model model, UserRequiredDetail userRD,
+			UserBasicDetail userBD,
+			UserFreeDetail userFD, UserImage userI,
+			UserText userT) throws Exception{
 		
 		if (user.getUserRD().getResidence() == 0) {
 			user.getUserRD().setResidence(null);
@@ -149,9 +152,12 @@ public class SearchController {
 			user.getUserFD().setPayment(null);
 		}
 		
-		
-		
+		System.out.println("session.sex = " + session.getAttribute("sex"));
+		userBD.setSex((Integer) session.getAttribute("sex"));
+		user.setUserBD(userBD);
+		System.out.println("userBD.sex = " + user.getUserBD().getSex());
 		List<User> userList = searchService.searchUserAllDetailListDetail(user);
+		System.out.println(user);
 		model.addAttribute("userList", userList);
 		
 		model.addAttribute("holidays", userService.selectHolidayAll());
