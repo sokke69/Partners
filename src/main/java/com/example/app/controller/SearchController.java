@@ -40,9 +40,11 @@ public class SearchController {
 	MatchingService matchingService;
 	
 	@GetMapping("")
-	public String searchTopGet(Model model,User user,UserRequiredDetail userRD, UserBasicDetail userBD,
-			UserFreeDetail userFD, UserImage userI, UserText userT) throws Exception {
-		model.addAttribute("user", user);
+	public String searchTopGet(Model model,User user,UserRequiredDetail userRD,
+			UserBasicDetail userBD,
+			UserFreeDetail userFD, UserImage userI,
+			UserText userT) throws Exception {
+
 		userBD.setSex((Integer)session.getAttribute("sex"));
 		
 		List<User> userList = searchService.searchUserAllDetailList(userBD);

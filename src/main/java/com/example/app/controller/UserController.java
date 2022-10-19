@@ -90,9 +90,6 @@ public class UserController {
 			session.setAttribute("newReceivedNice", 0);
 		}
 		
-		System.out.println("checkNotMatchingAndReceivedNiceOfMe.size() : " + checkNotMatchingAndReceivedNiceOfMe.size());
-		System.out.println("newReceivedNice : " + session.getAttribute("newReceivedNice"));
-		
 		return "/user/top";
 	}
 	
