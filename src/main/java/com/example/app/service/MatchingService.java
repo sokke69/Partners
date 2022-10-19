@@ -23,4 +23,5 @@ public interface MatchingService {
 	List<User> newReceivedNiceList(Integer myId) throws Exception;
 	void updateCheckedReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception;
 	Integer checkCheckedReceivedNice(Integer myId, Integer partnersId) throws Exception;
+	List<User> checkMatchingList(Integer myId) throws Exception;
 }

@@ -43,8 +43,6 @@ public class UserController {
 	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
-	
-	
 	@GetMapping("/userList")
 	public String selectUserAll(Model model) throws Exception {
 		model.addAttribute("userList", userService.getUserAllDetailList());
@@ -304,6 +302,14 @@ public class UserController {
 		return "redirect:/user/newReceivedNice";
 	}
 	
+	@GetMapping("/matchingList")
+	public String matchingListGet(Model model) throws Exception {
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<User> matchingList = matchingService.checkMatchingList(myId);
+		model.addAttribute("matchingList", matchingList);
+		return "/user/matching_list";
+	}
+	
 	private boolean haveImage1(Integer id) {
 		File image1jpg = new File(UPLOAD_DIRECTORY + id + "/img1.jpg");
 		File image1png = new File(UPLOAD_DIRECTORY + id + "/img1.png");
@@ -312,5 +318,6 @@ public class UserController {
 		}
 		return false;
 	}
+
 	
 }

@@ -100,6 +100,11 @@ public class MatchingServiceImpl implements MatchingService{
 		return matchingMapper.checkCheckedReceivedNice(myId, partnersId);
 	}
 
+	@Override
+	public List<User> checkMatchingList(Integer myId) throws Exception {
+		return matchingMapper.checkMatchingList(myId);
+	}
+
 
 
 }

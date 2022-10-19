@@ -72,7 +72,7 @@
 	SELECT checked_received_nice FROM z#{myId}_matchings WHERE received_nice=1 AND checked_received_nice=#{checkCheckedReceivedNice} AND id=#{partnersId}
 </select>
 
-<select id="newReceivedNiceList" resultMap="newReceivedNiceMap" parameterType="integer">
+<select id="newReceivedNiceList" resultMap="matchingMap" parameterType="integer">
 	SELECT z#{myId}_matchings.id, age, one_word, img, residences.residence
     FROM z#{myId}_matchings
 	LEFT JOIN user_basic_details ON z#{myId}_matchings.id=user_basic_details.id
@@ -83,7 +83,7 @@
     WHERE received_nice=1 AND checked_received_nice=0
 </select>
 
-<resultMap id="newReceivedNiceMap" type="com.example.app.domain.User">
+<resultMap id="matchingMap" type="com.example.app.domain.User">
 	<id column = "id" property="id"/>
 	
 	<association property="userBD" javaType="com.example.app.domain.UserBasicDetail">
@@ -109,6 +109,17 @@
 
 <select id="checkCheckedReceivedNice" parameterType="integer" resultType="integer">
 	SELECT checked_received_nice FROM z#{myId}_matchings WHERE id=#{partnersId}
+</select>
+
+<select id="checkMatchingList" parameterType="integer" resultMap="matchingMap" >
+	SELECT z#{myId}_matchings.id, age, one_word, img, residences.residence
+    FROM z#{myId}_matchings
+	LEFT JOIN user_basic_details ON z#{myId}_matchings.id=user_basic_details.id
+    LEFT JOIN user_required_details ON z#{myId}_matchings.id=user_required_details.id
+	LEFT JOIN user_texts ON z#{myId}_matchings.id=user_texts.id
+	LEFT JOIN imgs ON z#{myId}_matchings.id=imgs.id
+    LEFT JOIN residences ON user_required_details.residence=residences.id
+    WHERE matching=1
 </select>
 
 </mapper>
