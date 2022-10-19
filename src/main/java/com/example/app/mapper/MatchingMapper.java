@@ -3,27 +3,27 @@ package com.example.app.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import com.example.app.domain.User;
 
 @Mapper
 public interface MatchingMapper {
 	
-	Integer checkRowOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	Integer checkRowOfPartners(@Param("partnersId") Integer partnersId,@Param("myId") Integer myId) throws Exception;
-	void createRowOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	void createRowOfPartners(@Param("partnersId") Integer partnersId, @Param("myId") Integer myId) throws Exception;
-	void addSendedNiceOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	void addReceivedNiceOfPartners(@Param("partnersId") Integer partnersId, @Param("myId") Integer myId) throws Exception;
-	Integer checkSendedNiceOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	Integer checkReceivedNiceOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	void addMatchingOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	void addMatchingOfPartners(@Param("partnersId") Integer partnersId, @Param("myId") Integer myId) throws Exception;
-	Integer checkMatchingOfMine(@Param("myId") Integer myId,@Param("partnersId") Integer partnersId) throws Exception;
-	Integer checkMatchingOfPartners(@Param("partnersId") Integer partnersId,@Param("myId") Integer myId) throws Exception;
-	List<Integer> checkNotMatchingAndReceivedNiceOfMineList(@Param("myId") Integer myId) throws Exception;
-	Integer checkNotMatchingAndReceivedNiceOfMine(Integer myId, Integer partnersId,Integer checkCheckedReceivedNice) throws Exception;
+	Integer checkRowOfMine(Integer myId, Integer partnersId) throws Exception;
+	Integer checkRowOfPartners(Integer partnersId, Integer myId) throws Exception;
+	void createRowOfMine(Integer myId, Integer partnersId) throws Exception;
+	void createRowOfPartners(Integer partnersId,  Integer myId) throws Exception;
+	void addSendedNiceOfMine(Integer myId, Integer partnersId) throws Exception;
+	void addReceivedNiceOfPartners(Integer partnersId, Integer myId) throws Exception;
+	Integer checkSendedNiceOfMine(Integer myId, Integer partnersId) throws Exception;
+	Integer checkReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception;
+	void addMatchingOfMine(Integer myId, Integer partnersId) throws Exception;
+	void addMatchingOfPartners(Integer partnersId, Integer myId) throws Exception;
+	Integer checkMatchingOfMine(Integer myId, Integer partnersId) throws Exception;
+	Integer checkMatchingOfPartners(Integer partnersId, Integer myId) throws Exception;
+	List<Integer> checkNotMatchingAndReceivedNiceOfMineIngtegerList(Integer myId) throws Exception;
+	List<User> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception;
+	Integer checkNotMatchingAndReceivedNiceOfMine(Integer myId, Integer partnersId, Integer checkCheckedReceivedNice) throws Exception;
 	List<User> newReceivedNiceList(Integer myId) throws Exception;
 	void updateCheckedReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception;
 	Integer checkCheckedReceivedNice(Integer myId, Integer partnersId) throws Exception;

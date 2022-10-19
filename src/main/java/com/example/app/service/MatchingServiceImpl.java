@@ -76,8 +76,8 @@ public class MatchingServiceImpl implements MatchingService{
 	}
 
 	@Override
-	public List<Integer> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception {
-		return matchingMapper.checkNotMatchingAndReceivedNiceOfMineList(myId);
+	public List<Integer> checkNotMatchingAndReceivedNiceOfMineIngtegerList(Integer myId) throws Exception {
+		return matchingMapper.checkNotMatchingAndReceivedNiceOfMineIngtegerList(myId);
 	}
 
 	@Override
@@ -123,6 +123,11 @@ public class MatchingServiceImpl implements MatchingService{
 	@Override
 	public void cancelFavorite(Integer myId, Integer partnersId) throws Exception {
 		matchingMapper.cancelFavorite(myId, partnersId);
+	}
+
+	@Override
+	public List<User> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception {
+		return matchingMapper.checkNotMatchingAndReceivedNiceOfMineList(myId);
 	}
 
 

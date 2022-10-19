@@ -81,7 +81,7 @@ public class UserController {
 		Integer likePoint = userService.checkLikePoint(myId);
 		session.setAttribute("likePoint", likePoint);
 		
-		List<Integer> checkNotMatchingAndReceivedNiceOfMe = matchingService.checkNotMatchingAndReceivedNiceOfMineList(myId);
+		List<Integer> checkNotMatchingAndReceivedNiceOfMe = matchingService.checkNotMatchingAndReceivedNiceOfMineIngtegerList(myId);
 		if (checkNotMatchingAndReceivedNiceOfMe.size() > 0) {
 			session.setAttribute("newReceivedNice", 1);
 		} else if (checkNotMatchingAndReceivedNiceOfMe.size() == 0) {
@@ -306,6 +306,8 @@ public class UserController {
 	public String matchingListGet(Model model) throws Exception {
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> matchingList = matchingService.checkMatchingList(myId);
+		Integer count = matchingList.size();
+		session.setAttribute("countMatching", count);
 		model.addAttribute("matchingList", matchingList);
 		return "/user/matching_list";
 	}
@@ -325,6 +327,15 @@ public class UserController {
 		return "/user/favorite_list";
 	}
 	
+	@GetMapping("/notMatchingAndReceivedNiceList")
+	public String notMatchingAndReceivedNiceGet(Model model) throws Exception {
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<User> notMatchingAndReceivedNiceList = matchingService.checkNotMatchingAndReceivedNiceOfMineList(myId);
+		Integer count = notMatchingAndReceivedNiceList.size();
+		session.setAttribute("countNotMatchingAndReceivedNiceList", count);
+		model.addAttribute("notMatchingAndReceivedNiceList", notMatchingAndReceivedNiceList);
+		return "/user/not_matching_and_received_nice";
+	}
 	
 	
 	private boolean haveImage1(Integer id) {

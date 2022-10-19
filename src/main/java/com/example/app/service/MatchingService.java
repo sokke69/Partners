@@ -18,7 +18,8 @@ public interface MatchingService {
 	void addMatchingOfPartners(Integer myId, Integer partnersId) throws Exception;
 	Integer checkMatchingOfMine(Integer myId, Integer partnersId) throws Exception;
 	Integer checkMatchingOfPartners(Integer partnersId, Integer myId) throws Exception;
-	List<Integer> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception;
+	List<Integer> checkNotMatchingAndReceivedNiceOfMineIngtegerList(Integer myId) throws Exception;
+	List<User> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception;
 	Integer checkNotMatchingAndReceivedNiceOfMine(Integer myId, Integer partnersId,Integer checkCheckedReceivedNice) throws Exception;
 	List<User> newReceivedNiceList(Integer myId) throws Exception;
 	void updateCheckedReceivedNiceOfMine(Integer myId, Integer partnersId) throws Exception;

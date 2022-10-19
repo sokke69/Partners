@@ -9,7 +9,9 @@
 
 <h1>マッチングしている相手</h1>
 
-<th:block th:each="matching : ${matchingList}">
+<h3 th:if="${session.countMatching == 0}">マッチングした人はまだいません</h3>
+
+<th:block th:each="matching : ${matchingList}" th:if="${session.countMatching > 0}">
 	<table class="user_list">
 			<tr>
 				<td class="user_list_bg">

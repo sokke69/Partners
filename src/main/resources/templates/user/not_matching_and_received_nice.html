@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>相手からのいいね</title>
+<link rel="stylesheet" th:href="@{/css/search.css}" />
+</head>
+<body>
+
+<h1>相手からのいいね</h1>
+
+<h3 th:if="${session.countNotMatchingAndReceivedNiceList == 0}">相手からのいいねはまだ届いていません</h3>
+
+<th:block th:each="list : ${notMatchingAndReceivedNiceList}" th:if="${session.countNotMatchingAndReceivedNiceList > 0}">
+	<table class="user_list">
+			<tr>
+				<td class="user_list_bg">
+				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+					<img th:if="${list.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${list.id})}" alt="" height="210px">
+					<img th:if="${list.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+					<span>[[${list.userBD.age}]]歳 [[${list.userRD.residenceStr}]]</span> <th:block
+						th:if="${list.userT.oneWord != null}">[[${list.userT.oneWord}]]</th:block>
+				</a>
+				</td>
+			</tr>
+		</table>
+</th:block>
+
+</body>
+</html>
