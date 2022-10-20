@@ -46,8 +46,9 @@ public class SearchController {
 			UserText userT) throws Exception {
 
 		userBD.setSex((Integer)session.getAttribute("sex"));
-		System.out.println(userBD);
-		List<User> userList = searchService.searchUserAllDetailList(userBD);
+		user.setUserBD(userBD);;
+		System.out.println("getする際sessionからuser.userBD.sexに格納した値 : " + user.getUserBD().getSex());
+		List<User> userList = searchService.searchUserAllDetailList(user);
 		model.addAttribute("userList", userList);
 		
 		model.addAttribute("holidays", userService.selectHolidayAll());
@@ -72,7 +73,7 @@ public class SearchController {
 		model.addAttribute("sociabilities", userService.selectSociabilityAll());
 		model.addAttribute("alcohols", userService.selectAlcoholAll());
 		model.addAttribute("vaccinations", userService.selectVaccinationAll());
-		
+	
 		return "/search/user_list";
 	}
 	
@@ -152,12 +153,7 @@ public class SearchController {
 			user.getUserFD().setPayment(null);
 		}
 		
-		System.out.println("session.sex = " + session.getAttribute("sex"));
-		userBD.setSex((Integer) session.getAttribute("sex"));
-		user.setUserBD(userBD);
-		System.out.println("userBD.sex = " + user.getUserBD().getSex());
 		List<User> userList = searchService.searchUserAllDetailListDetail(user);
-		System.out.println(user);
 		model.addAttribute("userList", userList);
 		
 		model.addAttribute("holidays", userService.selectHolidayAll());
@@ -184,7 +180,7 @@ public class SearchController {
 		model.addAttribute("vaccinations", userService.selectVaccinationAll());
 		
 		model.addAttribute("user", user);
-		
+			
 		return "/search/user_list";
 	}
 	

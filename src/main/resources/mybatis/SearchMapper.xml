@@ -90,7 +90,7 @@
 
 
 	<select id="searchUserAllDetailList"
-		parameterType="com.example.app.domain.UserBasicDetail"
+		parameterType="com.example.app.domain.User"
 		resultMap="usersResult">
 		SELECT
 		users.id,
@@ -201,10 +201,12 @@
 		LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
 
 		<where>
-			<choose>
-				<when test="sex == 1">user_basic_details.sex = 2</when>
-				<when test="sex == 2">user_basic_details.sex = 1</when>
-			</choose>
+			<if test="userBD.sex == 1">
+				user_basic_details.sex=2
+			</if>
+			<if test="userBD.sex == 2">
+				user_basic_details.sex=1
+			</if>
 		</where>
 
 		ORDER BY id DESC
@@ -416,10 +418,12 @@
 		LEFT JOIN vaccinations ON user_free_details.vaccination = vaccinations.id
 
 		<where>
-			<choose>
-				<when test="userBD.sex = 1">user_basic_details.sex=2</when>
-				<when test="userBD.sex = 2">user_basic_details.sex=1</when>
-			</choose>
+			<if test="userBD.sex == 1">
+				user_basic_details.sex=2
+			</if>
+			<if test="userBD.sex == 2">
+				user_basic_details.sex=1
+			</if>
 			<if test="userRD.residence != null">
 				AND user_required_details.residence = #{userRD.residence}
 			</if>
