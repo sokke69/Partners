@@ -93,11 +93,11 @@
 	
 
 
-	<table width="210px">
+	<table width="350px">
 
 		<tr>
 			<td><img th:if="${user.userI.img > 0}"
-				th:src="@{/imgs/{id}/img1.jpg(id=${user.id})}" alt="" height="210px">
+				th:src="@{/imgs/{id}/img1.jpg?{today}(id=${user.id}, today=${today})}" alt="" height="350px">
 				<img th:if="${user.userI.img == 0}" th:src="@{/img/noimage.jpg}"
 				alt="" height="210px"></td>
 		</tr>

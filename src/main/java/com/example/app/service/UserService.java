@@ -94,6 +94,9 @@ public interface UserService/* extends UserDetailsService */{
 	void editUserT(User user) throws Exception;
 	
 	
+	//UserImage
+	Integer countPartnersImg(Integer partnersId) throws Exception;
+	
 	
 	// RegistMapper.java
 	void createTable(String id) throws Exception;

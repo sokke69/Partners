@@ -1,5 +1,7 @@
 package com.example.app.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -44,6 +46,11 @@ public class SearchController {
 			UserBasicDetail userBD,
 			UserFreeDetail userFD, UserImage userI,
 			UserText userT) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
 
 		userBD.setSex((Integer)session.getAttribute("sex"));
 		user.setUserBD(userBD);;
@@ -82,6 +89,11 @@ public class SearchController {
 			UserBasicDetail userBD,
 			UserFreeDetail userFD, UserImage userI,
 			UserText userT) throws Exception{
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
 		
 		if (user.getUserRD().getResidence() == 0) {
 			user.getUserRD().setResidence(null);
@@ -186,6 +198,12 @@ public class SearchController {
 	
 	@GetMapping("/user/{id}")
 	public String userGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer myId = (Integer) session.getAttribute("myId");
 		Integer checkMatchingOfMine = matchingService.checkMatchingOfMine(myId, partnersId);
 		Integer checkMatchingOfPartners = matchingService.checkMatchingOfPartners(partnersId, myId);

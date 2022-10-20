@@ -12,6 +12,6 @@ public class Message {
 	private Integer toId;
 	private String message;
 	private Integer checkedMessage;
-	private Date sentTimee;
+	private Date sentTime;
 	
 }

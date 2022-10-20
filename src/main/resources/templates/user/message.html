@@ -1,12 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>メッセージ</title>
+<link rel="stylesheet" th:href="@{/css/message.css}" />
 </head>
 <body>
 
 <h1>メッセージ</h1>
 
+<h1>[[${partnersId}]]</h1>
+
+<table border="1">
+	<th:block th:each="messages : ${messageList}">
+		<tr>
+			<td th:if="${messages.fromId != partnersId}"></td>
+			<td th:if="${messages.toId != partnersId}">
+				<img th:if="${partnersImg > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${partnersId}, today=${today})}" alt="" height="80px">
+				<img th:if="${partnersImg == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+			</td>
+			
+			<td th:if="${messages.toId != partnersId}">[[${messages.message}]]</td>
+			<td th:if="${messages.fromId != partnersId}"></td>
+			
+			<td th:if="${messages.toId != partnersId}">
+				<p>[[${messages.sentTime}]]</p>
+			</td>
+			<td th:if="${messages.fromId != partnersId}">
+			</td>
+			
+			<td th:if="${messages.fromId != partnersId}" class="partnersCheck">
+				<p>既読</p>
+				<p>[[${messages.sentTime}]]</p>
+			</td>
+			<td th:if="${messages.toId != partnersId}">
+			</td>
+			
+			
+			
+			<td th:if="${messages.fromId != partnersId}">[[${messages.message}]]</td>
+			<td th:if="${messages.toId != partnersId}"></td>
+		</tr>
+
+		<tr>
+			<td colspan=5>------------------------</td>
+		</tr>
+	</th:block>
+</table>
 </body>
 </html>

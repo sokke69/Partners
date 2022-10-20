@@ -180,6 +180,7 @@ public class LoginController {
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", user.getLoginId());
 		session.setAttribute("myId", user.getId());
+		session.setAttribute("user_name", user.getUserBD().getName());
 		
 		if (user.getUserBD().getSexStr().equals("男性")) {
 			session.setAttribute("sex", 1);			

@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>相手からのいいね</title>
+<title>自分からのいいね</title>
 <link rel="stylesheet" th:href="@{/css/search.css}" />
 </head>
 <body>
 
-<h1>相手からのいいね</h1>
+<h1>自分からのいいね</h1>
 
-<h3 th:if="${session.countNotMatchingAndReceivedNiceList == 0}">相手からのいいねはまだ届いていません</h3>
+<h3 th:if="${session.countNotMatchingAndSendedNiceList == 0}">自分からのいいねはまだ送っていません</h3>
 
-<th:block th:each="list : ${notMatchingAndReceivedNiceList}" th:if="${session.countNotMatchingAndReceivedNiceList > 0}">
+<th:block th:each="list : ${notMatchingAndSendedNiceList}" th:if="${session.countNotMatchingAndSendedNiceList > 0}">
 	<table class="user_list">
 			<tr>
 				<td class="user_list_bg">

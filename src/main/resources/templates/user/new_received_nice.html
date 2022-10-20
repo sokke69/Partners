@@ -9,15 +9,15 @@
 
 <h1>新しく届いた「いいね」</h1>
 
-<th:block th:each="user : ${newReceivedNiceList}">
+<th:block th:each="list : ${newReceivedNiceList}">
 	<table class="user_list">
 			<tr>
 				<td class="user_list_bg">
-				<a th:href="@{/search/user/{id}(id=${user.id})}" target="_blank">
-					<img th:if="${user.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${user.id})}" alt="" height="210px">
-					<img th:if="${user.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
-					<span>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]</span> <th:block
-						th:if="${user.userT.oneWord != null}">[[${user.userT.oneWord}]]</th:block>
+				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+					<img th:if="${list.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" height="210px">
+					<img th:if="${list.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+					<span>[[${list.userBD.age}]]歳 [[${list.userRD.residenceStr}]]</span> <th:block
+						th:if="${list.userT.oneWord != null}">[[${list.userT.oneWord}]]</th:block>
 				</a>
 				</td>
 			</tr>

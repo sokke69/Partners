@@ -34,6 +34,7 @@ import com.example.app.mapper.MatchingMapper;
 import com.example.app.mapper.RegistMapper;
 import com.example.app.mapper.UserBasicDetailMapper;
 import com.example.app.mapper.UserFreeDetailMapper;
+import com.example.app.mapper.UserImageMapper;
 import com.example.app.mapper.UserMapper;
 import com.example.app.mapper.UserRequiredDetailMapper;
 import com.example.app.mapper.UserTextMapper;
@@ -56,6 +57,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserTextMapper userTMapper;
+	
+	@Autowired
+	UserImageMapper userImageMapper;
 	
 	@Autowired
 	RegistMapper registMapper;
@@ -378,6 +382,19 @@ public class UserServiceImpl implements UserService {
 	
 	// UserTextMapper.java ここまで
 	
+	
+	
+	
+	// UserTextMapper.java ここから
+	
+	@Override
+	public Integer countPartnersImg(Integer partneresId) throws Exception{
+		return userImageMapper.countPartnersImg(partneresId);
+	}
+	
+
+	
+	// UserTextMapper.java ここまで
 	
 	
 	

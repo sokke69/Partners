@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.app.domain.Message;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserFreeDetail;
@@ -79,6 +80,8 @@ public class UserController {
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		Integer likePoint = userService.checkLikePoint(myId);
+		User user = userService.getUserById(myId);
+		session.setAttribute("user_name", user.getUserBD().getName());
 		session.setAttribute("likePoint", likePoint);
 		
 		List<Integer> checkNotMatchingAndReceivedNiceOfMe = matchingService.checkNotMatchingAndReceivedNiceOfMineIngtegerList(myId);
@@ -252,8 +255,6 @@ public class UserController {
 			File dest = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + (fileCount+1) + ".jpg");
 			upfile.transferTo(dest);
 			
-			System.out.println((Integer) session.getAttribute("myId"));
-			System.out.println(fileCount+1);
 			userService.updateImage((Integer) session.getAttribute("myId"), (fileCount+1));
 			
 			return "user/img_update_done";
@@ -289,6 +290,11 @@ public class UserController {
 	@GetMapping("/newReceivedNice")
 	public String newReceivedNiceGet(Model model) throws Exception {
 		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> newReceivedNiceList = matchingService.newReceivedNiceList(myId);
 		model.addAttribute("newReceivedNiceList", newReceivedNiceList);
@@ -304,6 +310,12 @@ public class UserController {
 	
 	@GetMapping("/matchingList")
 	public String matchingListGet(Model model) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> matchingList = matchingService.checkMatchingList(myId);
 		Integer count = matchingList.size();
@@ -315,9 +327,14 @@ public class UserController {
 	
 	@GetMapping("/favoriteList")
 	public String matchingFavoriteGet(Model model) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> favoriteList = matchingService.checkFavoriteList(myId);
-		System.out.println(favoriteList.size());
 		if (favoriteList.size() == 0) {
 			session.setAttribute("countFavorite", 0);
 		} else {
@@ -329,6 +346,12 @@ public class UserController {
 	
 	@GetMapping("/notMatchingAndReceivedNiceList")
 	public String notMatchingAndReceivedNiceGet(Model model) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> notMatchingAndReceivedNiceList = matchingService.checkNotMatchingAndReceivedNiceOfMineList(myId);
 		Integer count = notMatchingAndReceivedNiceList.size();
@@ -337,9 +360,33 @@ public class UserController {
 		return "/user/not_matching_and_received_nice";
 	}
 	
-	@GetMapping("/message")
-	public String messageGet() {
-		return null;
+	@GetMapping("notMatchingAndSendedNiceList")
+	public String notMatchingAndSendedNiceGet(Model model) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<User> notMatchingAndSendedNiceList = matchingService.checkNotMatchingAndSendedNiceOfMineList(myId);
+		Integer count = notMatchingAndSendedNiceList.size();
+		session.setAttribute("countNotMatchingAndSendedNiceList", count);
+		model.addAttribute("notMatchingAndSendedNiceList", notMatchingAndSendedNiceList);
+		return "/user/not_matching_and_sended_nice";
+	}
+	
+	@GetMapping("/message/{id}")
+	public String messageGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<Message> messageList = matchingService.getMessage(myId, partnersId);
+		Integer partnersImg = userService.countPartnersImg(partnersId);
+		System.out.println("partnersImg : " + partnersImg);
+		model.addAttribute("partnersImg", partnersImg);
+		model.addAttribute("messageList", messageList);
+		model.addAttribute("partnersId", partnersId);
+		model.addAttribute("myId", myId);
+		return "/user/message";
 		
 	}
 	

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.app.domain.Message;
 import com.example.app.domain.User;
 import com.example.app.mapper.MatchingMapper;
 
@@ -128,6 +129,16 @@ public class MatchingServiceImpl implements MatchingService{
 	@Override
 	public List<User> checkNotMatchingAndReceivedNiceOfMineList(Integer myId) throws Exception {
 		return matchingMapper.checkNotMatchingAndReceivedNiceOfMineList(myId);
+	}
+
+	@Override
+	public List<User> checkNotMatchingAndSendedNiceOfMineList(Integer myId) throws Exception {
+		return matchingMapper.checkNotMatchingAndSendedNiceOfMineList(myId);
+	}
+
+	@Override
+	public List<Message> getMessage(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getMessage(myId, partnersId);
 	}
 
 

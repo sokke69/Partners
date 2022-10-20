@@ -1,0 +1,17 @@
+@charset "UTF-8";
+	body{
+		background:#add8e6;
+	}
+	table{
+		background:#FFF;
+		width:500px;
+	}
+	.partnersCheck{
+		font-size:12px;
+		vertical-align:bottom;
+		text-align:right;
+		height:150px;
+	}
+	.partnersCheck p{
+		margin:0px
+	}

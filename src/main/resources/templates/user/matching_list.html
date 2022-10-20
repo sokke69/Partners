@@ -11,15 +11,15 @@
 
 <h3 th:if="${session.countMatching == 0}">マッチングした人はまだいません</h3>
 
-<th:block th:each="matching : ${matchingList}" th:if="${session.countMatching > 0}">
+<th:block th:each="list : ${matchingList}" th:if="${session.countMatching > 0}">
 	<table class="user_list">
 			<tr>
 				<td class="user_list_bg">
-				<a th:href="@{/search/user/{id}(id=${matching.id})}" target="_blank">
-					<img th:if="${matching.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${matching.id})}" alt="" height="210px">
-					<img th:if="${matching.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
-					<span>[[${matching.userBD.age}]]歳 [[${matching.userRD.residenceStr}]]</span> <th:block
-						th:if="${matching.userT.oneWord != null}">[[${matching.userT.oneWord}]]</th:block>
+				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+					<img th:if="${list.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" height="210px">
+					<img th:if="${list.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+					<span>[[${list.userBD.age}]]歳 [[${list.userRD.residenceStr}]]</span> <th:block
+						th:if="${list.userT.oneWord != null}">[[${list.userT.oneWord}]]</th:block>
 				</a>
 				</td>
 			</tr>

@@ -47,12 +47,12 @@
 
 
 <update id="addMatchingOfMine" parameterType="integer">
-	UPDATE z#{myId}_matchings SET matching=1
+	UPDATE z#{myId}_matchings SET matching=1, favorite=0
 	WHERE id=#{partnersId}
 </update>
 
 <update id="addMatchingOfPartners" parameterType="integer">
-	UPDATE z#{partnersId}_matchings SET matching=1
+	UPDATE z#{partnersId}_matchings SET matching=1, favorite=0
 	WHERE id=#{myId}
 </update>
 
@@ -65,7 +65,7 @@
 </select>
 
 <select id="checkNotMatchingAndReceivedNiceOfMineIngtegerList" resultType="integer">
-	SELECT id FROM z#{myId}_matchings WHERE received_nice=1 AND checked_received_nice=0
+	SELECT id FROM z#{myId}_matchings WHERE matching=0 AND received_nice=1 AND checked_received_nice=0
 </select>
 
 <select id="checkNotMatchingAndReceivedNiceOfMine" resultType="integer">
@@ -155,5 +155,32 @@
     LEFT JOIN residences ON user_required_details.residence=residences.id
 	WHERE matching=0 AND received_nice=1
 </select>
+
+<select id="checkNotMatchingAndSendedNiceOfMineList" resultMap="matchingMap">
+	SELECT z#{myId}_matchings.id, age, one_word, img, residences.residence
+	FROM z#{myId}_matchings 
+	LEFT JOIN user_basic_details ON z#{myId}_matchings.id=user_basic_details.id
+    LEFT JOIN user_required_details ON z#{myId}_matchings.id=user_required_details.id
+	LEFT JOIN user_texts ON z#{myId}_matchings.id=user_texts.id
+	LEFT JOIN imgs ON z#{myId}_matchings.id=imgs.id
+    LEFT JOIN residences ON user_required_details.residence=residences.id
+	WHERE matching=0 AND sended_nice=1
+</select>
+
+<select id="getMessage" resultMap="messageMap">
+	SELECT id, message, from_id,
+		to_id, checked_message,sent_time
+	FROM messages 
+	WHERE from_id=#{myId} AND to_id=#{partnersId} or from_id=#{partnersId} AND to_id=#{myId};
+</select>
+
+<resultMap id="messageMap" type="com.example.app.domain.Message">
+	<id column = "id" property="id"/>
+	<result column="from_id" property="fromId"/>
+	<result column="to_id" property="toId"/>
+	<result column="message" property="message"/>
+	<result column="checked_message" property="checkedMessage"/>
+	<result column="sent_time" property="sentTime"/>
+</resultMap>
 
 </mapper>

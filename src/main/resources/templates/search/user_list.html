@@ -624,11 +624,10 @@
 		<table class="user_list">
 
 			<tr>
-				<td class="user_list_bg"><a th:href="@{/search/user/{id}(id=${userlist.id})}" target="_blank">
-				<img th:if="${userlist.userI.img > 0}"
-					th:src="@{/imgs/{id}/img1.jpg(id=${userlist.id})}" alt=""
-					height="210px"> <img th:if="${userlist.userI.img == 0}"
-					th:src="@{/img/noimage.jpg}" alt="" height="210px">
+				<td class="user_list_bg">
+					<a th:href="@{/search/user/{id}(id=${userlist.id})}" target="_blank">
+						<img th:if="${userlist.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${userlist.id}, today=${today})}" alt="" height="210px">
+						<img th:if="${userlist.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
 					<span>[[${userlist.userBD.age}]]歳 [[${userlist.userRD.residenceStr}]]</span>
 					<th:block th:if="${userlist.userT.oneWord != null and userlist.userT.oneWord != '' }">
 						[[${userlist.userT.oneWord}]]

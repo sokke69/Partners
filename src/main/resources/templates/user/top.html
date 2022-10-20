@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1>Partners</h1>
+<h1>Partners - ようこそ！[[${session.user_name}]]さん！- </h1>
 
 <h4><span th:if="${session.newReceivedNice == 1}" class="new"><a th:href="@{/user/newReceivedNice}" target="_blank">いいねが届いています！</a></span></h4>
 
@@ -22,6 +22,8 @@
 <p><a th:href="@{/search/}" target="_blank">さがす</a></p>
 
 <p><a th:href="@{/user/matchingList}" target="_blank">マッチングリスト</a></p>
+
+<p><a th:href="@{/user/notMatchingAndSendedNiceList}" target="_blank">自分からのいいね</a></p>
 
 <p><a th:href="@{/user/notMatchingAndReceivedNiceList}" target="_blank">相手からのいいね</a></p>
 
