@@ -23,7 +23,7 @@ $(document).on("keyup","#message_textarea",function(){
 			<td class="message_img_box">
 				<img th:if="${partnersImg > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${partnersId}, today=${today})}" 
 					alt="" height="80px" class="message_img">
-				<img th:if="${partnersImg == 0}" th:src="@{/img/noimage.jpg}" alt="" height="80px">
+				<img th:if="${partnersImg == 0}" th:src="@{/img/noimage.jpg}" alt="" >
 			</td>
 			<td th:if="${messages.toId != partnersId}" class="partners_message_box">
 				<table>
@@ -56,11 +56,14 @@ $(document).on("keyup","#message_textarea",function(){
 	</th:block>
 	<table class="message_table">
 		<tr><td colspan=3>
-				<form action="" method="post">
+				<form action="" method="post" th:object="${message}">
 					<table class="form">
 					<tr>
+						<td>
+							<input type="hidden" />
+						</td>
 						<td class="form_message_area">
-							<textarea name="" rows="1" id="message_textarea"></textarea>
+							<textarea th:field="${message}" rows="1" id="message_textarea"></textarea>
 						</td>
 						<td class="form_submit_area"><input type="submit" value="送信" /></td>
 					</tr>

@@ -384,7 +384,10 @@ public class UserController {
 		String today = fmt.format(todayDate);
 		model.addAttribute("today",today);
 		
+		Message message = new Message();
+		
 		Integer myId = (Integer) session.getAttribute("myId");
+		
 		List<Message> messageList = matchingService.getMessage(myId, partnersId);
 		matchingService.updateCheckedMessage(partnersId, myId);
 		Integer partnersImg = userService.countPartnersImg(partnersId);
@@ -392,13 +395,21 @@ public class UserController {
 		model.addAttribute("messageList", messageList);
 		model.addAttribute("partnersId", partnersId);
 		model.addAttribute("myId", myId);
+		model.addAttribute("message", message);
 		return "/user/message";
 		
 	}
 	
 	@PostMapping("{id}/message")
-	public String messagePost(@PathVariable("id") Integer partneresId) {
-		return "redirect:/user/" + partneresId + "/message/";
+	public String messagePost(@PathVariable("id") Integer partnersId,@ModelAttribute Message message) {
+		
+		Integer myId = (Integer) session.getAttribute("myId");
+		message.setId(null);
+		message.setFromId(myId);
+		message.setFromId(partnersId);
+		
+		System.out.println(message);
+		return "redirect:/user/" + partnersId + "/message/";
 	}
 	
 	private boolean haveImage1(Integer id) {
