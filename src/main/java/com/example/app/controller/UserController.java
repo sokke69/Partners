@@ -376,10 +376,11 @@ public class UserController {
 		return "/user/not_matching_and_sended_nice";
 	}
 	
-	@GetMapping("/message/{id}")
+	@GetMapping("{id}/message/")
 	public String messageGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<Message> messageList = matchingService.getMessage(myId, partnersId);
+		matchingService.updateCheckedMessage(partnersId, myId);
 		Integer partnersImg = userService.countPartnersImg(partnersId);
 		model.addAttribute("partnersImg", partnersImg);
 		model.addAttribute("messageList", messageList);

@@ -184,4 +184,12 @@
 	<result column="sent_time" property="sentTime"/>
 </resultMap>
 
+<update id="updateCheckedMessage" parameterType="integer">
+	UPDATE messages 
+	SET checked_message=1 
+	WHERE checked_message=0 
+		AND from_id=#{partnersId} 
+		AND to_id=#{myId};
+</update>
+
 </mapper>

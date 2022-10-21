@@ -9,20 +9,21 @@
 
 <h1>メッセージ</h1>
 
-<h1>[[${partnersId}]]</h1>
 
-<table class="message_table" >
+	
+
+		
+		
+		
+		
 	<th:block th:each="messages : ${messageList}">
+		<table th:if="${messages.toId != partnersId}" class="message_table">
 		<tr>
-			<td th:if="${messages.fromId != partnersId}"></td>
-			<td th:if="${messages.toId != partnersId}" class="message_img_box">
+			<td class="message_img_box">
 				<img th:if="${partnersImg > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${partnersId}, today=${today})}" 
 					alt="" height="80px" class="message_img">
 				<img th:if="${partnersImg == 0}" th:src="@{/img/noimage.jpg}" alt="" height="80px">
 			</td>
-			
-			
-			
 			<td th:if="${messages.toId != partnersId}" class="partners_message_box">
 				<table>
 					<tr>
@@ -34,30 +35,37 @@
 					</tr>
 				</table>
 			</td>
-			<td th:if="${messages.fromId != partnersId}"></td>
-			
-			
-
-			
-			
-			
-			<td th:if="${messages.fromId != partnersId}" class="my_message_box">
-				<table class="abc">
+		</tr>
+	</table>
+	<table th:if="${messages.fromId != partnersId}" class="message_table">
+		<tr>
+						<td class="my_message_box">
+				<table class="message_left">
 					<tr>
 						<td th:if="${messages.fromId != partnersId}" class="partners_check">
 							<p th:if="${messages.checkedMessage == 1}">既読</p>
 							<p th:text="${#dates.format(messages.sentTime, 'HH:mm')}"></p>
 						</td>
-						<td th:if="${messages.toId != partnersId}">
-						</td>
 						<td class="message_my_text">[[${messages.message}]]</td>
 					</tr>
 				</table>
 			</td>
-			<td th:if="${messages.toId != partnersId}"></td>
 		</tr>
-
+	</table>
 	</th:block>
-</table>
+	<table class="message_table">
+		<tr><td colspan=3>
+				<form action="">
+					<table class="form">
+					<tr>
+						<td class="form_message_area"><input type="text"/></td>
+						<td class="form_submit_area"><input type="submit" value="送信" /></td>
+					</tr>
+					</table>
+				</form>
+		</td></tr>
+	</table>
+		
+		
 </body>
 </html>

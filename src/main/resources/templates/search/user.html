@@ -75,7 +75,7 @@
 		
 		
 		<th:block th:if="${session.matching == 1}">
-			<h3>マッチング済み</h3>
+			<h3>マッチング済み</h3><h3><a th:href="@{/user/{id}/message/(id=${user.id})}" target="_blank">メッセージ</a></h3>
 		</th:block>
 		<th:block th:if="${session.matching == 0}">
 			<h3>

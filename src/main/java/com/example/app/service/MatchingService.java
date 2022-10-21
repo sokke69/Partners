@@ -32,4 +32,5 @@ public interface MatchingService {
 	List<User> checkFavoriteList(Integer myId) throws Exception;
 	void cancelFavorite(Integer myId, Integer partnersId) throws Exception;
 	List<Message> getMessage(Integer myId, Integer partnersId) throws Exception;
+	void updateCheckedMessage(Integer partnersId, Integer myId) throws Exception;
 }

@@ -141,6 +141,11 @@ public class MatchingServiceImpl implements MatchingService{
 		return matchingMapper.getMessage(myId, partnersId);
 	}
 
+	@Override
+	public void updateCheckedMessage(Integer partnersId, Integer myId) throws Exception {
+		matchingMapper.updateCheckedMessage(partnersId, myId);
+	}
+
 
 
 }
