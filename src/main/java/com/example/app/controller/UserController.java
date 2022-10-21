@@ -378,6 +378,12 @@ public class UserController {
 	
 	@GetMapping("{id}/message/")
 	public String messageGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
+		
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
+		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<Message> messageList = matchingService.getMessage(myId, partnersId);
 		matchingService.updateCheckedMessage(partnersId, myId);
@@ -388,6 +394,11 @@ public class UserController {
 		model.addAttribute("myId", myId);
 		return "/user/message";
 		
+	}
+	
+	@PostMapping("{id}/message")
+	public String messagePost(@PathVariable("id") Integer partneresId) {
+		return "redirect:/user/" + partneresId + "/message/";
 	}
 	
 	private boolean haveImage1(Integer id) {

@@ -1,79 +1,96 @@
 @charset "UTF-8";
-	body{
-		background:#add8e6;
-	}
-	.message_table{
-		width:90%;
-		max-width:600px;
-		margin-left:auto;
-		margin-right:auto;
-	}
-	.partners_check{
-		font-size:12px;
-		vertical-align:bottom;
-		text-align:right;
-	}
-	.partners_check p{
-		margin:0px;
-	}
-	.my_check{
-		font-size:12px;
-		vertical-align:bottom;
-		text-align:left;
-	}
-	.my_check p{
-	margin:0px;
-	}
-	.partners_message_box{
-		min-width:350px;
-		max-width:350px;
-	}
-	.my_message_box{
-		min-width:350px;
-		max-width:350px;
-	}
-	.message_my_text{
-		padding:5px 15px 5px;
-		border-radius:15px;
-		background:#00ff00;
-		max-width:350px;
-		height:100%;
-	}	
-	.message_partners_text{
-		padding:5px 15px 5px;
-		border-radius:15px;
-		background:#FFF;
-		max-width:350px;
-		height:100%;
-	}
-	.message_left{
-		margin-left:auto;
-	}
-	.message_img{
-		border-radius:50%;
-	}
-	.message_img_box{
-		width:80px;
-		height:80px;
-		vertical-align:top;
-	}
-	.form{
-		width:100%;
-	}
-	.form_submit_area{
-		width:50px;
-	}
-	.form_message_area{
-		text-align:right;
-	}
-	.form_message_area input{
-		width:350px;
-		padding:8px;
-		border-radius:15px;
-	}
-	
-	
-	
-	
-	
-	
+
+body {
+	background: #add8e6;
+}
+
+.message_table {
+	width: 90%;
+	max-width: 600px; margin-left : auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.partners_check {
+	font-size: 12px;
+	vertical-align: bottom;
+	text-align: right;
+}
+
+.partners_check p {
+	margin: 0px;
+}
+
+.my_check {
+	font-size: 12px;
+	vertical-align: bottom;
+	text-align: left;
+}
+
+.my_check p {
+	margin: 0px;
+}
+
+.partners_message_box {
+	min-width: 350px;
+	max-width: 350px;
+}
+
+.my_message_box {
+	min-width: 350px;
+	max-width: 350px;
+}
+
+.message_my_text {
+	padding: 5px 15px 5px;
+	border-radius: 15px;
+	background: #00ff00;
+	max-width: 350px;
+	height: 100%;
+}
+
+.message_partners_text {
+	padding: 5px 15px 5px;
+	border-radius: 15px;
+	background: #FFF;
+	max-width: 350px;
+	height: 100%;
+}
+
+.message_left {
+	margin-left: auto;
+}
+
+.message_img {
+	border-radius: 50%;
+}
+
+.message_img_box {
+	width: 35px;
+	height: 35px;
+	vertical-align: top;
+}
+.message_img_box img{
+	width: 35px;
+	height: 35px;
+}
+
+.form {
+	width: 100%;
+}
+
+.form_submit_area {
+	width: 50px;
+}
+
+.form_message_area {
+	text-align: right;
+}
+#message_textarea {
+	resize: none;
+	width: 350px;
+	padding: 8px 14px 8px;
+	line-height:1.5em;
+	border-radius: 20px;
+	border:0;
+}
