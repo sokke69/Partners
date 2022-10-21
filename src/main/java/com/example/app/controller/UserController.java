@@ -381,7 +381,6 @@ public class UserController {
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<Message> messageList = matchingService.getMessage(myId, partnersId);
 		Integer partnersImg = userService.countPartnersImg(partnersId);
-		System.out.println("partnersImg : " + partnersImg);
 		model.addAttribute("partnersImg", partnersImg);
 		model.addAttribute("messageList", messageList);
 		model.addAttribute("partnersId", partnersId);

@@ -2,16 +2,57 @@
 	body{
 		background:#add8e6;
 	}
-	table{
-		background:#FFF;
-		width:500px;
+	.message_table{
+		width:90%;
+		margin-left:auto;
+		margin-right:auto;
 	}
-	.partnersCheck{
+	.partners_check{
 		font-size:12px;
 		vertical-align:bottom;
 		text-align:right;
-		height:150px;
 	}
-	.partnersCheck p{
-		margin:0px
+	.partners_check p{
+		margin:0px;
 	}
+	.my_check{
+		font-size:12px;
+		vertical-align:bottom;
+		text-align:left;
+	}
+	.my_check p{
+	margin:0px;
+	}
+	.partners_message_box{
+		min-width:250px;
+		max-width:250px;
+	}
+	.my_message_box{
+		min-width:250px;
+		max-width:250px;
+	}
+	.message_my_text{
+		padding:5px 15px 5px;
+		border-radius:15px;
+		background:#00ff00;
+		max-width:250px;
+		height:100%;
+	}	
+	.message_partners_text{
+		padding:5px 15px 5px;
+		border-radius:15px;
+		background:#FFF;
+		max-width:250px;
+		height:100%;
+	}
+	.abc{
+		margin-left:auto;
+	}
+	.message_img{
+		border-radius:50%;
+	}
+	.message_img_box{
+		width:80px;
+		height:80px;
+	}
+	

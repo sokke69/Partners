@@ -171,7 +171,8 @@
 	SELECT id, message, from_id,
 		to_id, checked_message,sent_time
 	FROM messages 
-	WHERE from_id=#{myId} AND to_id=#{partnersId} or from_id=#{partnersId} AND to_id=#{myId};
+	WHERE from_id=#{myId} AND to_id=#{partnersId} or from_id=#{partnersId} AND to_id=#{myId}
+	ORDER BY sent_time ASC;
 </select>
 
 <resultMap id="messageMap" type="com.example.app.domain.Message">

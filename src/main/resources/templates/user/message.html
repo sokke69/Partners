@@ -11,40 +11,52 @@
 
 <h1>[[${partnersId}]]</h1>
 
-<table border="1">
+<table class="message_table" >
 	<th:block th:each="messages : ${messageList}">
 		<tr>
 			<td th:if="${messages.fromId != partnersId}"></td>
-			<td th:if="${messages.toId != partnersId}">
-				<img th:if="${partnersImg > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${partnersId}, today=${today})}" alt="" height="80px">
-				<img th:if="${partnersImg == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+			<td th:if="${messages.toId != partnersId}" class="message_img_box">
+				<img th:if="${partnersImg > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${partnersId}, today=${today})}" 
+					alt="" height="80px" class="message_img">
+				<img th:if="${partnersImg == 0}" th:src="@{/img/noimage.jpg}" alt="" height="80px">
 			</td>
 			
-			<td th:if="${messages.toId != partnersId}">[[${messages.message}]]</td>
+			
+			
+			<td th:if="${messages.toId != partnersId}" class="partners_message_box">
+				<table>
+					<tr>
+						<td class="message_partners_text">[[${messages.message}]]</td>
+						<td class="my_check" th:if="${messages.toId != partnersId}">
+							<p th:text="${#dates.format(messages.sentTime, 'HH:mm')}"></p>
+						</td>
+						<td th:if="${messages.fromId != partnersId}"></td>
+					</tr>
+				</table>
+			</td>
 			<td th:if="${messages.fromId != partnersId}"></td>
 			
-			<td th:if="${messages.toId != partnersId}">
-				<p>[[${messages.sentTime}]]</p>
-			</td>
-			<td th:if="${messages.fromId != partnersId}">
-			</td>
 			
-			<td th:if="${messages.fromId != partnersId}" class="partnersCheck">
-				<p>既読</p>
-				<p>[[${messages.sentTime}]]</p>
-			</td>
-			<td th:if="${messages.toId != partnersId}">
-			</td>
+
 			
 			
 			
-			<td th:if="${messages.fromId != partnersId}">[[${messages.message}]]</td>
+			<td th:if="${messages.fromId != partnersId}" class="my_message_box">
+				<table class="abc">
+					<tr>
+						<td th:if="${messages.fromId != partnersId}" class="partners_check">
+							<p th:if="${messages.checkedMessage == 1}">既読</p>
+							<p th:text="${#dates.format(messages.sentTime, 'HH:mm')}"></p>
+						</td>
+						<td th:if="${messages.toId != partnersId}">
+						</td>
+						<td class="message_my_text">[[${messages.message}]]</td>
+					</tr>
+				</table>
+			</td>
 			<td th:if="${messages.toId != partnersId}"></td>
 		</tr>
 
-		<tr>
-			<td colspan=5>------------------------</td>
-		</tr>
 	</th:block>
 </table>
 </body>
