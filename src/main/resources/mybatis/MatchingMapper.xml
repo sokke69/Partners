@@ -256,19 +256,17 @@
 </update>
 
 <select id="getLatestMessageByUser" parameterType="integer" resultType="string">
-	SELECT message 
+    SELECT message 
 	FROM messages 
-	WHERE from_id=#{partnersId}
-		AND to_id=#{myId} 
+	WHERE from_id=#{partnersId} or from_id=#{myId} 
 	ORDER BY id DESC LIMIT 1;
 </select>
 
 <select id="getLatestMessageTimeByUser" resultType="date">
-	SELECT sent_time 
+    SELECT sent_time
 	FROM messages 
-	WHERE from_id=#{partnersId}
-		AND to_id=#{myId} 
-	ORDER BY id DESC LIMIT 1;
+	WHERE from_id=#{partnersId} or from_id=#{myId} 
+    ORDER BY id DESC LIMIT 1;
 </select>
 
 <select id="getMatchingWith" parameterType="integer" resultType="integer">

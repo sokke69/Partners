@@ -21,7 +21,7 @@
 				</a>
 				</td>
 				<th class="user_name">
-					[[${list.name}]]
+					<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">[[${list.name}]]</a>
 				</th>
 				<td>
 					<span th:text="${#dates.format(list.latestMessageTime, 'HH:mm')}"></span>
@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<td th:if="${list.message == null}">マッチングが成立しました！</td>
-				<td th:if="${list.message != null}">[[${list.message}]]</td>
+				<td th:if="${list.message != null}"><a th:href="@{/user/{id}/message/(id=${list.id})}" target="_blank">[[${list.message}]]</a></td>
 				<td th:if="${list.NotReadMessage == 0}"></td>
 				<td class="count_message_td" th:if="${list.NotReadMessage != 0}">
 					<div class="count_message">[[${list.NotReadMessage}]]</div>

@@ -324,6 +324,7 @@ public class UserController {
 	public String matchingListGet(Model model) throws Exception {
 		
 		Integer myId = (Integer) session.getAttribute("myId");
+		System.out.println("myId : " + myId);
 		
 		Date todayDate = new Date();
 		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
