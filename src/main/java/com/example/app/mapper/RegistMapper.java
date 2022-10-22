@@ -7,5 +7,6 @@ public interface RegistMapper {
 	
 	void createTable(String id) throws Exception;
 	void insertUserRole(String userId) throws Exception;
+	void createCheckedNewMessage() throws Exception;
 
 }

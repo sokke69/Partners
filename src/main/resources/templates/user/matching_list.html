@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>マッチングしている相手</title>
-<link rel="stylesheet" th:href="@{/css/search.css}" />
+<link rel="stylesheet" th:href="@{/css/matching_list.css}" />
 </head>
 <body>
 
@@ -14,13 +14,25 @@
 <th:block th:each="list : ${matchingList}" th:if="${session.countMatching > 0}">
 	<table class="user_list">
 			<tr>
-				<td class="user_list_bg">
+				<td class="icon_td" rowspan="2">
 				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
-					<img th:if="${list.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" height="210px">
-					<img th:if="${list.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
-					<span>[[${list.userBD.age}]]歳 [[${list.userRD.residenceStr}]]</span> <th:block
-						th:if="${list.userT.oneWord != null}">[[${list.userT.oneWord}]]</th:block>
+					<img th:if="${list.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" class="icon">
+					<img th:if="${list.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px" class="icon">
 				</a>
+				</td>
+				<th class="user_name">
+					[[${list.name}]]
+				</th>
+				<td>
+					<span th:text="${#dates.format(list.latestMessageTime, 'HH:mm')}"></span>
+				</td>
+			</tr>
+			<tr>
+				<td th:if="${list.message == null}">マッチングが成立しました！</td>
+				<td th:if="${list.message != null}">[[${list.message}]]</td>
+				<td th:if="${list.NotReadMessage == 0}"></td>
+				<td class="count_message_td" th:if="${list.NotReadMessage != 0}">
+					<div class="count_message">[[${list.NotReadMessage}]]</div>
 				</td>
 			</tr>
 		</table>

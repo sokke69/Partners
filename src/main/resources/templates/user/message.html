@@ -59,11 +59,8 @@ $(document).on("keyup","#message_textarea",function(){
 				<form action="" method="post" th:object="${message}">
 					<table class="form">
 					<tr>
-						<td>
-							<input type="hidden" />
-						</td>
 						<td class="form_message_area">
-							<textarea th:field="${message}" rows="1" id="message_textarea"></textarea>
+							<textarea th:field="*{message}" rows="1" id="message_textarea"></textarea>
 						</td>
 						<td class="form_submit_area"><input type="submit" value="送信" /></td>
 					</tr>

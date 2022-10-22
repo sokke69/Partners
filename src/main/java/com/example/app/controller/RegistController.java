@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
 import com.example.app.domain.UserRequiredDetail;
-import com.example.app.mapper.MatchingMapper;
+import com.example.app.service.RegistService;
 import com.example.app.service.UserServiceImpl;
 
 @Controller
@@ -37,9 +37,9 @@ public class RegistController {
 	
 	@Autowired
 	UserServiceImpl userService;
-	
+
 	@Autowired
-	MatchingMapper matchingMapper;
+	RegistService registService;
 	
 	/*
 	 * @Autowired PasswordEncoder passwordEncoder;
@@ -460,8 +460,8 @@ public class RegistController {
 		
 		userService.createTable(userId);
 		userService.insertImage();
+		registService.createCheckedNewMessage();
 		
-		session.invalidate();
 		session.setAttribute("status", "login");
 		session.setAttribute("login_id", email);
 		session.setAttribute("sex", userBD.getSex());

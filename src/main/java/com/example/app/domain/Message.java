@@ -12,6 +12,8 @@ public class Message {
 	private Integer toId;
 	private String message;
 	private Integer checkedMessage;
+	private Integer readInfo;
 	private Date sentTime;
+	private Integer countNewMessage;
 	
 }

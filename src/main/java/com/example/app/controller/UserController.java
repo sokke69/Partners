@@ -2,6 +2,7 @@ package com.example.app.controller;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.app.domain.MatchingUser;
 import com.example.app.domain.Message;
 import com.example.app.domain.User;
 import com.example.app.domain.UserBasicDetail;
@@ -40,8 +42,8 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
-	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
+	//private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
+	private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
 	@GetMapping("/userList")
@@ -79,16 +81,26 @@ public class UserController {
 		}
 		
 		Integer myId = (Integer) session.getAttribute("myId");
+		System.out.println("myId : " + myId);
 		Integer likePoint = userService.checkLikePoint(myId);
 		User user = userService.getUserById(myId);
 		session.setAttribute("user_name", user.getUserBD().getName());
 		session.setAttribute("likePoint", likePoint);
 		
 		List<Integer> checkNotMatchingAndReceivedNiceOfMe = matchingService.checkNotMatchingAndReceivedNiceOfMineIngtegerList(myId);
+		System.out.println("checkNotMatchingAndReceivedNiceOfMe.size() : " + checkNotMatchingAndReceivedNiceOfMe.size());
 		if (checkNotMatchingAndReceivedNiceOfMe.size() > 0) {
 			session.setAttribute("newReceivedNice", 1);
-		} else if (checkNotMatchingAndReceivedNiceOfMe.size() == 0) {
+		} else if (checkNotMatchingAndReceivedNiceOfMe.size() == 0 ) {
 			session.setAttribute("newReceivedNice", 0);
+		}
+		
+		
+		Integer readAndChecked = matchingService.checkReadAndChecked(myId);
+		if (readAndChecked > 0) {
+			session.setAttribute("newMessage", 1);
+		} else if (readAndChecked == 0) {
+			session.setAttribute("newMessage", 0);
 		}
 		
 		return "/user/top";
@@ -311,16 +323,72 @@ public class UserController {
 	@GetMapping("/matchingList")
 	public String matchingListGet(Model model) throws Exception {
 		
+		Integer myId = (Integer) session.getAttribute("myId");
+		
 		Date todayDate = new Date();
 		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
 		String today = fmt.format(todayDate);
 		model.addAttribute("today",today);
 		
-		Integer myId = (Integer) session.getAttribute("myId");
-		List<User> matchingList = matchingService.checkMatchingList(myId);
+		matchingService.updateNewMessage(myId, 0);
+		matchingService.updateReadInfo(myId);
+		
+		// 未読のステータスを持っているパートナーID一覧取得
+		List<Integer> notReadUsers = matchingService.getNotReadUser(myId);
+		System.out.println("notReadUsers : " + notReadUsers);
+		
+		
+		// 上の一覧のパートナーの未読メッセージ数を取得し、マッチングテーブルをアップデート
+		for(Integer partnersId : notReadUsers) {
+			Integer countNotRead = matchingService.getCountNotReadByUser(myId, partnersId);
+			
+			System.out.println("試行ID : " + partnersId);
+			System.out.println("countNotRead : " + countNotRead);
+			matchingService.updateNotReadMessage(myId, partnersId, countNotRead);
+		}
+		
+		//List<MatchingUser> matchingList = matchingService.checkMatchingList(myId);
+		List<Integer> matchingList = matchingService.getMatchingWith(myId);
+		
+		Integer matchingListSize = matchingList.size();
+		System.out.println("matchingList.size() : " + matchingListSize);
+		
+		String name = null;
+		Integer img = null;
+		Integer notReadMessage = null;
+		String latestMessage = null;
+		Date latestMessageTime = null;
+		
+		List<MatchingUser> matchingUser = new ArrayList<MatchingUser>();
+		
+		for(int i = 0; i <= matchingListSize-1 ; i++) {
+			System.out.println("------- 試行" + (i+1) + "回目 --------");
+			MatchingUser user = new MatchingUser();
+			Integer partnersId = matchingList.get(i);
+			
+			name = matchingService.getUserName(partnersId);
+			img = matchingService.getImg(partnersId);
+			notReadMessage = matchingService.getNotReadMessage(myId, partnersId);
+			latestMessage = matchingService.getLatestMessageByUser(myId, partnersId);
+			latestMessageTime = matchingService.getLatestMessageTimeByUser(myId, partnersId);
+			System.out.println("latestMessage : " + latestMessage);
+			System.out.println("latestMessageTime : " + latestMessageTime);
+			
+			user.setId(partnersId);
+			user.setName(name);
+			user.setImg(img);
+			user.setNotReadMessage(notReadMessage);
+			user.setMessage(latestMessage);
+			user.setLatestMessageTime(latestMessageTime);
+			user.setToId(partnersId);
+			System.out.println(user);
+			
+			matchingUser.add(i, user);
+		}
+		
 		Integer count = matchingList.size();
 		session.setAttribute("countMatching", count);
-		model.addAttribute("matchingList", matchingList);
+		model.addAttribute("matchingList", matchingUser);
 		return "/user/matching_list";
 	}
 	
@@ -360,7 +428,7 @@ public class UserController {
 		return "/user/not_matching_and_received_nice";
 	}
 	
-	@GetMapping("notMatchingAndSendedNiceList")
+	@GetMapping("/notMatchingAndSendedNiceList")
 	public String notMatchingAndSendedNiceGet(Model model) throws Exception {
 		
 		Date todayDate = new Date();
@@ -376,15 +444,17 @@ public class UserController {
 		return "/user/not_matching_and_sended_nice";
 	}
 	
-	@GetMapping("{id}/message/")
+	@GetMapping("/{id}/message/")
 	public String messageGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
+		
+		// セッション切れが面倒くさいので時間を3時間に。制作が終わったら変える。
+		session.setMaxInactiveInterval(10800);
+		
 		
 		Date todayDate = new Date();
 		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
 		String today = fmt.format(todayDate);
 		model.addAttribute("today",today);
-		
-		Message message = new Message();
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		
@@ -395,20 +465,21 @@ public class UserController {
 		model.addAttribute("messageList", messageList);
 		model.addAttribute("partnersId", partnersId);
 		model.addAttribute("myId", myId);
-		model.addAttribute("message", message);
+		model.addAttribute("message", new Message());
 		return "/user/message";
 		
 	}
 	
-	@PostMapping("{id}/message")
-	public String messagePost(@PathVariable("id") Integer partnersId,@ModelAttribute Message message) {
-		
+	@PostMapping("/{id}/message")
+	public String messagePost(@PathVariable("id") Integer partnersId,@ModelAttribute Message message) throws Exception {
+
 		Integer myId = (Integer) session.getAttribute("myId");
 		message.setId(null);
 		message.setFromId(myId);
-		message.setFromId(partnersId);
+		message.setToId(partnersId);
 		
-		System.out.println(message);
+		matchingService.sendMessage(message);
+		
 		return "redirect:/user/" + partnersId + "/message/";
 	}
 	
@@ -420,6 +491,6 @@ public class UserController {
 		}
 		return false;
 	}
-
+	
 	
 }

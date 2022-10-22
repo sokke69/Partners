@@ -16,7 +16,13 @@
 		favorite INT DEFAULT 0,
 		sended_nice INT DEFAULT 0,
 		received_nice INT DEFAULT 0,
-		blocking INT DEFAULT 0);
+		blocking INT DEFAULT 0,
+		checked_received_nice INT DEFAULT 0,
+		not_read_message INT DEFAULT 0)
 	</update>
+	
+	<insert id="createCheckedNewMessage">
+		INSERT INTO new_messages (checked_new_message) VALUES (0)
+	</insert>
 
 </mapper>

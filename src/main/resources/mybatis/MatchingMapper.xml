@@ -85,8 +85,12 @@
 
 <resultMap id="matchingMap" type="com.example.app.domain.User">
 	<id column = "id" property="id"/>
+	<result column="message" property="latestMessage"/>
+	<result column="sent_time" property="latestMessageTime"/>
+	<result column="not_read_message" property="countNotReadMessage"/>
 	
 	<association property="userBD" javaType="com.example.app.domain.UserBasicDetail">
+		<result column="name" property="name"/>
 		<result column="age" property="age"/>
 	</association>
 	
@@ -101,6 +105,7 @@
 	<association property="userI" javaType="com.example.app.domain.UserImage">
 		<result column="img" property="img"/>
 	</association>
+	
 </resultMap>
 
 <update id="updateCheckedReceivedNiceOfMine" parameterType="integer">
@@ -111,16 +116,25 @@
 	SELECT checked_received_nice FROM z#{myId}_matchings WHERE id=#{partnersId}
 </select>
 
-<select id="checkMatchingList" parameterType="integer" resultMap="matchingMap" >
-	SELECT z#{myId}_matchings.id, age, one_word, img, residences.residence
+<select id="checkMatchingList" parameterType="integer" resultMap="matchingListMap" >
+ SELECT DISTINCT z#{myId}_matchings.id, name, img,  not_read_message, to_id
     FROM z#{myId}_matchings
 	LEFT JOIN user_basic_details ON z#{myId}_matchings.id=user_basic_details.id
-    LEFT JOIN user_required_details ON z#{myId}_matchings.id=user_required_details.id
-	LEFT JOIN user_texts ON z#{myId}_matchings.id=user_texts.id
 	LEFT JOIN imgs ON z#{myId}_matchings.id=imgs.id
-    LEFT JOIN residences ON user_required_details.residence=residences.id
-    WHERE matching=1
+        LEFT JOIN messages ON z#{myId}_matchings.id=messages.from_id
+        	 OR messages.to_id=z#{myId}_matchings.id
+    WHERE matching=1 AND from_id=z#{myId}_matchings.id AND to_id=#{partnersId};
 </select>
+
+<resultMap id="matchingListMap" type="com.example.app.domain.MatchingUser">
+	<id column = "id" property="id"/>
+	<result column = "name" property="name"/>
+	<result column = "img" property="img"/>
+	<result column = "message" property="message"/>
+	<result column = "sent_time" property="latestMessageTime"/>
+	<result column = "not_read_message" property="notReadMessage"/>
+	<result column="to_id" property="toId"/>
+</resultMap>
 
 <update id="addFavorite" parameterType="integer">
 	UPDATE z#{myId}_matchings SET favorite=1 WHERE id=#{partnersId}
@@ -191,5 +205,89 @@
 		AND from_id=#{partnersId} 
 		AND to_id=#{myId};
 </update>
+
+<insert id="sendMessage" parameterType="com.example.app.domain.Message">
+	INSERT INTO messages (from_id, to_id, message, sent_time) VALUES (#{fromId}, #{toId}, #{message}, NOW())
+</insert>
+
+<select id="checkReadAndChecked" parameterType="integer" resultType="integer">
+	SELECT count(*) FROM messages WHERE to_id=#{myId} AND checked_message=0 AND read_info=0;
+</select>
+
+<update id="updateNewMessage" parameterType="integer">
+	UPDATE new_messages SET new_message=#{updateNum} WHERE id=#{myId};
+</update>
+
+<update id="updateReadInfo" parameterType="integer">
+	UPDATE messages SET read_info=1 WHERE to_id=#{myId};
+</update>
+
+<select id="getLetestMessage" resultType="String" parameterType="integer">
+	SELECT message FROM messages
+	WHERE to_id=#{myId}
+		AND from_id=#{partnersId}
+	ORDER BY DESC LIMIT 1
+</select>
+
+<select id="checkCheckedMessage" resultType="integer">
+	SELECT count(message) FROM messages 
+	WHERE to_id=#{myId}
+		AND from_id=#{partnersId}
+		AND checked_message=0
+</select>
+
+<select id="getNotReadUser" parameterType="integer" resultType="integer">
+	SELECT DISTINCT from_id FROM messages 
+	WHERE checked_message=0
+		AND to_id=#{myId}
+</select>
+
+<select id="getCountNotReadByUser" parameterType="integer" resultType="integer">
+	SELECT COUNT(from_id) FROM messages 
+	WHERE checked_message=0
+		AND to_id=#{myId}
+		AND from_id=#{partnersId}
+</select>
+
+<update id="updateNotReadMessage" parameterType="integer">
+	UPDATE z#{myId}_matchings 
+	SET not_read_message=#{countNotRead}
+	WHERE id=#{partnersId}
+</update>
+
+<select id="getLatestMessageByUser" parameterType="integer" resultType="string">
+	SELECT message 
+	FROM messages 
+	WHERE from_id=#{partnersId}
+		AND to_id=#{myId} 
+	ORDER BY id DESC LIMIT 1;
+</select>
+
+<select id="getLatestMessageTimeByUser" resultType="date">
+	SELECT sent_time 
+	FROM messages 
+	WHERE from_id=#{partnersId}
+		AND to_id=#{myId} 
+	ORDER BY id DESC LIMIT 1;
+</select>
+
+<select id="getMatchingWith" parameterType="integer" resultType="integer">
+	SELECT id FROM z#{myId}_matchings WHERE matching=1;
+</select>
+
+<select id="getUserName" parameterType="integer" resultType="String">
+	SELECT name FROM user_basic_details
+	WHERE id=#{partnersId}
+</select>
+
+<select id="getImg" parameterType="integer" resultType="integer">
+	SELECT img FROM imgs
+	WHERE id=#{partnersId}
+</select>
+
+<select id="getNotReadMessage" parameterType="integer" resultType="integer">
+	SELECT not_read_message FROM z#{myId}_matchings
+	WHERE id=#{partnersId}
+</select>
 
 </mapper>

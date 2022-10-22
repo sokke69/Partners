@@ -1,5 +1,6 @@
 package com.example.app.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.Email;
@@ -23,5 +24,7 @@ public class User/* implements UserDetails */{
 	private UserImage userI;
 	private Integer niceStatus;
 	private Integer favoriteStatus;
-	
+	private String latestMessage;
+	private Date latestMessageTime;
+	private Integer countNotReadMessage;
 }

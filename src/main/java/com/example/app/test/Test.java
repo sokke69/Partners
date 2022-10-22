@@ -2,7 +2,14 @@ package com.example.app.test;
 
 import java.util.Random;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Test {
+	
+	@Autowired
+	HttpSession session;
 	
 	public void TestRandom() {
 		
@@ -34,4 +41,11 @@ public class Test {
 		
 	}
 	
+	public void SessionTime(){
+		
+		//session.setMaxInactiveInterval(3600);
+		session.setMaxInactiveInterval(10800);
+		
+	}
 }
+

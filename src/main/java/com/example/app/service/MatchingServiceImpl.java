@@ -1,10 +1,12 @@
 package com.example.app.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.app.domain.MatchingUser;
 import com.example.app.domain.Message;
 import com.example.app.domain.User;
 import com.example.app.mapper.MatchingMapper;
@@ -102,7 +104,7 @@ public class MatchingServiceImpl implements MatchingService{
 	}
 
 	@Override
-	public List<User> checkMatchingList(Integer myId) throws Exception {
+	public List<MatchingUser> checkMatchingList(Integer myId) throws Exception {
 		return matchingMapper.checkMatchingList(myId);
 	}
 
@@ -146,6 +148,80 @@ public class MatchingServiceImpl implements MatchingService{
 		matchingMapper.updateCheckedMessage(partnersId, myId);
 	}
 
+	@Override
+	public void sendMessage(Message message) throws Exception {
+		matchingMapper.sendMessage(message);
+	}
+
+	@Override
+	public Integer checkReadAndChecked(Integer myId) throws Exception {
+		return matchingMapper.checkReadAndChecked(myId);
+	}
+
+	@Override
+	public void updateNewMessage(Integer myId, Integer updateNum) throws Exception {
+		matchingMapper.updateNewMessage(myId, updateNum);
+	}
+
+	@Override
+	public void updateReadInfo(Integer myId) throws Exception {
+		matchingMapper.updateReadInfo(myId);
+	}
+
+	@Override
+	public String getLetestMessage(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getLetestMessage(myId, partnersId);
+	}
+
+	@Override
+	public Integer checkCheckedMessage(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.checkCheckedMessage(myId, partnersId);
+	}
+
+	@Override
+	public List<Integer> getNotReadUser(Integer myId) throws Exception {
+		return matchingMapper.getNotReadUser(myId);
+	}
+
+	@Override
+	public Integer getCountNotReadByUser(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getCountNotReadByUser(myId, partnersId);
+	}
+
+	@Override
+	public void updateNotReadMessage(Integer myId, Integer partnersId, Integer countNotRead) throws Exception {
+		matchingMapper.updateNotReadMessage(myId, partnersId, countNotRead);
+	}
+
+	@Override
+	public String getLatestMessageByUser(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getLatestMessageByUser(myId, partnersId);
+	}
+
+	@Override
+	public Date getLatestMessageTimeByUser(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getLatestMessageTimeByUser(myId, partnersId);
+	}
+
+	@Override
+	public List<Integer> getMatchingWith(Integer myId) throws Exception {
+		return matchingMapper.getMatchingWith(myId);
+	}
+
+	@Override
+	public String getUserName(Integer partnersId) throws Exception {
+		return matchingMapper.getUserName(partnersId);
+	}
+
+	@Override
+	public Integer getImg(Integer partnersId) throws Exception {
+		return matchingMapper.getImg(partnersId);
+	}
+
+	@Override
+	public Integer getNotReadMessage(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getNotReadMessage(myId, partnersId);
+	}
 
 
 }
