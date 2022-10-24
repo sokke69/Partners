@@ -24,7 +24,7 @@
 					<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">[[${list.name}]]</a>
 				</th>
 				<td>
-					<span th:text="${#dates.format(list.latestMessageTime, 'HH:mm')}"></span>
+					<span th:text="${list.latestMessageTime}"></span>
 				</td>
 			</tr>
 			<tr>

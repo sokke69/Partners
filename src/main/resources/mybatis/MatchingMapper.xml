@@ -258,19 +258,21 @@
 <select id="getLatestMessageByUser" parameterType="integer" resultType="string">
     SELECT message 
 	FROM messages 
-	WHERE from_id=#{partnersId} or from_id=#{myId} 
+	WHERE (from_id=#{partnersId} OR from_id=#{myId}) 
+		AND (to_id=#{partnersId} OR to_id=#{myId})
 	ORDER BY id DESC LIMIT 1;
 </select>
 
 <select id="getLatestMessageTimeByUser" resultType="date">
     SELECT sent_time
 	FROM messages 
-	WHERE from_id=#{partnersId} or from_id=#{myId} 
+	WHERE (from_id=#{partnersId} OR from_id=#{myId}) 
+		AND (to_id=#{partnersId} OR to_id=#{myId})
     ORDER BY id DESC LIMIT 1;
 </select>
 
 <select id="getMatchingWith" parameterType="integer" resultType="integer">
-	SELECT id FROM z#{myId}_matchings WHERE matching=1;
+	SELECT id FROM z#{myId}_matchings WHERE matching=1 ORDER BY received_message DESC
 </select>
 
 <select id="getUserName" parameterType="integer" resultType="String">
@@ -287,5 +289,18 @@
 	SELECT not_read_message FROM z#{myId}_matchings
 	WHERE id=#{partnersId}
 </select>
+
+<update id="updateZeroNotReadMessage" parameterType="integer">
+	UPDATE z#{myId}_matchings SET not_read_message=0 WHERE id=#{partnersId}
+</update>
+
+<update id="updateMatchingsTablesTime">
+	UPDATE z#{myId}_matchings SET received_message=NOW() WHERE id=#{partnersId}
+</update>
+
+
+
+
+
 
 </mapper>

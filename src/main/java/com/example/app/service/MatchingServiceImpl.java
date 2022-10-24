@@ -223,5 +223,15 @@ public class MatchingServiceImpl implements MatchingService{
 		return matchingMapper.getNotReadMessage(myId, partnersId);
 	}
 
+	@Override
+	public void updateZeroNotReadMessage(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.updateZeroNotReadMessage(myId, partnersId);
+	}
+
+	@Override
+	public void updateMatchingsTablesTime(Integer myId, Integer partnersId) throws Exception {
+		matchingMapper.updateMatchingsTablesTime(myId, partnersId);
+	}
+
 
 }

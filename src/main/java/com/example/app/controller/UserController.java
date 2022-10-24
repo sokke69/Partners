@@ -3,6 +3,7 @@ package com.example.app.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -42,8 +43,8 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	//private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
-	private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
+	private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
+	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
 	@GetMapping("/userList")
@@ -328,6 +329,8 @@ public class UserController {
 		
 		Date todayDate = new Date();
 		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		SimpleDateFormat fmtYMD = new SimpleDateFormat("yMMdd");
+		SimpleDateFormat fmtMD = new SimpleDateFormat("MM月dd日");
 		String today = fmt.format(todayDate);
 		model.addAttribute("today",today);
 		
@@ -360,6 +363,15 @@ public class UserController {
 		String latestMessage = null;
 		Date latestMessageTime = null;
 		
+		// 今日のDateの時間部分を0に変更
+		todayDate = cutTime(todayDate);
+		
+		// 今日含め7日前までのDate取得
+		List<Date> oneWeek = oneWeek(todayDate);
+		for(int j=0; j <= 6 ; j++) {
+				System.out.println(oneWeek.get(j));
+		}
+		
 		List<MatchingUser> matchingUser = new ArrayList<MatchingUser>();
 		
 		for(int i = 0; i <= matchingListSize-1 ; i++) {
@@ -372,15 +384,56 @@ public class UserController {
 			notReadMessage = matchingService.getNotReadMessage(myId, partnersId);
 			latestMessage = matchingService.getLatestMessageByUser(myId, partnersId);
 			latestMessageTime = matchingService.getLatestMessageTimeByUser(myId, partnersId);
+			System.out.println("latestMessageTime : " + latestMessageTime);
+			
+			String latestMessageTimeStr = null;
+			SimpleDateFormat fmtE = new SimpleDateFormat("E曜日");
+			
+			// 最新メッセージの時分秒0に
+			Date latestMessageTimeCut = cutTime(latestMessageTime);
+			// 上のものをyyyyMMddに変換
+			String latestMessageTimeCutStr = fmtYMD.format(latestMessageTimeCut);
+			// 上のものをint化(計算用)
+			Integer latestMessageTimeCutInt = Integer.parseInt(latestMessageTimeCutStr);
+			
+			System.out.println("最新メッセージ" + latestMessageTimeCutStr);
+			
+			SimpleDateFormat fmtHHMM = new SimpleDateFormat("HH:mm");
+			
+			Integer zeroDaysAgo = Integer.parseInt(fmtYMD.format(oneWeek.get(0)));
+			
+			Integer calcZero = zeroDaysAgo - latestMessageTimeCutInt;
+			System.out.println("calcZero : " + calcZero);
+			if (calcZero >= 7) {
+				latestMessageTimeStr = fmtMD.format(latestMessageTime);
+			} else if (calcZero == 6) {
+				latestMessageTimeStr = fmtE.format(oneWeek.get(6));
+			} else if (calcZero == 5) {
+				latestMessageTimeStr = fmtE.format(oneWeek.get(5));
+			} else if (calcZero == 4) {
+				latestMessageTimeStr = fmtE.format(oneWeek.get(4));
+			} else if (calcZero == 3) {
+				latestMessageTimeStr = fmtE.format(oneWeek.get(3));
+			} else if (calcZero == 2) {
+				latestMessageTimeStr = fmtE.format(oneWeek.get(2));
+			} else if (calcZero == 1) {
+				latestMessageTimeStr = "昨日";
+			} else if (calcZero == 0) {
+				latestMessageTimeStr = fmtHHMM.format(latestMessageTime);
+			}
+			
+			
+
 			System.out.println("latestMessage : " + latestMessage);
 			System.out.println("latestMessageTime : " + latestMessageTime);
+			System.out.println("latestMessageTimeStr : " + latestMessageTimeStr);
 			
 			user.setId(partnersId);
 			user.setName(name);
 			user.setImg(img);
 			user.setNotReadMessage(notReadMessage);
 			user.setMessage(latestMessage);
-			user.setLatestMessageTime(latestMessageTime);
+			user.setLatestMessageTime(latestMessageTimeStr);
 			user.setToId(partnersId);
 			System.out.println(user);
 			
@@ -458,9 +511,10 @@ public class UserController {
 		model.addAttribute("today",today);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
-		
+		 
 		List<Message> messageList = matchingService.getMessage(myId, partnersId);
 		matchingService.updateCheckedMessage(partnersId, myId);
+		matchingService.updateZeroNotReadMessage(myId, partnersId);
 		Integer partnersImg = userService.countPartnersImg(partnersId);
 		model.addAttribute("partnersImg", partnersImg);
 		model.addAttribute("messageList", messageList);
@@ -480,6 +534,7 @@ public class UserController {
 		message.setToId(partnersId);
 		
 		matchingService.sendMessage(message);
+		matchingService.updateMatchingsTablesTime(myId, partnersId);
 		
 		return "redirect:/user/" + partnersId + "/message/";
 	}
@@ -493,5 +548,36 @@ public class UserController {
 		return false;
 	}
 	
+	private Date cutTime(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		date = cal.getTime();
+		return date;
+	}
+	
+	private List<Date> oneWeek(Date date) {
+		List<Date> dates = new ArrayList<>();
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		
+		for(int k = 0; k >= -6; k--) {
+			
+			if (k == 0) {
+				cal.add(Calendar.DAY_OF_MONTH, 0);
+			} else {
+				cal.add(Calendar.DAY_OF_MONTH, -1);
+			}
+			date = cal.getTime();
+			dates.add(date);
+			System.out.println(k + "回目" + date);
+		}
+		
+		return dates;
+	}
 	
 }

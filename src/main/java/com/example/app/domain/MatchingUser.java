@@ -1,7 +1,5 @@
 package com.example.app.domain;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data
@@ -12,7 +10,7 @@ public class MatchingUser {
 	private Integer img;
 	private String message;
 	private Integer notReadMessage;
-	private Date latestMessageTime;
+	private String latestMessageTime;
 	private Integer toId;
 
 }

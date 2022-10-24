@@ -50,5 +50,7 @@ public interface MatchingService {
 	String getUserName(Integer partnersId) throws Exception;
 	Integer getImg(Integer partnersId) throws Exception;
 	Integer getNotReadMessage(Integer myId, Integer partnersId) throws Exception;
+	void updateZeroNotReadMessage(Integer myId, Integer partnersId) throws Exception;
+	void updateMatchingsTablesTime(Integer myId, Integer partnersId) throws Exception;
 	
 }
