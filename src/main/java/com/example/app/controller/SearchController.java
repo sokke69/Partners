@@ -296,6 +296,14 @@ public class SearchController {
 		// いいねボタンを押したときの動作
 		if (user.getNiceStatus() == 1) {
 			
+			// 自分のいいねポイントを確認
+			Integer myLikePoint = userService.checkLikePoint(myId);
+			if (myLikePoint < 1) {
+				session.setAttribute("error_title", "いいねポイントが足りません");
+				session.setAttribute("error_detail", "いいねポイントを補充するか、付与されるのをお待ちください。");
+				return "redirect:/error";
+			}
+			
 			// 自分のマッチングテーブルの対象IDのsended_niceに1(sended)を格納
 			matchingService.addSendedNiceOfMine(myId, partnersId);
 			

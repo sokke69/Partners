@@ -6,35 +6,65 @@ table{
 	border-collapse:collapse;
 	margin:auto;
 }
+.user_list{
+	min-width:500px;
+	max-width:500px;
+	background-color:#FFF;
+	margin-bottom: 30px;
+	padding:0px;
+	border-radius:8px;
+}
 .icon{
 	width:50px;
 	height:50px;
 	border-radius:50%;
 }
-.user_list{
-	background-color:#FFF;
-	margin-bottom: 30px;
-
+.message_td{
+	max-width:380px;
+	min-width:380px;
+	min-height:45px;
+	max-height:45px;
+	padding-bottom:3px;
+	 display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    vertical-align:middle;
+}
+.message_td a{
+	max-width:380px;
+	min-width:380px;
+}
+.message_time_td{
+	text-align:center;
+	vertical-align:middle;
+	padding:3px 3px 0px 0px;
 }
 .user_name{
 	text-align:left;
+	padding-top:px;
 }
 .icon_td{
 	width:60px;
 	height:60px;
 	text-align:center;
 	vertical-align: middle;
+	padding:3px 0px 3px 3px;
 }
 .count_message{
 	background: #ec4646;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  color: #fff;
-  font-size: 18px;
-  text-align: center;
-  line-height: 25px;
-  margin-left:auto;
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	line-height: 25px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.count_message_td{
+	padding:0px 3px 3px 0px;
 }
 .user_list td a{
 	width:100%;

@@ -384,6 +384,9 @@ public class UserController {
 			notReadMessage = matchingService.getNotReadMessage(myId, partnersId);
 			latestMessage = matchingService.getLatestMessageByUser(myId, partnersId);
 			latestMessageTime = matchingService.getLatestMessageTimeByUser(myId, partnersId);
+			if (latestMessageTime == null) {
+				latestMessageTime = matchingService.getReceivedMessageNotSent(myId, partnersId);
+			}
 			System.out.println("latestMessageTime : " + latestMessageTime);
 			
 			String latestMessageTimeStr = null;

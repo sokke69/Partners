@@ -55,5 +55,6 @@ public interface MatchingMapper {
 	Integer getNotReadMessage(Integer myId, Integer partnersId) throws Exception;
 	void updateZeroNotReadMessage(Integer myId,Integer partnersId) throws Exception;
 	void updateMatchingsTablesTime(Integer myId,Integer partnersId) throws Exception;
+	Date getReceivedMessageNotSent(Integer myId,Integer partnersId) throws Exception;
  	
 }

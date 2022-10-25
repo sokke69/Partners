@@ -47,12 +47,12 @@
 
 
 <update id="addMatchingOfMine" parameterType="integer">
-	UPDATE z#{myId}_matchings SET matching=1, favorite=0
+	UPDATE z#{myId}_matchings SET matching=1, favorite=0, received_message=NOW()
 	WHERE id=#{partnersId}
 </update>
 
 <update id="addMatchingOfPartners" parameterType="integer">
-	UPDATE z#{partnersId}_matchings SET matching=1, favorite=0
+	UPDATE z#{partnersId}_matchings SET matching=1, favorite=0, received_message=NOW()
 	WHERE id=#{myId}
 </update>
 
@@ -298,6 +298,9 @@
 	UPDATE z#{myId}_matchings SET received_message=NOW() WHERE id=#{partnersId}
 </update>
 
+<select id="getReceivedMessageNotSent" parameterType="integer" resultType="date">
+	SELECT received_message FROM z#{myId}_matchings WHERE id=#{partnersId}
+</select>
 
 
 

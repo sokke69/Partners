@@ -233,5 +233,10 @@ public class MatchingServiceImpl implements MatchingService{
 		matchingMapper.updateMatchingsTablesTime(myId, partnersId);
 	}
 
+	@Override
+	public Date getReceivedMessageNotSent(Integer myId, Integer partnersId) throws Exception {
+		return matchingMapper.getReceivedMessageNotSent(myId, partnersId);
+	}
+
 
 }
