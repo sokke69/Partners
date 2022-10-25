@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" th:href="@{/css/user_table.css}" />
 <head>
 <meta charset="UTF-8">
 <title>プロフィール</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
-<h1>プロフィール</h1>
+<h3 class="display-4">プロフィール</h3>
 
-<p>	<a th:href="@{/user/mypage/edit}">プロフィールを編集する</a></p>
+<div class="update_link"><a th:href="@{/user/mypage/edit}">プロフィールを編集する</a></div>
 
-<table width="210px">
+<table>
 
-<tr><td>
-	<img th:if="${session.haveImage == false}" th:src="@{/img/noimage.jpg?{today}(today=${today})}" alt=""  height="210px">
-	<img th:if="${session.haveImage == true}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${id}, today=${today})}" alt=""  height="210px">
+<tr><td class="main_img_td">
+	<img class="main_img" th:if="${session.haveImage == false}" th:src="@{/img/noimage.jpg?{today}(today=${today})}" alt="" >
+	<img class="main_img" th:if="${session.haveImage == true}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${id}, today=${today})}" >
 </td></tr>
 
 
 	<tr><td><th:block th:each="file : ${fileList}">
-	<img th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}" height="70px">
+	<img class="sub_img" th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}" height="70px">
 	</th:block></td></tr>
 
 
-<tr><th>[[${user.userBD.name}]]</th></tr>
+<tr><th><h1 class="display-6">[[${user.userBD.name}]]</h1></th></tr>
 <tr><td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]]
 <th:block th:if="${user.userFD.vaccinationStr} == '選択しない'"></th:block>
 <th:block th:if="${user.userFD.vaccinationStr} == '接種済み'">[[${user.userFD.vaccinationStr}]]</th:block>
@@ -108,10 +109,11 @@
 
 <th:block th:if="${user.userRD.smokingStr} != '選択しない'"><tr><th>タバコ</th><td>[[${user.userRD.smokingStr}]]</td></tr></th:block>
 
-<th:block th:if="${user.userFD.hobbyOne}  != ''"><tr><th>好きなこと・趣味</th>
-<td>[[${user.userFD.hobbyOne}]] <th:block th:if="${user.userFD.hobbyTwo != ''}">,</th:block>
-[[${user.userFD.hobbyTwo}]]<th:block th:if="${user.userFD.hobbyThree != ''}">,</th:block>
-[[${user.userFD.hobbyThree}]]</td></tr></th:block>
+<th:block th:if="${user.userFD.hobbyOne}  != null"><tr><th>好きなこと・趣味</th>
+<td>[[${user.userFD.hobbyOne}]] 
+<th:block th:if="${user.userFD.hobbyTwo != null}">,[[${user.userFD.hobbyTwo}]]</th:block>
+<th:block th:if="${user.userFD.hobbyThree != null}">,[[${user.userFD.hobbyThree}]]</th:block>
+</td></tr></th:block>
 </table>
 
 </body>

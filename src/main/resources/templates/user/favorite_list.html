@@ -3,28 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>気になる相手</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/search.css}" />
 </head>
 <body>
 
-<h1>気になる相手</h1>
+<h3 class="display-4">気になる相手</h3>
 
-<h3 th:if="${session.countFavorite == 0}">気になる を押した人はまだいません</h3>
+<h3 class="display-6" th:if="${session.countFavorite == 0}">気になる を押した人はまだいません</h3>
 
-<th:block th:each="favorite : ${favoriteList}" th:if="${session.countFavorite > 0}">
-	<table class="user_list">
-			<tr>
-				<td class="user_list_bg">
-				<a th:href="@{/search/user/{id}(id=${favorite.id})}" target="_blank">
-					<img th:if="${favorite.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg(id=${favorite.id})}" alt="" height="210px">
-					<img th:if="${favorite.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
-					<span>[[${favorite.userBD.age}]]歳 [[${favorite.userRD.residenceStr}]]</span> <th:block
-						th:if="${favorite.userT.oneWord != null}">[[${favorite.userT.oneWord}]]</th:block>
-				</a>
-				</td>
-			</tr>
-		</table>
-</th:block>
+<div class="container">
+	<div class="row">
+		<div class="col"></div>
+		<div class="col-6" id="table">
+			<div class="row">
+				<th:block th:each="userlist : ${favoriteList}">
+					<div class="col-4">
+						<table class="user_list">
+							<tr>
+								<td class="user_list_bg">
+									<a th:href="@{/search/user/{id}(id=${userlist.id})}" target="_blank">
+										<img th:if="${userlist.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${userlist.id}, today=${today})}" alt="" height="210px">
+										<img th:if="${userlist.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+										<span>[[${userlist.userBD.age}]]歳 [[${userlist.userRD.residenceStr}]]</span>
+										<th:block th:if="${userlist.userT.oneWord != null and userlist.userT.oneWord != '' }">
+											[[${userlist.userT.oneWord}]]
+										</th:block>
+									</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</th:block>
+			</div>
+		</div>
+		<div class="col"></div>
+	</div><!-- row -->
+</div><!-- container -->
 
 </body>
 </html>

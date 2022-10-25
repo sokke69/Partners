@@ -122,10 +122,7 @@ public class UserController {
 		user = userService.getUserByLoginId(loginId);
 		model.addAttribute("user", user);
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
 		File[] fileList = uploadsDirectory.listFiles();
@@ -150,10 +147,7 @@ public class UserController {
 		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
 		File[] fileList = uploadsDirectory.listFiles();
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		model.addAttribute("fileList", fileList);
 		model.addAttribute("id", user.getId());
@@ -235,10 +229,7 @@ public class UserController {
 	
 	@GetMapping("/mypage/edit/img")
 	public String editImgGet(Model model) throws Exception {
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		Integer userId = userService.getUserIdByEmail((String)session.getAttribute("login_id"));
 		File uploadDirectory = new File(UPLOAD_DIRECTORY + userId);
@@ -284,10 +275,7 @@ public class UserController {
 	@GetMapping("/mypage/edit/img/delete/{number}")
 	public String deleteImageGet(@PathVariable("number") Integer number,Model model) throws Exception{
 		model.addAttribute("imgNumber", number);
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		return "user/img_delete";
 	}
 	
@@ -307,10 +295,7 @@ public class UserController {
 	@GetMapping("/newReceivedNice")
 	public String newReceivedNiceGet(Model model) throws Exception {
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> newReceivedNiceList = matchingService.newReceivedNiceList(myId);
@@ -457,10 +442,7 @@ public class UserController {
 	@GetMapping("/favoriteList")
 	public String matchingFavoriteGet(Model model) throws Exception {
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> favoriteList = matchingService.checkFavoriteList(myId);
@@ -476,10 +458,7 @@ public class UserController {
 	@GetMapping("/notMatchingAndReceivedNiceList")
 	public String notMatchingAndReceivedNiceGet(Model model) throws Exception {
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> notMatchingAndReceivedNiceList = matchingService.checkNotMatchingAndReceivedNiceOfMineList(myId);
@@ -492,10 +471,7 @@ public class UserController {
 	@GetMapping("/notMatchingAndSendedNiceList")
 	public String notMatchingAndSendedNiceGet(Model model) throws Exception {
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> notMatchingAndSendedNiceList = matchingService.checkNotMatchingAndSendedNiceOfMineList(myId);
@@ -512,10 +488,7 @@ public class UserController {
 		session.setMaxInactiveInterval(10800);
 		
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		 
@@ -595,6 +568,13 @@ public class UserController {
 		}
 		
 		return dates;
+	}
+	
+	private void todayModelSet(Model model) {
+		Date todayDate = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
+		String today = fmt.format(todayDate);
+		model.addAttribute("today",today);
 	}
 	
 }
