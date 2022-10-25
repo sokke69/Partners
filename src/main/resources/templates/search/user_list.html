@@ -604,13 +604,13 @@
 			</tr>
 			<tr>
 				<td>
-					<div>自己紹介文あり</div>
-					<div>サブ写真あり</div>
-					<div>最終ログイン</div>
-					<div>登録日が3日以内</div>
-					<div>共通のコミュニティ</div>
-					<div>並び替え</div>
-					<div>フリーワード</div>
+					<div class="unimplemented">自己紹介文あり</div>
+					<div class="unimplemented">サブ写真あり</div>
+					<div class="unimplemented">最終ログイン</div>
+					<div class="unimplemented">登録日が3日以内</div>
+					<div class="unimplemented">共通のコミュニティ</div>
+					<div class="unimplemented">並び替え</div>
+					<div class="unimplemented">フリーワード</div>
 				</td>
 			</tr>
 			<tr>
@@ -619,36 +619,38 @@
 				</td>
 			</tr>
 		</table>
+		
+		</form>
 
 
-	</form>
-
-
-
-		<div class="container-fluid">
+<div class="container">
+	<div class="row">
+		<div class="col"></div>
+		<div class="col-6" id="table">
 			<div class="row">
 				<th:block th:each="userlist : ${userList}">
-				
-				<div class="col-3">
-				<table class="user_list">
-					<tr>
-						<td class="user_list_bg">
-							<a th:href="@{/search/user/{id}(id=${userlist.id})}" target="_blank">
-								<img th:if="${userlist.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${userlist.id}, today=${today})}" alt="" height="210px">
-								<img th:if="${userlist.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
-							<span>[[${userlist.userBD.age}]]歳 [[${userlist.userRD.residenceStr}]]</span>
-							<th:block th:if="${userlist.userT.oneWord != null and userlist.userT.oneWord != '' }">
-								[[${userlist.userT.oneWord}]]
-							</th:block>
-							</a>
-						</td>
-					</tr>
-				</table>
-				</div><!-- container col -->
+					<div class="col-4">
+						<table class="user_list">
+							<tr>
+								<td class="user_list_bg">
+									<a th:href="@{/search/user/{id}(id=${userlist.id})}" target="_blank">
+										<img th:if="${userlist.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${userlist.id}, today=${today})}" alt="" height="210px">
+										<img th:if="${userlist.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
+										<span>[[${userlist.userBD.age}]]歳 [[${userlist.userRD.residenceStr}]]</span>
+										<th:block th:if="${userlist.userT.oneWord != null and userlist.userT.oneWord != '' }">
+											[[${userlist.userT.oneWord}]]
+										</th:block>
+									</a>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</th:block>
-			</div><!-- container row -->
-		</div><!-- container-fluid -->
-
+			</div>
+		</div>
+		<div class="col"></div>
+	</div><!-- row -->
+</div><!-- container -->
 
 
 </body>
