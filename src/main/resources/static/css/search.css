@@ -2,9 +2,20 @@
 body{
 	background-color:#add8e6;
 }
+a{
+	text-decoration: none;
+	color:#000;
+}
+img{
+	height: 210px;
+	width: 210px;
+	object-fit: cover;
+}
 table{
 	width:250px;
 	border-collapse:collapse;
+	margin-left:auto;
+	margin-right:auto;
 }
 table div{
 	display:inline-block;
@@ -17,6 +28,9 @@ table div{
 }
 .user_list td{
 	width:100%;
+	text-align:center;
+	font-size:14px;
+	padding:5px;
 }
 .user_list td a{
 	display:block;
@@ -25,19 +39,50 @@ table div{
 }
 .user_list_bg{
 	background-color:#FFF;
+	border-radius:10px;
 }
 .user_list p{
 	margin:0;
 }
 .detail{
 	width:80%;
+	background-color:#FFF;
+	margin-bottom:50px;
+	border-radius:10px;
 }
 .detail th{
 	text-align:left;
+	font-size:14px;
+}
+.detail td{
+	font-size:12px;
 }
 .detail div{
 	padding-right:15px;	
 }
-.submit{
-	margin-bottom:30px;
+select{
+	margin-bottom:5px;
+	padding:2px;
 }
+.submit{
+	margin:15px 0;
+}
+
+.submit_td{
+	text-align:center;
+}
+.detail th{
+	padding:10px 10px 0px;
+}
+.detail td{
+	padding:0 10px;
+}
+
+
+
+
+
+
+
+
+

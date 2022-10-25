@@ -9,6 +9,7 @@ a{
 table{
 	border-collapse:collapse;
 	margin:auto;
+	border: 0px solid #FFF;
 }
 .user_list{
 	min-width:500px;
@@ -18,42 +19,46 @@ table{
 	padding:0px;
 	border-radius:8px;
 }
+.user_list td a{
+	display:block;
+	width:100%;
+	height:100%;
+}
 .icon{
-	width:50px;
-	height:50px;
+	width:65px;
+	height:65px;
 	border-radius:50%;
 }
-.message_td{
-	max-width:380px;
-	min-width:380px;
-	min-height:45px;
-	max-height:45px;
-	padding-bottom:3px;
-	 display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    vertical-align:middle;
+.name{
+	font-size:20px;
+	font-weight:bold;
 }
-.message_td a{
-	max-width:380px;
-	min-width:380px;
+.age_td{
+	width:50px;
 }
-.message_time_td{
-	text-align:center;
-	vertical-align:middle;
-	padding:3px 3px 0px 0px;
-}
-.user_name{
-	text-align:left;
-	padding-top:px;
+.hobby{
+	font-size:12px;
 }
 .icon_td{
-	width:60px;
-	height:60px;
+	width:82px;
+	height:82px;
 	text-align:center;
 	vertical-align: middle;
-	padding:3px 0px 3px 3px;
+}
+.top_td{
+	height:36px
+}
+.middle_td{
+	height:20px;
+	font-size:12px;
+}
+.bottom_td{
+	height:20px;
+	font-size:12px;
+}
+.came_time_td{
+	font-size:12px;
+	text-align:right;
 }
 .count_message{
 	background: #ec4646;
@@ -66,9 +71,6 @@ table{
 	line-height: 25px;
 	margin-left:auto;
 	margin-right:auto;
-}
-.count_message_td{
-	padding:0px 3px 3px 0px;
 }
 .user_list td a{
 	width:100%;

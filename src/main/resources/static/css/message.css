@@ -3,7 +3,10 @@
 body {
 	background: #add8e6;
 }
-
+a{
+	text-decoration: none;
+	color:#000;
+}
 .message_table {
 	width: 90%;
 	max-width: 600px; margin-left : auto;

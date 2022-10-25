@@ -279,8 +279,9 @@ public class SearchController {
 		}
 		
 		
-		
-		
+		searchService.updateVisitedTimeMyTable(myId, partnersId);
+		searchService.updateVisitedTimePartnersTable(myId, partnersId);
+	
 		User user = userService.getUserById(partnersId);
 		model.addAttribute("user", user);
 		

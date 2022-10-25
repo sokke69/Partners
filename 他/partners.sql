@@ -563,7 +563,7 @@ CREATE TABLE `messages` (
   `sent_time` datetime NOT NULL,
   `read_info` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -572,7 +572,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,73,75,'はじめまして！マッチングありがとうございます！',1,'2022-10-19 14:28:59',1),(2,75,73,'ども',1,'2022-10-19 14:38:59',1),(3,73,75,'ご趣味は何ですか？^0^',1,'2022-10-19 14:48:59',1),(4,75,73,'別に',1,'2022-10-19 14:58:59',1),(5,73,75,'好きな食べ物はなんですか？^-^',1,'2022-10-19 15:08:59',1),(6,75,73,'別に',1,'2022-10-19 15:18:59',1),(7,73,75,'好きな芸能人はどなたですか？^_^',1,'2022-10-19 15:28:59',1),(8,75,73,'別に',1,'2022-10-19 15:38:59',1),(9,73,75,'好きな漫画やアニメはなんですか？^3^',1,'2022-10-19 15:48:20',1),(10,75,73,'よろです',1,'2022-10-19 14:40:59',1),(11,73,74,'おはつです！',0,'2022-10-19 14:41:08',0),(12,73,75,'僕は鬼滅の刃と呪術回線とチェンソーマンが好きです！',1,'2022-10-19 15:48:40',1),(13,73,75,'この間も鬼滅の刃を全部観かえしたんですがやっぱり煉獄さんが死んじゃうところは本当に泣けるし熱いしタンジェロの心が折れそうなところに伊之助が奮起かけるところか本当に涙が出そうになったしタンジェロが「卑怯者ー！」って猗窩座に叫んだときは本当にそうだよなって共感したし逃げんなよって本気で思って…そんな気持ちもあって煉獄さんが死んじゃったところでは本当に号泣しちゃったんですよね^_^;',1,'2022-10-19 15:48:50',1),(14,73,75,'嫌いなキャラは善逸です。',1,'2022-10-23 15:48:55',1),(15,76,75,'マッチングありがとうございます！\r\nミルクティー微糖といいます！\r\n杏さんよろしくおねがいします^^',1,'2022-10-25 10:14:03',1),(16,76,75,'杏さんはお医者様なんですね！このコロナ禍では特にお忙しいかもしれませんしお返事はいつでも大丈夫です！気の向いたときによろしくお願いします♪',1,'2022-10-25 10:15:13',1),(17,75,76,'よろしくです',1,'2022-10-25 10:15:34',1),(18,76,75,'お返事ありがとうございます♪杏さんは休日は何されてるんですか？？？',0,'2022-10-25 10:16:13',1),(19,76,75,'僕は休みの日は映画を見たり音楽を聴いたりライブに行ったりというのが多いですね！あと漫画やアニメも好きなのでその点は杏さんと共通点があると思うのでたくさんしゃべりたいことがあります～！ちなみに今は待ってるのはチェーンソーマンです^^',0,'2022-10-25 10:51:00',1);
+INSERT INTO `messages` VALUES (1,73,75,'はじめまして！マッチングありがとうございます！',1,'2022-10-19 14:28:59',1),(2,75,73,'ども',1,'2022-10-19 14:38:59',1),(3,73,75,'ご趣味は何ですか？^0^',1,'2022-10-19 14:48:59',1),(4,75,73,'別に',1,'2022-10-19 14:58:59',1),(5,73,75,'好きな食べ物はなんですか？^-^',1,'2022-10-19 15:08:59',1),(6,75,73,'別に',1,'2022-10-19 15:18:59',1),(7,73,75,'好きな芸能人はどなたですか？^_^',1,'2022-10-19 15:28:59',1),(8,75,73,'別に',1,'2022-10-19 15:38:59',1),(9,73,75,'好きな漫画やアニメはなんですか？^3^',1,'2022-10-19 15:48:20',1),(10,75,73,'よろです',1,'2022-10-19 14:40:59',1),(11,73,74,'おはつです！',0,'2022-10-19 14:41:08',0),(12,73,75,'僕は鬼滅の刃と呪術回線とチェンソーマンが好きです！',1,'2022-10-19 15:48:40',1),(13,73,75,'この間も鬼滅の刃を全部観かえしたんですがやっぱり煉獄さんが死んじゃうところは本当に泣けるし熱いしタンジェロの心が折れそうなところに伊之助が奮起かけるところか本当に涙が出そうになったしタンジェロが「卑怯者ー！」って猗窩座に叫んだときは本当にそうだよなって共感したし逃げんなよって本気で思って…そんな気持ちもあって煉獄さんが死んじゃったところでは本当に号泣しちゃったんですよね^_^;',1,'2022-10-19 15:48:50',1),(14,73,75,'嫌いなキャラは善逸です。',1,'2022-10-23 15:48:55',1),(15,76,75,'マッチングありがとうございます！\r\nミルクティー微糖といいます！\r\n杏さんよろしくおねがいします^^',1,'2022-10-25 10:14:03',1),(16,76,75,'杏さんはお医者様なんですね！このコロナ禍では特にお忙しいかもしれませんしお返事はいつでも大丈夫です！気の向いたときによろしくお願いします♪',1,'2022-10-25 10:15:13',1),(17,75,76,'よろしくです',1,'2022-10-25 10:15:34',1),(18,76,75,'お返事ありがとうございます♪杏さんは休日は何されてるんですか？？？',0,'2022-10-25 10:16:13',1),(19,76,75,'僕は休みの日は映画を見たり音楽を聴いたりライブに行ったりというのが多いですね！あと漫画やアニメも好きなのでその点は杏さんと共通点があると思うのでたくさんしゃべりたいことがあります～！ちなみに今は待ってるのはチェーンソーマンです^^',0,'2022-10-25 10:51:00',1),(20,76,75,'寝てます？',0,'2022-10-25 14:35:08',1);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -912,7 +912,7 @@ CREATE TABLE `user_free_details` (
 
 LOCK TABLES `user_free_details` WRITE;
 /*!40000 ALTER TABLE `user_free_details` DISABLE KEYS */;
-INSERT INTO `user_free_details` VALUES (1,4,3,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,2,1,2,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,5,2,5,2,2,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,4,5,1,1,3,NULL,NULL,1,2,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,4,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,3,2,2,3,4,NULL,NULL,2,2,5,3,4,1,2,4,'サウナ','温泉','旅行',2),(9,4,3,37,1,1,'緑茶大学',NULL,3,2,4,2,3,3,3,3,'映画','カフェ','ビリヤード',1),(10,2,4,38,3,2,NULL,NULL,3,3,3,4,1,1,2,3,'youtube','tiktok','instagram',1),(11,2,5,39,2,1,'ミンティア高校','ひみつ',2,2,2,3,2,1,3,3,'カフェ','水族館','演劇鑑賞',2),(12,3,3,40,1,2,NULL,NULL,2,4,3,3,4,1,4,4,'野球','テニス','サッカー',1),(13,4,2,8,3,2,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,5,4,12,1,3,NULL,NULL,2,1,4,3,3,2,2,3,NULL,NULL,NULL,1),(15,4,5,30,2,4,NULL,NULL,3,2,3,1,3,1,2,2,NULL,NULL,NULL,1),(16,5,3,36,1,2,NULL,NULL,2,3,4,2,2,2,1,3,NULL,NULL,NULL,1),(17,5,2,31,1,1,'ハンカチ高専',NULL,2,2,2,1,1,1,2,1,NULL,NULL,NULL,2),(18,2,5,35,2,2,NULL,NULL,2,3,1,4,4,2,1,4,NULL,NULL,NULL,1),(19,4,4,34,2,3,'ひよこ高校',NULL,2,4,3,1,3,1,2,1,NULL,NULL,NULL,3),(20,2,2,2,3,3,NULL,NULL,2,2,1,4,2,1,4,2,NULL,NULL,NULL,1),(21,2,2,34,1,2,'アップル大学',NULL,2,5,5,3,2,2,2,3,NULL,NULL,NULL,2),(22,3,3,33,2,2,NULL,NULL,2,3,2,2,4,1,3,4,NULL,NULL,NULL,3),(23,3,4,32,2,2,NULL,NULL,2,2,2,2,2,1,2,2,NULL,NULL,NULL,1),(24,4,3,39,3,4,NULL,NULL,3,4,3,2,4,1,4,4,NULL,NULL,NULL,3),(25,3,2,20,1,2,NULL,NULL,2,2,2,2,3,1,2,2,NULL,NULL,NULL,2),(26,4,3,21,3,4,NULL,NULL,3,3,3,3,4,1,3,3,NULL,NULL,NULL,2),(27,5,4,22,4,3,NULL,NULL,2,4,4,4,4,1,4,4,NULL,NULL,NULL,2),(28,2,3,23,2,2,NULL,NULL,3,5,2,2,3,1,3,3,NULL,NULL,NULL,2),(29,3,4,24,2,3,NULL,NULL,1,2,1,3,2,1,2,2,NULL,NULL,NULL,2),(30,4,2,25,3,2,NULL,NULL,2,3,3,4,1,1,1,1,NULL,NULL,NULL,2),(31,5,1,26,2,1,NULL,NULL,3,4,4,1,2,1,2,2,NULL,NULL,NULL,1),(32,2,3,27,4,3,NULL,NULL,2,5,2,3,3,1,3,3,NULL,NULL,NULL,2),(33,3,2,28,3,3,NULL,NULL,1,2,3,2,4,1,4,4,NULL,NULL,NULL,2),(34,4,3,29,2,1,NULL,NULL,3,3,4,4,3,1,3,2,NULL,NULL,NULL,1),(35,5,4,30,4,2,NULL,NULL,2,4,2,3,2,1,2,4,NULL,NULL,NULL,2),(36,2,3,31,3,4,NULL,NULL,1,5,3,2,1,1,1,3,NULL,NULL,NULL,3),(37,2,3,23,2,3,NULL,NULL,2,3,2,3,3,2,3,3,NULL,NULL,NULL,2),(38,3,2,24,2,3,NULL,NULL,1,5,2,2,3,2,1,2,NULL,NULL,NULL,1),(39,4,3,25,3,4,NULL,NULL,2,4,3,3,3,1,2,2,NULL,NULL,NULL,2),(40,2,4,26,4,2,NULL,NULL,3,3,4,3,3,2,1,3,NULL,NULL,NULL,1),(41,3,2,27,2,3,NULL,NULL,1,2,4,1,2,2,2,1,NULL,NULL,NULL,2),(42,4,3,28,3,4,NULL,NULL,2,3,5,4,3,1,2,2,NULL,NULL,NULL,1),(43,2,4,29,4,3,NULL,NULL,3,4,4,1,1,2,1,3,NULL,NULL,NULL,2),(44,3,1,30,2,2,NULL,NULL,3,3,3,3,2,1,1,4,NULL,NULL,NULL,3),(45,4,2,31,3,3,NULL,NULL,2,2,2,1,1,1,1,1,NULL,NULL,NULL,1),(46,5,3,32,4,3,NULL,NULL,2,1,2,2,1,2,2,3,NULL,NULL,NULL,2),(47,2,4,33,5,3,NULL,NULL,2,2,3,1,2,1,2,4,NULL,NULL,NULL,3),(48,3,2,34,2,2,NULL,NULL,3,3,4,2,2,1,3,2,NULL,NULL,NULL,1),(49,2,3,35,2,2,NULL,NULL,3,4,2,2,3,1,4,2,NULL,NULL,NULL,3),(50,3,2,10,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,1),(51,4,3,11,3,3,NULL,NULL,2,3,2,3,2,1,6,3,NULL,NULL,NULL,1),(52,2,4,12,4,4,NULL,NULL,2,4,2,4,3,1,6,4,NULL,NULL,NULL,2),(53,3,2,13,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,2),(54,4,3,14,3,3,NULL,NULL,2,3,2,3,5,1,6,3,NULL,NULL,NULL,2),(55,2,4,15,4,4,NULL,NULL,2,4,2,4,2,1,5,4,NULL,NULL,NULL,2),(56,2,2,16,5,2,'ファブリーズ大学','Webエンジニア',2,2,2,2,3,1,4,2,'漫画','アニメ','ゲーム',2),(57,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(58,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(59,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(60,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(61,2,5,1,4,1,'スターボックス大学院','大学事務',3,2,2,3,6,1,4,3,'食う','寝る','タバコ',2),(62,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(63,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(64,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(65,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(66,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1),(67,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(68,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(69,1,1,2,4,1,'','営業',1,1,1,1,1,1,1,1,'女装','美容ケア','',1),(70,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(71,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(72,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(73,7,5,11,3,4,'株式会社ジードライブ新大久保校','リラクゼーションセラピスト',2,3,2,4,4,1,4,2,'','','',3),(74,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(75,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,'','','',1),(76,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1);
+INSERT INTO `user_free_details` VALUES (1,4,3,7,4,6,'東京農業大学','Webエンジニア',3,4,4,4,3,2,2,4,'漫画','ゲーム','スイーツ巡り',1),(2,4,2,1,2,2,'コメダ大学','ひみつ',2,2,2,1,1,1,3,1,'音楽','バンド','マッサージ',1),(3,5,2,5,2,2,'麦茶大学',NULL,3,3,3,2,2,2,2,2,'映画','小説','音楽',1),(4,2,3,8,3,3,'扇風機女子短大',NULL,2,2,3,3,3,1,1,3,'散歩','旅行','ディズニー',2),(5,4,5,1,1,3,NULL,NULL,1,2,2,1,4,3,2,1,'ゲーム','アニメ','漫画',1),(6,2,4,2,2,2,'ニベア高校',NULL,2,2,2,2,2,2,2,2,'ソシャゲ','ゲーム','家事',2),(7,1,2,3,1,2,'ラーメン専門学校','うどん屋',1,2,3,1,2,3,3,4,'キャンプ','料理','掃除',2),(8,3,2,2,3,4,NULL,NULL,2,2,5,3,4,1,2,4,'サウナ','温泉','旅行',2),(9,4,3,37,1,1,'緑茶大学',NULL,3,2,4,2,3,3,3,3,'映画','カフェ','ビリヤード',1),(10,2,4,38,3,2,NULL,NULL,3,3,3,4,1,1,2,3,'youtube','tiktok','instagram',1),(11,2,5,39,2,1,'ミンティア高校','ひみつ',2,2,2,3,2,1,3,3,'カフェ','水族館','演劇鑑賞',2),(12,3,3,40,1,2,NULL,NULL,2,4,3,3,4,1,4,4,'野球','テニス','サッカー',1),(13,4,2,8,3,2,'日本タケノコの里大学',NULL,3,4,1,1,5,1,2,2,'ゴルフ','フットサル','ダーツ',3),(14,5,4,12,1,3,NULL,NULL,2,1,4,3,3,2,2,3,NULL,NULL,NULL,1),(15,4,5,30,2,4,NULL,NULL,3,2,3,1,3,1,2,2,NULL,NULL,NULL,1),(16,5,3,36,1,2,NULL,NULL,2,3,4,2,2,2,1,3,NULL,NULL,NULL,1),(17,5,2,31,1,1,'ハンカチ高専',NULL,2,2,2,1,1,1,2,1,NULL,NULL,NULL,2),(18,2,5,35,2,2,NULL,NULL,2,3,1,4,4,2,1,4,NULL,NULL,NULL,1),(19,4,4,34,2,3,'ひよこ高校',NULL,2,4,3,1,3,1,2,1,NULL,NULL,NULL,3),(20,2,2,2,3,3,NULL,NULL,2,2,1,4,2,1,4,2,NULL,NULL,NULL,1),(21,2,2,34,1,2,'アップル大学',NULL,2,5,5,3,2,2,2,3,NULL,NULL,NULL,2),(22,3,3,33,2,2,NULL,NULL,2,3,2,2,4,1,3,4,NULL,NULL,NULL,3),(23,3,4,32,2,2,NULL,NULL,2,2,2,2,2,1,2,2,NULL,NULL,NULL,1),(24,4,3,39,3,4,NULL,NULL,3,4,3,2,4,1,4,4,NULL,NULL,NULL,3),(25,3,2,20,1,2,NULL,NULL,2,2,2,2,3,1,2,2,NULL,NULL,NULL,2),(26,4,3,21,3,4,NULL,NULL,3,3,3,3,4,1,3,3,NULL,NULL,NULL,2),(27,5,4,22,4,3,NULL,NULL,2,4,4,4,4,1,4,4,NULL,NULL,NULL,2),(28,2,3,23,2,2,NULL,NULL,3,5,2,2,3,1,3,3,NULL,NULL,NULL,2),(29,3,4,24,2,3,NULL,NULL,1,2,1,3,2,1,2,2,NULL,NULL,NULL,2),(30,4,2,25,3,2,NULL,NULL,2,3,3,4,1,1,1,1,NULL,NULL,NULL,2),(31,5,1,26,2,1,NULL,NULL,3,4,4,1,2,1,2,2,NULL,NULL,NULL,1),(32,2,3,27,4,3,NULL,NULL,2,5,2,3,3,1,3,3,NULL,NULL,NULL,2),(33,3,2,28,3,3,NULL,NULL,1,2,3,2,4,1,4,4,NULL,NULL,NULL,2),(34,4,3,29,2,1,NULL,NULL,3,3,4,4,3,1,3,2,NULL,NULL,NULL,1),(35,5,4,30,4,2,NULL,NULL,2,4,2,3,2,1,2,4,NULL,NULL,NULL,2),(36,2,3,31,3,4,NULL,NULL,1,5,3,2,1,1,1,3,NULL,NULL,NULL,3),(37,2,3,23,2,3,NULL,NULL,2,3,2,3,3,2,3,3,NULL,NULL,NULL,2),(38,3,2,24,2,3,NULL,NULL,1,5,2,2,3,2,1,2,NULL,NULL,NULL,1),(39,4,3,25,3,4,NULL,NULL,2,4,3,3,3,1,2,2,NULL,NULL,NULL,2),(40,2,4,26,4,2,NULL,NULL,3,3,4,3,3,2,1,3,NULL,NULL,NULL,1),(41,3,2,27,2,3,NULL,NULL,1,2,4,1,2,2,2,1,NULL,NULL,NULL,2),(42,4,3,28,3,4,NULL,NULL,2,3,5,4,3,1,2,2,NULL,NULL,NULL,1),(43,2,4,29,4,3,NULL,NULL,3,4,4,1,1,2,1,3,NULL,NULL,NULL,2),(44,3,1,30,2,2,NULL,NULL,3,3,3,3,2,1,1,4,NULL,NULL,NULL,3),(45,4,2,31,3,3,NULL,NULL,2,2,2,1,1,1,1,1,NULL,NULL,NULL,1),(46,5,3,32,4,3,NULL,NULL,2,1,2,2,1,2,2,3,NULL,NULL,NULL,2),(47,2,4,33,5,3,NULL,NULL,2,2,3,1,2,1,2,4,NULL,NULL,NULL,3),(48,3,2,34,2,2,NULL,NULL,3,3,4,2,2,1,3,2,NULL,NULL,NULL,1),(49,2,3,35,2,2,NULL,NULL,3,4,2,2,3,1,4,2,NULL,NULL,NULL,3),(50,3,2,10,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,1),(51,4,3,11,3,3,NULL,NULL,2,3,2,3,2,1,6,3,NULL,NULL,NULL,1),(52,2,4,12,4,4,NULL,NULL,2,4,2,4,3,1,6,4,NULL,NULL,NULL,2),(53,3,2,13,2,2,NULL,NULL,2,2,2,2,4,1,5,2,NULL,NULL,NULL,2),(54,4,3,14,3,3,NULL,NULL,2,3,2,3,5,1,6,3,NULL,NULL,NULL,2),(55,2,4,15,4,4,NULL,NULL,2,4,2,4,2,1,5,4,NULL,NULL,NULL,2),(56,2,2,16,5,2,'ファブリーズ大学','Webエンジニア',2,2,2,2,3,1,4,2,'漫画','アニメ','ゲーム',2),(57,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(58,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(59,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(60,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(61,2,5,1,4,1,'スターボックス大学院','大学事務',3,2,2,3,6,1,4,3,'食う','寝る','タバコ',2),(62,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(63,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(64,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(65,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(66,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(67,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(68,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(69,1,1,2,4,1,'','営業',1,1,1,1,1,1,1,1,'女装','美容ケア',NULL,1),(70,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(71,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(72,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(73,7,5,11,3,4,'株式会社ジードライブ新大久保校','リラクゼーションセラピスト',2,3,2,4,4,1,4,2,NULL,NULL,NULL,3),(74,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(75,1,1,1,1,1,'','',1,1,1,1,1,1,1,1,NULL,NULL,NULL,1),(76,1,1,1,1,1,NULL,NULL,1,1,1,1,1,1,1,1,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `user_free_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1120,6 +1120,8 @@ CREATE TABLE `z10_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1150,6 +1152,8 @@ CREATE TABLE `z11_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1180,6 +1184,8 @@ CREATE TABLE `z12_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1210,6 +1216,8 @@ CREATE TABLE `z13_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1240,6 +1248,8 @@ CREATE TABLE `z14_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1270,6 +1280,8 @@ CREATE TABLE `z15_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1280,7 +1292,7 @@ CREATE TABLE `z15_matchings` (
 
 LOCK TABLES `z15_matchings` WRITE;
 /*!40000 ALTER TABLE `z15_matchings` DISABLE KEYS */;
-INSERT INTO `z15_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z15_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z15_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1301,6 +1313,8 @@ CREATE TABLE `z16_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1311,7 +1325,7 @@ CREATE TABLE `z16_matchings` (
 
 LOCK TABLES `z16_matchings` WRITE;
 /*!40000 ALTER TABLE `z16_matchings` DISABLE KEYS */;
-INSERT INTO `z16_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z16_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z16_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1332,6 +1346,8 @@ CREATE TABLE `z17_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1342,7 +1358,7 @@ CREATE TABLE `z17_matchings` (
 
 LOCK TABLES `z17_matchings` WRITE;
 /*!40000 ALTER TABLE `z17_matchings` DISABLE KEYS */;
-INSERT INTO `z17_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z17_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z17_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1363,6 +1379,8 @@ CREATE TABLE `z18_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1373,7 +1391,7 @@ CREATE TABLE `z18_matchings` (
 
 LOCK TABLES `z18_matchings` WRITE;
 /*!40000 ALTER TABLE `z18_matchings` DISABLE KEYS */;
-INSERT INTO `z18_matchings` VALUES (76,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z18_matchings` VALUES (76,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z18_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1394,6 +1412,8 @@ CREATE TABLE `z19_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1424,6 +1444,8 @@ CREATE TABLE `z1_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1434,7 +1456,7 @@ CREATE TABLE `z1_matchings` (
 
 LOCK TABLES `z1_matchings` WRITE;
 /*!40000 ALTER TABLE `z1_matchings` DISABLE KEYS */;
-INSERT INTO `z1_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z1_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z1_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1455,6 +1477,8 @@ CREATE TABLE `z20_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1485,6 +1509,8 @@ CREATE TABLE `z21_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1515,6 +1541,8 @@ CREATE TABLE `z22_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1545,6 +1573,8 @@ CREATE TABLE `z23_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1575,6 +1605,8 @@ CREATE TABLE `z24_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1605,6 +1637,8 @@ CREATE TABLE `z25_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1635,6 +1669,8 @@ CREATE TABLE `z26_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1645,7 +1681,7 @@ CREATE TABLE `z26_matchings` (
 
 LOCK TABLES `z26_matchings` WRITE;
 /*!40000 ALTER TABLE `z26_matchings` DISABLE KEYS */;
-INSERT INTO `z26_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z26_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z26_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1666,6 +1702,8 @@ CREATE TABLE `z27_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1676,7 +1714,7 @@ CREATE TABLE `z27_matchings` (
 
 LOCK TABLES `z27_matchings` WRITE;
 /*!40000 ALTER TABLE `z27_matchings` DISABLE KEYS */;
-INSERT INTO `z27_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z27_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z27_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1697,6 +1735,8 @@ CREATE TABLE `z28_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1727,6 +1767,8 @@ CREATE TABLE `z29_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1757,6 +1799,8 @@ CREATE TABLE `z2_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1787,6 +1831,8 @@ CREATE TABLE `z30_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1817,6 +1863,8 @@ CREATE TABLE `z31_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1827,7 +1875,7 @@ CREATE TABLE `z31_matchings` (
 
 LOCK TABLES `z31_matchings` WRITE;
 /*!40000 ALTER TABLE `z31_matchings` DISABLE KEYS */;
-INSERT INTO `z31_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z31_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z31_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1848,6 +1896,8 @@ CREATE TABLE `z32_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1878,6 +1928,8 @@ CREATE TABLE `z33_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1908,6 +1960,8 @@ CREATE TABLE `z34_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1938,6 +1992,8 @@ CREATE TABLE `z35_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1968,6 +2024,8 @@ CREATE TABLE `z36_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1998,6 +2056,8 @@ CREATE TABLE `z37_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2028,6 +2088,8 @@ CREATE TABLE `z38_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2038,7 +2100,7 @@ CREATE TABLE `z38_matchings` (
 
 LOCK TABLES `z38_matchings` WRITE;
 /*!40000 ALTER TABLE `z38_matchings` DISABLE KEYS */;
-INSERT INTO `z38_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z38_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z38_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2059,6 +2121,8 @@ CREATE TABLE `z39_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2089,6 +2153,8 @@ CREATE TABLE `z3_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2099,7 +2165,7 @@ CREATE TABLE `z3_matchings` (
 
 LOCK TABLES `z3_matchings` WRITE;
 /*!40000 ALTER TABLE `z3_matchings` DISABLE KEYS */;
-INSERT INTO `z3_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z3_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z3_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2120,6 +2186,8 @@ CREATE TABLE `z40_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2150,6 +2218,8 @@ CREATE TABLE `z41_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2160,7 +2230,7 @@ CREATE TABLE `z41_matchings` (
 
 LOCK TABLES `z41_matchings` WRITE;
 /*!40000 ALTER TABLE `z41_matchings` DISABLE KEYS */;
-INSERT INTO `z41_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z41_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z41_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2181,6 +2251,8 @@ CREATE TABLE `z42_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2211,6 +2283,8 @@ CREATE TABLE `z43_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2241,6 +2315,8 @@ CREATE TABLE `z44_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2271,6 +2347,8 @@ CREATE TABLE `z45_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2301,6 +2379,8 @@ CREATE TABLE `z46_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2311,7 +2391,7 @@ CREATE TABLE `z46_matchings` (
 
 LOCK TABLES `z46_matchings` WRITE;
 /*!40000 ALTER TABLE `z46_matchings` DISABLE KEYS */;
-INSERT INTO `z46_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z46_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z46_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2332,6 +2412,8 @@ CREATE TABLE `z47_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2342,7 +2424,7 @@ CREATE TABLE `z47_matchings` (
 
 LOCK TABLES `z47_matchings` WRITE;
 /*!40000 ALTER TABLE `z47_matchings` DISABLE KEYS */;
-INSERT INTO `z47_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z47_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z47_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2363,6 +2445,8 @@ CREATE TABLE `z48_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2393,6 +2477,8 @@ CREATE TABLE `z49_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2423,6 +2509,8 @@ CREATE TABLE `z4_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2453,6 +2541,8 @@ CREATE TABLE `z50_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2463,7 +2553,7 @@ CREATE TABLE `z50_matchings` (
 
 LOCK TABLES `z50_matchings` WRITE;
 /*!40000 ALTER TABLE `z50_matchings` DISABLE KEYS */;
-INSERT INTO `z50_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z50_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z50_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2484,6 +2574,8 @@ CREATE TABLE `z51_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2514,6 +2606,8 @@ CREATE TABLE `z52_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2544,6 +2638,8 @@ CREATE TABLE `z53_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2554,7 +2650,7 @@ CREATE TABLE `z53_matchings` (
 
 LOCK TABLES `z53_matchings` WRITE;
 /*!40000 ALTER TABLE `z53_matchings` DISABLE KEYS */;
-INSERT INTO `z53_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z53_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z53_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2575,6 +2671,8 @@ CREATE TABLE `z54_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2605,6 +2703,8 @@ CREATE TABLE `z55_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2615,7 +2715,7 @@ CREATE TABLE `z55_matchings` (
 
 LOCK TABLES `z55_matchings` WRITE;
 /*!40000 ALTER TABLE `z55_matchings` DISABLE KEYS */;
-INSERT INTO `z55_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(76,0,0,0,1,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z55_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(76,0,0,0,1,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z55_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2636,6 +2736,8 @@ CREATE TABLE `z56_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2666,6 +2768,8 @@ CREATE TABLE `z57_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2696,6 +2800,8 @@ CREATE TABLE `z58_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2706,7 +2812,7 @@ CREATE TABLE `z58_matchings` (
 
 LOCK TABLES `z58_matchings` WRITE;
 /*!40000 ALTER TABLE `z58_matchings` DISABLE KEYS */;
-INSERT INTO `z58_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z58_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z58_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2727,6 +2833,8 @@ CREATE TABLE `z59_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2737,7 +2845,7 @@ CREATE TABLE `z59_matchings` (
 
 LOCK TABLES `z59_matchings` WRITE;
 /*!40000 ALTER TABLE `z59_matchings` DISABLE KEYS */;
-INSERT INTO `z59_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z59_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,'2022-10-25 14:33:05');
 /*!40000 ALTER TABLE `z59_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2758,6 +2866,8 @@ CREATE TABLE `z5_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2768,7 +2878,7 @@ CREATE TABLE `z5_matchings` (
 
 LOCK TABLES `z5_matchings` WRITE;
 /*!40000 ALTER TABLE `z5_matchings` DISABLE KEYS */;
-INSERT INTO `z5_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z5_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z5_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2789,6 +2899,8 @@ CREATE TABLE `z60_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2819,6 +2931,8 @@ CREATE TABLE `z61_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2849,6 +2963,8 @@ CREATE TABLE `z62_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2859,7 +2975,7 @@ CREATE TABLE `z62_matchings` (
 
 LOCK TABLES `z62_matchings` WRITE;
 /*!40000 ALTER TABLE `z62_matchings` DISABLE KEYS */;
-INSERT INTO `z62_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z62_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z62_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2880,6 +2996,8 @@ CREATE TABLE `z63_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2890,7 +3008,7 @@ CREATE TABLE `z63_matchings` (
 
 LOCK TABLES `z63_matchings` WRITE;
 /*!40000 ALTER TABLE `z63_matchings` DISABLE KEYS */;
-INSERT INTO `z63_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z63_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z63_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2911,6 +3029,8 @@ CREATE TABLE `z64_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2941,6 +3061,8 @@ CREATE TABLE `z65_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2951,7 +3073,7 @@ CREATE TABLE `z65_matchings` (
 
 LOCK TABLES `z65_matchings` WRITE;
 /*!40000 ALTER TABLE `z65_matchings` DISABLE KEYS */;
-INSERT INTO `z65_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z65_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z65_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2972,6 +3094,8 @@ CREATE TABLE `z66_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3002,6 +3126,8 @@ CREATE TABLE `z67_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3012,7 +3138,7 @@ CREATE TABLE `z67_matchings` (
 
 LOCK TABLES `z67_matchings` WRITE;
 /*!40000 ALTER TABLE `z67_matchings` DISABLE KEYS */;
-INSERT INTO `z67_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z67_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z67_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3033,6 +3159,8 @@ CREATE TABLE `z68_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3043,7 +3171,7 @@ CREATE TABLE `z68_matchings` (
 
 LOCK TABLES `z68_matchings` WRITE;
 /*!40000 ALTER TABLE `z68_matchings` DISABLE KEYS */;
-INSERT INTO `z68_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(76,0,0,0,1,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z68_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(76,0,0,0,1,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z68_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3064,6 +3192,8 @@ CREATE TABLE `z69_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3074,7 +3204,7 @@ CREATE TABLE `z69_matchings` (
 
 LOCK TABLES `z69_matchings` WRITE;
 /*!40000 ALTER TABLE `z69_matchings` DISABLE KEYS */;
-INSERT INTO `z69_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z69_matchings` VALUES (75,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z69_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3095,6 +3225,8 @@ CREATE TABLE `z6_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3125,6 +3257,8 @@ CREATE TABLE `z70_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3135,7 +3269,7 @@ CREATE TABLE `z70_matchings` (
 
 LOCK TABLES `z70_matchings` WRITE;
 /*!40000 ALTER TABLE `z70_matchings` DISABLE KEYS */;
-INSERT INTO `z70_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z70_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z70_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3156,6 +3290,8 @@ CREATE TABLE `z71_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3166,7 +3302,7 @@ CREATE TABLE `z71_matchings` (
 
 LOCK TABLES `z71_matchings` WRITE;
 /*!40000 ALTER TABLE `z71_matchings` DISABLE KEYS */;
-INSERT INTO `z71_matchings` VALUES (75,0,0,0,1,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z71_matchings` VALUES (75,0,0,0,1,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z71_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3187,6 +3323,8 @@ CREATE TABLE `z72_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3197,7 +3335,7 @@ CREATE TABLE `z72_matchings` (
 
 LOCK TABLES `z72_matchings` WRITE;
 /*!40000 ALTER TABLE `z72_matchings` DISABLE KEYS */;
-INSERT INTO `z72_matchings` VALUES (73,0,0,0,1,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z72_matchings` VALUES (73,0,0,0,1,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z72_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3218,6 +3356,8 @@ CREATE TABLE `z73_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3228,7 +3368,7 @@ CREATE TABLE `z73_matchings` (
 
 LOCK TABLES `z73_matchings` WRITE;
 /*!40000 ALTER TABLE `z73_matchings` DISABLE KEYS */;
-INSERT INTO `z73_matchings` VALUES (1,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(3,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(5,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(8,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(15,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(16,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(17,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(27,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(31,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(38,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(47,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(53,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(55,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(58,0,0,1,0,0,0,'2022-09-01 00:00:00',0),(62,0,0,1,0,0,0,'2022-09-01 00:00:00',0),(63,0,0,1,0,0,0,'2022-09-01 00:00:00',0),(68,0,0,1,0,0,0,'2022-09-01 00:00:00',0),(70,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(72,0,1,0,0,0,0,'2022-09-01 00:00:00',0),(74,0,1,0,0,0,0,'2022-09-01 00:00:00',0),(75,1,1,0,1,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z73_matchings` VALUES (1,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(3,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(5,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(8,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(15,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(16,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(17,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(27,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(31,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(38,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(47,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(53,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(55,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(58,0,0,1,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(62,0,0,1,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(63,0,0,1,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(68,0,0,1,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(70,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(72,0,1,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(74,0,1,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(75,1,1,0,1,0,0,'2022-09-01 00:00:00',0,'2022-10-25 11:38:14',NULL);
 /*!40000 ALTER TABLE `z73_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3249,6 +3389,8 @@ CREATE TABLE `z74_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3259,7 +3401,7 @@ CREATE TABLE `z74_matchings` (
 
 LOCK TABLES `z74_matchings` WRITE;
 /*!40000 ALTER TABLE `z74_matchings` DISABLE KEYS */;
-INSERT INTO `z74_matchings` VALUES (73,0,0,0,1,0,0,'2022-09-01 00:00:00',0),(76,0,0,0,1,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z74_matchings` VALUES (73,0,0,0,1,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(76,0,0,0,1,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z74_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3280,6 +3422,8 @@ CREATE TABLE `z75_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3290,7 +3434,7 @@ CREATE TABLE `z75_matchings` (
 
 LOCK TABLES `z75_matchings` WRITE;
 /*!40000 ALTER TABLE `z75_matchings` DISABLE KEYS */;
-INSERT INTO `z75_matchings` VALUES (26,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(41,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(46,0,0,0,1,0,1,'2022-09-01 00:00:00',0),(50,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(59,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(65,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(67,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(69,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(71,0,0,0,0,0,0,'2022-09-01 00:00:00',0),(73,1,0,1,1,0,1,'2022-09-01 00:00:00',0),(76,1,0,1,1,0,1,'2022-10-25 10:16:13',2);
+INSERT INTO `z75_matchings` VALUES (26,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(41,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(46,0,0,0,1,0,1,'2022-09-01 00:00:00',0,NULL,NULL),(50,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL),(59,0,0,0,0,0,0,'2022-09-01 00:00:00',0,'2022-10-25 14:33:05','2022-10-24 11:38:14'),(65,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,'2022-10-23 11:38:14'),(67,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,'2022-10-22 11:38:14'),(69,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,'2022-10-21 11:38:14'),(71,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,'2022-10-20 11:38:14'),(73,1,0,1,1,0,1,'2022-09-01 00:00:00',0,NULL,'2022-10-25 11:38:14'),(76,1,0,1,1,0,1,'2022-10-25 10:16:13',3,'2022-10-25 11:34:32','2022-10-25 11:35:01');
 /*!40000 ALTER TABLE `z75_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3311,6 +3455,8 @@ CREATE TABLE `z76_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `not_read_message` int DEFAULT '0',
   `received_message` datetime DEFAULT CURRENT_TIMESTAMP,
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3321,7 +3467,7 @@ CREATE TABLE `z76_matchings` (
 
 LOCK TABLES `z76_matchings` WRITE;
 /*!40000 ALTER TABLE `z76_matchings` DISABLE KEYS */;
-INSERT INTO `z76_matchings` VALUES (18,0,0,0,0,0,0,0,'2022-10-25 10:26:18'),(55,0,1,1,0,0,0,0,'2022-10-25 10:18:28'),(68,0,1,1,0,0,0,0,'2022-10-25 10:17:56'),(74,0,1,1,0,0,0,0,'2022-10-25 10:17:42'),(75,1,0,1,1,0,0,0,'2022-10-25 10:51:00');
+INSERT INTO `z76_matchings` VALUES (18,0,0,0,0,0,0,0,'2022-10-25 10:26:18',NULL,NULL),(55,0,1,1,0,0,0,0,'2022-10-25 10:18:28',NULL,NULL),(68,0,1,1,0,0,0,0,'2022-10-25 10:17:56',NULL,NULL),(74,0,1,1,0,0,0,0,'2022-10-25 10:17:42',NULL,NULL),(75,1,0,1,1,0,0,0,'2022-10-25 14:35:08','2022-10-25 11:35:01','2022-10-25 11:34:32');
 /*!40000 ALTER TABLE `z76_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3342,6 +3488,8 @@ CREATE TABLE `z7_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3372,6 +3520,8 @@ CREATE TABLE `z8_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3382,7 +3532,7 @@ CREATE TABLE `z8_matchings` (
 
 LOCK TABLES `z8_matchings` WRITE;
 /*!40000 ALTER TABLE `z8_matchings` DISABLE KEYS */;
-INSERT INTO `z8_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0);
+INSERT INTO `z8_matchings` VALUES (73,0,0,0,0,0,0,'2022-09-01 00:00:00',0,NULL,NULL);
 /*!40000 ALTER TABLE `z8_matchings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3403,6 +3553,8 @@ CREATE TABLE `z9_matchings` (
   `checked_received_nice` int DEFAULT '0',
   `received_message` datetime DEFAULT '2022-09-01 00:00:00',
   `not_read_message` int DEFAULT '0',
+  `i_went` datetime DEFAULT NULL,
+  `partners_came` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3425,4 +3577,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-25 11:11:15
+-- Dump completed on 2022-10-25 15:20:17

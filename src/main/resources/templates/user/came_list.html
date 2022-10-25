@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>あしあと</title>
+<link rel="stylesheet" th:href="@{/css/came_list.css}" />
+</head>
+<body>
+
+<h1>あしあと</h1>
+
+<h3 th:if="${session.countCame == 0}">あしあとはまだありません</h3>
+
+<th:block th:each="list :${cameList}" tf:if="${session.countCame > 0}">
+	<table class="user_list">
+		<tr>
+			<td rowspan=3 class="icon_td">
+				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+					<img th:if="${list.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" class="icon">
+					<img th:if="${list.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px" class="icon">
+				</a>
+			</td>
+			<td class="top_td">
+			<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+				<span class="name">[[${list.name}]]</span>
+				<span class="age">[[${list.age}]]歳</span>
+				<span>[[${list.residence}]]</span>
+			</a>
+			</td>
+			<td class="came_time_td">
+			<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+			<span th:text="${#dates.format(list.cameTime, 'MM月dd日 HH時mm分')}"></span>
+			</a>
+			</td>
+		</tr>
+		<tr>
+			<td class="middle_td" colspan=2>
+			<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+				<span>[[${list.height}]]cm</span>
+				<span>[[${list.occupation}]]</span>
+				<span>[[${list.housemate}]]</span>
+				</a>
+			</td>
+		</tr>
+		<tr>
+		<td clas="bottom_td" colspan=2>
+		<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+			<span class="hobby">[[${list.hobbyOne}]]</span>
+			<span class="hobby" th:if="${list.hobbyTwo} != null">,[[${list.hobbyTwo}]]</span>
+			<span class="hobby" th:if="${list.hobbyThree} != null">,[[${list.hobbyThree}]]</span>
+		 	<span>　</span>
+		 </a>
+		</td>
+		</tr>
+	</table>
+</th:block>
+
+</body>
+</html>

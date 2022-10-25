@@ -28,6 +28,7 @@ import com.example.app.domain.UserFreeDetail;
 import com.example.app.domain.UserRequiredDetail;
 import com.example.app.domain.UserText;
 import com.example.app.service.MatchingService;
+import com.example.app.service.SearchService;
 import com.example.app.service.UserService;
 
 @Controller
@@ -39,6 +40,9 @@ public class UserController {
 	
 	@Autowired
 	MatchingService matchingService;
+	
+	@Autowired
+	SearchService searchService;
 	
 	@Autowired
 	HttpSession session;
@@ -541,6 +545,16 @@ public class UserController {
 		
 		return "redirect:/user/" + partnersId + "/message/";
 	}
+	
+	@GetMapping("/cameList")
+	public String cameListGet(Model model)throws Exception{
+		Integer myId = (Integer) session.getAttribute("myId");
+		List<MatchingUser> cameList = searchService.cameList(myId);
+			session.setAttribute("countCame", cameList.size());
+		model.addAttribute("cameList", cameList);
+		return "/user/came_list";
+	}
+	
 	
 	private boolean haveImage1(Integer id) {
 		File image1jpg = new File(UPLOAD_DIRECTORY + id + "/img1.jpg");
