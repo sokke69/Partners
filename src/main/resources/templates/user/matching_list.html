@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<header th:insert="~{common :: header}"></header>
+
 <h3 class="display-3">マッチングリスト</h3>
 
 <h3 class="display-6" th:if="${session.countMatching == 0}">マッチングした人はまだいません</h3>

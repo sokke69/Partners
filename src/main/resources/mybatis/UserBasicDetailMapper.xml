@@ -63,5 +63,11 @@
 		WHERE id=#{id}
 	</update>
 	
+	<update id="addGetLikePoint" parameterType="integer">
+		UPDATE user_basic_details
+		SET get_like_point=+1
+		WHERE id=#{id}
+	</update>
+	
 
 </mapper>

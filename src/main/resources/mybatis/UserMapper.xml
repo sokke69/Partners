@@ -166,6 +166,7 @@
 			<result column = "name" property="name"/>
 			<result column = "like_point" property="likePoint"/>
 			<result column = "registed" property="registed"/>
+			<result column="get_like_point" property="getLikePoint"/>
 		</association>
 		
 		<association property="userRD" javaType="com.example.app.domain.UserRequiredDetail">
@@ -223,6 +224,7 @@
 			user_basic_details.name, 
 			user_basic_details.like_point, 
 			user_basic_details.registered,
+			get_like_point,
 			height,
 			residences.residence, 
 			occupations.occupation AS occupation,
@@ -307,6 +309,7 @@
 			user_basic_details.name, 
 			user_basic_details.like_point, 
 			user_basic_details.registered,
+			get_like_point,
 			height,
 			residences.residence, 
 			occupations.occupation AS occupation,

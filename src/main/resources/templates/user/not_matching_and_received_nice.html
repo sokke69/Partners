@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<header th:insert="~{common :: header}"></header>
+
 <h3 class="display-4">相手からのいいね</h3>
 
 <h3 class="display-6" th:if="${session.countNotMatchingAndReceivedNiceList == 0}">相手からのいいねはまだ届いていません</h3>

@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<header th:insert="~{common :: header}"></header>
+
 <h3 class="display-4">あなたがいいねを送った相手</h3>
 <h3 class="display-4" th:if="${session.countNotMatchingAndSendedNiceList == 0}">自分からのいいねはまだ送っていません</h3>
 

@@ -6,3 +6,10 @@ a{
 	text-decoration: none;
 	color:#000;
 }
+.nav_link{
+	font-size:14px;
+	margin:0 10px;
+}
+header{
+	margin-bottom:100px;
+}

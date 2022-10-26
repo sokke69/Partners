@@ -3,16 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>プロフィール写真の削除</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/user_table.css}" />
+
 </head>
 <body>
-<h1>プロフィール写真の削除</h1>
 
-<img th:src="@{/imgs/{id}/img{number}.jpg?{today}(id=${session.id},number=${imgNumber}, today=${today})}" alt=""  height="210px">
 
-<p>この画像を本当に削除しますか。</p>
+<header th:insert="~{common :: header}"></header>
 
-<form action="" method="post">
-<input type="submit" value="削除する"/>
-</form>
+<h3 class="display-4">プロフィール写真 削除</h3>
+
+<table>
+	<tr>
+		<td class="update_img_td">
+			<img class="update_img" th:src="@{/imgs/{id}/img{number}.jpg?{today}(id=${session.myId},number=${imgNumber}, today=${today})}" alt=""  height="210px">
+			<span class="attention">この画像を本当に削除しますか。</span>
+			
+			<form action="" method="post">
+			<input type="submit"  value="削除する"/>
+			</form>
+		</td>
+	</tr>
+</table>
+
+
 </body>
 </html>

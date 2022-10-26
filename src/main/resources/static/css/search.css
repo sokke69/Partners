@@ -101,7 +101,13 @@ select{
 .unimplemented{
 	color:#CCC;
 }
-
+.nav_link{
+	font-size:14px;
+	margin:0 10px;
+}
+header{
+	margin-bottom:100px;
+}
 
 
 

@@ -47,8 +47,8 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	//private static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
-	private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
+	static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
+	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
 	@GetMapping("/userList")
@@ -281,13 +281,25 @@ public class UserController {
 	
 	@PostMapping("/mypage/edit/img/delete/{number}")
 	public String deleteImagePost(@PathVariable("number") Integer number) throws Exception{
-		User user = userService.getUserByLoginId((String)session.getAttribute("login_id"));			
-		File directory = new File(UPLOAD_DIRECTORY + user.getId());
-		File deleteFile = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + number + ".jpg");
+		Integer myId = (Integer) session.getAttribute("myId");	
+		File directory = new File(UPLOAD_DIRECTORY + myId);
+		File deleteFile = new File(UPLOAD_DIRECTORY + myId + "/img" + number + ".jpg");
 		deleteFile.delete();
 		
 		File[] fileList = directory.listFiles();
 		Integer fileCount = fileList.length;
+		
+		
+		
+		for(int i=0; i <= (fileCount-1); i++) {
+			File fileName = fileList[i];
+			String fileNameStr = fileList[i].toString();
+			if (!fileNameStr.equals("img1.jpg")) {
+				File newName = new File(UPLOAD_DIRECTORY + myId + "/img" + (i+1) + ".jpg");
+				fileName.renameTo(newName);
+			}
+		}
+		
 		userService.updateImage((Integer) session.getAttribute("myId"),(fileCount));
 		return "redirect:/user/mypage/edit/img";
 	}
@@ -570,7 +582,7 @@ public class UserController {
 		return dates;
 	}
 	
-	private void todayModelSet(Model model) {
+	static void todayModelSet(Model model) {
 		Date todayDate = new Date();
 		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
 		String today = fmt.format(todayDate);

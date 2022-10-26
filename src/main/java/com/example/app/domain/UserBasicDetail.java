@@ -37,5 +37,6 @@ public class UserBasicDetail {
 	private Integer month;
 	private Integer day;
 	
+	private Integer getLikePoint;
 	
 }

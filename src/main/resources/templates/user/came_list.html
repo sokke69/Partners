@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<header th:insert="~{common :: header}"></header>
+
 <div><h3 th:if="${session.countCame == 0}" class="display-4">あしあとはまだありません</h3></div>
 
 <th:block th:each="list :${cameList}" th:if="${session.countCame > 0}">

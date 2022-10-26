@@ -1,7 +1,6 @@
 package com.example.app.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -47,10 +46,7 @@ public class SearchController {
 			UserFreeDetail userFD, UserImage userI,
 			UserText userT) throws Exception {
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		UserController.todayModelSet(model);
 
 		userBD.setSex((Integer)session.getAttribute("sex"));
 		user.setUserBD(userBD);;
@@ -90,10 +86,7 @@ public class SearchController {
 			UserFreeDetail userFD, UserImage userI,
 			UserText userT) throws Exception{
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		UserController.todayModelSet(model);
 		
 		if (user.getUserRD().getResidence() == 0) {
 			user.getUserRD().setResidence(null);
@@ -199,14 +192,16 @@ public class SearchController {
 	@GetMapping("/user/{id}")
 	public String userGet(@PathVariable("id") Integer partnersId,Model model) throws Exception {
 		
-		Date todayDate = new Date();
-		SimpleDateFormat fmt = new SimpleDateFormat("yMMddHHmmss");
-		String today = fmt.format(todayDate);
-		model.addAttribute("today",today);
+		UserController.todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		Integer checkMatchingOfMine = matchingService.checkMatchingOfMine(myId, partnersId);
 		Integer checkMatchingOfPartners = matchingService.checkMatchingOfPartners(partnersId, myId);
+		
+		File uploadsDirectory = new File(UserController.UPLOAD_DIRECTORY + partnersId);
+		File[] fileList = uploadsDirectory.listFiles();
+		model.addAttribute("fileList", fileList);
+		model.addAttribute("num","あいうえお");
 		
 		// 自分のマッチングテーブルに対象IDのrowがあるか確認
 		Integer checkRowOfMine = matchingService.checkRowOfMine((Integer) session.getAttribute("myId"), partnersId);
@@ -299,11 +294,15 @@ public class SearchController {
 			
 			// 自分のいいねポイントを確認
 			Integer myLikePoint = userService.checkLikePoint(myId);
+			// いいねポイントが0ならエラー
 			if (myLikePoint < 1) {
 				session.setAttribute("error_title", "いいねポイントが足りません");
 				session.setAttribute("error_detail", "いいねポイントを補充するか、付与されるのをお待ちください。");
 				return "redirect:/error";
 			}
+			
+			// 対象の獲得いいね数に+1
+			userService.addGetLikePoint(partnersId);
 			
 			// 自分のマッチングテーブルの対象IDのsended_niceに1(sended)を格納
 			matchingService.addSendedNiceOfMine(myId, partnersId);

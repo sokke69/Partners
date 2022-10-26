@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>[[${user.userBD.name}]]</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
@@ -28,9 +29,60 @@
 		})
 	});
 	</script>
-
-	<h1>[[${user.userBD.name}]]</h1>
+	<script>
+$(document).ready(function(){
+	$('#0').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
 	
+	$('#1').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#2').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});	
+	
+	$('#3').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});	
+	
+	$('#4').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#5').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#6').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#7').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#8').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+});
+</script>
+
+
+<header th:insert="~{common :: header}"></header>
+
+
+
 	<form action="" method="post" name="userform" th:object="${user}">
 		
 		<input type="hidden" name="favoriteStatus" th:value="0" id="favoriteStatus" th:if="${session.favorite == 0}"/>
@@ -75,43 +127,41 @@
 		
 		
 		<th:block th:if="${session.matching == 1}">
-			<h3>マッチング済み</h3><h3><a th:href="@{/user/{id}/message/(id=${user.id})}" target="_blank">メッセージ</a></h3>
+			<table class="table_top">
+				<tr>
+					<td><h3 class="display-6">マッチング済み</h3></td><td><h3 class="display-6"><a th:href="@{/user/{id}/message/(id=${user.id})}" target="_blank">メッセージ</a></h3></td>
+				</tr>
+			</table>
 		</th:block>
 		<th:block th:if="${session.matching == 0}">
-			<h3>
-				<span><a href="javascript:document.userform.submit()" id="favorite" th:if="${session.favorite == 0}">気になる</a></span>
-				<span><a href="javascript:document.userform.submit()" id="favorite" th:if="${session.favorite == 1}">気になるを解除</a></span>
-				<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 0}">いいね</a></span>
-				<span><a href="javascript:document.userform.submit()" id="nice" th:if="${session.sendedNice == 0 && session.receivedNice == 1}">いいねを返す</a></span>
-				<span th:if="${session.sendedNice == 1}">いいね送信済み</span>
-			</h3>
+			<table class="table_top">
+				<tr>
+					<td th:if="${session.favorite == 0}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="favorite">気になる</a></h3></td>
+					<td th:if="${session.favorite == 1}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="favorite">気になるを解除</a></h3></td>
+					<td th:if="${session.sendedNice == 0 && session.receivedNice == 0}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="nice">いいね</a></h3></td>
+					<td th:if="${session.sendedNice == 0 && session.receivedNice == 1}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="nice">いいねを返す</a></h3></td>
+					<td th:if="${session.sendedNice == 0 && session.receivedNice == 1}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="nice">いいねを返す</a></h3></td>
+					<td th:if="${session.sendedNice == 1}"><h3 class="display-6">いいね送信済み</h3></td>
+				</tr>
+			</table>
 		</th:block>
 		
 		
 	</form>
 	
-	
-
-
-	<table width="350px">
+	<table>
 
 		<tr>
-			<td class="main_img_td"><img class="main_img" th:if="${user.userI.img > 0}"
-				th:src="@{/imgs/{id}/img1.jpg?{today}(id=${user.id}, today=${today})}" alt="" height="350px">
-				<img class="main_img" th:if="${user.userI.img == 0}" th:src="@{/img/noimage.jpg}"
-				alt="" height="210px"></td>
+			<td class="main_img_td"><img class="main_img" id="main" th:if="${user.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${user.id}, today=${today})}" alt="">
+				<img class="main_img" th:if="${user.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px"></td>
 		</tr>
 
-		<th:block th:each="file : ${fileList}">
-			<tr>
-				<td><img
-					class="sub_img" th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}"
-					height="70px"></td>
-			</tr>
-		</th:block>
+	<tr><td><th:block th:each="file , num: ${fileList}">
+	<img class="sub_img" th:id="${num.index}" th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}" height="70px">
+	</th:block></td></tr>
 
 		<tr>
-			<th>[[${user.userBD.name}]]</th>
+			<td><span class="name">[[${user.userBD.name}]]</span><span class="get_like_point">[[${user.userBD.getLikePoint}]] いいね！</span></td>
 		</tr>
 		<tr>
 			<td>[[${user.userBD.age}]]歳 [[${user.userRD.residenceStr}]] <th:block
@@ -119,11 +169,13 @@
 					th:if="${user.userFD.vaccinationStr} == '接種済み'">[[${user.userFD.vaccinationStr}]]</th:block>
 				<th:block th:if="${user.userFD.vaccinationStr} == '接種中'">[[${user.userFD.vaccinationStr}]]</th:block></td>
 		</tr>
+			
 		<th:block th:if="${user.userT.oneWord} != ''">
-			<tr>
-				<td>[[${user.userT.oneWord}]]</td>
-			</tr>
+		<tr><td>
+			<span>[[${user.userT.oneWord}]]</span>
+		</td></tr>
 		</th:block>
+
 	</table>
 
 	<table>
@@ -187,11 +239,11 @@
 		</tr>
 
 		<th:block
-			th:if="${user.userFD.educationalStr != '選択しない' || user.userFD.schoolName != ''}">
+			th:if="${user.userFD.educationalStr != '選択しない' || user.userFD.schoolName != null}">
 			<tr>
 				<th>学歴</th>
 				<td><span th:if="user.userFD.educationalStr != '選択しない'">[[${user.userFD.educationalStr}]]</span>
-					<span th:if="${user.userFD.schoolName != ''}">([[${user.userFD.schoolName}]])</span>
+					<span th:if="${user.userFD.schoolName != null}">([[${user.userFD.schoolName}]])</span>
 				</td>
 			</tr>
 		</th:block>
@@ -204,7 +256,7 @@
 					<span
 					th:if="${user.userFD.jobName != '' && user.userRD.occupationStr == '選択しない'}">[[${user.userFD.jobName}]]</span>
 					<span
-					th:if="${user.userFD.jobName != '' && user.userRD.occupationStr != '選択しない'}">([[${user.userFD.jobName}]])</span>
+					th:if="${user.userFD.jobName != '' && user.userFD.jobName != null}">([[${user.userFD.jobName}]])</span>
 				</td>
 			</tr>
 		</th:block>

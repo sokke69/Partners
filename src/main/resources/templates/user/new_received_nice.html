@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<header th:insert="~{common :: header}"></header>
+
 <h3 class="display-4">新しく届いた「いいね」</h3>
 
 <th:block th:each="list : ${newReceivedNiceList}">

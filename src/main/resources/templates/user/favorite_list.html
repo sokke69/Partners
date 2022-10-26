@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<header th:insert="~{common :: header}"></header>
+
 <h3 class="display-4">気になる相手</h3>
 
 <h3 class="display-6" th:if="${session.countFavorite == 0}">気になる を押した人はまだいません</h3>

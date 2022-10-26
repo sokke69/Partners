@@ -213,6 +213,11 @@ public class UserServiceImpl implements UserService {
 		return userBDMapper.useLikePoint(id, useLikePoint);
 	}
 	
+	@Override
+	public void addGetLikePoint(Integer id) throws Exception{
+		userBDMapper.addGetLikePoint(id);
+	}
+	
 	// UserBasicDetailMapper.java ここまで
 	
 	
