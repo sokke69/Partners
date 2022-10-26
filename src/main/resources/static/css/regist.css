@@ -1,10 +1,14 @@
 @charset "UTF-8";
-.birthday{
-	width:50px;
+body{
+	background-color:#add8e6;
+	min-width:850px
 }
 a{
 	text-decoration: none;
 	color:#000;
+}
+input{
+	font-size:30px;
 }
 .nav_link{
 	font-size:14px;
@@ -12,4 +16,237 @@ a{
 }
 header{
 	margin-bottom:100px;
+}
+.navbar-brand{
+	margin-left:50px;
+}	
+.error{
+	color: #F00;
+	margin-bottom: 0;
+}
+
+.error + p{
+	margin-top: 0;
+}
+td.td_left{
+	text-align:center;
+	vertical-align:middle;
+	background-color:#FFF;
+	border-radius:20px;
+	padding: 0;
+	height: 0;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+}
+td.td_center{
+	text-align:center;
+	width:30px;
+	table-layout: fixed;
+}
+td.td_right{
+	text-align:center;
+	vertical-align:middle;
+	background-color:#FFF;
+	border-radius:20px;
+	padding: 0;
+	height: 0;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+}
+.regist_select{
+	margin-left:auto;
+	margin-right:auto;
+}
+.regist_select a{
+	height: 100%;
+	padding: 2px 5px;
+	align-items: center;
+	display: flex;
+}
+.icon{
+	text-align:center;
+	width:200px;
+	height:200px;
+	margin:20px;
+}
+
+.title_div{
+	margin:100px 0 40px;
+	text-align:center;
+}
+.regist_input{
+	height:244px;
+	width:530px;
+	margin-left:auto;
+	margin-right:auto;
+	background:#FFF;
+	border-radius:20px;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+}
+.input_td{
+	text-align:center;
+}
+.input_text{
+	margin-left:10px;
+	margin-right:10px;
+}
+.input{
+	vertical-align:middle;
+	height:80px;
+	margin-bottom:10px;
+	padding:10px 10px 20px;
+	background-color:#f0ffff;
+	border:0;
+	border-radius:10px;
+	text-align:center;
+}
+.year{
+	width:120px;
+	text-align:center;
+}
+.month{
+	width:60px;
+	text-align:center;
+}
+.day{
+	width:60px;
+	text-align:center;
+}
+.next_back{
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.next{
+	text-align:center;
+	vertical-align:middle;
+	background-color:#FFF;
+	border-radius:20px;
+	padding: 0;
+	height: 0;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+
+}
+.back{
+	text-align:center;
+	vertical-align:middle;
+	background-color:#FFF;
+	border-radius:20px;
+	padding: 0;
+	height: 0;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+
+}
+.icon_next_back{
+	text-align:center;
+	width:80px;
+	height:80px;
+	margin:20px;
+}
+.next_back_center{
+	width:25px;
+}
+.error_table{
+	height:50px;
+	width:530px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:50px;
+	background:#FFF;
+	border-radius:20px;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+}
+.error_td{
+	text-align:center;
+	vertical-align:middle;
+}
+select{
+	width:450px;
+	height:80px;
+	font-size:30px;
+	text-align:center;
+	background-color:#f0ffff;
+	border-radius:10px;
+	border:0;
+}
+.icon_mail{
+	margin-top:30px;
+	width:150px;
+	height:150px;
+}
+.mail_top{
+	margin-top:30px;
+}
+.mail_td{
+	text-align:center;
+	margin-bottom:30px;
+	font-size:14px;
+	color:#a9a9a9;
+}
+.mail_input{
+	text-align:center;
+	margin:30px 0 30px;
+	padding:10px;
+	background-color:#add8e6;
+	border-radius:10px;
+	border:0px;
+}
+::placeholder {
+  color: #FFF;
+}
+.icon_send{
+	width:55px;
+	height:55px;
+}
+.send_td{
+	width:100px;
+}
+.link_top{
+	margin-top:80px;
+	text-align:center;
+}
+.icon_sent{
+	width:150px;
+	height:150px;
+}
+.index_table{
+	margin-top:150px;
+	margin-left:auto;
+	margin-right:auto;
+	width:750px;
+	height:500px;
+	background-image: url(/imgs/top/back.png);
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 20, 0.5);
+}
+.btn_regist{
+	margin-top:300px;
+	margin-left:75px;
+}
+.btn_login{
+	margin-left:75px;
+	margin-bottom:50px;
+}
+.send_text{
+	text-align:center;
+	font-size:12px;
+}
+.login_icon{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.login_bs_btn{
+	margin: 20px 0 40px;
+}
+.auth_top{
+	font-size:12pz;
+	text-align:center;
+}
+.number{
+	width:50px;
+	height:70px;
+	padding:10px;
+	margin:0 10px 0;
+	text-align:center;
+	vertical-align:middle;
+	border-radius:10px;
+	border:0;
+	background-color:#add8e6;
 }

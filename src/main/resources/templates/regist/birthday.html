@@ -3,25 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー登録 : 生年月日</title>
-<link rel="stylesheet" th:href="@{/css/error.css}" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/regist.css}" />
 </head>
 <body>
-<h1>ユーザー登録 : 生年月日</h1>
-<form th:action="@{/regist/birthday}" method="post" th:object="${userBD}">
 
-<th:block th:if="${session.age_error}"><p class="error">[[${session.age_error}]]</p></th:block>
+<div class="title_div"><span class="title display-6">誕生日を入力してください</span></div>
 
-<input type="text" th:field="*{year}" class="birthday"/>年 
-<input type="text" th:field="*{month}" class="birthday"/>月 
-<input type="text" th:field="*{day}" class="birthday"/>日 
+<form th:action="@{/regist/birthday}" method="post" th:object="${userBD}" name="regist">
 
 <input type="hidden" name="age" th:value="20"/>
 <input type="hidden" name="name" th:value="text"/>
 <input type="hidden" name="sex" th:value="1"/>
 
-<p><button type="button" onclick="location.href='/regist/sex'">戻る</button> <input type="submit" value="次へ"/></p>
+<table class="error_table" th:if="${#fields.hasGlobalErrors()}">
+	<tr>
+		<td class="error_td">
+			<span class="error" th:each="error : ${#fields.globalErrors()}" th:text="${error}"></span>
+		</td>
+	</tr>
+</table>
+
+<table class="regist_input">
+	<tr>
+		<td class="input_td">
+			<input type="text" name="year" th:value="${session.regist_year}" class="birthday input year display-6"/><span class="display-6 input_text">年</span> 
+			<input type="text" name="month" th:value="${session.regist_month}" class="birthday input month display-6"/><span class="display-6 input_text">月</span> 
+			<input type="text" name="day" th:value="${session.regist_day}" class="birthday input day display-6"/><span class="display-6 input_text">日</span> 
+		</td>
+	</tr>
+</table>
+
+<table class="next_back">
+	<tr>
+		<td class="back">
+			<a th:href="@{/regist/sex}"><img class="icon_next_back" th:src="@{/imgs/regist/icon_back.png}" alt=""></a>
+		</td>
+		<td class="next_back_center"></td>
+		<td class="next">
+			<a href="javascript:document.regist.submit()"><img class="icon_next_back" th:src="@{/imgs/regist/icon_next.png}" alt=""></a>
+		</td>
+	</tr>
+</table>
 
 </form>
+
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>

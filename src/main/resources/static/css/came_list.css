@@ -109,3 +109,6 @@ table{
 header{
 	margin-bottom:100px;
 }
+.navbar-brand{
+	margin-left:50px;
+}

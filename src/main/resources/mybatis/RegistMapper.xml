@@ -19,7 +19,9 @@
 		blocking INT DEFAULT 0,
 		checked_received_nice INT DEFAULT 0,
 		not_read_message INT DEFAULT 0,
-		received_message DATETIME DEFAULT NOW())
+		received_message DATETIME DEFAULT NOW(),
+		i_went DATETIME,
+		partners_came DATETIME)
 	</update>
 	
 	<insert id="createCheckedNewMessage">

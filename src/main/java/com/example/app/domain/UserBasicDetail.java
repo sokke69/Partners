@@ -14,7 +14,6 @@ import lombok.Data;
 public class UserBasicDetail {
 	
 	private int id;
-	@NotNull(message="※ 選択してください")
 	private Integer sex;
 	private String sexStr;
 	@NotNull
@@ -33,8 +32,11 @@ public class UserBasicDetail {
 	
 	
 	private java.sql.Date birthday;
+	@NotNull
 	private Integer year;
+	@NotNull
 	private Integer month;
+	@NotNull
 	private Integer day;
 	
 	private Integer getLikePoint;

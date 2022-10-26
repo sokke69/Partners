@@ -9,10 +9,13 @@ a{
 }
 th{
 	padding:0 10px;
-	
+	font-size:13px;
+	width: 0;
+    white-space: nowrap;
 }
 td{
 	padding:0 10px;
+	font-size:13px;
 }
 
 table{
@@ -124,4 +127,24 @@ textarea{
 }
 header{
 	margin-bottom:100px;
+}
+.up_done_table{
+	width:350@x;
+}
+.up_done_td{
+	text-align:center;
+	padding:15px 0;
+}
+.btn-primary{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.get_like_point{
+	font-size:16px;
+}
+.navbar-brand{
+	margin-left:50px;
+}
+.page_back{
+	text-align:center;
 }

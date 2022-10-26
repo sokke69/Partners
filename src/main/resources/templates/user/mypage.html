@@ -7,62 +7,19 @@
 <link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
-<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-<script>
-$(document).ready(function(){
-	$('#0').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#1').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#2').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});	
-	
-	$('#3').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});	
-	
-	$('#4').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#5').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#6').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#7').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#8').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-});
-</script>
-
 
 <header th:insert="~{common :: header}"></header>
 
 <h3 class="display-4">プロフィール</h3>
 
-<div class="update_link"><a th:href="@{/user/mypage/edit}">プロフィールを編集する</a></div>
+
+<table>
+	<tr>
+		<td>
+			<div class="update_link"><a class="btn btn-primary" th:href="@{/user/mypage/edit}">プロフィールを編集する</a></div>
+		</td>
+	</tr>
+</table>
 
 <table>
 
@@ -171,6 +128,57 @@ $(document).ready(function(){
 </td></tr></th:block>
 </table>
 
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#0').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#1').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#2').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});	
+	
+	$('#3').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});	
+	
+	$('#4').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#5').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#6').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#7').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#8').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+});
+</script>
 
 
 </body>

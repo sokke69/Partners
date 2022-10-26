@@ -67,28 +67,28 @@ public class LoginController {
 		session.setAttribute("send_email", emailTo);
 		
 		Random random = new Random();
-		int random4of1 = random.nextInt(10);
-		int random4of2 = random.nextInt(10);
+		Integer random4of1 = random.nextInt(10);
+		Integer random4of2 = random.nextInt(10);
 		if (random4of2 == random4of1) {
 			random4of2 = random.nextInt(10);
 		}
-		int random4of3 = random.nextInt(10);
+		Integer random4of3 = random.nextInt(10);
 		if (random4of3 == random4of2 || random4of3 == random4of1) {
 			random4of3 = random.nextInt(10);
 		}
-		int random4of4 = random.nextInt(10);
+		Integer random4of4 = random.nextInt(10);
 		if (random4of4 == random4of1 || random4of4 == random4of2 || random4of4 == random4of3) {
 			random4of4 = random.nextInt(10);
 		}
 		
-		int[] randomIntArray = {random4of1, random4of2, random4of3, random4of4};
+		Integer[] randomIntArray = {random4of1, random4of2, random4of3, random4of4};
 		
-		int random6of1 = randomIntArray[random.nextInt(randomIntArray.length-1)];
-		int random6of2 = randomIntArray[random.nextInt(randomIntArray.length-1)];
-		int random6of3 = randomIntArray[random.nextInt(randomIntArray.length-1)];
-		int random6of4 = randomIntArray[random.nextInt(randomIntArray.length-1)];
-		int random6of5 = randomIntArray[random.nextInt(randomIntArray.length-1)];
-		int random6of6 = randomIntArray[random.nextInt(randomIntArray.length-1)];
+		Integer random6of1 = randomIntArray[random.nextInt(randomIntArray.length-1)];
+		Integer random6of2 = randomIntArray[random.nextInt(randomIntArray.length-1)];
+		Integer random6of3 = randomIntArray[random.nextInt(randomIntArray.length-1)];
+		Integer random6of4 = randomIntArray[random.nextInt(randomIntArray.length-1)];
+		Integer random6of5 = randomIntArray[random.nextInt(randomIntArray.length-1)];
+		Integer random6of6 = randomIntArray[random.nextInt(randomIntArray.length-1)];
 		
 		session.setAttribute("random6of1", random6of1);
 		session.setAttribute("random6of2", random6of2);
@@ -100,7 +100,7 @@ public class LoginController {
 		MimeMessage mimeMsg = mailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMsg, true);
 		
-		String emailFrom = "sokke.school@gmail.com";
+		String emailFrom = "sokke.java.school@gmail.com";
 		
 		
 		helper.setFrom(emailFrom);
@@ -146,23 +146,30 @@ public class LoginController {
 	}
 	
 	@PostMapping("loginAuth")
-	public String loginAuthPost(@ModelAttribute("loginRandomInt") LoginRandomInt loginRandomInt) throws Exception {
-		if (loginRandomInt.getRandom6of1() != (int)session.getAttribute("random6of1")) {
+	public String loginAuthPost(@Valid @ModelAttribute("loginRandomInt") LoginRandomInt loginRandomInt,
+			Errors errors) throws Exception {
+		if (loginRandomInt.getRandom6of1() != (Integer)session.getAttribute("random6of1") ||
+				loginRandomInt.getRandom6of1() == null) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
-		} else if (loginRandomInt.getRandom6of2() != (int)session.getAttribute("random6of2")) {
+		} else if (loginRandomInt.getRandom6of2() != (Integer)session.getAttribute("random6of2") ||
+				loginRandomInt.getRandom6of2() == null) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
-		} else if (loginRandomInt.getRandom6of3() != (int)session.getAttribute("random6of3")) {
+		} else if (loginRandomInt.getRandom6of3() != (Integer)session.getAttribute("random6of3") ||
+				loginRandomInt.getRandom6of3() == null) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
-		} else if (loginRandomInt.getRandom6of4() != (int)session.getAttribute("random6of4")) {
+		} else if (loginRandomInt.getRandom6of4() != (Integer)session.getAttribute("random6of4") ||
+				loginRandomInt.getRandom6of4() == null) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
-		} else if (loginRandomInt.getRandom6of5() != (int)session.getAttribute("random6of5")) {
+		} else if (loginRandomInt.getRandom6of5() != (Integer)session.getAttribute("random6of5") ||
+				loginRandomInt.getRandom6of5() == null) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
-		} else if (loginRandomInt.getRandom6of6() != (int)session.getAttribute("random6of6")) {
+		} else if (loginRandomInt.getRandom6of6() != (Integer)session.getAttribute("random6of6") ||
+				loginRandomInt.getRandom6of6() == null) {
 			session.setAttribute("authFailed", "");
 			return "login/auth";
 		}

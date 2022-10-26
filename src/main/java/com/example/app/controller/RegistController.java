@@ -16,6 +16,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -108,7 +109,7 @@ public class RegistController {
 			return "redirect:/error";
 		}
 		String sessionRegistUrl = (String) session.getAttribute("regist_url");
-		if (sessionRegistUrl.equals(sessionRegistUrl)) {
+		if (registUrl.equals(sessionRegistUrl)) {
 			session.setAttribute("status", "regist");
 			return "redirect:/regist/sex";
 		}
@@ -190,7 +191,21 @@ public class RegistController {
 	}
 	
 	@PostMapping("/birthday")
-	public String registBirthdayPost(@ModelAttribute("userBD") UserBasicDetail userBD) {
+	public String registBirthdayPost(@Valid @ModelAttribute("userBD") UserBasicDetail userBD,
+			Errors errors,
+			Model model) {
+		
+		if (userBD.getYear() == null) {
+			errors.reject("error.birthday");
+			return "regist/birthday";
+		} else if (userBD.getMonth() == null) {
+			errors.reject("error.birthday");
+			return "regist/birthday";
+		} else if (userBD.getDay() == null) {
+			errors.reject("error.birthday");
+			return "regist/birthday";
+		}
+		
 		Date sqlDate = Date.valueOf(userBD.getYear() + "-" + userBD.getMonth() + "-" + userBD.getDay());
 		session.setAttribute("regist_birthday", sqlDate);
 		
@@ -199,6 +214,9 @@ public class RegistController {
 		
 		Integer age = (int) ChronoUnit.YEARS.between(birthday, today);
 		session.setAttribute("regist_age", age);
+		session.setAttribute("regist_year", userBD.getYear());
+		session.setAttribute("regist_month", userBD.getMonth());
+		session.setAttribute("regist_day", userBD.getDay());
 		
 		if (age < 18) {
 			session.setAttribute("age_error", "18歳未満は登録できません。");
@@ -215,7 +233,6 @@ public class RegistController {
 	
 	@GetMapping("/name")
 	public String registNameGet(Model model) {
-		session.removeAttribute("age_error");
 		
 		String status = (String) session.getAttribute("status");
 		if (!status.equals("regist")) {
@@ -231,10 +248,18 @@ public class RegistController {
 	public String registNamePost(@Valid @ModelAttribute("userBD") UserBasicDetail userBD,
 			Errors errors,
 			Model model) {
+		
 		if (errors.hasErrors()) {
+			System.out.println("エラー数：" + errors.getErrorCount());
+			// エラーの詳細を調べる
+			List<ObjectError> allErrors = errors.getAllErrors();
+			for(ObjectError error : allErrors) {
+			System.out.println(error);
+			}
 			model.addAttribute("userBD", userBD);
 			return "regist/name";
 		}
+		
 		String registName = userBD.getName();
 		session.setAttribute("regist_name", registName);
 		model.addAttribute("userBD", userBD);
@@ -254,8 +279,9 @@ public class RegistController {
 	}
 	
 	@PostMapping("/height")
-	public String registHeightPost(@ModelAttribute("user") User user) {
-		int registHeight = user.getUserRD().getHeight();
+	public String registHeightPost(@Valid @ModelAttribute("user") User user,
+			Errors errors) {
+		Integer registHeight = user.getUserRD().getHeight();
 		session.setAttribute("regist_height", registHeight);
 		return "redirect:/regist/residence";
 	}

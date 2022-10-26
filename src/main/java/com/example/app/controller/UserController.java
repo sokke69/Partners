@@ -48,7 +48,7 @@ public class UserController {
 	HttpSession session;
 	
 	static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
-	//private static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
+	//static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	
 	@GetMapping("/userList")

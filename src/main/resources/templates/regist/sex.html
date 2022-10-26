@@ -3,22 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー登録 : 性別</title>
-<link rel="stylesheet" th:href="@{/css/error.css}" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/regist.css}" />
 </head>
 <body>
 
-<h1>ユーザー登録 : 性別</h1>
-<form th:action="@{/regist/sex}" method="post" th:object="${userBD}">
+<div class="title_div"><span class="title display-6">性別を選んで下さい</span></div>
+<form th:action="@{/regist/sex}" method="post" th:object="${userBD}" name="regist">
 <p th:errors="*{sex}" class="error"></p>
 <p th:errors="*{age}" class="error"></p>
 <p th:errors="*{name}" class="error"></p>
-<p><input type="radio" th:field="*{sex}" value="1" id="male"/><label for="male">男性</label></p>
-<p><input type="radio" th:field="*{sex}" value="2" id="female"/><label for="female">女性</label></p>
 
+<table class="regist_select">
+	<tr>
+		<td class="td_left">
+			<a href="javascript:document.regist.submit()" id="men">
+				<img class="icon" th:src="@{/imgs/regist/icon_men.png}" alt=""></a>
+		</td>
+		<td class="td_center"></td>
+		<td class="td_right">
+			<a href="javascript:document.regist.submit()" id="women"><img class="icon" th:src="@{/imgs/regist/icon_women.png}" alt=""></a>
+		</td>
+	</tr>
+</table>
+
+<input id="regist_sex" type="hidden" th:field="*{sex}" value="">
 <input type="hidden" name="name" th:value="text"/>
 <input type="hidden" name="age" th:value="20"/>
+<input type="hidden" name="year" th:value="2000"/>
+<input type="hidden" name="month" th:value="1"/>
+<input type="hidden" name="day" th:value="1"/>
 
-<input type="submit" value="次へ"/>
 </form>
+
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#men').click(function(){
+				$('#regist_sex').attr('value', '1')
+			})
+			$('#women').click(function(){
+				$('#regist_sex').attr('value', '2')
+			})
+		});
+	</script>
+
 </body>
 </html>

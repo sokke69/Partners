@@ -7,55 +7,7 @@
 <link rel="stylesheet" th:href="@{/css/user_table.css}" />
 </head>
 <body>
-<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
-<script>
-$(document).ready(function(){
-	$('#0').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#1').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#2').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});	
-	
-	$('#3').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});	
-	
-	$('#4').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#5').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#6').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#7').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-	
-	$('#8').click(function(){
-		const path = $(this).attr('src');
-		$('#main').attr('src', path);
-	});
-});
-</script>
+
 
 <header th:insert="~{common :: header}"></header>
 
@@ -74,17 +26,12 @@ $(document).ready(function(){
 	<img class="sub_img" th:id="${num.index}" th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name}, today=${today})}" height="70px">
 	</th:block></td></tr>
 		
-	<tr><td><a th:href="@{/user/mypage/edit/img}">プロフィール写真を編集</a></td></tr>
+	<tr><td class="upload"><span><a class="btn btn-primary" th:href="@{/user/mypage/edit/img}">プロフィール写真を編集</a></span></td></tr>
 </table>
 
 <table>
 	<tr><th colspan=2>つぶやき</th></tr>
 	<tr><td><input type="text" th:field="*{userT.oneWord}" th:value="*{userT.oneWord}"/></td></tr>
-</table>
-
-<table>
-	<tr><th colspan=2>コミュニティ</th></tr>
-	<tr><td></td></tr>
 </table>
 
 <table>
@@ -374,6 +321,58 @@ $(document).ready(function(){
 </table>
 
 </form>
+
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#0').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#1').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#2').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});	
+	
+	$('#3').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});	
+	
+	$('#4').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#5').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#6').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#7').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+	
+	$('#8').click(function(){
+		const path = $(this).attr('src');
+		$('#main').attr('src', path);
+	});
+});
+</script>
 
 </body>
 </html>
