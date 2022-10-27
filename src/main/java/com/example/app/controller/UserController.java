@@ -47,9 +47,14 @@ public class UserController {
 	@Autowired
 	HttpSession session;
 	
-	static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
+	// 学校
+	//static final String UPLOAD_DIRECTORY = "C:/Users/zd2L17/pleiades2/workspace/Partners/imgs/";
+	
+	// 家
 	//static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
+	// Linux
+	static final String UPLOAD_DIRECTORY = "file:/home/trainee/imgs/";
 	
 	@GetMapping("/userList")
 	public String selectUserAll(Model model) throws Exception {
@@ -91,7 +96,7 @@ public class UserController {
 		System.out.println("myId : " + myId);
 		Integer likePoint = userService.checkLikePoint(myId);
 		User user = userService.getUserById(myId);
-		user.setUserBD(userBD);
+		user.setUserBD(new UserBasicDetail());
 		model.addAttribute("user", user);
 		session.setAttribute("user_name", user.getUserBD().getName());
 		session.setAttribute("likePoint", likePoint);

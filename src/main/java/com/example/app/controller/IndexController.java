@@ -24,21 +24,21 @@ public class IndexController {
 	@GetMapping("/")
 	public String startGet() {
 		if (session.getAttribute("status") == null) {
-			return "/index";
+			return "index";
 		} else if (session.getAttribute("status").equals("login")) {
-			return "/user/top";
+			return "user/top";
 		}
-		return "/";
+		return "index";
 	}
 
 	@GetMapping("/index")
 	public String indexGet() {
 		if (session.getAttribute("status") == null) {
-			return "/index";
+			return "index";
 		} else if (session.getAttribute("status").equals("login")) {
-			return "/user/top";
+			return "user/top";
 		}
-		return "/index";
+		return "index";
 	}
 
 	
