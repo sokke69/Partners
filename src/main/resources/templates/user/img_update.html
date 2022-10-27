@@ -41,7 +41,7 @@
 	
 <th:block th:each="file, number : ${fileList}">
 	<table>
-		<tr><td class="update_img_td"><img class="update_img" th:src="@{/imgs/{id}/{img}?{today}(id=${id}, img=${file.name},today=${today})}" width="250px" alt="" /></td></tr>
+		<tr><td class="update_img_td"><img class="update_img" th:src="@{/imgs/{id}/{img}?{today}(id=${session.myId}, img=${file.name},today=${today})}" width="250px" alt="" /></td></tr>
 		<tr><td class="delete_button"><a class="btn btn-danger" th:href="@{/user/mypage/edit/img/delete/{number}(number=${number.count})}">削除</a></td></tr>
 	</table>
 </th:block>

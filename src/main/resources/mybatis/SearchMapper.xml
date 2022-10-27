@@ -603,6 +603,7 @@
 		LEFT JOIN housemates ON user_required_details.housemate=housemates.id
 		WHERE matching=0
             AND partners_came IS NOT null
+        ORDER BY partners_came DESC
 	</select>
 
 	<resultMap id="matchingListMap"

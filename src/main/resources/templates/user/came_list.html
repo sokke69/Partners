@@ -16,13 +16,13 @@
 	<table class="user_list">
 		<tr>
 			<td rowspan=3 class="icon_td">
-				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+				<a th:href="@{/search/user/{id}(id=${list.id})}">
 					<img th:if="${list.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" class="icon">
 					<img th:if="${list.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px" class="icon">
 				</a>
 			</td>
 			<td class="top_td">
-			<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+			<a th:href="@{/search/user/{id}(id=${list.id})}" >
 				<span class="name">[[${list.name}]]</span>
 				<span class="age">[[${list.age}]]歳</span>
 				<span>[[${list.residence}]]</span>

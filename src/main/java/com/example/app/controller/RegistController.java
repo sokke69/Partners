@@ -1,5 +1,6 @@
 package com.example.app.controller;
 
+import java.io.File;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -49,6 +50,13 @@ public class RegistController {
 	@Autowired
 	JavaMailSender mailSender;
 	
+	// Limux
+	private String regist_url = "http://java.apps.rok.jp:22281" ;
+	// Local
+	// private String regist_url = "http://localhost:8080"
+	
+	static final String UPLOAD_DIRECTORY = "/home/trainee/imgs/";
+	
 	@GetMapping("")
 	public String registTopGet(Model model) {
 		model.addAttribute("user", new User());
@@ -88,7 +96,7 @@ public class RegistController {
 		helper.setFrom("sokke.school@gmail.com");
 		helper.setTo(email);
 		helper.setSubject("[Partners] 新規会員登録");
-		helper.setText("以下のアドレスから登録を行ってください\r\n" + "\r\n" + "http://localhost:8080/regist/regist_user/" + uuidStr
+		helper.setText("以下のアドレスから登録を行ってください\r\n" + "\r\n" + regist_url + "/regist/regist_user/" + uuidStr
 				+ "\r\n" + "※ URLの有効期限は10分です。");
 		mailSender.send(mimeMsg);
 
@@ -492,11 +500,14 @@ public class RegistController {
 		session.setAttribute("login_id", email);
 		session.setAttribute("sex", userBD.getSex());
 		
+		Integer myId = userService.getUserIdByEmail(email);
+		session.setAttribute("myId", myId);
 		
-		session.setAttribute("myId", userService.getUserIdByEmail(email));
-		
+		File uploadDirectory = new File(UPLOAD_DIRECTORY + myId);
+		uploadDirectory.mkdir();
 		
 		session.setMaxInactiveInterval(3600);
+		
 		
 		return "regist/done";
 	}

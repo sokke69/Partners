@@ -77,7 +77,7 @@ public class SearchController {
 		model.addAttribute("alcohols", userService.selectAlcoholAll());
 		model.addAttribute("vaccinations", userService.selectVaccinationAll());
 	
-		return "/search/user_list";
+		return "search/user_list";
 	}
 	
 	@PostMapping("/")
@@ -186,7 +186,7 @@ public class SearchController {
 		
 		model.addAttribute("user", user);
 			
-		return "/search/user_list";
+		return "search/user_list";
 	}
 	
 	@GetMapping("/user/{id}")
@@ -280,7 +280,7 @@ public class SearchController {
 		User user = userService.getUserById(partnersId);
 		model.addAttribute("user", user);
 		
-		return "/search/user";
+		return "search/user";
 		
 	}
 	

@@ -54,12 +54,12 @@ public class UserController {
 	//static final String UPLOAD_DIRECTORY = "D:/pleiades/workspace2/Partners/imgs/";
 	
 	// Linux
-	static final String UPLOAD_DIRECTORY = "file:/home/trainee/imgs/";
+	static final String UPLOAD_DIRECTORY = "/home/trainee/imgs/";
 	
 	@GetMapping("/userList")
 	public String selectUserAll(Model model) throws Exception {
 		model.addAttribute("userList", userService.getUserAllDetailList());
-		return "/user/user_list";
+		return "user/user_list";
 	}
 	
 	@GetMapping("/login/{loginUrl}")
@@ -80,14 +80,14 @@ public class UserController {
 			session.setMaxInactiveInterval(1800);
 			return "redirect:/user/top";
 		}
-		return "/invalid_url";
+		return "invalid_url";
 		
 	}
 	
 	@GetMapping("/top")
 	public String topGet(Model model,UserBasicDetail userBD) throws Exception{
 		if (session.getAttribute("status") == null) {
-			return "/invalid";
+			return "invalid";
 		}
 		System.out.println("topのGet開始");
 		System.out.println("new_matching : " + session.getAttribute("new_matching"));
@@ -96,7 +96,8 @@ public class UserController {
 		System.out.println("myId : " + myId);
 		Integer likePoint = userService.checkLikePoint(myId);
 		User user = userService.getUserById(myId);
-		user.setUserBD(new UserBasicDetail());
+		System.out.println("User user = " + user);
+		// user.setUserBD(new UserBasicDetail());
 		model.addAttribute("user", user);
 		session.setAttribute("user_name", user.getUserBD().getName());
 		session.setAttribute("likePoint", likePoint);
@@ -129,12 +130,13 @@ public class UserController {
 		
 		todayModelSet(model);
 		
-		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+		File uploadsDirectory = new File(UPLOAD_DIRECTORY + myId);
+		System.out.println("uploadsDirectory : " + uploadsDirectory);
 		File[] fileList = uploadsDirectory.listFiles();
 		model.addAttribute("fileList", fileList);
 		model.addAttribute("id", user.getId());
 		
-		session.setAttribute("haveImage", haveImage1(user.getId()));
+		session.setAttribute("haveImage", haveImage1(myId));
 		
 		Integer sex = (Integer) session.getAttribute("sex");		
 		List<User> listOne = searchService.usersOfTop(0, sex);
@@ -146,13 +148,13 @@ public class UserController {
 		
 		System.out.println("topのGet終了");
 		
-		return "/user/top";
+		return "user/top";
 	}
 	
 	@GetMapping("/mypage")
 	public String mypageGet(Model model) throws Exception{
 		if (!session.getAttribute("status").equals("login") || session.getAttribute("status") == null) {
-			return "/invalid";
+			return "invalid";
 		}
 		
 		String loginId = (String) session.getAttribute("login_id");
@@ -163,13 +165,15 @@ public class UserController {
 		todayModelSet(model);
 		
 		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+		System.out.println("uploadsDirectory : " + uploadsDirectory);
 		File[] fileList = uploadsDirectory.listFiles();
+		System.out.println("fileList : " + fileList.length);
 		model.addAttribute("fileList", fileList);
 		model.addAttribute("id", user.getId());
 		
 		session.setAttribute("haveImage", haveImage1(user.getId()));
 		
-		return "/user/mypage";
+		return "user/mypage";
 	}
 
 	@GetMapping("/mypage/edit")
@@ -235,13 +239,13 @@ public class UserController {
 		model.addAttribute("vaccinations", userService.selectVaccinationAll());
 		
 		
-		return "/user/profile_update";
+		return "user/profile_update";
 	}
 	
 	@PostMapping("mypage/edit")
 	public String profileUpdatePost(@ModelAttribute User user) throws Exception{
 		if (!session.getAttribute("status").equals("login") || session.getAttribute("status") == null) {
-			return "/invalid";
+			return "invalid";
 		}
 		
 		user.setId((int)session.getAttribute("myId"));
@@ -269,19 +273,20 @@ public class UserController {
 	public String editImgGet(Model model) throws Exception {
 		todayModelSet(model);
 		
-		Integer userId = userService.getUserIdByEmail((String)session.getAttribute("login_id"));
-		File uploadDirectory = new File(UPLOAD_DIRECTORY + userId);
+		Integer myId = (Integer) session.getAttribute("myId");
+		File uploadDirectory = new File(UPLOAD_DIRECTORY + myId);
+		System.out.println(uploadDirectory);
 		try {
 			File[] fileList = uploadDirectory.listFiles();
 			Integer fileCount = fileList.length;
 			model.addAttribute("fileCount", fileCount);
 			model.addAttribute("fileList", fileList);
-			model.addAttribute("id", userId);
+			model.addAttribute("myId", myId);
 			return "user/img_update";
 		} catch (Exception e) {
 			model.addAttribute("fileCount", 0);
 			model.addAttribute("fileList", null);
-			model.addAttribute("id", userId);
+			model.addAttribute("myId", myId);
 			return "user/img_update";
 		}
 	}
@@ -289,8 +294,8 @@ public class UserController {
 	@PostMapping("mypage/edit/img/")
 	public String editImgPost(@RequestParam MultipartFile upfile, Model model) throws Exception {
 		if (!upfile.isEmpty()) {
-			User user = userService.getUserByLoginId((String)session.getAttribute("login_id"));			
-			File uploadDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+			Integer myId = (Integer) session.getAttribute("myId");		
+			File uploadDirectory = new File(UPLOAD_DIRECTORY + myId);
 			
 			if (!uploadDirectory.exists()) {
 				uploadDirectory.mkdir();
@@ -298,7 +303,7 @@ public class UserController {
 			
 			File[] fileList = uploadDirectory.listFiles();
 			Integer fileCount = fileList.length;
-			File dest = new File(UPLOAD_DIRECTORY + user.getId() + "/img" + (fileCount+1) + ".jpg");
+			File dest = new File(UPLOAD_DIRECTORY + myId + "/img" + (fileCount+1) + ".jpg");
 			upfile.transferTo(dest);
 			
 			userService.updateImage((Integer) session.getAttribute("myId"), (fileCount+1));
@@ -354,7 +359,7 @@ public class UserController {
 		
 		matchingService.updateCheckedReceivedNiceAll(myId);
 		
-		return "/user/new_received_nice";
+		return "user/new_received_nice";
 		
 	}
 	
@@ -500,7 +505,7 @@ public class UserController {
 		
 		System.out.println("matchingListのGet終了");
 		
-		return "/user/matching_list";
+		return "user/matching_list";
 	}
 	
 	
@@ -517,7 +522,7 @@ public class UserController {
 			session.setAttribute("countFavorite", 1);
 		}
 		model.addAttribute("favoriteList", favoriteList);
-		return "/user/favorite_list";
+		return "user/favorite_list";
 	}
 	
 	@GetMapping("/notMatchingAndReceivedNiceList")
@@ -531,7 +536,7 @@ public class UserController {
 		Integer count = notMatchingAndReceivedNiceList.size();
 		session.setAttribute("countNotMatchingAndReceivedNiceList", count);
 		model.addAttribute("notMatchingAndReceivedNiceList", notMatchingAndReceivedNiceList);
-		return "/user/not_matching_and_received_nice";
+		return "user/not_matching_and_received_nice";
 	}
 	
 	@GetMapping("/notMatchingAndSendedNiceList")
@@ -544,7 +549,7 @@ public class UserController {
 		Integer count = notMatchingAndSendedNiceList.size();
 		session.setAttribute("countNotMatchingAndSendedNiceList", count);
 		model.addAttribute("notMatchingAndSendedNiceList", notMatchingAndSendedNiceList);
-		return "/user/not_matching_and_sended_nice";
+		return "user/not_matching_and_sended_nice";
 	}
 	
 	@GetMapping("/{id}/message/")
@@ -567,7 +572,7 @@ public class UserController {
 		model.addAttribute("partnersId", partnersId);
 		model.addAttribute("myId", myId);
 		model.addAttribute("message", new Message());
-		return "/user/message";
+		return "user/message";
 		
 	}
 	
@@ -591,7 +596,7 @@ public class UserController {
 		List<MatchingUser> cameList = searchService.cameList(myId);
 			session.setAttribute("countCame", cameList.size());
 		model.addAttribute("cameList", cameList);
-		return "/user/came_list";
+		return "user/came_list";
 	}
 	
 	

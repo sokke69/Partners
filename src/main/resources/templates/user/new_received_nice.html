@@ -16,7 +16,7 @@
 	<table class="user_list">
 			<tr>
 				<td class="user_list_bg">
-				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+				<a th:href="@{/search/user/{id}(id=${list.id})}">
 					<img th:if="${list.userI.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" height="210px">
 					<img th:if="${list.userI.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px">
 					<span>[[${list.userBD.age}]]歳 [[${list.userRD.residenceStr}]]</span> <th:block
