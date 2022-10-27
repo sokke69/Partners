@@ -238,5 +238,10 @@ public class MatchingServiceImpl implements MatchingService{
 		return matchingMapper.getReceivedMessageNotSent(myId, partnersId);
 	}
 
+	@Override
+	public void updateCheckedReceivedNiceAll(Integer myId) throws Exception {
+		matchingMapper.updateCheckedReceivedNiceAll(myId);
+	}
+
 
 }

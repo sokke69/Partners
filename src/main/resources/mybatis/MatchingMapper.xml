@@ -302,8 +302,9 @@
 	SELECT received_message FROM z#{myId}_matchings WHERE id=#{partnersId}
 </select>
 
-
-
+<update id="updateCheckedReceivedNiceAll" parameterType="integer">
+	UPDATE z#{myId}_matchings SET checked_received_nice=1 WHERE checked_received_nice=0 AND received_nice=1;
+</update>
 
 
 </mapper>

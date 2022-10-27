@@ -25,7 +25,7 @@
 					<tr>
 						<td class="message_partners_text">[[${messages.message}]]</td>
 						<td class="my_check" th:if="${messages.toId != partnersId}">
-							<p th:text="${#dates.format(messages.sentTime, 'HH:mm')}"></p>
+							<p th:text="${#dates.format(messages.sentTime, 'yyyy/MM/dd HH:mm')}"></p>
 						</td>
 						<td th:if="${messages.fromId != partnersId}"></td>
 					</tr>
@@ -40,7 +40,7 @@
 					<tr>
 						<td th:if="${messages.fromId != partnersId}" class="partners_check">
 							<p th:if="${messages.checkedMessage == 1}">既読</p>
-							<p th:text="${#dates.format(messages.sentTime, 'HH:mm')}"></p>
+							<p th:text="${#dates.format(messages.sentTime, 'yyyy/MM/dd HH:mm')}"></p>
 						</td>
 						<td class="message_my_text">[[${messages.message}]]</td>
 					</tr>

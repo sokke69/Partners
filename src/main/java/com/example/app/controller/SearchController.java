@@ -325,6 +325,7 @@ public class SearchController {
 			if (checkReceivedNiceOfMine == 1) {
 				matchingService.addMatchingOfMine(myId, partnersId);
 				matchingService.addMatchingOfPartners(myId, partnersId);
+				searchService.updateNewMatching(myId, partnersId, 1);
 			}
 
 		}

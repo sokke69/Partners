@@ -46,13 +46,18 @@ public class SearchServiceImpl implements SearchService{
 	}
 
 	@Override
-	public List<Integer> checkNewMatching(Integer myId) throws Exception {
+	public Integer checkNewMatching(Integer myId) throws Exception {
 		return searchMapper.checkNewMatching(myId);
 	}
 
 	@Override
-	public void updateNewMatching(Integer myId, Integer status) throws Exception {
-		searchMapper.updateNewMatching(myId, status);
+	public void updateNewMatching(Integer myId, Integer partnersId, Integer status) throws Exception {
+		searchMapper.updateNewMatching(myId, partnersId, status);
+	}
+	
+	@Override
+	public void updateNewMatchingToZero(Integer myId) throws Exception {
+		searchMapper.updateNewMatchingToZero(myId);
 	}
 	
 	

@@ -18,21 +18,21 @@
 	<table class="user_list">
 			<tr>
 				<td class="icon_td" rowspan="2">
-				<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">
+				<a th:href="@{/search/user/{id}(id=${list.id})}">
 					<img th:if="${list.img > 0}" th:src="@{/imgs/{id}/img1.jpg?{today}(id=${list.id}, today=${today})}" alt="" class="icon">
 					<img th:if="${list.img == 0}" th:src="@{/img/noimage.jpg}" alt="" height="210px" class="icon">
 				</a>
 				</td>
 				<th class="user_name">
-					<a th:href="@{/search/user/{id}(id=${list.id})}" target="_blank">[[${list.name}]]</a>
+					<a th:href="@{/search/user/{id}(id=${list.id})}">[[${list.name}]]</a>
 				</th>
 				<td class="message_time_td">
 					<span th:text="${list.latestMessageTime}"></span>
 				</td>
 			</tr>
 			<tr>
-				<td class="message_td" th:if="${list.message == null}"><a class="message_td_link" th:href="@{/user/{id}/message/(id=${list.id})}" target="_blank">マッチングが成立しました！</a></td>
-				<td class="message_td" th:if="${list.message != null}"><a class="message_td_link" th:href="@{/user/{id}/message/(id=${list.id})}" target="_blank">[[${list.message}]]</a></td>
+				<td class="message_td" th:if="${list.message == null}"><a class="message_td_link" th:href="@{/user/{id}/message/(id=${list.id})}">マッチングが成立しました！</a></td>
+				<td class="message_td" th:if="${list.message != null}"><a class="message_td_link" th:href="@{/user/{id}/message/(id=${list.id})}">[[${list.message}]]</a></td>
 				<td th:if="${list.NotReadMessage == 0}"></td>
 				<td class="count_message_td" th:if="${list.NotReadMessage != 0}">
 					<div class="count_message">[[${list.NotReadMessage}]]</div>

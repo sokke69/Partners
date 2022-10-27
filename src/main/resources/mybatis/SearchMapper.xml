@@ -641,5 +641,13 @@
 		LEFT JOIN user_basic_details ON user_basic_details.id=z#{myId}_matchings.id
 		WHERE new_matching=1;
 	</select>
+	
+	<update id="updateNewMatching" parameterType="integer">
+		UPDATE z#{partnersId}_matchings SET new_matching=#{status} WHERE id=#{myId};
+	</update>
+	
+	<update id="updateNewMatchingToZero" parameterType="integer">
+		UPDATE z#{myId}_matchings SET new_matching=0;
+	</update>
 
 </mapper>

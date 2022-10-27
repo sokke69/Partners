@@ -13,7 +13,8 @@ public interface SearchService {
 	void updateVisitedTimePartnersTable(Integer myId, Integer partnersId) throws Exception;
 	List<MatchingUser> cameList(Integer myId) throws Exception;
 	List<User> usersOfTop(Integer count, Integer sex) throws Exception;
-	List<Integer> checkNewMatching(Integer myId) throws Exception;
-	void updateNewMatching(Integer myId, Integer status) throws Exception;
+	Integer checkNewMatching(Integer myId) throws Exception;
+	void updateNewMatching(Integer myId, Integer partnersId, Integer status) throws Exception;
+	void updateNewMatchingToZero(Integer myId) throws Exception;
 
 }

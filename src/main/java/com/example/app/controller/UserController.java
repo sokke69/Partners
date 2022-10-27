@@ -80,15 +80,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/top")
-	public String topGet(Model model) throws Exception{
+	public String topGet(Model model,UserBasicDetail userBD) throws Exception{
 		if (session.getAttribute("status") == null) {
 			return "/invalid";
 		}
+		System.out.println("topのGet開始");
+		System.out.println("new_matching : " + session.getAttribute("new_matching"));
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		System.out.println("myId : " + myId);
 		Integer likePoint = userService.checkLikePoint(myId);
 		User user = userService.getUserById(myId);
+		user.setUserBD(userBD);
 		model.addAttribute("user", user);
 		session.setAttribute("user_name", user.getUserBD().getName());
 		session.setAttribute("likePoint", likePoint);
@@ -110,6 +113,15 @@ public class UserController {
 			session.setAttribute("newMessage", 0);
 		}
 		
+		Integer checkNewMatching = searchService.checkNewMatching(myId);
+		System.out.println("checkNewMatching : " + checkNewMatching);
+		System.out.println("checkNewMatching.size() = " + checkNewMatching);
+		if (checkNewMatching > 0) {
+			session.setAttribute("new_matching", 1);
+		} else {
+			session.setAttribute("new_matching", 0);
+		}
+		
 		todayModelSet(model);
 		
 		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
@@ -126,9 +138,8 @@ public class UserController {
 		model.addAttribute("listOne",listOne);
 		model.addAttribute("listTwo",listTwo);
 		model.addAttribute("listThree",listThree);
-		System.out.println(listOne);
-		System.out.println(listTwo);
-		System.out.println(listThree);
+		
+		System.out.println("topのGet終了");
 		
 		return "/user/top";
 	}
@@ -332,8 +343,11 @@ public class UserController {
 		todayModelSet(model);
 		
 		Integer myId = (Integer) session.getAttribute("myId");
+
 		List<User> newReceivedNiceList = matchingService.newReceivedNiceList(myId);
 		model.addAttribute("newReceivedNiceList", newReceivedNiceList);
+		
+		matchingService.updateCheckedReceivedNiceAll(myId);
 		
 		return "/user/new_received_nice";
 		
@@ -346,6 +360,9 @@ public class UserController {
 	
 	@GetMapping("/matchingList")
 	public String matchingListGet(Model model) throws Exception {
+		System.out.println("matchingListのGet開始");
+		
+		System.out.println(session.getAttribute("new_matching"));
 		
 		Integer myId = (Integer) session.getAttribute("myId");
 		System.out.println("myId : " + myId);
@@ -359,6 +376,12 @@ public class UserController {
 		
 		matchingService.updateNewMessage(myId, 0);
 		matchingService.updateReadInfo(myId);
+		
+		// 新しくマッチングした人がいれば全員分のnew_matchingステータスを0に戻す
+		System.out.println("new_matching : " + session.getAttribute("new_matching"));
+		searchService.updateNewMatchingToZero(myId);
+		session.setAttribute("new_matching", 0);
+		System.out.println("new_matching : " + session.getAttribute("new_matching"));
 		
 		// 未読のステータスを持っているパートナーID一覧取得
 		List<Integer> notReadUsers = matchingService.getNotReadUser(myId);
@@ -469,6 +492,9 @@ public class UserController {
 		Integer count = matchingList.size();
 		session.setAttribute("countMatching", count);
 		model.addAttribute("matchingList", matchingUser);
+		
+		System.out.println("matchingListのGet終了");
+		
 		return "/user/matching_list";
 	}
 	
@@ -492,9 +518,10 @@ public class UserController {
 	@GetMapping("/notMatchingAndReceivedNiceList")
 	public String notMatchingAndReceivedNiceGet(Model model) throws Exception {
 		
+		Integer myId = (Integer) session.getAttribute("myId");
+
 		todayModelSet(model);
 		
-		Integer myId = (Integer) session.getAttribute("myId");
 		List<User> notMatchingAndReceivedNiceList = matchingService.checkNotMatchingAndReceivedNiceOfMineList(myId);
 		Integer count = notMatchingAndReceivedNiceList.size();
 		session.setAttribute("countNotMatchingAndReceivedNiceList", count);
