@@ -11,9 +11,6 @@
 
 <header th:insert="~{common :: header}"></header>
 
-<h1>メッセージ</h1>
-
-		
 		
 	<th:block th:each="messages : ${messageList}">
 		<table th:if="${messages.toId != partnersId}" class="message_table">

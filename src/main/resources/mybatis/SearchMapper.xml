@@ -621,5 +621,19 @@
 		<result column="housemate" property="housemate"/>
 	</resultMap>
 
+<select id="usersOfTop" parameterType="integer" resultMap="usersResultDetail">
+	SELECT users.id, img FROM users
+	LEFT JOIN user_basic_details ON users.id=user_basic_details.id
+	LEFT JOIN imgs ON users.id=imgs.id
+	<where>
+		<if test="sex == 1">
+			user_basic_details.sex=2
+		</if>
+		<if test="sex == 2">
+			user_basic_details.sex=1
+		</if>
+	</where>
+	ORDER BY id DESC LIMIT #{count},3
+</select>
 
 </mapper>
