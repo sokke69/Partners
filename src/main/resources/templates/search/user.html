@@ -69,7 +69,6 @@
 					<td th:if="${session.favorite == 1}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="favorite">気になるを解除</a></h3></td>
 					<td th:if="${session.sendedNice == 0 && session.receivedNice == 0}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="nice">いいね</a></h3></td>
 					<td th:if="${session.sendedNice == 0 && session.receivedNice == 1}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="nice">いいねを返す</a></h3></td>
-					<td th:if="${session.sendedNice == 0 && session.receivedNice == 1}"><h3 class="display-6"><a href="javascript:document.userform.submit()" id="nice">いいねを返す</a></h3></td>
 					<td th:if="${session.sendedNice == 1}"><h3 class="display-6">いいね送信済み</h3></td>
 				</tr>
 			</table>

@@ -13,6 +13,7 @@
 		CREATE TABLE z${id}_matchings
 		(id INT PRIMARY KEY,
 		matching INT DEFAULT 0,
+		new_matching INT DEFAULT 0,
 		favorite INT DEFAULT 0,
 		sended_nice INT DEFAULT 0,
 		received_nice INT DEFAULT 0,
@@ -27,5 +28,6 @@
 	<insert id="createCheckedNewMessage">
 		INSERT INTO new_messages (checked_new_message) VALUES (0)
 	</insert>
+	
 
 </mapper>

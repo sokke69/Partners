@@ -89,8 +89,11 @@ public class UserController {
 		System.out.println("myId : " + myId);
 		Integer likePoint = userService.checkLikePoint(myId);
 		User user = userService.getUserById(myId);
+		model.addAttribute("user", user);
 		session.setAttribute("user_name", user.getUserBD().getName());
 		session.setAttribute("likePoint", likePoint);
+		
+
 		
 		List<Integer> checkNotMatchingAndReceivedNiceOfMe = matchingService.checkNotMatchingAndReceivedNiceOfMineIngtegerList(myId);
 		System.out.println("checkNotMatchingAndReceivedNiceOfMe.size() : " + checkNotMatchingAndReceivedNiceOfMe.size());
@@ -100,13 +103,32 @@ public class UserController {
 			session.setAttribute("newReceivedNice", 0);
 		}
 		
-		
 		Integer readAndChecked = matchingService.checkReadAndChecked(myId);
 		if (readAndChecked > 0) {
 			session.setAttribute("newMessage", 1);
 		} else if (readAndChecked == 0) {
 			session.setAttribute("newMessage", 0);
 		}
+		
+		todayModelSet(model);
+		
+		File uploadsDirectory = new File(UPLOAD_DIRECTORY + user.getId());
+		File[] fileList = uploadsDirectory.listFiles();
+		model.addAttribute("fileList", fileList);
+		model.addAttribute("id", user.getId());
+		
+		session.setAttribute("haveImage", haveImage1(user.getId()));
+		
+		Integer sex = (Integer) session.getAttribute("sex");		
+		List<User> listOne = searchService.usersOfTop(0, sex);
+		List<User> listTwo = searchService.usersOfTop(3, sex);
+		List<User> listThree = searchService.usersOfTop(6, sex);
+		model.addAttribute("listOne",listOne);
+		model.addAttribute("listTwo",listTwo);
+		model.addAttribute("listThree",listThree);
+		System.out.println(listOne);
+		System.out.println(listTwo);
+		System.out.println(listThree);
 		
 		return "/user/top";
 	}

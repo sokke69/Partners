@@ -14,12 +14,15 @@
 <h4></h4>
 <h4></h4>
 
-<table class="information_table" th:if="${session.newReceivedNice == 1 || session.newMessage == 1}">
+<table class="information_table" th:if="${session.newReceivedNice == 1 ||
+	 session.newMessage == 1 || session.new_matching >0 }">
 	<tr>
 		<td>
-			<span class="info_text"><a th:href="@{/user/newReceivedNice}" target="_blank" class="new">いいねが届いています！</a></span>
+			<span class="info_text" th:if="${session.newReceivedNice == 1"><a th:href="@{/user/newReceivedNice}" class="new">いいねが届いています！</a></span>
 			<br th:if="${session.newReceivedNice == 1 && session.newMessage == 1}" />
-			<span class="info_text"><a th:href="@{/user/matchingList}" target="_blank" class="new">新しくメッセージが届いています！</a></span>
+			<span class="info_text" th:if="${session.newMessage == 1"><a th:href="@{/user/matchingList}" class="new">新しくメッセージが届いています！</a></span>
+			<br  th:if="${session.newMessage == 1 && session.new_matching > 0}" />
+			<span class="info_text" th:if="${session.new_matching == 1"><a th:href="@{/user/matchingList}" class="new">新しくマッチングしたパートナーがいます！</a></span>
 		</td>
 	</tr>
 </table>

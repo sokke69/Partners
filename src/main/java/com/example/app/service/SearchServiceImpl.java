@@ -39,6 +39,21 @@ public class SearchServiceImpl implements SearchService{
 	public List<MatchingUser> cameList(Integer myId) throws Exception {
 		return searchMapper.cameList(myId);
 	}
+
+	@Override
+	public List<User> usersOfTop(Integer count, Integer sex) throws Exception {
+		return searchMapper.usersOfTop(count, sex);
+	}
+
+	@Override
+	public List<Integer> checkNewMatching(Integer myId) throws Exception {
+		return searchMapper.checkNewMatching(myId);
+	}
+
+	@Override
+	public void updateNewMatching(Integer myId, Integer status) throws Exception {
+		searchMapper.updateNewMatching(myId, status);
+	}
 	
 	
 

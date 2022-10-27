@@ -16,4 +16,7 @@ public interface SearchMapper {
 	void updateVisitedTimePartnersTable(Integer myId, Integer partnersId) throws Exception;
 	List<User> checkPartnersCame(Integer myId, Integer partnersId) throws Exception;
 	List<MatchingUser> cameList(Integer myId) throws Exception;
+	List<User> usersOfTop(Integer count, Integer sex) throws Exception;
+	List<Integer> checkNewMatching(Integer myId) throws Exception;
+	void updateNewMatching(Integer myId, Integer status) throws Exception;
 }

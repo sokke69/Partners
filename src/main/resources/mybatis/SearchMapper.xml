@@ -636,4 +636,10 @@
 	ORDER BY id DESC LIMIT #{count},3
 </select>
 
+	<select id="checkNewMatching" parameterType="integer" resultType="integer">
+		SELECT COUNT(new_matching) FROM z#{myId}_matchings 
+		LEFT JOIN user_basic_details ON user_basic_details.id=z#{myId}_matchings.id
+		WHERE new_matching=1;
+	</select>
+
 </mapper>
